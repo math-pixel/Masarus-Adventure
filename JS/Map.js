@@ -1,19 +1,4 @@
 
-
-
-
-
-function createGrid(maxColumn, maxRow){
-    Grid = [];
-
-    for (let column = 0; column < maxColumn; column++) {
-        Grid.push([]);
-        for (let row = 0; row < maxRow; row++) {
-            Grid[column].push(0);           
-        }
-    }
-}
-
 function drawingGrid(x,y,w,h,array){
 
     for (let row = 0; row < array[0].length; row++) {
@@ -48,8 +33,29 @@ function drawingGrid(x,y,w,h,array){
     coordMap = [x,y,x + maxWidht , y + maxHeight];// coord de la map rect[x1,y1,x2,y2]
 }
 
-function GridCoordMap() {
-    returncoordMap;
+function CanAddMap(WorldActu, cameraRect){
+    
+    let indexCornerTopLeft = whichCaseInGrid(tempx,tempy,WorldActu);
+    let indexCornerBottomRight = whichCaseInGrid(tempx,tempy,WorldActu);
+  
+    if (indexCornerTopLeft != null) {
+      if (indexCornerTopLeft[0] == 0){
+        console.log("left")
+        console.log(GlobalMap.Map[indexMapActu[0]][indexMapActu[1]-1])
+      }
+      if (indexCornerTopLeft[1] == 0) {
+        console.log("haut")
+      }
+    }
+  
+    if (indexCornerBottomRight != null) {
+      if (indexCornerBottomRight[0] == grid.length-1){
+        console.log("right")
+      }
+      if (indexCornerBottomRight[1] == grid.length-1) {
+        console.log("bottom")
+      }
+    }
 }
 
 function move() {
@@ -89,6 +95,7 @@ function drawMap(){
 
 
     move(); 
+    
 
 
     ArrayWorldDisplay.forEach((elm, index)=>{
@@ -97,5 +104,11 @@ function drawMap(){
 
         drawingGrid(xStartWorld1 + elm.sizeCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + elm.sizeCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
     })
-    
+
+    CanAddMap()
+
+
+    fill(0,255,255,80)
+    rect(tempx, tempy,sideCarrousel*8,sideCarrousel*4)
+
 }

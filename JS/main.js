@@ -56,29 +56,7 @@ function setup() {
 }
 
 
-function CanAddMap(){
-  let indexCornerTopLeft = MainPlayer.whichCaseInGrid(xMap + (xMap + grid.length * sideCarrousel) / 10, yMap + (yMap + grid.length * sideCarrousel) /4.5, grid);
-  let indexCornerBottomRight = MainPlayer.whichCaseInGrid(xMap + (xMap + grid.length * sideCarrousel) / 10 + 8 * sideCarrousel, yMap + (yMap + grid.length * sideCarrousel) /4.5 + 6 * sideCarrousel, grid);
 
-  if (indexCornerTopLeft != null) {
-    if (indexCornerTopLeft[0] == 0){
-      console.log("left")
-      console.log(GlobalMap.Map[indexMapActu[0]][indexMapActu[1]-1])
-    }
-    if (indexCornerTopLeft[1] == 0) {
-      console.log("haut")
-    }
-  }
-
-  if (indexCornerBottomRight != null) {
-    if (indexCornerBottomRight[0] == grid.length-1){
-      console.log("right")
-    }
-    if (indexCornerBottomRight[1] == grid.length-1) {
-      console.log("bottom")
-    }
-  }
-}
   
 function draw(){
   background(220);

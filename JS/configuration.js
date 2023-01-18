@@ -21,6 +21,11 @@ var yStartWorld1 = 50;
 
 var Grid;
 
+
+// cam 
+const tempx = xStartWorld1 + 75;
+const tempy = yStartWorld1 + 150;
+
 //perso
 var xPlayer = 0;
 var yPlayer = 0;

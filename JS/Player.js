@@ -31,8 +31,8 @@ function whichCaseInGrid(PlayerX,PlayerY,array){
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) { 
 
-            let x = GridCoord[0]+50*row;
-            let y = GridCoord[1]+50*column;
+            let x = array[0]+50*row;
+            let y = array[1]+50*column;
 
             // console.log([x,y,x + width, y + height])
 
