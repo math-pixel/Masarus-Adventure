@@ -46,5 +46,5 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
             }
         }
     }
-    return [0,0];
+    return [0,0 ];
 }
