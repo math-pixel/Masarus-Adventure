@@ -78,17 +78,7 @@ function move() {
     
 }
 
-function findIndexIn2dArray(array, value){
-    for (let row = 0; row < array[0].length; row++) {
-        for (let column = 0; column < array.length; column++) {
-            // alert(array)
-            if (value === array[column][row]) {
-                return [column,row];
-            }
-        }
-    }
-    return null;
-}
+
 
 
 function drawMap(){
@@ -105,7 +95,7 @@ function drawMap(){
         drawingGrid(xStartWorld1 + elm.sizeCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + elm.sizeCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
     })
 
-    CanAddMap()
+    // CanAddMap()
 
 
     fill(0,255,255,80)

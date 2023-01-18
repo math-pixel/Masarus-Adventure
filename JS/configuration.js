@@ -19,7 +19,7 @@ var sideCarrousel = 50;
 var xStartWorld1 = 50;
 var yStartWorld1 = 50;
 
-var Grid;
+let currentWorld = "tour";
 
 
 // cam 
