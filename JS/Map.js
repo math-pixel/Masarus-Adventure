@@ -78,16 +78,14 @@ function move() {
 }
 
 function BoncingMapCamera(currentWorldArray){
+    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,fullMapWorld1.World,50 * 11,50 * 11)
+    console.log(currentPositionIndexInWorld)
+    if (currentPositionIndexInWorld[0] === 0 || currentPositionIndexInWorld[0] === fullMapWorld1.World[0].length ) {
+        console.log("not border")
+    }
 
-    // let indexCornerTopLeft = whichCaseInGrid(tempx,tempy,currentWorldArray,sideCarrousel);
 
-    let x2 = Xcam + currentWorldArray.length * sideCarrousel;
-    let y2 = Ycam + currentWorldArray.length * sideCarrousel;
-
-
-    // let indexCornerBottomRight = whichCaseInGrid(x2,y2,currentWorldArray,sideCarrousel);
-
-    console.log(indexCornerTopLeft)
+    // ArrayWorldDisplay = []
 }
 
 function mustAddMapAtWorlds(){
@@ -100,6 +98,7 @@ function drawMap(){
 
     move();
 
+    
     mustAddMapAtWorlds()
     
     
@@ -108,7 +107,8 @@ function drawMap(){
 
     ArrayWorldDisplay.forEach((elm, index)=>{
         
-        let indexElm = findIndexIn2dArray(fullMapWorld1.World,elm.name)
+        let indexElm = findIndexValueIn2dArray(fullMapWorld1.World,elm.name)
+        //x,y,w,h,array
         drawingGrid(xStartWorld1 + elm.sizeCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + elm.sizeCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
     })
 

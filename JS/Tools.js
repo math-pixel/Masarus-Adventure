@@ -19,7 +19,7 @@ function whichCaseInGrid(X,Y,array, sideCarrousel){
     return null;
 }
 
-function findIndexIn2dArray(array, value){
+function findIndexValueIn2dArray(array, value){
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
             // alert(array)
@@ -29,4 +29,22 @@ function findIndexIn2dArray(array, value){
         }
     }
     return null;
+}
+
+function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
+
+    for (let row = 0; row < array[0].length; row++) {
+        for (let column = 0; column < array.length; column++) {
+            let minX = xStartWorld1 + sideArrayX * column;
+            let minY = yStartWorld1 + sideArrayY * row ;
+
+            let maxX = xStartWorld1 + sideArrayX * (column + 1);
+            let maxY = yStartWorld1 + sideArrayY * (row + 1);
+            // console.log([ column, row ]);
+            if (posX > minX && posX < maxX && posY > minY && posY < maxY) {
+                return [column, row];
+            }
+        }
+    }
+    return [0,0];
 }

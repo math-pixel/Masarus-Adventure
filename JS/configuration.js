@@ -3,7 +3,9 @@ let worlds1 =[]
 
 function loadAsset(){
     // load all JSON FILE
-    fullMapWorld1 = loadJSON("../JSON/fullMap.json");
+    fullMapWorld1 = loadJSON("../JSON/fullMap.json", (e)=>{
+        
+    });
     worlds1 = loadJSON("../JSON/WORLDS/worlds.json", (e)=> {
         initVariableWorld();
     });
@@ -27,8 +29,8 @@ const Xcam = xStartWorld1 + 75;
 const Ycam = yStartWorld1 + 150;
 
 //perso
-var xPlayer = 0;
-var yPlayer = 0;
+var xPlayer = 700;
+var yPlayer = 700;
 
 
 function initVariableWorld(){
