@@ -35,8 +35,7 @@ function drawingGrid(x,y,w,h,array){
 
 function CanAddMap(WorldActu, cameraRect){
     
-    let indexCornerTopLeft = whichCaseInGrid(tempx,tempy,WorldActu);
-    let indexCornerBottomRight = whichCaseInGrid(tempx,tempy,WorldActu);
+    
   
     if (indexCornerTopLeft != null) {
       if (indexCornerTopLeft[0] == 0){
@@ -78,27 +77,51 @@ function move() {
     
 }
 
+function BoncingMapCamera(currentWorldArray){
 
+    // let indexCornerTopLeft = whichCaseInGrid(tempx,tempy,currentWorldArray,sideCarrousel);
+
+    let x2 = Xcam + currentWorldArray.length * sideCarrousel;
+    let y2 = Ycam + currentWorldArray.length * sideCarrousel;
+
+
+    // let indexCornerBottomRight = whichCaseInGrid(x2,y2,currentWorldArray,sideCarrousel);
+
+    console.log(indexCornerTopLeft)
+}
+
+function mustAddMapAtWorlds(){
+    BoncingMapCamera()
+}
 
 
 function drawMap(){
 
 
-    move(); 
+    move();
+
+    mustAddMapAtWorlds()
+    
+    
     
 
 
     ArrayWorldDisplay.forEach((elm, index)=>{
         
         let indexElm = findIndexIn2dArray(fullMapWorld1.World,elm.name)
-
         drawingGrid(xStartWorld1 + elm.sizeCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + elm.sizeCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
     })
 
-    // CanAddMap()
+    //TODO faire une fonction qui verifie que quand les bords de la cam atteigne les limite de la grille actuelle on ajoute celon le JSON WORLDS
+    //TODO pouvoir lire dans quel index le xCam et yCam ( corner haut gauche ) ce situe
+    //TODO si full gauche ou full haut ajouter la map correspondate dans le tableau ArrayWorldDisplay 
+    //TODO else il doit y avoir que 1 seul map dans le tableau
+    
+    
+    //? comment faire pour changer de tableau actuelle ?
 
 
     fill(0,255,255,80)
-    rect(tempx, tempy,sideCarrousel*8,sideCarrousel*4)
+    rect(Xcam, Ycam,sideCarrousel*8,sideCarrousel*4)
 
 }

@@ -23,8 +23,8 @@ let currentWorld = "tour";
 
 
 // cam 
-const tempx = xStartWorld1 + 75;
-const tempy = yStartWorld1 + 150;
+const Xcam = xStartWorld1 + 75;
+const Ycam = yStartWorld1 + 150;
 
 //perso
 var xPlayer = 0;
