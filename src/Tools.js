@@ -31,6 +31,8 @@ function findIndexValueIn2dArray(array, value){
     return null;
 }
 
+
+let previous_index_pos;
 function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
 
     for (let row = 0; row < array[0].length; row++) {
@@ -42,9 +44,10 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
             let maxY = yStartWorld1 + sideArrayY * (row + 1);
             // console.log([ column, row ]);
             if (posX > minX && posX < maxX && posY > minY && posY < maxY) {
+                previous_index_pos = [column, row];
                 return [column, row];
             }
         }
     }
-    return [0,0 ];
+    return previous_index_pos;
 }

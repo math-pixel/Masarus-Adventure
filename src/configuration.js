@@ -17,9 +17,9 @@ var engine = "engine1";
 
 // map
 var ArrayWorldDisplay = [];
-var sideCarrousel = 50;
-var xStartWorld1 = 50;
-var yStartWorld1 = 50;
+
+var xStartWorld1 = 250;
+var yStartWorld1 = 250;
 
 let currentWorld = "tour";
 
@@ -29,13 +29,14 @@ const Xcam = xStartWorld1 + 75;
 const Ycam = yStartWorld1 + 150;
 
 //perso
-var xPlayer = 700;
-var yPlayer = 700;
+var xPlayer = 500;
+var yPlayer = 500;
 
 
 function initVariableWorld(){
+    sideCarrousel = worlds1.sizeCarrousel;
 
-    for (let index = 0; index < Object.keys(worlds1).length; index++) {
+    for (let index = 0; index < 1; index++) {
         ArrayWorldDisplay.push(worlds1[Object.keys(worlds1)[index]])
     }
 

@@ -25,7 +25,7 @@ function draw(){
 
     background(200);
 
-    drawPlayer()
+    
     drawMap()
-
+    drawPlayer()
 }

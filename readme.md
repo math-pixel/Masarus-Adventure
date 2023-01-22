@@ -28,5 +28,3 @@ Pour lancer le jeux il faut :
 - Installer visual studio code
 - Installer l'extension live server
 - Ouvrir le fichier index.html avec le server
-
-test

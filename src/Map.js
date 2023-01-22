@@ -33,28 +33,62 @@ function drawingGrid(x,y,w,h,array){
     coordMap = [x,y,x + maxWidht , y + maxHeight];// coord de la map rect[x1,y1,x2,y2]
 }
 
-function CanAddMap(WorldActu, cameraRect){
+function CanAddMap(){
     
+    // current position of player in World
+    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,fullMapWorld1.World,sideCarrousel * 11,sideCarrousel * 11);
+
+    // console.log(currentPositionIndexInWorld)
+    // add the nine map arround the player
+
+    let currentX = currentPositionIndexInWorld[0];
+    let currentY = currentPositionIndexInWorld[1]
+
+    // Haut Gauche
+    if (fullMapWorld1.World[currentY-1][currentX-1] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY-1][currentX-1]]);
+    }
     
-  
-    if (indexCornerTopLeft != null) {
-      if (indexCornerTopLeft[0] == 0){
-        console.log("left")
-        console.log(GlobalMap.Map[indexMapActu[0]][indexMapActu[1]-1])
-      }
-      if (indexCornerTopLeft[1] == 0) {
-        console.log("haut")
-      }
+    // Haut Milieu 
+    if (fullMapWorld1.World[currentY-1][currentX-1] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY -1][currentX]]);
     }
-  
-    if (indexCornerBottomRight != null) {
-      if (indexCornerBottomRight[0] == grid.length-1){
-        console.log("right")
-      }
-      if (indexCornerBottomRight[1] == grid.length-1) {
-        console.log("bottom")
-      }
+    
+    // Haut Droite
+    if (fullMapWorld1.World[currentY -1][currentX +1] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY -1][currentX +1]]);
     }
+    
+    // Milieu Gauche
+    if ( fullMapWorld1.World[currentY][currentX -1] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY][currentX -1]]);
+    }
+    
+    // Milieu Milieu => current Pos
+    if ( fullMapWorld1.World[currentY][currentX] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY][currentX]]);
+    }
+    
+    // Milieu Droite 
+    if ( fullMapWorld1.World[currentY][currentX + 1] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY][currentX + 1]]);
+    }
+    
+    // Bas Gauche 
+    if ( fullMapWorld1.World[currentY + 1][currentX -1] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY + 1][currentX -1]]);
+    } 
+    
+    // Bas Milieu
+    if ( fullMapWorld1.World[currentY +1][currentX] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY +1][currentX]]);
+    }
+    
+    // Bas Droite
+    if ( fullMapWorld1.World[currentY +1][currentX +1] !== undefined) {
+        ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY +1][currentX +1]]);
+    }
+
 }
 
 function move() {
@@ -78,14 +112,26 @@ function move() {
 }
 
 function BoncingMapCamera(currentWorldArray){
-    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,fullMapWorld1.World,50 * 11,50 * 11)
-    console.log(currentPositionIndexInWorld)
-    if (currentPositionIndexInWorld[0] === 0 || currentPositionIndexInWorld[0] === fullMapWorld1.World[0].length ) {
-        console.log("not border")
-    }
+
+    ArrayWorldDisplay = [] //clear map
 
 
-    // ArrayWorldDisplay = []
+    CanAddMap()
+
+    // // console.log(currentPositionIndexInWorld)
+    // if (currentPositionIndexInWorld[0] === 0 || currentPositionIndexInWorld[0] === fullMapWorld1.World[0].length ) {
+    //     console.log("not border")
+    // }
+
+
+    
+
+    //* append tous les world autour de currentPositionIndexInWorld => ok
+
+    //TODO verif que on est pas out of array 
+
+    // si out of array
+        // camera stop avant de voir la sortie du tableau
 }
 
 function mustAddMapAtWorlds(){
@@ -107,9 +153,10 @@ function drawMap(){
 
     ArrayWorldDisplay.forEach((elm, index)=>{
         
+        // console.log(elm);
         let indexElm = findIndexValueIn2dArray(fullMapWorld1.World,elm.name)
         //x,y,w,h,array
-        drawingGrid(xStartWorld1 + elm.sizeCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + elm.sizeCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
+        drawingGrid(xStartWorld1 + sideCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
     })
 
     //TODO faire une fonction qui verifie que quand les bords de la cam atteigne les limite de la grille actuelle on ajoute celon le JSON WORLDS
@@ -121,7 +168,7 @@ function drawMap(){
     //? comment faire pour changer de tableau actuelle ?
 
 
-    fill(0,255,255,80)
-    rect(Xcam, Ycam,sideCarrousel*8,sideCarrousel*4)
+    // fill(0,255,255,80)
+    // rect(Xcam, Ycam,sideCarrousel*8,sideCarrousel*4)
 
 }
