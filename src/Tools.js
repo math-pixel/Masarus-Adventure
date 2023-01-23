@@ -35,13 +35,21 @@ function findIndexValueIn2dArray(array, value){
 let previous_index_pos;
 function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
 
-    for (let row = 0; row < array[0].length; row++) {
-        for (let column = 0; column < array.length; column++) {
-            let minX = xStartWorld1 + sideArrayX * column;
-            let minY = yStartWorld1 + sideArrayY * row ;
+    for (let row = 0; row < array.length; row++) {
+        for (let column = 0; column < array[0].length; column++) {
+            let minX = xStartWorld1 + sideArrayX  * column;
+            let minY = yStartWorld1 + sideArrayY  * row ;
 
-            let maxX = xStartWorld1 + sideArrayX * (column + 1);
-            let maxY = yStartWorld1 + sideArrayY * (row + 1);
+            
+            
+
+            let maxX = xStartWorld1  + sideArrayX  * (column + 1);
+            let maxY = yStartWorld1  + sideArrayY * (row + 1);
+
+            if ( row === 0 && column === 0 ) {
+                // console.log(maxX,maxY)
+            }
+
             // console.log([ column, row ]);
             if (posX > minX && posX < maxX && posY > minY && posY < maxY) {
                 previous_index_pos = [column, row];

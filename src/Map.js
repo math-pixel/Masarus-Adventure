@@ -42,50 +42,53 @@ function CanAddMap(){
     // add the nine map arround the player
 
     let currentX = currentPositionIndexInWorld[0];
-    let currentY = currentPositionIndexInWorld[1]
+    let currentY = currentPositionIndexInWorld[1];
+
+    console.log(currentX,currentY,fullMapWorld1.World[currentY][currentX]);
+
 
     // Haut Gauche
-    if (fullMapWorld1.World[currentY-1][currentX-1] !== undefined) {
+    if (currentX -1  >= 0 && currentY-1 >= 0  ) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY-1][currentX-1]]);
     }
     
     // Haut Milieu 
-    if (fullMapWorld1.World[currentY-1][currentX-1] !== undefined) {
+    if (currentY-1 >= 0 ) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY -1][currentX]]);
     }
     
     // Haut Droite
-    if (fullMapWorld1.World[currentY -1][currentX +1] !== undefined) {
+    if (currentX + 1 < fullMapWorld1.World[0].length &&  currentY-1 >= 0 ) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY -1][currentX +1]]);
     }
     
     // Milieu Gauche
-    if ( fullMapWorld1.World[currentY][currentX -1] !== undefined) {
+    if ( currentX -1 >= 0) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY][currentX -1]]);
     }
     
     // Milieu Milieu => current Pos
-    if ( fullMapWorld1.World[currentY][currentX] !== undefined) {
+    if ( fullMapWorld1.World[currentY][currentX] != undefined) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY][currentX]]);
     }
     
     // Milieu Droite 
-    if ( fullMapWorld1.World[currentY][currentX + 1] !== undefined) {
+    if ( currentX + 1 < fullMapWorld1.World[0].length) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY][currentX + 1]]);
     }
     
     // Bas Gauche 
-    if ( fullMapWorld1.World[currentY + 1][currentX -1] !== undefined) {
+    if ( currentX - 1 >= 0 && currentY + 1 < fullMapWorld1.World.length) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY + 1][currentX -1]]);
     } 
     
     // Bas Milieu
-    if ( fullMapWorld1.World[currentY +1][currentX] !== undefined) {
+    if ( currentY + 1 < fullMapWorld1.World.length) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY +1][currentX]]);
     }
     
     // Bas Droite
-    if ( fullMapWorld1.World[currentY +1][currentX +1] !== undefined) {
+    if (currentX + 1 < fullMapWorld1.World[0].length && currentY + 1 < fullMapWorld1.World.length) {
         ArrayWorldDisplay.push(worlds1[fullMapWorld1.World[currentY +1][currentX +1]]);
     }
 
@@ -94,19 +97,19 @@ function CanAddMap(){
 function move() {
 
     if (keyIsDown(LEFT_ARROW)) {
-        xStartWorld1 -= 5;    
+        xStartWorld1 += 5;    
     }
     
     if (keyIsDown(RIGHT_ARROW)) {
-        xStartWorld1 += 5;
+        xStartWorld1 -= 5;
     }
     
     if (keyIsDown(UP_ARROW)) {
-        yStartWorld1 -= 5;
+        yStartWorld1 += 5;
     }
     
     if (keyIsDown(DOWN_ARROW)) {
-        yStartWorld1 += 5;
+        yStartWorld1 -= 5;
     }
     
 }
@@ -153,7 +156,7 @@ function drawMap(){
 
     ArrayWorldDisplay.forEach((elm, index)=>{
         
-        // console.log(elm);
+        console.log(elm);
         let indexElm = findIndexValueIn2dArray(fullMapWorld1.World,elm.name)
         //x,y,w,h,array
         drawingGrid(xStartWorld1 + sideCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
