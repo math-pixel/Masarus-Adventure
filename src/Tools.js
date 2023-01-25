@@ -37,11 +37,10 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
 
     for (let row = 0; row < array.length; row++) {
         for (let column = 0; column < array[0].length; column++) {
+
+
             let minX = xStartWorld1 + sideArrayX  * column;
             let minY = yStartWorld1 + sideArrayY  * row ;
-
-            
-            
 
             let maxX = xStartWorld1  + sideArrayX  * (column + 1);
             let maxY = yStartWorld1  + sideArrayY * (row + 1);

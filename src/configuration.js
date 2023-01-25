@@ -1,12 +1,12 @@
-var fullMapWorld1 
+var world1 
 let worlds1 =[]
 
 function loadAsset(){
     // load all JSON FILE
-    fullMapWorld1 = loadJSON("../JSON/fullMap.json", (e)=>{
+    world1 = loadJSON("../JSON/world.json", (e)=>{
         
     });
-    worlds1 = loadJSON("../JSON/WORLDS/worlds.json", (e)=> {
+    worlds1 = loadJSON("../JSON/allMaps.json", (e)=> {
         initVariableWorld();
     });
 }
