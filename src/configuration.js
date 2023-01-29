@@ -35,7 +35,7 @@ let xPlayer = 500;
 let yPlayer = 500;
 
 // cam 
-const Hcam = 100;
+const Hcam = 300;
 const Wcam = Hcam * (16/9);
 const Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
 const Ycam = (yPlayer + 20 / 2) - Hcam/2;

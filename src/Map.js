@@ -35,19 +35,29 @@ function drawingGrid(x,y,w,h,array){
 
 function moveMap() {
 
-    if (keyIsDown(LEFT_ARROW)) {
+    //*boncing world
+    worldBoncing = getWorldBoncingArray();
+    let TOP = isCamNotBoncingBorderWorld(rectCam, 'TOP', worldBoncing);
+    let RIGHT = isCamNotBoncingBorderWorld(rectCam, 'RIGHT', worldBoncing);
+    let LEFT = isCamNotBoncingBorderWorld(rectCam, 'LEFT', worldBoncing);
+    let BOTTOM = isCamNotBoncingBorderWorld(rectCam, 'BOTTOM', worldBoncing);
+
+
+    console.log("top", TOP,"right",RIGHT,"left",LEFT,"bottom",BOTTOM)
+
+    if (keyIsDown(LEFT_ARROW) && LEFT) {
         xStartWorld1 += 5;    
     }
     
-    if (keyIsDown(RIGHT_ARROW)) {
+    if (keyIsDown(RIGHT_ARROW) && RIGHT) {
         xStartWorld1 -= 5;
     }
     
-    if (keyIsDown(UP_ARROW)) {
+    if (keyIsDown(UP_ARROW) && TOP) {
         yStartWorld1 += 5;
     }
     
-    if (keyIsDown(DOWN_ARROW)) {
+    if (keyIsDown(DOWN_ARROW) && BOTTOM) {
         yStartWorld1 -= 5;
     }
     
@@ -58,16 +68,6 @@ function moveMap() {
 function mustAddMapAtWorlds(){
 
     ArrayWorldDisplay = [] //clear map
-
-    //*boncing world
-    worldBoncing = getWorldBoncingArray();
-    let TOP = isCamNotBoncingBorderWorld(rectCam, 'TOP', worldBoncing);
-    let RIGHT = isCamNotBoncingBorderWorld(rectCam, 'RIGHT', worldBoncing);
-    let LEFT = isCamNotBoncingBorderWorld(rectCam, 'LEFT', worldBoncing);
-    let BOTTOM = isCamNotBoncingBorderWorld(rectCam, 'BOTTOM', worldBoncing);
-
-
-    console.log("top", TOP,"right",RIGHT,"left",LEFT,"bottom",BOTTOM)
     
     // current position of player in World
     let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * 11,sideCarrousel * 11);
@@ -131,8 +131,8 @@ function getWorldBoncingArray(){
 
     let xMin = xStartWorld1 + sideCarrousel;
     let yMin = yStartWorld1 + sideCarrousel;
-    let xMax = ( xStartWorld1 + sideCarrousel * nbRow ) - sideCarrousel ;
-    let yMax = ( yStartWorld1 + sideCarrousel * nbColumn ) - sideCarrousel ;
+    let xMax = ( xStartWorld1 + sideCarrousel * nbRow * world1.World[0].length) - sideCarrousel ;
+    let yMax = ( yStartWorld1 + sideCarrousel * nbColumn * world1.World.length) - sideCarrousel ;
 
     return [xMin,yMin,xMax,yMax]
 }
