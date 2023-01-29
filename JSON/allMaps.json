@@ -1,11 +1,11 @@
 {
     "sizeCarrousel":20,
+    "xStart":0,
+    "yStart":0,
+    "nbRow":11,
+    "nbColumn":11,
     "tour":{
         "name": "tour",
-        "xStart":0,
-        "yStart":0,
-        "nbRow":11,
-        "nbColumn":11,
         "layers":[
             [
                 [0,0,0,0,0,0,0,0,0,0,0],
