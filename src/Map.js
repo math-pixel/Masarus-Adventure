@@ -124,17 +124,21 @@ function mustAddMapAtWorlds(){
 
 function drawMap(){
 
+    
     moveMap();
   
-    mustAddMapAtWorlds()
+    mustAddMapAtWorlds();
 
     ArrayWorldDisplay.forEach((elm, index)=>{
         
         // console.log(elm);
-        let indexElm = findIndexValueIn2dArray(world1.World,elm.name)
+        let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
         //x,y,w,h,array
         drawingGrid(xStartWorld1 + sideCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
     })
+
+    fill(255,255,20,80)
+    rect(Xcam,Ycam,Wcam,Hcam)
 
     // fill(0,255,255,80)
     // rect(Xcam, Ycam,sideCarrousel*8,sideCarrousel*4)

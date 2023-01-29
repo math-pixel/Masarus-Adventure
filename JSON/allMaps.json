@@ -1,5 +1,5 @@
 {
-    "sizeCarrousel":50,
+    "sizeCarrousel":20,
     "tour":{
         "name": "tour",
         "xStart":0,

@@ -23,14 +23,16 @@ var yStartWorld1 = 250;
 
 let currentWorld = "tour";
 
-
-// cam 
-const Xcam = xStartWorld1 + 75;
-const Ycam = yStartWorld1 + 150;
-
 //perso
 var xPlayer = 500;
 var yPlayer = 500;
+
+// cam 
+const Hcam = 100;
+const Wcam = Hcam * (16/9);
+const Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
+const Ycam = (yPlayer + 20 / 2) - Hcam/2;
+
 
 
 function initVariableWorld(){
