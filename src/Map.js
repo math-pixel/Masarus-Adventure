@@ -35,26 +35,32 @@ function drawingGrid(x,y,w,h,array){
 
 function moveMap() {
 
-    if (keyIsDown(LEFT_ARROW)) {
+    //*boncing world
+    worldBoncing = getWorldBoncingArray();
+    let TOP = isCamNotBoncingBorderWorld(rectCam, 'TOP', worldBoncing);
+    let RIGHT = isCamNotBoncingBorderWorld(rectCam, 'RIGHT', worldBoncing);
+    let LEFT = isCamNotBoncingBorderWorld(rectCam, 'LEFT', worldBoncing);
+    let BOTTOM = isCamNotBoncingBorderWorld(rectCam, 'BOTTOM', worldBoncing);
+
+
+    console.log("top", TOP,"right",RIGHT,"left",LEFT,"bottom",BOTTOM)
+
+    if (keyIsDown(LEFT_ARROW) && LEFT) {
         xStartWorld1 += 5;    
     }
     
-    if (keyIsDown(RIGHT_ARROW)) {
+    if (keyIsDown(RIGHT_ARROW) && RIGHT) {
         xStartWorld1 -= 5;
     }
     
-    if (keyIsDown(UP_ARROW)) {
+    if (keyIsDown(UP_ARROW) && TOP) {
         yStartWorld1 += 5;
     }
     
-    if (keyIsDown(DOWN_ARROW)) {
+    if (keyIsDown(DOWN_ARROW) && BOTTOM) {
         yStartWorld1 -= 5;
     }
     
-}
-
-function BoncingMapCamera(currentWorldArray){
-       
 }
 
 // si out of array
@@ -77,64 +83,109 @@ function mustAddMapAtWorlds(){
 
     // Haut Gauche
     if (currentX -1  >= 0 && currentY-1 >= 0  ) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY-1][currentX-1]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY-1][currentX-1]]);
     }
     
     // Haut Milieu 
     if (currentY-1 >= 0 ) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY -1][currentX]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY -1][currentX]]);
     }
     
     // Haut Droite
     if (currentX + 1 < world1.World[0].length &&  currentY-1 >= 0 ) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY -1][currentX +1]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY -1][currentX +1]]);
     }
     
     // Milieu Gauche
     if ( currentX -1 >= 0) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY][currentX -1]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY][currentX -1]]);
     }
     
     // Milieu Milieu => current Pos
     if ( world1.World[currentY][currentX] != undefined) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY][currentX]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY][currentX]]);
     }
     
     // Milieu Droite 
     if ( currentX + 1 < world1.World[0].length) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY][currentX + 1]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY][currentX + 1]]);
     }
     
     // Bas Gauche 
     if ( currentX - 1 >= 0 && currentY + 1 < world1.World.length) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY + 1][currentX -1]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY + 1][currentX -1]]);
     } 
     
     // Bas Milieu
     if ( currentY + 1 < world1.World.length) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY +1][currentX]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY +1][currentX]]);
     }
     
     // Bas Droite
     if (currentX + 1 < world1.World[0].length && currentY + 1 < world1.World.length) {
-        ArrayWorldDisplay.push(worlds1[world1.World[currentY +1][currentX +1]]);
+        ArrayWorldDisplay.push(Maps[world1.World[currentY +1][currentX +1]]);
     }
 }
 
+function getWorldBoncingArray(){
+
+    let xMin = xStartWorld1 + sideCarrousel;
+    let yMin = yStartWorld1 + sideCarrousel;
+    let xMax = ( xStartWorld1 + sideCarrousel * nbRow * world1.World[0].length) - sideCarrousel ;
+    let yMax = ( yStartWorld1 + sideCarrousel * nbColumn * world1.World.length) - sideCarrousel ;
+
+    return [xMin,yMin,xMax,yMax]
+}
+
+
+function isCamNotBoncingBorderWorld(rectCam /*[x,y,x2,y2]*/, sideDirection, arrayWorld /*[x,y,x2,y2]*/){
+    switch(sideDirection){
+        case 'TOP':
+            if (rectCam[1] > arrayWorld[1]) {
+                return true
+            }else{
+                return false
+            }
+        case 'RIGHT':
+            if (rectCam[2] < arrayWorld[2]) {
+                return true
+            }else{
+                return false
+            }
+        case 'BOTTOM':
+            if (rectCam[3] < arrayWorld[3]) {
+                return true
+            }else{
+                return false
+            }
+        case 'LEFT':
+            if (rectCam[0] > arrayWorld[0]) {
+                return true
+            }else{
+                return false
+            }
+        default:
+            return false
+    }
+}
 
 function drawMap(){
 
+    
     moveMap();
   
-    mustAddMapAtWorlds()
+    mustAddMapAtWorlds();
 
     ArrayWorldDisplay.forEach((elm, index)=>{
         
         // console.log(elm);
-        let indexElm = findIndexValueIn2dArray(world1.World,elm.name)
+        let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
         //x,y,w,h,array
-        drawingGrid(xStartWorld1 + sideCarrousel  * elm.nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * elm.nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
+        drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
     })
+
+    fill(255,255,20,80)
+    rect(Xcam,Ycam,Wcam,Hcam)
 
     // fill(0,255,255,80)
     // rect(Xcam, Ycam,sideCarrousel*8,sideCarrousel*4)
