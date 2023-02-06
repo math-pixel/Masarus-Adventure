@@ -10,22 +10,20 @@ function setup(){
 
 function draw(){
 
-    
+    background(200);
     // condition moteur de jeux
 
-    // switch(engine){
-    //     case "engine1":
-    //         UseEngine1();
-    //         DisplayWorldEngine1();
-    //         break;
-    //     case "engine2":
-    //         UseEngine2();
-    //         DisplayWorldEngine2()
-    // }
-
-    background(200);
-
+    if (assetsLoaded) {
+        switch(engine){
+            case "engine1":
+                startEngine1();
+                break;
+            case "engine2":
+                startEngine2();
+                break;
+            default:
+                throw new Error("engine error")
+        }
+    }
     
-    drawMap()
-    drawPlayer()
 }

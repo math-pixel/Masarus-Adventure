@@ -1,16 +1,10 @@
 let world1 
 let Maps =[]
+let MapPipeGame;
 
-function loadAsset(){
-    // load all JSON FILE
-    world1 = loadJSON("../JSON/world.json", (e)=>{
-        
-    });
-    Maps = loadJSON("../JSON/allMaps.json", (e)=> {
-        initVariableWorld(e);
-    });
-}
-
+let assetsLoaded = false;
+let numberAssetsLoading = 0;
+let numberLoad = 4;
 
 //moteur de jeu
 let engine = "engine1";
@@ -34,14 +28,95 @@ let currentWorld = "tour"; // pour set le world a cette map la
 let xPlayer = 500;
 let yPlayer = 500;
 
+let playerTile = [];
+
 // cam 
-const Hcam = 300;
-const Wcam = Hcam * (16/9);
-const Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
-const Ycam = (yPlayer + 20 / 2) - Hcam/2;
+let Hcam = 400;
+let Wcam = Hcam * (16/9);
+let Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
+let Ycam = (yPlayer + 20 / 2) - Hcam/2;
 
-const rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
+let rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
 
+
+function loadAsset(){
+
+    let assets = [
+        {
+            path: "../JSON/engine1/world.json",
+            type: "world"
+        },
+        {
+            path:"../JSON/engine1/allMaps.json",
+            type:"mapsEngine1"
+        },
+        {
+            path:"../JSON/engine2/pipeGameMap.json",
+            type:"mapsEngine2"
+        },
+        {
+            path:"../assetsTemp/top_1.png",
+            type:"perso",
+            index: 0
+        },
+        {
+            path:"../assetsTemp/bottom_1.png",
+            type:"perso",
+            index: 1
+        },
+        
+    ];
+
+    assets.forEach((elm) => {
+
+        // load all JSON FILE
+        switch(elm.type){
+            case "world" :
+                world1 = loadJSON(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    isLoaded();
+                });
+                break;
+            case "mapsEngine1" :
+                Maps = loadJSON(elm.path, (e)=> {
+                    initVariableWorld(e);
+                    numberAssetsLoading += 1 ; 
+                    isLoaded();   
+                });
+                break;
+            case "mapsEngine2" :
+                MapPipeGame = loadJSON(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    isLoaded();
+                });
+                break;
+            case "perso" :
+                persoTop = loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    playerTile.splice(elm.index, 0, e);
+                    isLoaded();
+                });
+                break;
+            default:
+                throw new Error("wrong type")
+        }
+        
+        
+    })
+    
+    // persoLeft = loadImage("../assetsTemp/left_1.png");
+    // persoRight = loadImage("../assetsTemp/right_1.png");
+    // persoDown = loadImage("../assetsTemp/bottom_1.png");
+}
+
+
+function isLoaded(){
+    console.log(numberAssetsLoading)
+    if (numberAssetsLoading === numberLoad) {
+        assetsLoaded = true;
+        console.log("start Game")
+    }
+}
 
 
 function initVariableWorld(e){
@@ -56,4 +131,13 @@ function initVariableWorld(e){
 
     console.log(ArrayWorldDisplay)
 }
+
+
+
+
+
+
+
+
+
 
