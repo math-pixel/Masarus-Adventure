@@ -29,7 +29,7 @@ function movePlayer() {
 function addFrame(dir){
 
     console.log(currentFramePlayer, playerTileSet[dir].length)
-    if (currentFramePlayer < playerTileSet[dir].length - 1) {
+    if (currentFramePlayer === playerTileSet[dir].length - 1) {
         currentFramePlayer = 0;
     }else{
         currentFramePlayer += 1;

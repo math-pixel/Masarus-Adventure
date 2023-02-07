@@ -229,10 +229,6 @@ function loadAsset(){
         
         
     })
-    
-    // persoLeft = loadImage("../assetsTemp/left_1.png");
-    // persoRight = loadImage("../assetsTemp/right_1.png");
-    // persoDown = loadImage("../assetsTemp/bottom_1.png");
 }
 
 
