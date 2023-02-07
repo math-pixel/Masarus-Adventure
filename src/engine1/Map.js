@@ -174,7 +174,7 @@ function drawMapEngine1(){
     mustAddMapAtWorlds();
     ArrayWorldDisplay.forEach((elm, index)=>{
         
-        // console.log(elm);
+        console.log(elm);
         let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
         //x,y,w,h,array
         drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);

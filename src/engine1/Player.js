@@ -40,5 +40,5 @@ function drawPlayer(){
     // rect( xPlayer,yPlayer, sideCarrousel,sideCarrousel);
     
     
-    image(playerTile[1], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
+    image(playerTileSet[0][0], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
 }

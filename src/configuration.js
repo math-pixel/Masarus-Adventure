@@ -28,7 +28,11 @@ let currentWorld = "tour"; // pour set le world a cette map la
 let xPlayer = 500;
 let yPlayer = 500;
 
-let playerTile = [];
+let playerTileSet = [];
+let animTop = [];
+let animBottom = [];
+let animRight = [];
+let animLeft = [];
 
 // cam 
 let Hcam = 400;
@@ -57,17 +61,13 @@ function loadAsset(){
         {
             path:"../assetsTemp/top_1.png",
             type:"perso",
+            animation: "Top",
             index: 0
-        },
-        {
-            path:"../assetsTemp/bottom_1.png",
-            type:"perso",
-            index: 1
         },
         
     ];
 
-    assets.forEach((elm) => {
+    assets.forEach((elm, index) => {
 
         // load all JSON FILE
         switch(elm.type){
@@ -85,20 +85,22 @@ function loadAsset(){
                 });
                 break;
             case "mapsEngine2" :
-                MapPipeGame = loadJSON(elm.path, (e)=>{
+                MapPipeGame = loadJSON(elm.path, ()=>{
                     numberAssetsLoading += 1 ;
                     isLoaded();
                 });
                 break;
             case "perso" :
-                persoTop = loadImage(elm.path, (e)=>{
+
+                loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
-                    playerTile.splice(elm.index, 0, e);
+                    animTop.splice(elm.index, 0, e);
                     isLoaded();
                 });
+
                 break;
             default:
-                throw new Error("wrong type")
+                throw new Error("Error wrong type")
         }
         
         
@@ -112,8 +114,12 @@ function loadAsset(){
 
 function isLoaded(){
     console.log(numberAssetsLoading)
+    playerTileSet = [animTop,animBottom,animLeft,animRight];
+    console/log("player")
     if (numberAssetsLoading === numberLoad) {
         assetsLoaded = true;
+
+
         console.log("start Game")
     }
 }
