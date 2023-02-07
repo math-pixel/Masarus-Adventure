@@ -2,26 +2,38 @@
 
 
 function movePlayer() {
+    
 
     if (keyIsDown(LEFT_ARROW)) {
         direction = 2;
+        addFrame(direction)
     }
     
     if (keyIsDown(RIGHT_ARROW)) {
         direction = 3;
+        addFrame(direction)
     }
     
     if (keyIsDown(UP_ARROW)) {
         direction = 0;
+        addFrame(direction)
         // console.log("yey")
     }
     
     if (keyIsDown(DOWN_ARROW)) {
         direction = 1;
+        addFrame(direction)
     }
+}
 
+function addFrame(dir){
 
-
+    console.log(currentFramePlayer, playerTileSet[dir].length)
+    if (currentFramePlayer < playerTileSet[dir].length - 1) {
+        currentFramePlayer = 0;
+    }else{
+        currentFramePlayer += 1;
+    }
 }
 
 function GridCoord(arrayCoord){
