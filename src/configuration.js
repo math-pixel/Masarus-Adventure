@@ -28,7 +28,11 @@ let currentWorld = "tour"; // pour set le world a cette map la
 let xPlayer = 500;
 let yPlayer = 500;
 
+// animation player
 let playerTileSet = [];
+let direction = 0;
+let currentFramePlayer = 0;
+
 let animTop = [];
 let animBottom = [];
 let animRight = [];
@@ -61,9 +65,28 @@ function loadAsset(){
         {
             path:"../assetsTemp/top_1.png",
             type:"perso",
-            animation: "Top",
+            animation: "top",
             index: 0
         },
+        {
+            path:"../assetsTemp/bottom_1.png",
+            type:"perso",
+            animation: "bottom",
+            index: 0
+        },
+        {
+            path:"../assetsTemp/left_1.png",
+            type:"perso",
+            animation: "left",
+            index: 0
+        },
+        {
+            path:"../assetsTemp/right_1.png",
+            type:"perso",
+            animation: "right",
+            index: 0
+        },
+        
         
     ];
 
@@ -92,12 +115,39 @@ function loadAsset(){
                 break;
             case "perso" :
 
-                loadImage(elm.path, (e)=>{
-                    numberAssetsLoading += 1 ;
-                    animTop.splice(elm.index, 0, e);
-                    isLoaded();
-                });
-
+                switch(elm.animation){
+                    case "top":
+                        loadImage(elm.path, (e)=>{
+                            numberAssetsLoading += 1 ;
+                            animTop.splice(elm.index, 0, e);
+                            isLoaded();
+                        });
+                        break;
+                    case "bottom":
+                        loadImage(elm.path, (e)=>{
+                            numberAssetsLoading += 1 ;
+                            animBottom.splice(elm.index, 0, e);
+                            isLoaded();
+                        });
+                        break;
+                    case "left":
+                        loadImage(elm.path, (e)=>{
+                            numberAssetsLoading += 1 ;
+                            animLeft.splice(elm.index, 0, e);
+                            isLoaded();
+                        });
+                        break;
+                    case "right":
+                        loadImage(elm.path, (e)=>{
+                            numberAssetsLoading += 1 ;
+                            animRight.splice(elm.index, 0, e);
+                            isLoaded();
+                        });
+                        break;
+                    default:
+                        throw new Error("name aniùation in Json file doesnt correspond")
+                }
+                
                 break;
             default:
                 throw new Error("Error wrong type")
@@ -113,12 +163,13 @@ function loadAsset(){
 
 
 function isLoaded(){
-    console.log(numberAssetsLoading)
+    // console.log(numberAssetsLoading)
     playerTileSet = [animTop,animBottom,animLeft,animRight];
-    console/log("player")
-    if (numberAssetsLoading === numberLoad) {
-        assetsLoaded = true;
 
+
+    if (numberAssetsLoading === numberLoad) {
+        
+        assetsLoaded = true;
 
         console.log("start Game")
     }

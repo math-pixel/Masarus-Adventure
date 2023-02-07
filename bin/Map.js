@@ -43,7 +43,7 @@ function moveMap() {
     let BOTTOM = isCamNotBoncingBorderWorld(rectCam, 'BOTTOM', worldBoncing);
 
 
-    console.log("top", TOP,"right",RIGHT,"left",LEFT,"bottom",BOTTOM)
+    // console.log("top", TOP,"right",RIGHT,"left",LEFT,"bottom",BOTTOM)
 
     if (keyIsDown(LEFT_ARROW) && LEFT) {
         xStartWorld1 += 5;    

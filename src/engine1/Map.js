@@ -46,19 +46,19 @@ function moveMap() {
     // console.log("top", TOP,"right",RIGHT,"left",LEFT,"bottom",BOTTOM)
 
     if (keyIsDown(LEFT_ARROW) && LEFT) {
-        xStartWorld1 += 5;    
+        xStartWorld1 += 8;    
     }
     
     if (keyIsDown(RIGHT_ARROW) && RIGHT) {
-        xStartWorld1 -= 5;
+        xStartWorld1 -= 8;
     }
     
     if (keyIsDown(UP_ARROW) && TOP) {
-        yStartWorld1 += 5;
+        yStartWorld1 += 8;
     }
     
     if (keyIsDown(DOWN_ARROW) && BOTTOM) {
-        yStartWorld1 -= 5;
+        yStartWorld1 -= 8;
     }
     
 }
@@ -174,7 +174,7 @@ function drawMapEngine1(){
     mustAddMapAtWorlds();
     ArrayWorldDisplay.forEach((elm, index)=>{
         
-        console.log(elm);
+        // console.log(elm);
         let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
         //x,y,w,h,array
         drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);

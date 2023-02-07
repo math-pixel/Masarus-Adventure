@@ -2,22 +2,22 @@
 
 
 function movePlayer() {
-    playerTile = persoTop
+
     if (keyIsDown(LEFT_ARROW)) {
-        playerTile = persoLeft
+        direction = 2;
     }
     
     if (keyIsDown(RIGHT_ARROW)) {
-        playerTile = persoRight
+        direction = 3;
     }
     
     if (keyIsDown(UP_ARROW)) {
-        playerTile = persoTop;
+        direction = 0;
         // console.log("yey")
     }
     
     if (keyIsDown(DOWN_ARROW)) {
-        playerTile = persoDown
+        direction = 1;
     }
 
 
@@ -36,9 +36,9 @@ function drawPlayer(){
     // console.log(playerTile)
 
     fill(255,255,0);
-    // movePlayer()
+    movePlayer()
     // rect( xPlayer,yPlayer, sideCarrousel,sideCarrousel);
     
     
-    image(playerTileSet[0][0], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
+    image(playerTileSet[direction][currentFramePlayer], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
 }
