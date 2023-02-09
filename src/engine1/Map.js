@@ -5,7 +5,7 @@ function drawingGrid(x,y,w,h,array){
         for (let column = 0; column < array.length; column++) {
 
             if(array[column][row] === 0){
-                fill(color(255, 255, 255));
+                fill(color(255, 255, 255, 0));
             }if (array[column][row] === 1) {
                 fill(color(255, 0, 0));
             }if(array[column][row] === 2){
@@ -177,7 +177,11 @@ function drawMapEngine1(){
         // console.log(elm);
         let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
         //x,y,w,h,array
-        drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
+
+        elm.layers.forEach((layer) => {
+            drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,layer);
+        })
+        
     })
 
     //Cam

@@ -234,11 +234,11 @@ function loadAsset(){
 
 function isLoaded(){
     // console.log(numberAssetsLoading)
-    playerTileSet = [animTop,animBottom,animLeft,animRight];
+    
 
 
     if (numberAssetsLoading === numberLoad) {
-        
+        playerTileSet = [animTop,animBottom,animLeft,animRight];
         assetsLoaded = true;
 
         console.log("start Game")
