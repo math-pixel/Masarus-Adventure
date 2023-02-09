@@ -1,9 +1,9 @@
 
 
-
+let frameRate = 0;
 function movePlayer() {
     
-
+    frameRate += 1;
     if (keyIsDown(LEFT_ARROW)) {
         direction = 2;
         addFrame(direction)
@@ -27,13 +27,15 @@ function movePlayer() {
 }
 
 function addFrame(dir){
-
-    console.log(currentFramePlayer, playerTileSet[dir].length)
-    if (currentFramePlayer === playerTileSet[dir].length - 1) {
-        currentFramePlayer = 0;
-    }else{
-        currentFramePlayer += 1;
+    if (frameRate % 5 === 0) {
+        console.log(currentFramePlayer, playerTileSet[dir].length)
+        if (currentFramePlayer === playerTileSet[dir].length - 1) {
+            currentFramePlayer = 0;
+        }else{
+            currentFramePlayer += 1;
+        }
     }
+    
 }
 
 function GridCoord(arrayCoord){
