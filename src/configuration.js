@@ -46,6 +46,10 @@ let Ycam = (yPlayer + 20 / 2) - Hcam/2;
 
 let rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
 
+//Map TileSet
+let grass_main;
+
+
 
 function loadAsset(){
 
@@ -164,8 +168,11 @@ function loadAsset(){
         },
     ];
 
+    
+
     assets.forEach((elm, index) => {
 
+        
         // load all JSON FILE
         switch(elm.type){
             case "world" :

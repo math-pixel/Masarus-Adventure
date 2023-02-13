@@ -1,6 +1,12 @@
+let img;
+let img2;
+
 function preload(){
     //load JSON and Img file
     loadAsset();
+
+    img = loadImage('assets/walk1.png');
+    img2 = loadImage('assets/walk2.png');
 }
 
 function setup(){

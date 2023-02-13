@@ -1,12 +1,10 @@
-
+let currentDrawingImage;
 function drawingGrid(x,y,w,h,array){
 
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
 
-            if(array[column][row] === 0){
-                fill(color(255, 255, 255, 0));
-            }if (array[column][row] === 1) {
+            if (array[column][row] === 1) {
                 fill(color(255, 0, 0));
             }if(array[column][row] === 2){
                 fill(color(0, 255, 0, 50));
@@ -23,8 +21,44 @@ function drawingGrid(x,y,w,h,array){
             }if (array[column][row] === 8) {
                 fill(color(50, 150, 90));
             }
+
+            switch(array[column][row]){
+                case 0: {
+                    noStroke();
+                    fill(color(255, 255, 255, 0));
+                    currentDrawingImage = img;
+                    break;
+                }case 1:{
+                    currentDrawingImage = img2;
+                    break;
+                }case 2:{
+                    currentDrawingImage = img;
+                    break;
+                }case 3:{
+                    currentDrawingImage = img;
+                    break;
+                }case 4:{
+                    currentDrawingImage = img;
+                    break;
+                }case 5:{
+                    currentDrawingImage = img;
+                    break;
+                }case 6:{
+                    currentDrawingImage = img;
+                    break;
+                }case 7:{
+                    currentDrawingImage = img;
+                    break;
+                }case 8:{
+                    currentDrawingImage = img;
+                    break;
+                }default :{
+                    throw new error("error d'image")
+                }
+            }
             
-            rect(x+w*row,y+h*column,w,h);          
+            image(currentDrawingImage,x+w*row,y+h*column,w,h);
+            // rect(x+w*row,y+h*column,w,h);          
         }
     }
 
