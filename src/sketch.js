@@ -1,12 +1,14 @@
 let img;
 let img2;
+let alphaImg;
 
 function preload(){
     //load JSON and Img file
     loadAsset();
 
-    img = loadImage('assets/walk1.png');
-    img2 = loadImage('assets/walk2.png');
+    
+    img = loadImage('assets/grass_center.png');
+    img2 = loadImage('assets/path_top.png');
 }
 
 function setup(){

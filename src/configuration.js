@@ -52,135 +52,24 @@ let grass_main;
 
 
 function loadAsset(){
+    loadJSON("../JSON/assets.JSON", (e) => {
+        loading(e.assets);
+    });    
+}
 
-    let assets = [
-        {
-            path: "../JSON/engine1/world.json",
-            type: "world"
-        },
-        {
-            path:"../JSON/engine1/allMaps.json",
-            type:"mapsEngine1"
-        },
-        {
-            path:"../JSON/engine2/pipeGameMap.json",
-            type:"mapsEngine2"
-        },
-        //anim top
-        {
-            path:"../assetsTemp/top_1.png",
-            type:"perso",
-            animation: "top",
-            index: 0
-        },
-        {
-            path:"../assetsTemp/top_2.png",
-            type:"perso",
-            animation: "top",
-            index: 1
-        },
-        {
-            path:"../assetsTemp/top_1.png",
-            type:"perso",
-            animation: "top",
-            index: 2
-        },
-        {
-            path:"../assetsTemp/top_4.png",
-            type:"perso",
-            animation: "top",
-            index: 3
-        },
-        //anim bottom
-        {
-            path:"../assetsTemp/bottom_1.png",
-            type:"perso",
-            animation: "bottom",
-            index: 0
-        },
-        {
-            path:"../assetsTemp/bottom_2.png",
-            type:"perso",
-            animation: "bottom",
-            index: 1
-        },
-        {
-            path:"../assetsTemp/bottom_1.png",
-            type:"perso",
-            animation: "bottom",
-            index: 2
-        },
-        {
-            path:"../assetsTemp/bottom_4.png",
-            type:"perso",
-            animation: "bottom",
-            index: 3
-        },
-        //anim left
-        {
-            path:"../assetsTemp/left_1.png",
-            type:"perso",
-            animation: "left",
-            index: 0
-        },
-        {
-            path:"../assetsTemp/left_2.png",
-            type:"perso",
-            animation: "left",
-            index: 1
-        },
-        {
-            path:"../assetsTemp/left_1.png",
-            type:"perso",
-            animation: "left",
-            index: 2
-        },
-        {
-            path:"../assetsTemp/left_4.png",
-            type:"perso",
-            animation: "left",
-            index: 3
-        },
-        // anim right
-        {
-            path:"../assetsTemp/right_1.png",
-            type:"perso",
-            animation: "right",
-            index: 0
-        },
-        {
-            path:"../assetsTemp/right_2.png",
-            type:"perso",
-            animation: "right",
-            index: 1
-        },
-        {
-            path:"../assetsTemp/right_1.png",
-            type:"perso",
-            animation: "right",
-            index: 2
-        },
-        {
-            path:"../assetsTemp/right_4.png",
-            type:"perso",
-            animation: "right",
-            index: 3
-        },
-    ];
+function loading(assetArray){
 
-    
-
-    assets.forEach((elm, index) => {
-
-        
+    assetArray.forEach((elm, index) => {
         // load all JSON FILE
         switch(elm.type){
+            //! ########### WORLD JSON
             case "world" :
                 world1 = loadJSON(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
                     isLoaded();
                 });
                 break;
+            //! ########### MAP ENGINE 1 JSON
             case "mapsEngine1" :
                 Maps = loadJSON(elm.path, (e)=> {
                     initVariableWorld(e);
@@ -188,12 +77,14 @@ function loadAsset(){
                     isLoaded();   
                 });
                 break;
+            //! ########### MAP ENGINE 2 JSON
             case "mapsEngine2" :
                 MapPipeGame = loadJSON(elm.path, ()=>{
                     numberAssetsLoading += 1 ;
                     isLoaded();
                 });
                 break;
+            //! ########### PLAYER ASSETS
             case "perso" :
 
                 switch(elm.animation){
@@ -228,8 +119,19 @@ function loadAsset(){
                     default:
                         throw new Error("name aniùation in Json file doesnt correspond")
                 }
-                
                 break;
+                
+            //! ########### MAP TILE ASSETS
+            case "map":
+                switch(elm.tileName){
+                    case "air":
+                        loadImage(elm.path, (e) => {
+                            alphaImg = e
+                        })
+                }
+                break;
+
+            //? ERROR MANAGEMENT
             default:
                 throw new Error("Error wrong type")
         }
@@ -240,9 +142,6 @@ function loadAsset(){
 
 
 function isLoaded(){
-    // console.log(numberAssetsLoading)
-    
-
 
     if (numberAssetsLoading === numberLoad) {
         playerTileSet = [animTop,animBottom,animLeft,animRight];

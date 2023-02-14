@@ -1,38 +1,19 @@
 let currentDrawingImage;
 function drawingGrid(x,y,w,h,array){
 
+    noStroke();
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
 
-            if (array[column][row] === 1) {
-                fill(color(255, 0, 0));
-            }if(array[column][row] === 2){
-                fill(color(0, 255, 0, 50));
-            }if (array[column][row] === 3) {
-                fill(color(0, 0, 255));
-            }if(array[column][row] === 4){
-                fill(color(255, 255, 0, 50));
-            }if (array[column][row] === 5) {
-                fill(color(0, 255, 255));
-            }if(array[column][row] === 6){
-                fill(color(255, 0, 255, 50));
-            }if (array[column][row] === 7) {
-                fill(color(50, 50, 0));
-            }if (array[column][row] === 8) {
-                fill(color(50, 150, 90));
-            }
-
             switch(array[column][row]){
                 case 0: {
-                    noStroke();
-                    fill(color(255, 255, 255, 0));
-                    currentDrawingImage = img;
+                    currentDrawingImage = alphaImg;
                     break;
                 }case 1:{
-                    currentDrawingImage = img2;
+                    currentDrawingImage = img;
                     break;
                 }case 2:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = img2;
                     break;
                 }case 3:{
                     currentDrawingImage = img;
@@ -219,6 +200,6 @@ function drawMapEngine1(){
     })
 
     //Cam
-    fill(255,255,20,80)
+    fill(255,255,20,20)
     rect(Xcam,Ycam,Wcam,Hcam)
 }
