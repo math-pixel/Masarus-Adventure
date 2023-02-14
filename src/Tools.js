@@ -58,3 +58,34 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
     }
     return previous_index_pos;
 }
+
+//TODO BUG ???
+function getCenterPointOfRect(x,y,w,h){
+    fill(0,0,255,80)
+    rect(x+(w/2), y+(h/2),10,10) 
+    return [x+(w/2), y+(h/2)]
+}
+
+function createNewRect(x,y,w,h,ratio){
+    //? expand
+    if (ratio === 1 ) {
+        throw new Error("le ratio doit etre different de 1")
+    }else if (ratio > 1) {
+
+        let phaseShiftX =  ((w*ratio) - w ) /2;
+        let phaseShiftY =  ((h*ratio) - h ) /2;
+        let expandedRect = [x - phaseShiftX, y - phaseShiftY, w * ratio, h * ratio];
+        
+        return expandedRect;
+    }else{
+    //?shrink
+        
+
+        let phaseShiftX =  (w - (w*ratio)) /2;
+        let phaseShiftY =  (h - (h*ratio) ) /2;
+        let expandedRect = [x + phaseShiftX, y + phaseShiftY, w * ratio, h * ratio];
+
+        return expandedRect;
+        
+    }
+}

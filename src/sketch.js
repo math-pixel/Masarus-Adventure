@@ -23,6 +23,14 @@ function draw(){
     background(200);
     // condition moteur de jeux
 
+    fill(255,0,0)
+    rect(100,50,50,50);
+    
+    // console.log(expandRect(50,50,50,50,2))
+    let a = createNewRect(100,50,50,50,1.1)
+    fill(0,255,0,100)
+    rect(a[0],a[1],a[2],a[3])
+
     if (assetsLoaded) {
         switch(engine){
             case "engine1":
