@@ -59,13 +59,6 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
     return previous_index_pos;
 }
 
-//TODO BUG ???
-function getCenterPointOfRect(x,y,w,h){
-    fill(0,0,255,80)
-    rect(x+(w/2), y+(h/2),10,10) 
-    return [x+(w/2), y+(h/2)]
-}
-
 function createNewRect(x,y,w,h,ratio){
     //? expand
     if (ratio === 1 ) {
@@ -88,4 +81,45 @@ function createNewRect(x,y,w,h,ratio){
         return expandedRect;
         
     }
+}
+
+
+//#region //! GET CORNER
+function getTopCornerLeft(rect) {
+    return [rect[0], rect[1]]
+}
+
+function getTopCornerRight(rect) {
+    return [rect[0] + rect[2], rect[1]]
+}
+
+function getBottomCornerLeft(rect) {
+    return [rect[0], rect[1] + rect[3]]
+}
+
+function getBottomCornerRight(rect) {
+    return [rect[0] + rect[2], rect[1] + rect[3]]
+}
+//#endregion
+
+
+function rectIsInRect(rect1, rect2) {
+
+    let TOPLEFT = getTopCornerLeft([rect1[0], rect1[1], rect1[2], rect1[3]]);
+    let TOPRIGHT = getTopCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]);
+    let BOTTOMLEFT = getBottomCornerLeft([rect1[0], rect1[1], rect1[2], rect1[3]]);
+    let BOTTOMRIGHT = getBottomCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]);
+    if (pointIsInside(TOPLEFT[0],TOPLEFT[1], rect2)) {
+        return true;
+    }
+    if (pointIsInside(TOPRIGHT[0], TOPRIGHT[1], rect2)) {
+        return true;
+    }
+    if (pointIsInside(BOTTOMLEFT[0],BOTTOMLEFT[1], rect2)) {
+        return true;
+    }
+    if (pointIsInside(BOTTOMRIGHT[0],BOTTOMRIGHT[1], rect2)) {
+        return true;
+    }
+    return false;
 }
