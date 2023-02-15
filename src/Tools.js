@@ -101,6 +101,10 @@ function getBottomCornerLeft(rect) {
 function getBottomCornerRight(rect) {
     return [rect[0] + rect[2], rect[1] + rect[3]]
 }
+
+function getCenterOfRect(rect){
+    return [rect[0] + rect[2] / 2, rect[1] + rect[3] / 2]
+}
 //#endregion
 
 
