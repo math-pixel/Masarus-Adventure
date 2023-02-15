@@ -85,12 +85,16 @@ function createNewRect(x,y,w,h,ratio){
 
 
 //#region //! GET CORNER
+// Tout fonctionne avec un tableau pour exprimer un rectangle sous cette forme -> [x, y, largeur, hauteur]
+
+// Get Corners
+// Prends un rect et renvoie un point sous forme -> [x, y]
 function getTopCornerLeft(rect) {
     return [rect[0], rect[1]]
 }
 
-function getTopCornerRight(recti) {
-    return [rect[0] + rect[2], rect[1]];
+function getTopCornerRight(rect) {
+    return [rect[0] + rect[2], rect[1]]
 }
 
 function getBottomCornerLeft(rect) {
@@ -103,24 +107,29 @@ function getBottomCornerRight(rect) {
 //#endregion
 
 
+// Point is in rect
+// Prend un point et un rect et renvoie true ou false
+function pointIsInRect(point, rect) {
+    if (point[0] > rect[0] && point[0] < (rect[0] + rect[2]) && point[1] > rect[1] && (rect[1] + rect[3])) {
+        return true
+    }
+    return false
+}
+
+// rect is in rect
+// prend deux rect et renvoie un tableau avec les points qui sont en contact avec le deuxième rectangle
 function rectIsInRect(rect1, rect2) {
-
-    let TOPLEFT = getTopCornerLeft([rect1[0], rect1[1], rect1[2], rect1[3]]);
-    let TOPRIGHT = getTopCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]);
-    let BOTTOMLEFT = getBottomCornerLeft([rect1[0], rect1[1], rect1[2], rect1[3]]);
-    let BOTTOMRIGHT = getBottomCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]);
-
-    if (pointIsInside(TOPLEFT[0],TOPLEFT[1], rect2)) {
-        return true;
+    if (pointIsInRect(getTopCornerLeft(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+        return true
     }
-    if (pointIsInside(TOPRIGHT[0], TOPRIGHT[1], rect2)) {
-        return true;
+    if (pointIsInRect(getTopCornerRight(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+        return true
     }
-    if (pointIsInside(BOTTOMLEFT[0],BOTTOMLEFT[1], rect2)) {
-        return true;
+    if (pointIsInRect(getBottomCornerLeft(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+        return true
     }
-    if (pointIsInside(BOTTOMRIGHT[0],BOTTOMRIGHT[1], rect2)) {
-        return true;
+    if (pointIsInRect(getBottomCornerRight(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+        return true
     }
-    return false;
+    return false
 }
