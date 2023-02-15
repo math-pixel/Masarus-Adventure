@@ -50,6 +50,10 @@ let rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
 let grass_main;
 
 
+//Debuger Variable
+let drawCollision = true;
+
+
 
 function loadAsset(){
     loadJSON("../JSON/assets.JSON", (e) => {

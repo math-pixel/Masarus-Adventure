@@ -1,6 +1,5 @@
 let currentDrawingImage;
 function drawingGrid(x,y,w,h,array){
-
     noStroke();
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
@@ -46,6 +45,20 @@ function drawingGrid(x,y,w,h,array){
     const maxWidht = w * array.length;
     const maxHeight = w * array[0].length;
     coordMap = [x,y,x + maxWidht , y + maxHeight];// coord de la map rect[x1,y1,x2,y2]
+}
+
+function drawingCollision(x,y,w,h,array){
+    noStroke();
+    for (let row = 0; row < array[0].length; row++) {
+        for (let column = 0; column < array.length; column++) {
+            
+            if(array[column][row] === 1){
+                fill(255,0,0,50)
+                rect(x+w*row,y+h*column,w,h); 
+            }
+                     
+        }
+    }
 }
 
 function moveMap() {
@@ -196,10 +209,16 @@ function drawMapEngine1(){
         elm.layers.forEach((layer) => {
             drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,layer);
         })
+
+        if (elm.collision && drawCollision) {
+            drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.collision);
+        }
         
-    })
+    });
+
+    
 
     //Cam
-    fill(255,255,20,20)
+    fill(255,255,20,80)
     rect(Xcam,Ycam,Wcam,Hcam)
 }

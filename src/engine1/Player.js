@@ -55,4 +55,8 @@ function drawPlayer(){
     
     
     image(playerTileSet[direction][currentFramePlayer], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
+    
+    let a = getCenterOfRect([xPlayer,yPlayer, sideCarrousel,sideCarrousel])
+    fill(255,0,255);
+    rect(xPlayer,yPlayer, sideCarrousel,sideCarrousel)
 }
