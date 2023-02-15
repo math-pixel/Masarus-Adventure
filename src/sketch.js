@@ -23,14 +23,6 @@ function draw(){
     background(200);
     // condition moteur de jeux
 
-    fill(255,0,0)
-    rect(100,50,50,50);
-    
-    // console.log(expandRect(50,50,50,50,2))
-    let a = createNewRect(100,50,50,50,1.1)
-    fill(0,255,0,100)
-    rect(a[0],a[1],a[2],a[3])
-
     if (assetsLoaded) {
         switch(engine){
             case "engine1":
@@ -43,5 +35,12 @@ function draw(){
                 throw new Error("engine error")
         }
     }
+
+    fill(255,0,0)
+    rect(660,510,50,50);
+    fill(255,200,0)
+    rect(700,500,50,50);
     
+    console.log(rectIsInRect([660,510,50,50], [700,500,50,50]))
+
 }

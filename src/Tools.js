@@ -89,8 +89,8 @@ function getTopCornerLeft(rect) {
     return [rect[0], rect[1]]
 }
 
-function getTopCornerRight(rect) {
-    return [rect[0] + rect[2], rect[1]]
+function getTopCornerRight(recti) {
+    return [rect[0] + rect[2], rect[1]];
 }
 
 function getBottomCornerLeft(rect) {
@@ -109,6 +109,7 @@ function rectIsInRect(rect1, rect2) {
     let TOPRIGHT = getTopCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]);
     let BOTTOMLEFT = getBottomCornerLeft([rect1[0], rect1[1], rect1[2], rect1[3]]);
     let BOTTOMRIGHT = getBottomCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]);
+
     if (pointIsInside(TOPLEFT[0],TOPLEFT[1], rect2)) {
         return true;
     }
