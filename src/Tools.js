@@ -116,16 +116,17 @@ function pointIsInRect(point, rect) {
 // rect is in rect
 // prend deux rect et renvoie un tableau avec les points qui sont en contact avec le deuxième rectangle
 function rectIsInRect(rect1, rect2) {
-    if (pointIsInRect(getTopCornerLeft(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+
+    if (pointIsInRect(getTopCornerLeft([rect1[0], rect1[1], rect1[2], rect1[3]]), rect2)) {
         return true
     }
-    if (pointIsInRect(getTopCornerRight(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+    if (pointIsInRect(getTopCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]), rect2)) {
         return true
     }
-    if (pointIsInRect(getBottomCornerLeft(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+    if (pointIsInRect(getBottomCornerLeft([rect1[0], rect1[1], rect1[2], rect1[3]]), rect2)) {
         return true
     }
-    if (pointIsInRect(getBottomCornerRight(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
+    if (pointIsInRect(getBottomCornerRight([rect1[0], rect1[1], rect1[2], rect1[3]]), rect2)) {
         return true
     }
     return false

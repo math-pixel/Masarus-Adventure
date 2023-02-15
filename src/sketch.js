@@ -35,12 +35,4 @@ function draw(){
                 throw new Error("engine error")
         }
     }
-
-    fill(255,0,0)
-    rect(660,510,50,50);
-    fill(255,200,0)
-    rect(700,500,50,50);
-    
-    console.log(rectIsInRect([660,510,50,50], [700,500,50,50]))
-
 }
