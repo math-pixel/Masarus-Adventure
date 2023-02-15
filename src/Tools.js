@@ -84,9 +84,6 @@ function createNewRect(x,y,w,h,ratio){
 }
 
 
-//#region //! GET CORNER
-// Tout fonctionne avec un tableau pour exprimer un rectangle sous cette forme -> [x, y, largeur, hauteur]
-
 // Get Corners
 // Prends un rect et renvoie un point sous forme -> [x, y]
 function getTopCornerLeft(rect) {
