@@ -58,5 +58,5 @@ function drawPlayer(){
     
     let a = getCenterOfRect([xPlayer,yPlayer, sideCarrousel,sideCarrousel])
     fill(255,0,255);
-    rect(xPlayer,yPlayer, sideCarrousel,sideCarrousel)
+    rect(a[0],a[1], 10,10)
 }
