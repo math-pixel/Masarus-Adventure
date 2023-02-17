@@ -22,7 +22,7 @@ let worldBoncing = []; //[x,y,w,h]
 let nbRow;
 let nbColumn;
 
-let currentWorld = "tour"; // pour set le world a cette map la 
+let currentMap = "tour"; // pour set le world a cette map la 
 
 //perso
 let xPlayer = 500;

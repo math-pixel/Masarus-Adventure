@@ -33,17 +33,17 @@ function findIndexValueIn2dArray(array, value){
 
 
 let previous_index_pos;
-function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY){
+function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, startX,startY){ //TODO probleme avec le previous index quand multiple affectation
 
     for (let row = 0; row < array.length; row++) {
         for (let column = 0; column < array[0].length; column++) {
 
 
-            let minX = xStartWorld1 + sideArrayX  * column;
-            let minY = yStartWorld1 + sideArrayY  * row ;
+            let minX = startX + sideArrayX  * column;
+            let minY = startY + sideArrayY  * row ;
 
-            let maxX = xStartWorld1  + sideArrayX  * (column + 1);
-            let maxY = yStartWorld1  + sideArrayY * (row + 1);
+            let maxX = startX  + sideArrayX  * (column + 1);
+            let maxY = startY  + sideArrayY * (row + 1);
 
             if ( row === 0 && column === 0 ) {
                 // console.log(maxX,maxY)
