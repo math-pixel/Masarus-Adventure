@@ -68,7 +68,7 @@ function mustAddMapAtWorlds(){
     ArrayWorldDisplay = [] //clear map
     
     // current position of player in World
-    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow,sideCarrousel * nbColumn, xStartWorld1, yStartWorld1);
+    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow,sideCarrousel * nbColumn, xStartWorld1, yStartWorld1, "map");
 
     // console.log(currentPositionIndexInWorld)
     // add the nine map arround the player

@@ -24,7 +24,7 @@ function canPlayerMove(){
     let centerPlayer = getCenterOfRect([xPlayer,yPlayer, sideCarrousel,sideCarrousel])
     
     // get the current map layer where the player is on
-    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow,sideCarrousel * nbColumn,xStartWorld1, yStartWorld1);
+    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow,sideCarrousel * nbColumn,xStartWorld1, yStartWorld1, "map");
     let X = currentPositionIndexInWorld[0];
     let Y = currentPositionIndexInWorld[1];
     let arrayMapLayer = Maps[world1.World[Y][X]].layers[0];
@@ -32,7 +32,7 @@ function canPlayerMove(){
     let ratioX = X * sideCarrousel * nbRow;
     let ratioY = Y * sideCarrousel * nbColumn;
 
-    // let indexPlayer = findIndexOfPositionIn2dArray(centerPlayer[0],centerPlayer[1],arrayMapLayer,sideCarrousel,sideCarrousel , xStartWorld1  + ratioX , yStartWorld1 + ratioY) //TODO regler probleme dans tools.js
+    let indexPlayer = findIndexOfPositionIn2dArray(centerPlayer[0],centerPlayer[1],arrayMapLayer,sideCarrousel,sideCarrousel , xStartWorld1  + ratioX , yStartWorld1 + ratioY, "perso") //TODO regler probleme dans tools.js
     
     // console.log(indexPlayer)
 }

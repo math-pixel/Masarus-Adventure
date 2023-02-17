@@ -33,7 +33,13 @@ function findIndexValueIn2dArray(array, value){
 
 
 let previous_index_pos;
-function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, startX,startY){ //TODO probleme avec le previous index quand multiple affectation
+let arrayObject = {};
+function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, startX,startY, objectName){ //TODO probleme avec le previous index quand multiple affectation
+    
+    if (arrayObject[objectName] === undefined) {
+        Object.assign(arrayObject, JSON.parse(`{"${objectName}": [0,0]}`));
+        console.log(arrayObject)
+    }
 
     for (let row = 0; row < array.length; row++) {
         for (let column = 0; column < array[0].length; column++) {
@@ -51,12 +57,12 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, sta
 
             // console.log([ column, row ]);
             if (posX > minX && posX < maxX && posY > minY && posY < maxY) {
-                previous_index_pos = [column, row];
+                arrayObject[objectName] = [column, row];
                 return [column, row];
             }
         }
     }
-    return previous_index_pos;
+    return arrayObject[objectName];
 }
 
 function createNewRect(x,y,w,h,ratio){
