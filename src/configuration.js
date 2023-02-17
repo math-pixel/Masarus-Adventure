@@ -47,8 +47,14 @@ let Ycam = (yPlayer + 20 / 2) - Hcam/2;
 let rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
 
 //Map TileSet
+let alphaImg;
 let grass_main;
-
+let path_corner_bottomLeft;
+let path_corner_bottomRight;
+let path_corner_topLeft;
+let path_corner_topRight;
+let path_horizontal;
+let path_vertical;
 
 //Debuger Variable
 let drawCollision = true;
@@ -132,6 +138,42 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             alphaImg = e
                         })
+                        break;
+                    case "grass_main":
+                        loadImage(elm.path, (e) => {
+                            grass_main = e
+                        })
+                        break;
+                    case "path_corner_bottomLeft":
+                        loadImage(elm.path, (e) => {
+                            path_corner_bottomLeft = e
+                        })
+                        break;
+                    case "path_corner_bottomRight":
+                        loadImage(elm.path, (e) => {
+                            path_corner_bottomRight = e
+                        })
+                        break;
+                    case "path_corner_topLeft":
+                        loadImage(elm.path, (e) => {
+                            path_corner_topLeft = e
+                        })
+                        break;
+                    case "path_corner_topRight":
+                        loadImage(elm.path, (e) => {
+                            path_corner_topRight = e
+                        })
+                        break;
+                    case "path_horizontal":
+                        loadImage(elm.path, (e) => {
+                            path_horizontal = e
+                        })
+                        break;
+                    case "path_vertical":
+                        loadImage(elm.path, (e) => {
+                            path_vertical = e
+                        })
+                        break;
                 }
                 break;
 

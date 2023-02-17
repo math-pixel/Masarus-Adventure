@@ -9,25 +9,25 @@ function drawingGrid(x,y,w,h,array){
                     currentDrawingImage = alphaImg;
                     break;
                 }case 1:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = grass_main;
                     break;
                 }case 2:{
-                    currentDrawingImage = img2;
+                    currentDrawingImage = path_corner_bottomLeft;
                     break;
                 }case 3:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = path_corner_bottomRight;
                     break;
                 }case 4:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = path_corner_topLeft;
                     break;
                 }case 5:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = path_corner_topRight;
                     break;
                 }case 6:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = path_horizontal;
                     break;
                 }case 7:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = path_vertical;
                     break;
                 }case 8:{
                     currentDrawingImage = img;
