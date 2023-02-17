@@ -30,7 +30,7 @@ function drawingGrid(x,y,w,h,array){
                     currentDrawingImage = path_vertical;
                     break;
                 }case 8:{
-                    currentDrawingImage = img;
+                    currentDrawingImage = fence_horizontal;
                     break;
                 }default :{
                     throw new error("error d'image")
@@ -188,6 +188,6 @@ function drawMapEngine1(){
     
 
     //Cam
-    fill(255,255,20,80)
+    fill(255,255,20,20)
     rect(Xcam,Ycam,Wcam,Hcam)
 }

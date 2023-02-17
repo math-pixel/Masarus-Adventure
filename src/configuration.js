@@ -55,6 +55,7 @@ let path_corner_topLeft;
 let path_corner_topRight;
 let path_horizontal;
 let path_vertical;
+let fence_horizontal;
 
 //Debuger Variable
 let drawCollision = true;
@@ -172,6 +173,11 @@ function loading(assetArray){
                     case "path_vertical":
                         loadImage(elm.path, (e) => {
                             path_vertical = e
+                        })
+                        break;
+                    case "fence_horizontal":
+                        loadImage(elm.path, (e) => {
+                            fence_horizontal = e
                         })
                         break;
                 }

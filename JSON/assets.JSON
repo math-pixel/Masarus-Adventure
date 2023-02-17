@@ -147,6 +147,11 @@
             "path":"../assets/path_horizontal.png",
             "type":"map",
             "tileName": "path_horizontal"
+        },
+        {
+            "path":"../assets/fence_horizontal.png",
+            "type":"map",
+            "tileName": "fence_horizontal"
         }
     ]
 }
