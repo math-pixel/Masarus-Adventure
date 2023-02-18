@@ -6,7 +6,7 @@ function preload(){
 }
 
 function setup(){
-    createCanvas(1000, 1000);
+    createCanvas(1000, 562);
     textSize(32);
     text('word', 10, 30);
     // console.log(worlds1.tour.layers)

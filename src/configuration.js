@@ -14,8 +14,8 @@ let ArrayWorldDisplay = [];
 
 let sideCarrousel;
 
-let xStartWorld1 = 250;
-let yStartWorld1 = 250;
+let xStartWorld1 = 0;
+let yStartWorld1 = 0;
 
 let worldBoncing = []; //[x,y,w,h]
 
@@ -26,7 +26,7 @@ let currentMap = "tour"; // pour set le world a cette map la
 
 //perso
 let xPlayer = 500;
-let yPlayer = 500;
+let yPlayer = 281;
 
 // animation player
 let playerTileSet = [];
@@ -39,7 +39,7 @@ let animRight = [];
 let animLeft = [];
 
 // cam 
-let Hcam = 400;
+let Hcam = 500;
 let Wcam = Hcam * (16/9);
 let Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
 let Ycam = (yPlayer + 20 / 2) - Hcam/2;
@@ -64,7 +64,7 @@ let river_horizontal;
 let river_vertical;
 
 //Debuger Variable
-let drawCollision = false;
+let drawCollision = true;
 
 
 
