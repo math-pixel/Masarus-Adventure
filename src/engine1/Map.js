@@ -32,6 +32,24 @@ function drawingGrid(x,y,w,h,array){
                 }case 8:{
                     currentDrawingImage = fence_horizontal;
                     break;
+                }case 9:{
+                    currentDrawingImage = river_corner_bottomLeft;
+                    break;
+                }case 10:{
+                    currentDrawingImage = river_corner_bottomRight;
+                    break;
+                }case 11:{
+                    currentDrawingImage = river_corner_topLeft;
+                    break;
+                }case 12:{
+                    currentDrawingImage = river_corner_topRight;
+                    break;
+                }case 13:{
+                    currentDrawingImage = river_horizontal;
+                    break;
+                }case 14:{
+                    currentDrawingImage = river_vertical;
+                    break;
                 }default :{
                     throw new error("error d'image")
                 }

@@ -56,6 +56,12 @@ let path_corner_topRight;
 let path_horizontal;
 let path_vertical;
 let fence_horizontal;
+let river_corner_bottomLeft;
+let river_corner_bottomRight;
+let river_corner_topLeft;
+let river_corner_topRight;
+let river_horizontal;
+let river_vertical;
 
 //Debuger Variable
 let drawCollision = false;
@@ -180,6 +186,38 @@ function loading(assetArray){
                             fence_horizontal = e
                         })
                         break;
+                        //? ###############
+                    case "river_corner_bottomLeft":
+                        loadImage(elm.path, (e) => {
+                            river_corner_bottomLeft = e
+                        })
+                        break;
+                    case "river_corner_bottomRight":
+                        loadImage(elm.path, (e) => {
+                            river_corner_bottomRight = e
+                        })
+                        break;
+                    case "river_corner_topLeft":
+                        loadImage(elm.path, (e) => {
+                            river_corner_topLeft = e
+                        })
+                        break;
+                    case "river_corner_topRight":
+                        loadImage(elm.path, (e) => {
+                            river_corner_topRight = e
+                        })
+                        break;
+                    case "river_horizontal":
+                        loadImage(elm.path, (e) => {
+                            river_horizontal = e
+                        })
+                        break;
+                    case "river_vertical":
+                        loadImage(elm.path, (e) => {
+                            river_vertical = e
+                        })
+                        break;
+
                 }
                 break;
 
