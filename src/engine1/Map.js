@@ -1,30 +1,44 @@
-
+let currentDrawingImage;
 function drawingGrid(x,y,w,h,array){
-
+    noStroke();
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
 
-            if(array[column][row] === 0){
-                fill(color(255, 255, 255));
-            }if (array[column][row] === 1) {
-                fill(color(255, 0, 0));
-            }if(array[column][row] === 2){
-                fill(color(0, 255, 0, 50));
-            }if (array[column][row] === 3) {
-                fill(color(0, 0, 255));
-            }if(array[column][row] === 4){
-                fill(color(255, 255, 0, 50));
-            }if (array[column][row] === 5) {
-                fill(color(0, 255, 255));
-            }if(array[column][row] === 6){
-                fill(color(255, 0, 255, 50));
-            }if (array[column][row] === 7) {
-                fill(color(50, 50, 0));
-            }if (array[column][row] === 8) {
-                fill(color(50, 150, 90));
+            switch(array[column][row]){
+                case 0: {
+                    currentDrawingImage = alphaImg;
+                    break;
+                }case 1:{
+                    currentDrawingImage = grass_main;
+                    break;
+                }case 2:{
+                    currentDrawingImage = path_corner_bottomLeft;
+                    break;
+                }case 3:{
+                    currentDrawingImage = path_corner_bottomRight;
+                    break;
+                }case 4:{
+                    currentDrawingImage = path_corner_topLeft;
+                    break;
+                }case 5:{
+                    currentDrawingImage = path_corner_topRight;
+                    break;
+                }case 6:{
+                    currentDrawingImage = path_horizontal;
+                    break;
+                }case 7:{
+                    currentDrawingImage = path_vertical;
+                    break;
+                }case 8:{
+                    currentDrawingImage = fence_horizontal;
+                    break;
+                }default :{
+                    throw new error("error d'image")
+                }
             }
             
-            rect(x+w*row,y+h*column,w,h);          
+            image(currentDrawingImage,x+w*row,y+h*column,w,h);
+            // rect(x+w*row,y+h*column,w,h);          
         }
     }
 
@@ -33,34 +47,18 @@ function drawingGrid(x,y,w,h,array){
     coordMap = [x,y,x + maxWidht , y + maxHeight];// coord de la map rect[x1,y1,x2,y2]
 }
 
-function moveMap() {
-
-    //*boncing world
-    worldBoncing = getWorldBoncingArray();
-    let TOP = isCamNotBoncingBorderWorld(rectCam, 'TOP', worldBoncing);
-    let RIGHT = isCamNotBoncingBorderWorld(rectCam, 'RIGHT', worldBoncing);
-    let LEFT = isCamNotBoncingBorderWorld(rectCam, 'LEFT', worldBoncing);
-    let BOTTOM = isCamNotBoncingBorderWorld(rectCam, 'BOTTOM', worldBoncing);
-
-
-    console.log("top", TOP,"right",RIGHT,"left",LEFT,"bottom",BOTTOM)
-
-    if (keyIsDown(LEFT_ARROW) && LEFT) {
-        xStartWorld1 += 5;    
+function drawingCollision(x,y,w,h,array){
+    noStroke();
+    for (let row = 0; row < array[0].length; row++) {
+        for (let column = 0; column < array.length; column++) {
+            
+            if(array[column][row] === 1){
+                fill(255,0,0,50)
+                rect(x+w*row,y+h*column,w,h); 
+            }
+                     
+        }
     }
-    
-    if (keyIsDown(RIGHT_ARROW) && RIGHT) {
-        xStartWorld1 -= 5;
-    }
-    
-    if (keyIsDown(UP_ARROW) && TOP) {
-        yStartWorld1 += 5;
-    }
-    
-    if (keyIsDown(DOWN_ARROW) && BOTTOM) {
-        yStartWorld1 -= 5;
-    }
-    
 }
 
 // si out of array
@@ -70,7 +68,7 @@ function mustAddMapAtWorlds(){
     ArrayWorldDisplay = [] //clear map
     
     // current position of player in World
-    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * 11,sideCarrousel * 11);
+    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow,sideCarrousel * nbColumn, xStartWorld1, yStartWorld1, "map");
 
     // console.log(currentPositionIndexInWorld)
     // add the nine map arround the player
@@ -169,25 +167,27 @@ function isCamNotBoncingBorderWorld(rectCam /*[x,y,x2,y2]*/, sideDirection, arra
     }
 }
 
-function drawMap(){
-
-    
-    moveMap();
-  
+function drawMapEngine1(){
     mustAddMapAtWorlds();
-
     ArrayWorldDisplay.forEach((elm, index)=>{
         
         // console.log(elm);
         let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
         //x,y,w,h,array
-        drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[0]);
-    })
 
-    fill(255,255,20,80)
+        elm.layers.forEach((layer) => {
+            drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,layer);
+        })
+
+        if (elm.collision && drawCollision) {
+            drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.collision);
+        }
+        
+    });
+
+    
+
+    //Cam
+    fill(255,255,20,20)
     rect(Xcam,Ycam,Wcam,Hcam)
-
-    // fill(0,255,255,80)
-    // rect(Xcam, Ycam,sideCarrousel*8,sideCarrousel*4)
-
 }

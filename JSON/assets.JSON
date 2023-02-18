@@ -1,0 +1,157 @@
+{
+    "assets":[
+        {
+            "path": "../JSON/engine1/world.json",
+            "type": "world"
+        },
+        {
+            "path":"../JSON/engine1/allMaps.json",
+            "type":"mapsEngine1"
+        },
+        {
+            "path":"../JSON/engine2/pipeGameMap.json",
+            "type":"mapsEngine2"
+        },
+        {
+            "path":"../assetsTemp/top_1.png",
+            "type":"perso",
+            "animation": "top",
+            "index": 0
+        },
+        {
+            "path":"../assetsTemp/top_2.png",
+            "type":"perso",
+            "animation": "top",
+            "index": 1
+        },
+        {
+            "path":"../assetsTemp/top_1.png",
+            "type":"perso",
+            "animation": "top",
+            "index": 2
+        },
+        {
+            "path":"../assetsTemp/top_4.png",
+            "type":"perso",
+            "animation": "top",
+            "index": 3
+        },
+        {
+            "path":"../assetsTemp/bottom_1.png",
+            "type":"perso",
+            "animation": "bottom",
+            "index": 0
+        },
+        {
+            "path":"../assetsTemp/bottom_2.png",
+            "type":"perso",
+            "animation": "bottom",
+            "index": 1
+        },
+        {
+            "path":"../assetsTemp/bottom_1.png",
+            "type":"perso",
+            "animation": "bottom",
+            "index": 2
+        },
+        {
+            "path":"../assetsTemp/bottom_4.png",
+            "type":"perso",
+            "animation": "bottom",
+            "index": 3
+        },
+        {
+            "path":"../assetsTemp/left_1.png",
+            "type":"perso",
+            "animation": "left",
+            "index": 0
+        },
+        {
+            "path":"../assetsTemp/left_2.png",
+            "type":"perso",
+            "animation": "left",
+            "index": 1
+        },
+        {
+            "path":"../assetsTemp/left_1.png",
+            "type":"perso",
+            "animation": "left",
+            "index": 2
+        },
+        {
+            "path":"../assetsTemp/left_4.png",
+            "type":"perso",
+            "animation": "left",
+            "index": 3
+        },
+        {
+            "path":"../assetsTemp/right_1.png",
+            "type":"perso",
+            "animation": "right",
+            "index": 0
+        },
+        {
+            "path":"../assetsTemp/right_2.png",
+            "type":"perso",
+            "animation": "right",
+            "index": 1
+        },
+        {
+            "path":"../assetsTemp/right_1.png",
+            "type":"perso",
+            "animation": "right",
+            "index": 2
+        },
+        {
+            "path":"../assetsTemp/right_4.png",
+            "type":"perso",
+            "animation": "right",
+            "index": 3
+        },
+        {
+            "path":"../assets/alpha.png",
+            "type":"map",
+            "tileName": "air"
+        },
+        {
+            "path":"../assets/grass_main.png",
+            "type":"map",
+            "tileName": "grass_main"
+        },
+        {
+            "path":"../assets/path_corner_bottomLeft.png",
+            "type":"map",
+            "tileName": "path_corner_bottomLeft"
+        },
+        {
+            "path":"../assets/path_corner_bottomRight.png",
+            "type":"map",
+            "tileName": "path_corner_bottomRight"
+        },
+        {
+            "path":"../assets/path_corner_topLeft.png",
+            "type":"map",
+            "tileName": "path_corner_topLeft"
+        },
+        {
+            "path":"../assets/path_vertical.png",
+            "type":"map",
+            "tileName": "path_vertical"
+        },
+        {
+            "path":"../assets/path_corner_topRight.png",
+            "type":"map",
+            "tileName": "path_corner_topRight"
+        },
+        {
+            "path":"../assets/path_horizontal.png",
+            "type":"map",
+            "tileName": "path_horizontal"
+        },
+        {
+            "path":"../assets/fence_horizontal.png",
+            "type":"map",
+            "tileName": "fence_horizontal"
+        }
+    ]
+}
