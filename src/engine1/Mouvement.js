@@ -25,7 +25,7 @@ function canPlayerMove(playerRect, Direction){
 
     
     
-    // get the current map layer where the player is on the world
+    //? get the current map layer where the player is on the world
     let TopLeftInWorld = findIndexOfPositionIn2dArray(playerRect[0],
                                                       playerRect[1],
                                                       world1.World,
@@ -56,13 +56,7 @@ function canPlayerMove(playerRect, Direction){
                                                           xStartWorld1,
                                                           yStartWorld1,
                                                           "map");
-    
-    
-    // let X = currentPositionIndexInWorld[0];
-    // let Y = currentPositionIndexInWorld[1];
 
-    // let ratioX = currentPositionIndexInWorldBottomRight * sideCarrousel * nbRow;
-    // let ratioY = currentPositionIndexInWorldBottomRight * sideCarrousel * nbColumn;
 
     //? get index point on the current map 
     let TopLeft = findIndexOfPositionIn2dArray(playerRect[0],
@@ -99,10 +93,10 @@ function canPlayerMove(playerRect, Direction){
                                                    sideCarrousel,
                                                    xStartWorld1  + BottomRightInWorld[0] * sideCarrousel * nbRow ,
                                                    yStartWorld1 + BottomRightInWorld[1] * sideCarrousel * nbColumn,
-                                                   "perso")
-
-    // let currentMapCollision = Maps[world1.World[currentPositionIndexInWorldTopLeft[1]][currentPositionIndexInWorldTopLeft[0]]].collision; 
+                                                   "perso");
     
+
+    //? return if can move
     switch(Direction){
         case "TOP":
             if (Maps[world1.World[TopLeftInWorld[1]][TopLeftInWorld[0]]].collision[TopLeft[1]][TopLeft[0]] === 1 || Maps[world1.World[TopRightInWorld[1]][TopRightInWorld[0]]].collision[TopRight[1]][TopRight[0]] === 1) {
