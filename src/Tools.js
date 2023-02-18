@@ -32,13 +32,18 @@ function findIndexValueIn2dArray(array, value){
 }
 
 
-let previous_index_pos;
+
 let arrayObject = {};
-function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, startX,startY, objectName){ //TODO probleme avec le previous index quand multiple affectation
+function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, startX,startY, objectName){ //? start X et Y = xstartWorld et ystartWorld
     
     if (arrayObject[objectName] === undefined) {
         Object.assign(arrayObject, JSON.parse(`{"${objectName}": [0,0]}`));
         console.log(arrayObject)
+    }
+
+    if (drawCollision) {
+        fill(0,0,255)
+        rect(posX,posY,5,5) 
     }
 
     for (let row = 0; row < array.length; row++) {

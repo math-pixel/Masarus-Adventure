@@ -58,7 +58,7 @@ let path_vertical;
 let fence_horizontal;
 
 //Debuger Variable
-let drawCollision = true;
+let drawCollision = false;
 
 
 

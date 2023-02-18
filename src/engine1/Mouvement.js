@@ -8,6 +8,9 @@ let RIGHTPlayer;
 let LEFTPlayer;
 let BOTTOMPlayer;
 
+//? set rectBoncingPlayer % of player rect
+let rectBoncingPlayer = createNewRect(xPlayer,yPlayer, sideCarrousel,sideCarrousel, 0.5);
+
 
 function canMoveMap(){
     //*boncing world
@@ -18,43 +21,143 @@ function canMoveMap(){
     BOTTOMMap = isCamNotBoncingBorderWorld(rectCam, 'BOTTOM', worldBoncing);
 }
 
-function canPlayerMove(){
+function canPlayerMove(playerRect, Direction){
 
-    // get center position of player 
-    let centerPlayer = getCenterOfRect([xPlayer,yPlayer, sideCarrousel,sideCarrousel])
     
-    // get the current map layer where the player is on
-    let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow,sideCarrousel * nbColumn,xStartWorld1, yStartWorld1, "map");
-    let X = currentPositionIndexInWorld[0];
-    let Y = currentPositionIndexInWorld[1];
-    let arrayMapLayer = Maps[world1.World[Y][X]].layers[0];
-
-    let ratioX = X * sideCarrousel * nbRow;
-    let ratioY = Y * sideCarrousel * nbColumn;
-
-    let indexPlayer = findIndexOfPositionIn2dArray(centerPlayer[0],centerPlayer[1],arrayMapLayer,sideCarrousel,sideCarrousel , xStartWorld1  + ratioX , yStartWorld1 + ratioY, "perso") //TODO regler probleme dans tools.js
     
-    // console.log(indexPlayer)
+    // get the current map layer where the player is on the world
+    let TopLeftInWorld = findIndexOfPositionIn2dArray(playerRect[0],
+                                                      playerRect[1],
+                                                      world1.World,
+                                                      sideCarrousel * nbColumn ,sideCarrousel * nbRow,xStartWorld1,
+                                                      yStartWorld1,
+                                                      "world");
+
+    let TopRightInWorld = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
+                                                       playerRect[1],
+                                                       world1.World,
+                                                       sideCarrousel * nbRow,sideCarrousel * nbColumn,xStartWorld1,
+                                                       yStartWorld1,
+                                                       "map");
+
+    let BottomLeftInWorld = findIndexOfPositionIn2dArray(playerRect[0],
+                                                                             playerRect[1] + playerRect[3],
+                                                                             world1.World,
+                                                                             sideCarrousel * nbRow,sideCarrousel * nbColumn,
+                                                                             xStartWorld1,
+                                                                             yStartWorld1,
+                                                                             "map");
+
+    let BottomRightInWorld = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
+                                                          playerRect[1] + playerRect[3],
+                                                          world1.World,
+                                                          sideCarrousel * nbRow,
+                                                          sideCarrousel * nbColumn,
+                                                          xStartWorld1,
+                                                          yStartWorld1,
+                                                          "map");
+    
+    
+    // let X = currentPositionIndexInWorld[0];
+    // let Y = currentPositionIndexInWorld[1];
+
+    // let ratioX = currentPositionIndexInWorldBottomRight * sideCarrousel * nbRow;
+    // let ratioY = currentPositionIndexInWorldBottomRight * sideCarrousel * nbColumn;
+
+    //? get index point on the current map 
+    let TopLeft = findIndexOfPositionIn2dArray(playerRect[0],
+                                               playerRect[1],
+                                               Maps[world1.World[TopLeftInWorld[1]][TopLeftInWorld[0]]].layers[0],
+                                               sideCarrousel,
+                                               sideCarrousel,
+                                               xStartWorld1  + TopLeftInWorld[0] * sideCarrousel * nbRow,
+                                               yStartWorld1 + TopLeftInWorld[1] * sideCarrousel * nbColumn,
+                                               "perso");
+    
+    let TopRight = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
+                                                playerRect[1],
+                                                Maps[world1.World[TopRightInWorld[1]][TopRightInWorld[0]]].layers[0],
+                                                sideCarrousel,
+                                                sideCarrousel,
+                                                xStartWorld1  + TopRightInWorld[0] * sideCarrousel * nbRow,
+                                                yStartWorld1 + TopRightInWorld[1] * sideCarrousel * nbColumn,
+                                                "perso");
+
+    let BottomLeft = findIndexOfPositionIn2dArray(playerRect[0],
+                                                  playerRect[1] + playerRect[3],
+                                                  Maps[world1.World[BottomLeftInWorld[1]][BottomLeftInWorld[0]]].layers[0],
+                                                  sideCarrousel,
+                                                  sideCarrousel,
+                                                  xStartWorld1  + BottomLeftInWorld[0] * sideCarrousel * nbRow,
+                                                  yStartWorld1 + BottomLeftInWorld[1] * sideCarrousel * nbColumn,
+                                                  "perso");
+
+    let BottomRight = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
+                                                   playerRect[1] + playerRect[3],
+                                                   Maps[world1.World[BottomRightInWorld[1]][BottomRightInWorld[0]]].layers[0] ,
+                                                   sideCarrousel,
+                                                   sideCarrousel,
+                                                   xStartWorld1  + BottomRightInWorld[0] * sideCarrousel * nbRow ,
+                                                   yStartWorld1 + BottomRightInWorld[1] * sideCarrousel * nbColumn,
+                                                   "perso")
+
+    // let currentMapCollision = Maps[world1.World[currentPositionIndexInWorldTopLeft[1]][currentPositionIndexInWorldTopLeft[0]]].collision; 
+    
+    switch(Direction){
+        case "TOP":
+            if (Maps[world1.World[TopLeftInWorld[1]][TopLeftInWorld[0]]].collision[TopLeft[1]][TopLeft[0]] === 1 || Maps[world1.World[TopRightInWorld[1]][TopRightInWorld[0]]].collision[TopRight[1]][TopRight[0]] === 1) {
+                return false;
+            }else{
+                return true
+            }
+            break;
+        case "BOTTOM":
+            if (Maps[world1.World[BottomLeftInWorld[1]][BottomLeftInWorld[0]]].collision[BottomLeft[1]][BottomLeft[0]] === 1 || Maps[world1.World[BottomRightInWorld[1]][BottomRightInWorld[0]]].collision[BottomRight[1]][BottomRight[0]] === 1) {
+                return false;
+            }else{
+                return true
+            }
+            break;
+        case "LEFT":
+            if (Maps[world1.World[TopLeftInWorld[1]][TopLeftInWorld[0]]].collision[TopLeft[1]][TopLeft[0]] === 1 || Maps[world1.World[BottomLeftInWorld[1]][BottomLeftInWorld[0]]].collision[BottomLeft[1]][BottomLeft[0]] === 1) {
+                return false;
+            }else{
+                return true
+            }
+            break;
+        case "RIGHT":
+            if (Maps[world1.World[BottomRightInWorld[1]][BottomRightInWorld[0]]].collision[BottomRight[1]][BottomRight[0]] === 1 || Maps[world1.World[TopRightInWorld[1]][TopRightInWorld[0]]].collision[TopRight[1]][TopRight[0]] === 1) {
+                return false;
+            }else{
+                return true
+            }
+            break;
+    }
 }
 
 
 function moveMap() {
 
+    rectBoncingPlayer = createNewRect(xPlayer,yPlayer, sideCarrousel,sideCarrousel, 0.5)
     
+    if (drawCollision) {
+        fill(255,0,0,80)
+        rect(rectBoncingPlayer[0],rectBoncingPlayer[1],rectBoncingPlayer[2],rectBoncingPlayer[3]) 
+    }
 
-    if (keyIsDown(LEFT_ARROW) && LEFTMap) {
+    if (keyIsDown(LEFT_ARROW) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
         xStartWorld1 += 8;    
     }
     
-    if (keyIsDown(RIGHT_ARROW) && RIGHTMap) {
+    if (keyIsDown(RIGHT_ARROW) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
         xStartWorld1 -= 8;
     }
     
-    if (keyIsDown(UP_ARROW) && TOPMap) {
+    if (keyIsDown(UP_ARROW) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
         yStartWorld1 += 8;
     }
     
-    if (keyIsDown(DOWN_ARROW) && BOTTOMMap) {
+    if (keyIsDown(DOWN_ARROW) && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
         yStartWorld1 -= 8;
     }
     
@@ -62,10 +165,8 @@ function moveMap() {
 
 
 function Move(){
-    
-    canMoveMap()
-    canPlayerMove()
 
+    canMoveMap()
 
     moveMap()
     
