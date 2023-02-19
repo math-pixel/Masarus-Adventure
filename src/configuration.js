@@ -6,10 +6,10 @@ let assetsLoaded = false;
 let numberAssetsLoading = 0;
 let numberLoad = 4;
 
-//moteur de jeu
-let engine = "engine1";
+//current engine
+let engine = "engine2";
 
-// map
+// map engine 1
 let ArrayWorldDisplay = [];
 
 let sideCarrousel;
@@ -23,6 +23,10 @@ let nbRow;
 let nbColumn;
 
 let currentMap = "tour"; // pour set le world a cette map la 
+
+// map engine 2
+let xStartWorld2 = 195;
+let yStartWorld2 = -30;
 
 //perso
 let xPlayer = 500;
@@ -64,7 +68,7 @@ let river_horizontal;
 let river_vertical;
 
 //Debuger Variable
-let drawCollision = true;
+let drawCollision = false;
 
 
 

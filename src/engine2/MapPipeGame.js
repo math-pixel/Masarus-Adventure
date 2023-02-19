@@ -3,27 +3,50 @@ function drawingGridPipeGame(x,y,w,h,array){
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
 
-            if(array[column][row] === 0){
-                fill(color(255, 255, 255));
-            }if (array[column][row] === 1) {
-                fill(color(255, 0, 0));
-            }if(array[column][row] === 2){
-                fill(color(0, 255, 0, 50));
-            }if (array[column][row] === 3) {
-                fill(color(0, 0, 255));
-            }if(array[column][row] === 4){
-                fill(color(255, 255, 0, 50));
-            }if (array[column][row] === 5) {
-                fill(color(0, 255, 255));
-            }if(array[column][row] === 6){
-                fill(color(255, 0, 255, 50));
-            }if (array[column][row] === 7) {
-                fill(color(50, 50, 0));
-            }if (array[column][row] === 8) {
-                fill(color(50, 150, 90));
+            switch(array[column][row].tile){
+                case 0: {
+                    currentDrawingImage = alphaImg;
+                    break;
+                }case 1:{
+                    currentDrawingImage = grass_main;
+                    break;
+                }case 2:{
+                    currentDrawingImage = path_corner_bottomLeft;
+                    break;
+                }case 3:{
+                    currentDrawingImage = path_corner_bottomRight;
+                    break;
+                }case 4:{
+                    currentDrawingImage = path_corner_topLeft;
+                    break;
+                }case 5:{
+                    currentDrawingImage = path_corner_topRight;
+                    break;
+                }case 6:{
+                    currentDrawingImage = path_horizontal;
+                    break;
+                }case 7:{
+                    currentDrawingImage = path_vertical;
+                    break;
+                }case 8:{
+                    currentDrawingImage = fence_horizontal;
+                    break;
+                }case 9:{
+                    currentDrawingImage = river_corner_bottomLeft;
+                    break;
+                }case 10:{
+                    currentDrawingImage = river_corner_bottomRight;
+                    break;
+                }
             }
-            
-            rect(x+w*row,y+h*column,w,h);          
+
+            angleMode(DEGREES);
+            push()
+            translate(x+w*row,y+h*column);
+            let a = atan2(mouseY - height / 2, mouseX - width / 2);
+            rotate(array[column][row].rotation); //
+            image(currentDrawingImage, -w / 2, -h / 2,w,h); 
+            pop() 
         }
     }
 
@@ -34,11 +57,27 @@ function drawingGridPipeGame(x,y,w,h,array){
 
 function drawMapEngine2(array){
 
-
-    xStartWorld1 = 0;
-    yStartWorld1 = 0;
-
-
     //x,y,w,h,array
-    drawingGrid(xStartWorld1 ,yStartWorld1 ,sideCarrousel,sideCarrousel,array);
+    drawingGridPipeGame(xStartWorld2 ,yStartWorld2 ,sideCarrousel,sideCarrousel,array);
+}
+
+
+function mousePressed() {
+    let currentIndex;
+    if (pointIsInside(mouseX,mouseY, [xStartWorld2 - sideCarrousel / 2, yStartWorld2 - sideCarrousel / 2 , xStartWorld2 + sideCarrousel * MapPipeGame.Map.layers[0].length, yStartWorld2 + sideCarrousel * MapPipeGame.Map.layers.length])) {
+        currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
+        
+        if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation === 270) {
+            MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
+        }else{
+            MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation += 90;
+        }
+    
+    }
+    
+    
+    
+
+    
+
 }
