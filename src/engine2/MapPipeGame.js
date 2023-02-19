@@ -44,7 +44,7 @@ function drawingGridPipeGame(x,y,w,h,array){
             push()
             translate(x+w*row,y+h*column);
             let a = atan2(mouseY - height / 2, mouseX - width / 2);
-            rotate(array[column][row].rotation); //
+            rotate(array[column][row].rotation);
             image(currentDrawingImage, -w / 2, -h / 2,w,h); 
             pop() 
         }
@@ -74,10 +74,4 @@ function mousePressed() {
         }
     
     }
-    
-    
-    
-
-    
-
 }

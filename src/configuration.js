@@ -7,7 +7,7 @@ let numberAssetsLoading = 0;
 let numberLoad = 4;
 
 //current engine
-let engine = "engine2";
+let engine = "engine1";
 
 // map engine 1
 let ArrayWorldDisplay = [];
