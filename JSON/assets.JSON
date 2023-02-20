@@ -13,97 +13,97 @@
             "type":"mapsEngine2"
         },
         {
-            "path":"../assetsTemp/top_1.png",
+            "path":"../assetsTemp/player_top_1.png",
             "type":"perso",
             "animation": "top",
             "index": 0
         },
         {
-            "path":"../assetsTemp/top_2.png",
+            "path":"../assetsTemp/player_top_2.png",
             "type":"perso",
             "animation": "top",
             "index": 1
         },
         {
-            "path":"../assetsTemp/top_1.png",
+            "path":"../assetsTemp/player_top_1.png",
             "type":"perso",
             "animation": "top",
             "index": 2
         },
         {
-            "path":"../assetsTemp/top_4.png",
+            "path":"../assetsTemp/player_top_4.png",
             "type":"perso",
             "animation": "top",
             "index": 3
         },
         {
-            "path":"../assetsTemp/bottom_1.png",
+            "path":"../assetsTemp/player_bottom_1.png",
             "type":"perso",
             "animation": "bottom",
             "index": 0
         },
         {
-            "path":"../assetsTemp/bottom_2.png",
+            "path":"../assetsTemp/player_bottom_2.png",
             "type":"perso",
             "animation": "bottom",
             "index": 1
         },
         {
-            "path":"../assetsTemp/bottom_1.png",
+            "path":"../assetsTemp/player_bottom_1.png",
             "type":"perso",
             "animation": "bottom",
             "index": 2
         },
         {
-            "path":"../assetsTemp/bottom_4.png",
+            "path":"../assetsTemp/player_bottom_4.png",
             "type":"perso",
             "animation": "bottom",
             "index": 3
         },
         {
-            "path":"../assetsTemp/left_1.png",
+            "path":"../assetsTemp/player_left_1.png",
             "type":"perso",
             "animation": "left",
             "index": 0
         },
         {
-            "path":"../assetsTemp/left_2.png",
+            "path":"../assetsTemp/player_left_2.png",
             "type":"perso",
             "animation": "left",
             "index": 1
         },
         {
-            "path":"../assetsTemp/left_1.png",
+            "path":"../assetsTemp/player_left_1.png",
             "type":"perso",
             "animation": "left",
             "index": 2
         },
         {
-            "path":"../assetsTemp/left_4.png",
+            "path":"../assetsTemp/player_left_4.png",
             "type":"perso",
             "animation": "left",
             "index": 3
         },
         {
-            "path":"../assetsTemp/right_1.png",
+            "path":"../assetsTemp/player_right_1.png",
             "type":"perso",
             "animation": "right",
             "index": 0
         },
         {
-            "path":"../assetsTemp/right_2.png",
+            "path":"../assetsTemp/player_right_2.png",
             "type":"perso",
             "animation": "right",
             "index": 1
         },
         {
-            "path":"../assetsTemp/right_1.png",
+            "path":"../assetsTemp/player_right_1.png",
             "type":"perso",
             "animation": "right",
             "index": 2
         },
         {
-            "path":"../assetsTemp/right_4.png",
+            "path":"../assetsTemp/player_right_4.png",
             "type":"perso",
             "animation": "right",
             "index": 3

@@ -68,7 +68,7 @@ let river_horizontal;
 let river_vertical;
 
 //Debuger Variable
-let drawCollision = false;
+let drawCollision = true;
 
 
 
