@@ -6,14 +6,14 @@
         "nbRow":11,
         "nbColumn":11,
         "layers":[
-            [0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0],
-            [0,0,0,1,0,0,0,0],
-            [0,0,0,1,0,0,0,0],
-            [0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0]
+            [{"tile":2,"rotation":0},{"tile":0,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":4,"rotation":0},{"tile":2,"rotation":0}]
         ]
         
     }

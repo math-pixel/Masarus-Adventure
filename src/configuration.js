@@ -6,16 +6,16 @@ let assetsLoaded = false;
 let numberAssetsLoading = 0;
 let numberLoad = 4;
 
-//moteur de jeu
-let engine = "engine1";
+//current engine
+let engine = "engine2";
 
-// map
+// map engine 1
 let ArrayWorldDisplay = [];
 
 let sideCarrousel;
 
-let xStartWorld1 = 250;
-let yStartWorld1 = 250;
+let xStartWorld1 = 0;
+let yStartWorld1 = 0;
 
 let worldBoncing = []; //[x,y,w,h]
 
@@ -24,9 +24,13 @@ let nbColumn;
 
 let currentMap = "tour"; // pour set le world a cette map la 
 
+// map engine 2
+let xStartWorld2 = 250;
+let yStartWorld2 = 35;
+
 //perso
 let xPlayer = 500;
-let yPlayer = 500;
+let yPlayer = 281;
 
 // animation player
 let playerTileSet = [];
@@ -39,7 +43,7 @@ let animRight = [];
 let animLeft = [];
 
 // cam 
-let Hcam = 400;
+let Hcam = 500;
 let Wcam = Hcam * (16/9);
 let Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
 let Ycam = (yPlayer + 20 / 2) - Hcam/2;
@@ -56,9 +60,23 @@ let path_corner_topRight;
 let path_horizontal;
 let path_vertical;
 let fence_horizontal;
+let river_corner_bottomLeft;
+let river_corner_bottomRight;
+let river_corner_topLeft;
+let river_corner_topRight;
+let river_horizontal;
+let river_vertical;
+
+// tileSet Engine 2
+let pipe_corner ;
+let pipe_straight ;
+let pipe_tri ;
+let pipe_start;
+let pipe_end;
+
 
 //Debuger Variable
-let drawCollision = false;
+let drawCollision = true;
 
 
 
@@ -180,6 +198,64 @@ function loading(assetArray){
                             fence_horizontal = e
                         })
                         break;
+                        //? ###############
+                    case "river_corner_bottomLeft":
+                        loadImage(elm.path, (e) => {
+                            river_corner_bottomLeft = e
+                        })
+                        break;
+                    case "river_corner_bottomRight":
+                        loadImage(elm.path, (e) => {
+                            river_corner_bottomRight = e
+                        })
+                        break;
+                    case "river_corner_topLeft":
+                        loadImage(elm.path, (e) => {
+                            river_corner_topLeft = e
+                        })
+                        break;
+                    case "river_corner_topRight":
+                        loadImage(elm.path, (e) => {
+                            river_corner_topRight = e
+                        })
+                        break;
+                    case "river_horizontal":
+                        loadImage(elm.path, (e) => {
+                            river_horizontal = e
+                        })
+                        break;
+                    case "river_vertical":
+                        loadImage(elm.path, (e) => {
+                            river_vertical = e
+                        })
+                        break;
+                    case "pipe_corner":
+                        loadImage(elm.path, (e) => {
+                            pipe_corner = e
+                        })
+                        break;
+                    case "pipe_straight":
+                        loadImage(elm.path, (e) => {
+                            pipe_straight = e
+                        })
+                        break;
+                    case "pipe_tri":
+                        loadImage(elm.path, (e) => {
+                            pipe_tri = e
+                        })
+                        break;
+                    case "pipe_start":
+                        loadImage(elm.path, (e) => {
+                            pipe_start = e
+                        })
+                        break;
+                    case "pipe_end":
+                        loadImage(elm.path, (e) => {
+                            pipe_end = e
+                        })
+                        break;
+    
+
                 }
                 break;
 
