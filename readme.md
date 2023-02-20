@@ -3,7 +3,7 @@
 
 # <p align="center">Masaru' adventure</p>
 
-<img src="http://www.noelshack.com/2023-08-1-1676929484-rocket-racon.jpg" style="height:400px, border-radius: 30px">
+<img src="https://zupimages.net/viewer.php?id=23/08/31vj.png" style="height:400px, border-radius: 30px">
 
 </div>
 
