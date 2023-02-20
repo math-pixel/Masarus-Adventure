@@ -1,7 +1,7 @@
 <div align="center"> 
 
 
-# <p align="center">Masaru' adventure</p>
+# <p align="center">Masaru's adventure</p>
 
 <img src="https://www.zupimages.net/up/23/08/31vj.png" style="height:400px, border-radius: 30px">
 
