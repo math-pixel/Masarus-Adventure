@@ -50,7 +50,7 @@ function mousePressed() {
     if (pointIsInside(mouseX,mouseY, [xStartWorld2 - sideCarrousel / 2, yStartWorld2 - sideCarrousel / 2 , xStartWorld2 + sideCarrousel * MapPipeGame.Map.layers[0].length, yStartWorld2 + sideCarrousel * MapPipeGame.Map.layers.length])) {
         currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
         
-        if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].tile !== 0 || MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].tile !== 4) { // != of start and end tile
+        if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].tile !== 0 && MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].tile !== 4) { // != of start and end tile
             if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation === 270) {
                 MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
             }else{
