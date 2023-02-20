@@ -4,41 +4,24 @@ function drawingGridPipeGame(x,y,w,h,array){
         for (let column = 0; column < array.length; column++) {
 
             switch(array[column][row].tile){
-                case 0: {
-                    currentDrawingImage = alphaImg;
+                case 0:{
+                    currentDrawingImage = pipe_start;
                     break;
                 }case 1:{
-                    currentDrawingImage = grass_main;
+                    currentDrawingImage = pipe_corner;
                     break;
                 }case 2:{
-                    currentDrawingImage = path_corner_bottomLeft;
-                    break;
-                }case 3:{
-                    currentDrawingImage = path_corner_bottomRight;
-                    break;
-                }case 4:{
-                    currentDrawingImage = path_corner_topLeft;
-                    break;
-                }case 5:{
-                    currentDrawingImage = path_corner_topRight;
-                    break;
-                }case 6:{
-                    currentDrawingImage = path_horizontal;
-                    break;
-                }case 7:{
-                    currentDrawingImage = path_vertical;
-                    break;
-                }case 8:{
-                    currentDrawingImage = fence_horizontal;
-                    break;
-                }case 9:{
-                    currentDrawingImage = river_corner_bottomLeft;
-                    break;
-                }case 10:{
-                    currentDrawingImage = river_corner_bottomRight;
+                    currentDrawingImage = pipe_straight;
                     break;
                 }
-            }
+                case 3:{
+                    currentDrawingImage = pipe_tri;
+                    break;
+                }case 4:{
+                    currentDrawingImage = pipe_end;
+                    break;
+                }
+            }   
 
             angleMode(DEGREES);
             push()
@@ -67,11 +50,13 @@ function mousePressed() {
     if (pointIsInside(mouseX,mouseY, [xStartWorld2 - sideCarrousel / 2, yStartWorld2 - sideCarrousel / 2 , xStartWorld2 + sideCarrousel * MapPipeGame.Map.layers[0].length, yStartWorld2 + sideCarrousel * MapPipeGame.Map.layers.length])) {
         currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
         
-        if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation === 270) {
-            MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
-        }else{
-            MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation += 90;
+        if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].tile !== 0 || MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].tile !== 4) { // != of start and end tile
+            if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation === 270) {
+                MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
+            }else{
+                MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation += 90;
+            }
         }
-    
+
     }
 }

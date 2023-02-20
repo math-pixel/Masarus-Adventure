@@ -7,7 +7,7 @@ let numberAssetsLoading = 0;
 let numberLoad = 4;
 
 //current engine
-let engine = "engine1";
+let engine = "engine2";
 
 // map engine 1
 let ArrayWorldDisplay = [];
@@ -25,8 +25,8 @@ let nbColumn;
 let currentMap = "tour"; // pour set le world a cette map la 
 
 // map engine 2
-let xStartWorld2 = 195;
-let yStartWorld2 = -30;
+let xStartWorld2 = 250;
+let yStartWorld2 = 35;
 
 //perso
 let xPlayer = 500;
@@ -66,6 +66,14 @@ let river_corner_topLeft;
 let river_corner_topRight;
 let river_horizontal;
 let river_vertical;
+
+// tileSet Engine 2
+let pipe_corner ;
+let pipe_straight ;
+let pipe_tri ;
+let pipe_start;
+let pipe_end;
+
 
 //Debuger Variable
 let drawCollision = true;
@@ -221,6 +229,32 @@ function loading(assetArray){
                             river_vertical = e
                         })
                         break;
+                    case "pipe_corner":
+                        loadImage(elm.path, (e) => {
+                            pipe_corner = e
+                        })
+                        break;
+                    case "pipe_straight":
+                        loadImage(elm.path, (e) => {
+                            pipe_straight = e
+                        })
+                        break;
+                    case "pipe_tri":
+                        loadImage(elm.path, (e) => {
+                            pipe_tri = e
+                        })
+                        break;
+                    case "pipe_start":
+                        loadImage(elm.path, (e) => {
+                            pipe_start = e
+                        })
+                        break;
+                    case "pipe_end":
+                        loadImage(elm.path, (e) => {
+                            pipe_end = e
+                        })
+                        break;
+    
 
                 }
                 break;

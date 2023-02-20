@@ -182,6 +182,32 @@
             "path":"../assets/river_vertical.png",
             "type":"map",
             "tileName": "river_vertical"
+        },
+        {
+            "path":"../assets/pipe_corner.png",
+            "type":"map",
+            "tileName": "pipe_corner"
+        },
+        {
+            "path":"../assets/pipe_straight.png",
+            "type":"map",
+            "tileName": "pipe_straight"
+        },
+        {
+            "path":"../assets/pipe_tri.png",
+            "type":"map",
+            "tileName": "pipe_tri"
+        },
+        {
+            "path":"../assets/pipe_start.png",
+            "type":"map",
+            "tileName": "pipe_start"
+        },
+        {
+            "path":"../assets/pipe_end.png",
+            "type":"map",
+            "tileName": "pipe_end"
         }
+
     ]
 }
