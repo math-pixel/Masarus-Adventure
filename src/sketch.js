@@ -29,4 +29,23 @@ function draw(){
                 throw new Error("engine error")
         }
     }
+
+    if (keyIsDown(keyCode === UP_ARROW)) {
+        if (engine === "engine1") {
+            engine = "engine2"
+        }else{
+            engine = "engine1"
+        }
+    }
 }
+
+function keyPressed() {
+    if (keyCode === 69) {
+        if (engine === "engine1") {
+            engine = "engine2"
+        }else{
+            engine = "engine1"
+        }
+    }
+    
+  }
