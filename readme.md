@@ -3,7 +3,7 @@
 
 # <p align="center">Masaru' adventure</p>
 
-<img src="https://zupimages.net/viewer.php?id=23/08/31vj.png" style="height:400px, border-radius: 30px">
+<img src="[https://zupimages.net/viewer.php?id=23/08/31vj.png](https://www.zupimages.net/up/23/08/31vj.png)" style="height:400px, border-radius: 30px">
 
 </div>
 
