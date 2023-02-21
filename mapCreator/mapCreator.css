@@ -1,0 +1,11 @@
+.bloc{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+
+    border-radius: 10px;
+    border: solid black 2px;
+}
