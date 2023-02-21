@@ -119,44 +119,44 @@ document.getElementById("SideX").addEventListener(('change') , (e)=>{
     feetWallpaperToGrid()
 });
 
-document.getElementById("StartX").addEventListener(('change') , (e)=>{
-    startX = parseInt(e.target.value);
-    feetWallpaperToGrid()
-});
+// document.getElementById("StartX").addEventListener(('change') , (e)=>{
+//     startX = parseInt(e.target.value);
+//     feetWallpaperToGrid()
+// });
 
-document.getElementById("StartY").addEventListener(('change') , (e)=>{
-    startY = parseInt(e.target.value);
-    feetWallpaperToGrid()
-});
+// document.getElementById("StartY").addEventListener(('change') , (e)=>{
+//     startY = parseInt(e.target.value);
+//     feetWallpaperToGrid()
+// });
 
-document.getElementById("SideX_Wallpaper").addEventListener(('input') , (e)=>{
-    widthCanvas = parseInt(e.target.value);
-    ResizeCanvas(widthCanvas,heightCanvas);
-    document.getElementById("text1").value = e.target.value; 
-});
+// document.getElementById("SideX_Wallpaper").addEventListener(('input') , (e)=>{
+//     widthCanvas = parseInt(e.target.value);
+//     ResizeCanvas(widthCanvas,heightCanvas);
+//     document.getElementById("text1").value = e.target.value; 
+// });
 
-document.getElementById("SideY_Wallpaper").addEventListener(('input') , (e)=>{
-    heightCanvas = parseInt(e.target.value);
-    ResizeCanvas(widthCanvas,heightCanvas);
-    document.getElementById("text2").value = e.target.value
-});
+// document.getElementById("SideY_Wallpaper").addEventListener(('input') , (e)=>{
+//     heightCanvas = parseInt(e.target.value);
+//     ResizeCanvas(widthCanvas,heightCanvas);
+//     document.getElementById("text2").value = e.target.value
+// });
 
-document.getElementById("text1").addEventListener(('change'), (e)=>{
-    widthCanvas = e.target.value;
-    document.getElementById("SideX_Wallpaper").value = widthCanvas
-    ResizeCanvas(widthCanvas,heightCanvas);
+// document.getElementById("text1").addEventListener(('change'), (e)=>{
+//     widthCanvas = e.target.value;
+//     document.getElementById("SideX_Wallpaper").value = widthCanvas
+//     ResizeCanvas(widthCanvas,heightCanvas);
     
-});
+// });
 
-document.getElementById("text2").addEventListener(('change'), (e)=>{
-    heightCanvas = e.target.value;
-    document.getElementById("SideY_Wallpaper").value = heightCanvas
-    ResizeCanvas(widthCanvas,heightCanvas);
-})
+// document.getElementById("text2").addEventListener(('change'), (e)=>{
+//     heightCanvas = e.target.value;
+//     document.getElementById("SideY_Wallpaper").value = heightCanvas
+//     ResizeCanvas(widthCanvas,heightCanvas);
+// })
 
-document.getElementById("valueTiles").addEventListener(('change'), (e) => {
+// document.getElementById("valueTiles").addEventListener(('change'), (e) => {
     
-})
+// })
 
 // #############################
 // ##### Export / import #######
@@ -218,7 +218,7 @@ function createGrid(maxColumn, maxRow){
         for (let row = 0; row < maxRow; row++) {
             Grid[column].push(0);
             
-            console.log(Grid[row])            
+            // console.log(Grid[row])            
         }
     }
 }
@@ -280,11 +280,11 @@ function feetWallpaperToGrid(){
     widthCanvas = widthGrid * nb_row;
     heightCanvas = heightGrid * nb_column;
 
-    document.getElementById("SideX_Wallpaper").value = widthCanvas
-    document.getElementById("SideY_Wallpaper").value = heightCanvas
+    // document.getElementById("SideX_Wallpaper").value = widthCanvas
+    // document.getElementById("SideY_Wallpaper").value = heightCanvas
 
-    document.getElementById("text1").value = widthCanvas; 
-    document.getElementById("text2").value = heightCanvas; 
+    // document.getElementById("text1").value = widthCanvas; 
+    // document.getElementById("text2").value = heightCanvas; 
 
     ResizeCanvas(widthCanvas,heightCanvas);
 }
@@ -383,3 +383,29 @@ function displayArray(array){
 
     return strArray;
 }
+
+
+
+function previewImage() {
+    var file = document.getElementById("file").files
+    if (file.length > 0) {
+        var fileReader = new FileReader()
+
+        fileReader.onload = function (event) {
+            document.getElementById("preview").setAttribute("src", event.target.result)
+
+            console.log("operation reussis")
+            // cutImage(event.target.result)
+        }
+
+       
+    }
+
+    
+}
+
+// function cutImage(img){
+//     let tileSizeCut = document.getElementById("Pixel_Side").value
+//     let a = assets.get(0, 0, tileSizeCut, tileSizeCut) ;
+
+// }
