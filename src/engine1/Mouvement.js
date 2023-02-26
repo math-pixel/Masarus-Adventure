@@ -8,6 +8,17 @@ let RIGHTPlayer;
 let LEFTPlayer;
 let BOTTOMPlayer;
 
+let StrMap;
+let valueTop;
+let valueDown;
+let valueLeft;
+let valueRight;
+
+let collisionX;
+let collisionY;
+
+
+
 //? set rectBoncingPlayer % of player rect
 let rectBoncingPlayer = createNewRect(xPlayer,yPlayer, sideCarrousel,sideCarrousel, 0.5);
 
@@ -22,117 +33,179 @@ function canMoveMap(){
 }
 
 function canPlayerMove(playerRect, Direction){
-
     
-    
-    //? get the current map layer where the player is on the world
-    let TopLeftInWorld = findIndexOfPositionIn2dArray(playerRect[0],
-                                                      playerRect[1],
-                                                      world1.World,
-                                                      sideCarrousel * nbColumn ,sideCarrousel * nbRow,xStartWorld1,
-                                                      yStartWorld1,
-                                                      "world");
 
-    let TopRightInWorld = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
-                                                       playerRect[1],
-                                                       world1.World,
-                                                       sideCarrousel * nbRow,sideCarrousel * nbColumn,xStartWorld1,
-                                                       yStartWorld1,
-                                                       "map");
-
-    let BottomLeftInWorld = findIndexOfPositionIn2dArray(playerRect[0],
-                                                                             playerRect[1] + playerRect[3],
-                                                                             world1.World,
-                                                                             sideCarrousel * nbRow,sideCarrousel * nbColumn,
-                                                                             xStartWorld1,
-                                                                             yStartWorld1,
-                                                                             "map");
-
-    let BottomRightInWorld = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
-                                                          playerRect[1] + playerRect[3],
-                                                          world1.World,
-                                                          sideCarrousel * nbRow,
-                                                          sideCarrousel * nbColumn,
-                                                          xStartWorld1,
-                                                          yStartWorld1,
-                                                          "map");
-
-
-    //? get index point on the current map 
-    let TopLeft = findIndexOfPositionIn2dArray(playerRect[0],
-                                               playerRect[1],
-                                               Maps[world1.World[TopLeftInWorld[1]][TopLeftInWorld[0]]].layers[0],
-                                               sideCarrousel,
-                                               sideCarrousel,
-                                               xStartWorld1  + TopLeftInWorld[0] * sideCarrousel * nbRow,
-                                               yStartWorld1 + TopLeftInWorld[1] * sideCarrousel * nbColumn,
-                                               "perso");
-    
-    let TopRight = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
-                                                playerRect[1],
-                                                Maps[world1.World[TopRightInWorld[1]][TopRightInWorld[0]]].layers[0],
-                                                sideCarrousel,
-                                                sideCarrousel,
-                                                xStartWorld1  + TopRightInWorld[0] * sideCarrousel * nbRow,
-                                                yStartWorld1 + TopRightInWorld[1] * sideCarrousel * nbColumn,
-                                                "perso");
-
-    let BottomLeft = findIndexOfPositionIn2dArray(playerRect[0],
-                                                  playerRect[1] + playerRect[3],
-                                                  Maps[world1.World[BottomLeftInWorld[1]][BottomLeftInWorld[0]]].layers[0],
-                                                  sideCarrousel,
-                                                  sideCarrousel,
-                                                  xStartWorld1  + BottomLeftInWorld[0] * sideCarrousel * nbRow,
-                                                  yStartWorld1 + BottomLeftInWorld[1] * sideCarrousel * nbColumn,
-                                                  "perso");
-
-    let BottomRight = findIndexOfPositionIn2dArray(playerRect[0] + playerRect[2],
-                                                   playerRect[1] + playerRect[3],
-                                                   Maps[world1.World[BottomRightInWorld[1]][BottomRightInWorld[0]]].layers[0] ,
-                                                   sideCarrousel,
-                                                   sideCarrousel,
-                                                   xStartWorld1  + BottomRightInWorld[0] * sideCarrousel * nbRow ,
-                                                   yStartWorld1 + BottomRightInWorld[1] * sideCarrousel * nbColumn,
-                                                   "perso");
-    
+    let nextBlockIsCollision = collisionWithArray(playerRect, Direction)
 
     //? return if can move
     switch(Direction){
         case "TOP":
-            if (Maps[world1.World[TopLeftInWorld[1]][TopLeftInWorld[0]]].collision[TopLeft[1]][TopLeft[0]] === 1 || Maps[world1.World[TopRightInWorld[1]][TopRightInWorld[0]]].collision[TopRight[1]][TopRight[0]] === 1) {
-                return false;
+            if (nextBlockIsCollision) {
+                if(collisionPixel(collisionX, collisionY, playerRect)){
+                    return false
+                }else{
+                    return true
+                }
             }else{
                 return true
             }
-            break;
         case "BOTTOM":
-            if (Maps[world1.World[BottomLeftInWorld[1]][BottomLeftInWorld[0]]].collision[BottomLeft[1]][BottomLeft[0]] === 1 || Maps[world1.World[BottomRightInWorld[1]][BottomRightInWorld[0]]].collision[BottomRight[1]][BottomRight[0]] === 1) {
-                return false;
+            if (nextBlockIsCollision) {
+                if(collisionPixel(collisionX, collisionY, playerRect)){
+                    return false
+                }else{
+                    return true
+                }
             }else{
                 return true
             }
-            break;
         case "LEFT":
-            if (Maps[world1.World[TopLeftInWorld[1]][TopLeftInWorld[0]]].collision[TopLeft[1]][TopLeft[0]] === 1 || Maps[world1.World[BottomLeftInWorld[1]][BottomLeftInWorld[0]]].collision[BottomLeft[1]][BottomLeft[0]] === 1) {
-                return false;
+            if (nextBlockIsCollision) {
+                if(collisionPixel(collisionX, collisionY, playerRect)){
+                    return false
+                }else{
+                    return true
+                }
             }else{
                 return true
             }
-            break;
         case "RIGHT":
-            if (Maps[world1.World[BottomRightInWorld[1]][BottomRightInWorld[0]]].collision[BottomRight[1]][BottomRight[0]] === 1 || Maps[world1.World[TopRightInWorld[1]][TopRightInWorld[0]]].collision[TopRight[1]][TopRight[0]] === 1) {
-                return false;
+            if (nextBlockIsCollision) {
+                if(collisionPixel(collisionX, collisionY, playerRect)){
+                    return false
+                }else{
+                    return true
+                }
             }else{
                 return true
             }
-            break;
     }
+}
+
+function collisionPixel(xStartCollision, yStartCollision, playerRect){
+    console.log( [xStartCollision,yStartCollision,sideCarrousel,sideCarrousel], mouseX, mouseY    )
+    return rectIsInRect([xStartCollision,yStartCollision,sideCarrousel,sideCarrousel] , playerRect )
+}
+
+function collisionWithArray(playerRect, Direction){
+
+    let centerOfPlayer = getCenterOfRect(playerRect)
+    let CenterInWorld = findIndexOfPositionIn2dArray(centerOfPlayer[0],
+                                                    centerOfPlayer[1],
+                                                    world1.World,
+                                                    sideCarrousel * nbColumn ,sideCarrousel * nbRow,xStartWorld1,
+                                                    yStartWorld1,
+                                                    "world");
+    
+    if (drawCollision) {
+        fill(0,0,255)
+        rect(centerOfPlayer[0], centerOfPlayer[1], 5,5)
+    }
+
+    let Center = findIndexOfPositionIn2dArray(centerOfPlayer[0],
+                                            centerOfPlayer[1],
+                                            Maps[world1.World[CenterInWorld[1]][CenterInWorld[0]]].layers[0],
+                                            sideCarrousel,
+                                            sideCarrousel,
+                                            xStartWorld1  + CenterInWorld[0] * sideCarrousel * nbRow,
+                                            yStartWorld1 + CenterInWorld[1] * sideCarrousel * nbColumn,
+                                            "perso");
+
+
+    StrMap = world1.World[CenterInWorld[1]][CenterInWorld[0]];
+
+    switch(Direction){
+        case "TOP":
+            //! UP
+            if (StrMap != undefined && Center[1] - 1 >= 0) {
+                valueTop = Maps[StrMap].collision[Center[1] - 1][Center[0]];
+
+                collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0] +  Center[0] * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1] +  (Center[1] - 1) * sideCarrousel;
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+            }else if(Maps[world1.World[CenterInWorld[1] - 1][CenterInWorld[0]]]){
+                valueTop = Maps[world1.World[CenterInWorld[1] - 1][CenterInWorld[0]]].collision[10][Center[0]];
+
+                collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] - 1 ) +  10 * sideCarrousel;
+
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+            }
+
+            return valueTop
+        case "BOTTOM":
+            //! DOWN
+            if (StrMap != undefined && Center[1] + 1 <= 10) {
+                valueDown = Maps[StrMap].collision[Center[1] + 1][Center[0]];
+
+                collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  ( Center[1] + 1 ) * sideCarrousel;
+                
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+
+            }else if(Maps[world1.World[CenterInWorld[1] + 1][CenterInWorld[0]]] != undefined){
+                valueDown = Maps[world1.World[CenterInWorld[1] + 1][CenterInWorld[0]]].collision[0][Center[0]];
+
+                collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] + 1 )  +  0 * sideCarrousel;
+                
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+            }
+            return valueDown
+        case "LEFT":
+            //! LEFT
+            if (StrMap != undefined && Center[0] - 1 >= 0) {
+                valueLeft = Maps[StrMap].collision[Center[1]][Center[0] - 1];
+        
+                collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] - 1 ) * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
+        
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+            }else if (Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] - 1 ]] != undefined){
+                valueLeft = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] - 1 ]].collision[Center[1]][10];
+        
+                collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] - 1 )  +  10 * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
+        
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+            }
+
+            return valueLeft
+        case "RIGHT":
+            //! RIGHT
+            if(StrMap != undefined && Center[0] + 1 <= 10){
+                valueRight = Maps[StrMap].collision[Center[1] ][Center[0] + 1];
+                
+                collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] + 1 ) * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
+
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+            }else{
+                valueRight = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] + 1 ]].collision[Center[1] ][0];
+
+                collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] + 1 )  +  0 * sideCarrousel;
+                collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
+
+                fill(255,150,0);
+                rect(collisionX,collisionY , 10,10);
+            }
+
+            return valueRight;
+    }
+
 }
 
 
 function moveMap() {
 
-    rectBoncingPlayer = createNewRect(xPlayer,yPlayer, sideCarrousel,sideCarrousel, 0.5)
+    rectBoncingPlayer = [xPlayer,yPlayer,sideCarrousel,sideCarrousel]//createNewRect(xPlayer,yPlayer, sideCarrousel,sideCarrousel, 0.5)
     
     if (drawCollision) {
         fill(255,0,0,80)
