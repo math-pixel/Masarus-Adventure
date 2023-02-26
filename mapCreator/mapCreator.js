@@ -29,6 +29,11 @@ let valueTiles = 0;
 
 let imgTest;
 
+let tileSet;
+let allTiles = [];
+
+let currentTileDrawing = 0;
+
 //#endregion
 // #############################
 // ########### Test ############
@@ -131,27 +136,27 @@ document.getElementById("SideX").addEventListener(('change') , (e)=>{
 
 // document.getElementById("SideX_Wallpaper").addEventListener(('input') , (e)=>{
 //     widthCanvas = parseInt(e.target.value);
-//     ResizeCanvas(widthCanvas,heightCanvas);
+//     //ResizeCanvas(widthCanvas,heightCanvas);
 //     document.getElementById("text1").value = e.target.value; 
 // });
 
 // document.getElementById("SideY_Wallpaper").addEventListener(('input') , (e)=>{
 //     heightCanvas = parseInt(e.target.value);
-//     ResizeCanvas(widthCanvas,heightCanvas);
+//     //ResizeCanvas(widthCanvas,heightCanvas);
 //     document.getElementById("text2").value = e.target.value
 // });
 
 // document.getElementById("text1").addEventListener(('change'), (e)=>{
 //     widthCanvas = e.target.value;
 //     document.getElementById("SideX_Wallpaper").value = widthCanvas
-//     ResizeCanvas(widthCanvas,heightCanvas);
+//     //ResizeCanvas(widthCanvas,heightCanvas);
     
 // });
 
 // document.getElementById("text2").addEventListener(('change'), (e)=>{
 //     heightCanvas = e.target.value;
 //     document.getElementById("SideY_Wallpaper").value = heightCanvas
-//     ResizeCanvas(widthCanvas,heightCanvas);
+//     //ResizeCanvas(widthCanvas,heightCanvas);
 // })
 
 // document.getElementById("valueTiles").addEventListener(('change'), (e) => {
@@ -192,7 +197,7 @@ function preload() {
 }
 
 function setup(){
-    canvas = createCanvas(400,400);
+    canvas = createCanvas(2000,1000);
     createGrid(nb_column, nb_row);
     // image(image_custom, 0, 0);
 }
@@ -203,6 +208,7 @@ function draw(){
     // image_custom.resize(widthCanvas, heightCanvas);
     
     coordGrid = drawGrid(startX, startY, widthGrid, heightGrid, nb_column, nb_row);
+
 }
 
 
@@ -230,16 +236,22 @@ function drawGrid(x,y,w,h,maxColumn, maxRow){
     for (let row = 0; row < maxRow; row++) {
         for (let column = 0; column < maxColumn; column++) {
 
-            if(Grid[column][row] === 0){
-                fill(color(255, 255, 255, 50));
-            }if (Grid[column][row] === 2) {
-                fill(color(255, 0, 0, 80));
-            }if(Grid[column][row] === 1 ){
+            // if(Grid[column][row] === 0){
+            //     fill(color(255, 255, 255, 50));
+            // }if (Grid[column][row] === 2) {
+            //     fill(color(255, 0, 0, 80));
+            // }if(Grid[column][row] === 1 ){
                 
-                let a = image(imgTest, x+w*row,y+h*column, w, h)
-                
+            //     // let a = image(imgTest, x+w*row,y+h*column, w, h)  
+            // }
+            if (allTiles[Grid[column][row]]) {
+                image(allTiles[Grid[column][row]], x+w*row,y+h*column, w, h)
+                console.log("yey")
+            }else{
+                rect(x+w*row,y+h*column,w,h);  
             }
-            
+
+            fill(color(255, 255, 255, 20))
             rect(x+w*row,y+h*column,w,h);       
         }
     }
@@ -262,13 +274,13 @@ function clearGrid(){
 // #############################
 
 function ResizeCanvas(x,y){
-    resizeCanvas(x, y, true);
+    //ResizeCanvas(x, y, true);
 }
 
 function setCarrousel(x,y){
     console.log([x,y])
     if (mouseButton === LEFT) {
-        Grid[x][y] = 1;
+        Grid[x][y] = currentTileDrawing;
     }
     if (mouseButton === RIGHT) {
         Grid[x][y] = 0;
@@ -286,7 +298,7 @@ function feetWallpaperToGrid(){
     // document.getElementById("text1").value = widthCanvas; 
     // document.getElementById("text2").value = heightCanvas; 
 
-    ResizeCanvas(widthCanvas,heightCanvas);
+    //ResizeCanvas(widthCanvas,heightCanvas);
 }
 
 
@@ -384,25 +396,64 @@ function displayArray(array){
     return strArray;
 }
 
-
-
-function previewImage() {
-    var file = document.getElementById("file").files
-    if (file.length > 0) {
-        var fileReader = new FileReader()
-
-        fileReader.onload = function (event) {
-            document.getElementById("preview").setAttribute("src", event.target.result)
-
-            console.log("operation reussis")
-            // cutImage(event.target.result)
-        }
-
-       
-    }
-
+const preview = document.getElementById('preview');
+function previewFile() {
     
+    const file = document.getElementById('file').files[0];
+    const reader = new FileReader();
+  
+    reader.addEventListener("load", () => {
+      // convert image file to base64 string
+      preview.src = reader.result;
+    //   console.log(reader.result)
+
+      tileSet =  loadImage(`${reader.result}`)
+
+    }, false);
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
+
+  function needCutTile(){
+    // let a = document.getElementById("Pixel_Side").value
+
+    allTiles = cutTiles(tileSet, a);
+    // console.log(allTiles[0].canvas.toDataURL())
+    
+    // preview.src = allTiles[0].canvas.toDataURL();
+
+    // createImg(allTiles[0])
+    //create ELEMENENT
+    let parent = document.getElementById("parent")
+
+    allTiles.forEach((currentTile, index) => {
+        let child = `<div class="bloc"><input type="text" value="${index}" id="valueTiles"><img src="${currentTile.canvas.toDataURL()}" alt="" class="img_visualization"><button class="TileSelected" id="TileSelected" value="${index}" onclick="selectTile(parseInt(this.value))">Select Tiles</button></div>`
+        parent.innerHTML += child
+    })
+  }
+
+  function cutTiles(image, tilesSize) {
+    let tilesArray = []
+    const tilesNumberWidth = image.width / tilesSize
+    const tilesNumberHeigth = image.height / tilesSize
+    for (let h = 0; h < tilesNumberHeigth; h++) {
+        for (let w = 0; w < tilesNumberWidth; w++) {
+            let newTile;
+            newTile = image.get(w * tilesSize, h * tilesSize, tilesSize, tilesSize)
+            // console.log(newTile)
+            tilesArray.push(newTile)
+        }
+    }
+    return tilesArray
 }
+
+function selectTile(currentTile){
+    currentTileDrawing = currentTile;
+}
+
 
 // function cutImage(img){
 //     let tileSizeCut = document.getElementById("Pixel_Side").value

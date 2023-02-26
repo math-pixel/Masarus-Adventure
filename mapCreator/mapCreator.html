@@ -73,16 +73,19 @@
             <input type="number" id="Pixel_Side" name="X">
 
             
-            <input type="file" name="file" id="file" accept="image/*" onchange="previewImage();">
+            <input type="file" name="file" id="file" accept="image/*" onchange="previewFile();">
             <img id="preview" style="max-height: 50px; width: auto;">
+            <input type="button" value="cut" id="cut" onclick="needCutTile()">
         </div>
         
     </fieldset>
 
-    <fieldset style="display: flex;">
+    <fieldset style="display: flex;" id="Paint">
         <legend>Paint</legend>
 
         <button onclick="clearGrid()">Clear Grid</button>
+
+        <div id="parent" style="display: flex; overflow-x: scroll ; width: 1500px;"></div>
 
         <!-- <div class="bloc">
             <input type="text" placeholder="value ( voir avec vos dev )" id="valueTiles">
