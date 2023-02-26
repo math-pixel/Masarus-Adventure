@@ -146,3 +146,19 @@ function rectIsInRect(rect1, rect2) {
     }
     return false
 }
+
+// This Function cut an image in tiles and return a array with all tiles
+// Can be used for the game and also for the mapCreator
+function cutTiles(image, tilesSize) {
+    let tilesArray = []
+    const tilesNumberWidth = image.width / tilesSize
+    const tilesNumberHeigth = image.height / tilesSize
+    for (let h = 0; h < tilesNumberHeigth; h++) {
+        for (let w = 0; w < tilesNumberWidth; w++) {
+            let newTile;
+            newTile = image.get(w * tilesSize, h * tilesSize, tilesSize, tilesSize)
+            tilesArray.push(newTile)
+        }
+    }
+    return tilesArray
+}

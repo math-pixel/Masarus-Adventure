@@ -3,59 +3,8 @@ function drawingGrid(x,y,w,h,array){
     noStroke();
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
-
-            switch(array[column][row]){
-                case 0: {
-                    currentDrawingImage = alphaImg;
-                    break;
-                }case 1:{
-                    currentDrawingImage = grass_main;
-                    break;
-                }case 2:{
-                    currentDrawingImage = path_corner_bottomLeft;
-                    break;
-                }case 3:{
-                    currentDrawingImage = path_corner_bottomRight;
-                    break;
-                }case 4:{
-                    currentDrawingImage = path_corner_topLeft;
-                    break;
-                }case 5:{
-                    currentDrawingImage = path_corner_topRight;
-                    break;
-                }case 6:{
-                    currentDrawingImage = path_horizontal;
-                    break;
-                }case 7:{
-                    currentDrawingImage = path_vertical;
-                    break;
-                }case 8:{
-                    currentDrawingImage = fence_horizontal;
-                    break;
-                }case 9:{
-                    currentDrawingImage = river_corner_bottomLeft;
-                    break;
-                }case 10:{
-                    currentDrawingImage = river_corner_bottomRight;
-                    break;
-                }case 11:{
-                    currentDrawingImage = river_corner_topLeft;
-                    break;
-                }case 12:{
-                    currentDrawingImage = river_corner_topRight;
-                    break;
-                }case 13:{
-                    currentDrawingImage = river_horizontal;
-                    break;
-                }case 14:{
-                    currentDrawingImage = river_vertical;
-                    break;
-                }default :{
-                    throw new error("error d'image")
-                }
-            }
             
-            image(currentDrawingImage,x+w*row,y+h*column,w,h);
+            image(allTiles[array[column][row]],x+w*row,y+h*column,w,h);
             // rect(x+w*row,y+h*column,w,h);          
         }
     }

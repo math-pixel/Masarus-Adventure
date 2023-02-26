@@ -122,16 +122,22 @@ function collisionWithArray(playerRect, Direction){
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0] +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1] +  (Center[1] - 1) * sideCarrousel;
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
+                
             }else if(Maps[world1.World[CenterInWorld[1] - 1][CenterInWorld[0]]]){
                 valueTop = Maps[world1.World[CenterInWorld[1] - 1][CenterInWorld[0]]].collision[10][Center[0]];
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] - 1 ) +  10 * sideCarrousel;
 
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
             }
 
             return valueTop
@@ -143,8 +149,10 @@ function collisionWithArray(playerRect, Direction){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  ( Center[1] + 1 ) * sideCarrousel;
                 
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
 
             }else if(Maps[world1.World[CenterInWorld[1] + 1][CenterInWorld[0]]] != undefined){
                 valueDown = Maps[world1.World[CenterInWorld[1] + 1][CenterInWorld[0]]].collision[0][Center[0]];
@@ -152,8 +160,10 @@ function collisionWithArray(playerRect, Direction){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] + 1 )  +  0 * sideCarrousel;
                 
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
             }
             return valueDown
         case "LEFT":
@@ -164,16 +174,20 @@ function collisionWithArray(playerRect, Direction){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] - 1 ) * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
         
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
             }else if (Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] - 1 ]] != undefined){
                 valueLeft = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] - 1 ]].collision[Center[1]][10];
         
                 collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] - 1 )  +  10 * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
         
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
             }
 
             return valueLeft
@@ -185,16 +199,20 @@ function collisionWithArray(playerRect, Direction){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] + 1 ) * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
 
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
             }else{
                 valueRight = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] + 1 ]].collision[Center[1] ][0];
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] + 1 )  +  0 * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
 
-                fill(255,150,0);
-                rect(collisionX,collisionY , 10,10);
+                if (drawCollision) {
+                    fill(255,150,0);
+                    rect(collisionX,collisionY , 10,10);
+                }
             }
 
             return valueRight;

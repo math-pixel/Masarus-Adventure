@@ -31,6 +31,8 @@ let yStartWorld2 = 35;
 //perso
 let xPlayer = 500;
 let yPlayer = 281;
+let playerCanMoveX = false;
+let playerCanMoveY = false;
 
 // animation player
 let playerTileSet = [];
@@ -48,31 +50,14 @@ let Wcam = Hcam * (16/9);
 let Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
 let Ycam = (yPlayer + 20 / 2) - Hcam/2;
 
+let camCanMoveX = true;
+let camCanMoveY = false;
+
 let rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
 
 //Map TileSet
-let alphaImg;
-let grass_main;
-let path_corner_bottomLeft;
-let path_corner_bottomRight;
-let path_corner_topLeft;
-let path_corner_topRight;
-let path_horizontal;
-let path_vertical;
-let fence_horizontal;
-let river_corner_bottomLeft;
-let river_corner_bottomRight;
-let river_corner_topLeft;
-let river_corner_topRight;
-let river_horizontal;
-let river_vertical;
-
-// tileSet Engine 2
-let pipe_corner ;
-let pipe_straight ;
-let pipe_tri ;
-let pipe_start;
-let pipe_end;
+let tileSet;
+let allTiles = [];
 
 
 //Debuger Variable
@@ -152,111 +137,11 @@ function loading(assetArray){
                 
             //! ########### MAP TILE ASSETS
             case "map":
-                switch(elm.tileName){
-                    case "air":
-                        loadImage(elm.path, (e) => {
-                            alphaImg = e
-                        })
-                        break;
-                    case "grass_main":
-                        loadImage(elm.path, (e) => {
-                            grass_main = e
-                        })
-                        break;
-                    case "path_corner_bottomLeft":
-                        loadImage(elm.path, (e) => {
-                            path_corner_bottomLeft = e
-                        })
-                        break;
-                    case "path_corner_bottomRight":
-                        loadImage(elm.path, (e) => {
-                            path_corner_bottomRight = e
-                        })
-                        break;
-                    case "path_corner_topLeft":
-                        loadImage(elm.path, (e) => {
-                            path_corner_topLeft = e
-                        })
-                        break;
-                    case "path_corner_topRight":
-                        loadImage(elm.path, (e) => {
-                            path_corner_topRight = e
-                        })
-                        break;
-                    case "path_horizontal":
-                        loadImage(elm.path, (e) => {
-                            path_horizontal = e
-                        })
-                        break;
-                    case "path_vertical":
-                        loadImage(elm.path, (e) => {
-                            path_vertical = e
-                        })
-                        break;
-                    case "fence_horizontal":
-                        loadImage(elm.path, (e) => {
-                            fence_horizontal = e
-                        })
-                        break;
-                        //? ###############
-                    case "river_corner_bottomLeft":
-                        loadImage(elm.path, (e) => {
-                            river_corner_bottomLeft = e
-                        })
-                        break;
-                    case "river_corner_bottomRight":
-                        loadImage(elm.path, (e) => {
-                            river_corner_bottomRight = e
-                        })
-                        break;
-                    case "river_corner_topLeft":
-                        loadImage(elm.path, (e) => {
-                            river_corner_topLeft = e
-                        })
-                        break;
-                    case "river_corner_topRight":
-                        loadImage(elm.path, (e) => {
-                            river_corner_topRight = e
-                        })
-                        break;
-                    case "river_horizontal":
-                        loadImage(elm.path, (e) => {
-                            river_horizontal = e
-                        })
-                        break;
-                    case "river_vertical":
-                        loadImage(elm.path, (e) => {
-                            river_vertical = e
-                        })
-                        break;
-                    case "pipe_corner":
-                        loadImage(elm.path, (e) => {
-                            pipe_corner = e
-                        })
-                        break;
-                    case "pipe_straight":
-                        loadImage(elm.path, (e) => {
-                            pipe_straight = e
-                        })
-                        break;
-                    case "pipe_tri":
-                        loadImage(elm.path, (e) => {
-                            pipe_tri = e
-                        })
-                        break;
-                    case "pipe_start":
-                        loadImage(elm.path, (e) => {
-                            pipe_start = e
-                        })
-                        break;
-                    case "pipe_end":
-                        loadImage(elm.path, (e) => {
-                            pipe_end = e
-                        })
-                        break;
-    
+                loadImage(elm.path, (e) => {
+                    tileSet = e;
 
-                }
+                    allTiles = cutTiles(tileSet, 32);
+                })
                 break;
 
             //? ERROR MANAGEMENT
