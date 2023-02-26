@@ -199,6 +199,7 @@ function preload() {
 function setup(){
     canvas = createCanvas(2000,1000);
     createGrid(nb_column, nb_row);
+    noSmooth()
     // image(image_custom, 0, 0);
 }
 
@@ -236,17 +237,9 @@ function drawGrid(x,y,w,h,maxColumn, maxRow){
     for (let row = 0; row < maxRow; row++) {
         for (let column = 0; column < maxColumn; column++) {
 
-            // if(Grid[column][row] === 0){
-            //     fill(color(255, 255, 255, 50));
-            // }if (Grid[column][row] === 2) {
-            //     fill(color(255, 0, 0, 80));
-            // }if(Grid[column][row] === 1 ){
-                
-            //     // let a = image(imgTest, x+w*row,y+h*column, w, h)  
-            // }
             if (allTiles[Grid[column][row]]) {
                 image(allTiles[Grid[column][row]], x+w*row,y+h*column, w, h)
-                console.log("yey")
+                // console.log("yey")
             }else{
                 rect(x+w*row,y+h*column,w,h);  
             }
@@ -418,19 +411,17 @@ function previewFile() {
 
 
   function needCutTile(){
-    // let a = document.getElementById("Pixel_Side").value
+    let a = document.getElementById("Pixel_Side").value
 
     allTiles = cutTiles(tileSet, a);
-    // console.log(allTiles[0].canvas.toDataURL())
-    
-    // preview.src = allTiles[0].canvas.toDataURL();
 
-    // createImg(allTiles[0])
     //create ELEMENENT
-    let parent = document.getElementById("parent")
+    let parent = document.getElementById("parent");
+
+    parent.innerHTML = "";
 
     allTiles.forEach((currentTile, index) => {
-        let child = `<div class="bloc"><input type="text" value="${index}" id="valueTiles"><img src="${currentTile.canvas.toDataURL()}" alt="" class="img_visualization"><button class="TileSelected" id="TileSelected" value="${index}" onclick="selectTile(parseInt(this.value))">Select Tiles</button></div>`
+        let child = `<div class="bloc"><input type="text" value="${index}" id="valueTiles"><img src="${currentTile.canvas.toDataURL()}" alt="${index}" class="img_visualization" onclick="selectTile(parseInt(this.alt))"><button class="TileSelected" id="TileSelected" value="${index}" onclick="selectTile(parseInt(this.value))">Select Tiles</button></div>`
         parent.innerHTML += child
     })
   }
@@ -452,6 +443,8 @@ function previewFile() {
 
 function selectTile(currentTile){
     currentTileDrawing = currentTile;
+
+    document.getElementById("currentTileImg").src = allTiles[currentTile].canvas.toDataURL()
 }
 
 

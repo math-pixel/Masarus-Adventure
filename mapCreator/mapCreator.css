@@ -1,6 +1,6 @@
 .bloc{
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
     display: flex;
     justify-content: space-between;
     align-content: center;
