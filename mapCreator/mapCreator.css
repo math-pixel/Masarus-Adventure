@@ -1,0 +1,24 @@
+.bloc{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+
+    border-radius: 10px;
+    border: solid black 2px;
+}
+
+
+.blocTileSet{
+    height: auto;
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
+
+    border-radius: 10px;
+    border: solid black 2px;
+}
