@@ -1,4 +1,8 @@
-.bloc{
+legend{
+    text-align: center;
+}
+
+.bloc {
     height: 100px;
     width: 100px;
     display: flex;
@@ -11,7 +15,7 @@
 }
 
 
-.blocTileSet{
+.blocTileSet {
     height: auto;
     width: 200px;
     display: flex;
@@ -21,4 +25,32 @@
 
     border-radius: 10px;
     border: solid black 2px;
+}
+
+.Params {
+    display: flex;
+    width: 20vw;
+}
+
+/* For Tiles Selection*/
+
+.tiles{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    right: 2vw;
+    top: 2vh;
+    position: absolute;
+}
+
+#Paint{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#parent{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: scroll;
 }

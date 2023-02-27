@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,99 +13,91 @@
 
     <link rel="stylesheet" type="text/css" href="mapCreator.css">
 </head>
+
 <body>
-    <fieldset>
-        <legend>Grid</legend>
+    <div class="Params">
+        <fieldset class="GridParams">
+            <legend>Grid</legend>
 
-        <label for="nbCarreauY">nbCarreauX</label>
-        <input type="text" id="nbCarreauY" placeholder="10">
+            <label for="nbCarreauY">nbCarreauX</label>
+            <input type="text" id="nbCarreauY" placeholder="10">
 
-        <label for="nbCarreauX">nbCarreauY</label>
-        <input type="text" id="nbCarreauX" placeholder="10">
+            <label for="nbCarreauX">nbCarreauY</label>
+            <input type="text" id="nbCarreauX" placeholder="10">
 
-        <label for="SideX">Side carrer</label>
-        <input type="text" id="SideX" placeholder="40">
+            <label for="SideX">Side carrer</label>
+            <input type="text" id="SideX" placeholder="40">
+        </fieldset>
 
-        <!-- <label for="StartX">StartX</label>
-        <input type="text" id="StartX" placeholder="0">
+        <!-- <fieldset>
+            <legend>Background</legend>
 
-        <label for="StartY">StartY</label>
-        <input type="text" id="StartY" placeholder="0"> -->
+            <label for="importWallpaper">import Wallpaper</label>
+            <input type="file" id="importWallpaper" onchange="getFile(this);" value="import">
 
-
-    </fieldset>
-
-    <fieldset>
-        <legend>Background</legend>
-
-        <label for="importWallpaper">import Wallpaper</label>
-        <input type="file" id="importWallpaper" onchange="getFile(this);" value="import">
-
-        <!-- <label for="SideX Wallpaper">SideX Wallpaper</label>
+            <label for="SideX Wallpaper">SideX Wallpaper</label>
         <input type="range" id="SideX_Wallpaper" placeholder="400" min="0" max="2000">
         <input id="text1">
 
         <label for="SideY Wallpaper">SideY Wallpaper</label>
         <input type="range" id="SideY_Wallpaper" placeholder="400" min="0" max="2000">
-        <input id="text2"> -->
+        <input id="text2"> 
 
 
-        <!-- <button onclick="feetWallpaperToGrid()">feet Wallpaper to grid</button> -->
-    </fieldset>
+            <button onclick="feetWallpaperToGrid()">feet Wallpaper to grid</button>
+        </fieldset> -->
 
-    <fieldset>
-        <legend>Export/import</legend>
+        <fieldset>
+            <legend>Export/import</legend>
 
-        <input type="button" id="export" value="export">
+            <input type="button" id="export" value="export">
 
-        <hr>
+            <hr>
 
-        <div>
-            <input type="file" id="import" value="import">
-            <label for="import">input : file you have already exported</label>
-        </div>
-    </fieldset>
+            <div>
+                <input type="file" id="import" value="import">
+                <label for="import">input : file you have already exported</label>
+            </div>
+        </fieldset>
 
-    <fieldset>
-        <legend>Import TileSet</legend>
+        <fieldset>
+            <legend>Import TileSet</legend>
 
-        <div class="blocTileSet">
-            <label for="Pixel_Side">Pixel Side Image :</label>
-            <input type="number" id="Pixel_Side" name="X">
+            <div class="blocTileSet">
+                <label for="Pixel_Side">Pixel Side Image :</label>
+                <input type="number" id="Pixel_Side" name="X">
 
-            
-            <input type="file" name="file" id="file" accept="image/*" onchange="previewFile();">
-            <img id="preview" style="max-height: 50px; width: auto;">
-            <input type="button" value="cut" id="cut" onclick="needCutTile()">
-        </div>
 
+                <input type="file" name="file" id="file" accept="image/*" onchange="previewFile();">
+                <img id="preview" style="max-height: 50px; width: auto;">
+                <input type="button" value="cut" id="cut" onclick="needCutTile()">
+            </div>
+
+
+
+        </fieldset>
+    </div>
+
+    <div class="tiles">
         <fieldset>
             <legend>Current Tile :</legend>
             <img src="" alt="" srcset="" id="currentTileImg">
         </fieldset>
-        
-    </fieldset>
 
-    <fieldset style="display: flex;" id="Paint">
-        <legend>Paint</legend>
+        <fieldset style="display: flex;" id="Paint">
+            <legend>Paint</legend>
 
-        <button onclick="clearGrid()">Clear Grid</button>
+            <button id="buttonClear" onclick="clearGrid()">Clear Grid</button>
 
-        <div id="parent" style="display: flex; overflow-x: scroll ; width: 1500px;"></div>
+            <div id="parent"></div>
 
-        <!-- <div class="bloc">
-            <input type="text" placeholder="value ( voir avec vos dev )" id="valueTiles">
-            <img src="./img.png" alt="" class="img_visualization">
-            <button class="TileSelected" id="TileSelected" value="" onclick="alert(this.value)">Select Tiles</button>
-        </div> -->
+        </fieldset>
 
-        <!-- <div class="bloc" onclick="addTiles()">
-            <img src="./add.png" alt="">
-        </div> -->
-    </fieldset>
+    </div>
 
     <script src="mapCreator.js"></script>
 
-   
+
 </body>
+
 </html>
