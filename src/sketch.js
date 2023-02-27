@@ -16,7 +16,7 @@ function draw(){
 
     background(200);
     // condition moteur de jeux
-
+    noSmooth()
     if (assetsLoaded) {
         switch(engine){
             case "engine1":

@@ -155,6 +155,6 @@ function drawMapEngine1(){
     
 
     //Cam
-    fill(255,255,20,20)
+    fill(255,255,20,0)
     rect(Xcam,Ycam,Wcam,Hcam)
 }
