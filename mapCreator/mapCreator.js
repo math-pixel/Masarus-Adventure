@@ -9,6 +9,7 @@ let nb_row = 10;
 let nb_column = 10;
 
 let Grid = [];
+let allGrid = [];
 
 let coordGrid;
 
@@ -33,6 +34,10 @@ let tileSet;
 let allTiles = [];
 
 let currentTileDrawing = 0;
+
+let currentLayer = 0
+
+let strokeBool = true
 
 //#endregion
 // #############################
@@ -81,7 +86,7 @@ document.body.addEventListener('contextmenu', (e) => {
 
 document.getElementById("export").addEventListener('click', () => { // export
     let dataJSON = {
-        "grille": Grid,
+        "grille": allGrid,
         "startX": startX,
         "startY": startY,
         "nbCarreauX": nb_row,
@@ -124,44 +129,6 @@ document.getElementById("SideX").addEventListener(('change'), (e) => {
     feetWallpaperToGrid()
 });
 
-// document.getElementById("StartX").addEventListener(('change') , (e)=>{
-//     startX = parseInt(e.target.value);
-//     feetWallpaperToGrid()
-// });
-
-// document.getElementById("StartY").addEventListener(('change') , (e)=>{
-//     startY = parseInt(e.target.value);
-//     feetWallpaperToGrid()
-// });
-
-// document.getElementById("SideX_Wallpaper").addEventListener(('input') , (e)=>{
-//     widthCanvas = parseInt(e.target.value);
-//     //ResizeCanvas(widthCanvas,heightCanvas);
-//     document.getElementById("text1").value = e.target.value; 
-// });
-
-// document.getElementById("SideY_Wallpaper").addEventListener(('input') , (e)=>{
-//     heightCanvas = parseInt(e.target.value);
-//     //ResizeCanvas(widthCanvas,heightCanvas);
-//     document.getElementById("text2").value = e.target.value
-// });
-
-// document.getElementById("text1").addEventListener(('change'), (e)=>{
-//     widthCanvas = e.target.value;
-//     document.getElementById("SideX_Wallpaper").value = widthCanvas
-//     //ResizeCanvas(widthCanvas,heightCanvas);
-
-// });
-
-// document.getElementById("text2").addEventListener(('change'), (e)=>{
-//     heightCanvas = e.target.value;
-//     document.getElementById("SideY_Wallpaper").value = heightCanvas
-//     //ResizeCanvas(widthCanvas,heightCanvas);
-// })
-
-// document.getElementById("valueTiles").addEventListener(('change'), (e) => {
-
-// })
 
 // #############################
 // ##### Export / import #######
@@ -218,36 +185,55 @@ function draw() {
 // #############################
 
 function createGrid(maxColumn, maxRow) {
-    Grid = [];
+    allGrid = [];
+    
 
-    for (let column = 0; column < maxColumn; column++) {
-        Grid.push([]);
-        for (let row = 0; row < maxRow; row++) {
-            Grid[column].push(0);
-
-            // console.log(Grid[row])            
+    for(i = 0; i < 5; i++){
+        Grid = [];
+        for (let column = 0; column < maxColumn; column++) {
+            Grid.push([]);
+            for (let row = 0; row < maxRow; row++) {
+                
+                Grid[column].push(0);
+                       
+            }
         }
+        allGrid.push(Grid)
     }
+    console.log(allGrid)
 }
 
 function drawGrid(x, y, w, h, maxColumn, maxRow) {
 
-    console.log(typeof (widthGrid), heightGrid)
+    // console.log(typeof (widthGrid), heightGrid)
+    let checkedLayer = document.getElementsByClassName("checkbox");
 
-    for (let row = 0; row < maxRow; row++) {
-        for (let column = 0; column < maxColumn; column++) {
-
-            if (allTiles[Grid[column][row]]) {
-                image(allTiles[Grid[column][row]], x + w * row, y + h * column, w, h)
-                // console.log("yey")
-            } else {
-                rect(x + w * row, y + h * column, w, h);
-            }
-
-            fill(color(255, 255, 255, 20))
-            rect(x + w * row, y + h * column, w, h);
-        }
+    if (strokeBool) {
+        stroke(51)
+    }else{
+        noStroke()
     }
+
+    allGrid.forEach((currentGrid, index) => {
+
+        if(checkedLayer[index].checked === true){
+            for (let row = 0; row < maxRow; row++) {
+                for (let column = 0; column < maxColumn; column++) {
+
+                    if (allTiles[currentGrid[column][row]]) {
+                        image(allTiles[currentGrid[column][row]], x + w * row, y + h * column, w, h)
+                        // console.log("yey")
+                    } else {
+                        rect(x + w * row, y + h * column, w, h);
+                    }
+        
+                    fill(color(255, 255, 255, 0))
+                    rect(x + w * row, y + h * column, w, h);
+                }
+            }
+        }
+    })
+    
 
     const maxWidht = w * maxRow;
     const maxHeight = w * maxColumn;
@@ -255,11 +241,15 @@ function drawGrid(x, y, w, h, maxColumn, maxRow) {
 }
 
 function clearGrid() {
-    for (let row = 0; row < Grid.length; row++) {
-        for (var column = 0; column < Grid[row].length; column++) {
-            Grid[row][column] = 0;
+    allGrid.forEach((currentGrid) => {
+        for (let row = 0; row < Grid.length; row++) {
+            for (var column = 0; column < Grid[row].length; column++) {
+                currentGrid[row][column] = 0;
+            }
         }
-    }
+        
+    })
+    
 }
 
 // #############################
@@ -273,10 +263,10 @@ function ResizeCanvas(x, y) {
 function setCarrousel(x, y) {
     console.log([x, y])
     if (mouseButton === LEFT) {
-        Grid[x][y] = currentTileDrawing;
+        allGrid[currentLayer][x][y] = currentTileDrawing;
     }
     if (mouseButton === RIGHT) {
-        Grid[x][y] = 0;
+        allGrid[currentLayer][x][y] = 0;
     }
 }
 
@@ -461,3 +451,19 @@ function selectTile(currentTile) {
 //     let a = assets.get(0, 0, tileSizeCut, tileSizeCut) ;
 
 // }
+
+
+function selectLayer(id){
+    console.log(id)
+    currentLayer = id
+
+    document.getElementById("curLayer").innerHTML = `Layer : ${parseInt(id) + 1}`
+}
+
+function changeStroke(check){
+    if (check) {
+        strokeBool = true;
+    }else{
+        strokeBool = false
+    }
+}

@@ -76,12 +76,63 @@
 
 
         </fieldset>
+
+        <fieldset > 
+            <legend>Layers</legend>
+
+            <div class="container" style="overflow-y: scroll; max-height: 100px;">
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="0" onchange="selectLayer(this.id)">
+                    <p>Layer 1</p>
+                    <input type="checkbox" class="checkbox" checked>
+                </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="1" onchange="selectLayer(this.id)">
+                    <p>Layer 2</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="2" onchange="selectLayer(this.id)">
+                    <p>Layer 3</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="3" onchange="selectLayer(this.id)">
+                    <p>Layer 4</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="4" onchange="selectLayer(this.id)">
+                    <p>Layer 5</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+            </div>
+
+            <div style="display: flex;">
+                Draw Stroke
+                <input type="checkbox" onchange="changeStroke(this.checked)" checked onload="changeStroke(this.checked)">
+            </div>
+        </fieldset>
     </div>
 
     <div class="tiles">
         <fieldset>
-            <legend>Current Tile :</legend>
-            <img src="" alt="" srcset="" id="currentTileImg">
+            <legend>Info !</legend>
+
+            <div style="display: flex;">
+                Current Tile : 
+                <img src="" alt="" srcset="" id="currentTileImg">
+            </div>
+
+            <div style="display: flex;">
+                Selected Layer : 
+                <h2 id="curLayer"></h2>
+            </div>
+            
         </fieldset>
 
         <fieldset style="display: flex;" id="Paint">
