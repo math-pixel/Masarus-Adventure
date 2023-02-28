@@ -37,28 +37,52 @@
             "index": 3
         },
         {
-            "path":"../assetsTemp/player_bottom_1.png",
+            "path":"../assetsTemp/player_top_4.png",
+            "type":"perso",
+            "animation": "top",
+            "index": 4
+        },
+        {
+            "path":"../assetsTemp/player_top_4.png",
+            "type":"perso",
+            "animation": "top",
+            "index": 5
+        },
+        {
+            "path":"../assetsTemp/player2_bottom_1.png",
             "type":"perso",
             "animation": "bottom",
             "index": 0
         },
         {
-            "path":"../assetsTemp/player_bottom_2.png",
+            "path":"../assetsTemp/player2_bottom_2.png",
             "type":"perso",
             "animation": "bottom",
             "index": 1
         },
         {
-            "path":"../assetsTemp/player_bottom_1.png",
+            "path":"../assetsTemp/player2_bottom_3.png",
             "type":"perso",
             "animation": "bottom",
             "index": 2
         },
         {
-            "path":"../assetsTemp/player_bottom_4.png",
+            "path":"../assetsTemp/player2_bottom_4.png",
             "type":"perso",
             "animation": "bottom",
             "index": 3
+        },
+        {
+            "path":"../assetsTemp/player2_bottom_5.png",
+            "type":"perso",
+            "animation": "bottom",
+            "index": 4
+        },
+        {
+            "path":"../assetsTemp/player2_bottom_6.png",
+            "type":"perso",
+            "animation": "bottom",
+            "index": 5
         },
         {
             "path":"../assetsTemp/player_left_1.png",
@@ -85,6 +109,18 @@
             "index": 3
         },
         {
+            "path":"../assetsTemp/player_left_4.png",
+            "type":"perso",
+            "animation": "left",
+            "index": 4
+        },
+        {
+            "path":"../assetsTemp/player_left_4.png",
+            "type":"perso",
+            "animation": "left",
+            "index": 5
+        },
+        {
             "path":"../assetsTemp/player_right_1.png",
             "type":"perso",
             "animation": "right",
@@ -107,6 +143,18 @@
             "type":"perso",
             "animation": "right",
             "index": 3
+        },
+        {
+            "path":"../assetsTemp/player_right_4.png",
+            "type":"perso",
+            "animation": "right",
+            "index": 4
+        },
+        {
+            "path":"../assetsTemp/player_right_4.png",
+            "type":"perso",
+            "animation": "right",
+            "index": 5
         },
         {
             "path":"../assets/Tileset.png",
