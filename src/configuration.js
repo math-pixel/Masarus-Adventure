@@ -66,9 +66,11 @@ let drawCollision = true;
 
 
 function loadAsset(){
-    loadJSON("../JSON/assets.JSON", (e) => {
+    loadJSON("./JSON/assets.json", (e) => {
         loading(e.assets);
-    });    
+    }, (err) => {
+        console.log("error : ",err)
+    });
 }
 
 function loading(assetArray){

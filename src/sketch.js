@@ -2,7 +2,7 @@
 
 function preload(){
     //load JSON and Img file
-    loadAsset();
+    loadAsset(); 
 }
 
 function setup(){
@@ -10,6 +10,9 @@ function setup(){
     textSize(32);
     text('word', 10, 30);
     // console.log(worlds1.tour.layers)
+
+    createPNJ(5, 500, 200, 500, 1 )
+    createPNJ(8, 550, 250, 400, 2 )
 }
 
 function draw(){
@@ -37,6 +40,10 @@ function draw(){
             engine = "engine1"
         }
     }
+
+    
+    
+    pnjManager()
 }
 
 function keyPressed() {
