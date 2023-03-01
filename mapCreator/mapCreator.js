@@ -175,7 +175,6 @@ function draw() {
     
     // image(image_custom, 0, 0);
     // image_custom.resize(widthCanvas, heightCanvas);
-
     coordGrid = drawGrid(startX, startY, widthGrid, heightGrid, nb_column, nb_row);
 
 }

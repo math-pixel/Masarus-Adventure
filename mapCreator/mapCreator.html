@@ -123,7 +123,10 @@
                             <h3>Layer 1</h3>
                         </div>
                         <div class="aSide">
-                            <input type="checkbox" class="checkbox" checked>
+                            <div class="toggle-rect-color">
+                                <input type="checkbox" checked id="checkbox1" name="check" class="checkbox">
+                                <label for="checkbox1"></label>
+                            </div>
                         </div>
                     </label>
 
@@ -133,7 +136,10 @@
                             <h3>Layer 2</h3>
                         </div>
                         <div class="aSide">
-                            <input type="checkbox" class="checkbox">
+                            <div class="toggle-rect-color">
+                                <input type="checkbox" id="checkbox2" name="check" class="checkbox">
+                                <label for="checkbox2"></label>
+                            </div>
                         </div>
                     </label>
 
@@ -143,7 +149,10 @@
                             <h3>Layer 3</h3>
                         </div>
                         <div class="aSide">
-                            <input type="checkbox" class="checkbox">
+                            <div class="toggle-rect-color">
+                                <input type="checkbox" id="checkbox3" name="check" class="checkbox">
+                                <label for="checkbox3"></label>
+                            </div>
                         </div>
                     </label>
 
@@ -153,7 +162,10 @@
                             <h3>Layer 4</h3>
                         </div>
                         <div class="aSide">
-                            <input type="checkbox" class="checkbox">
+                            <div class="toggle-rect-color">
+                                <input type="checkbox" id="checkbox4" name="check" class="checkbox">
+                                <label for="checkbox4"></label>
+                            </div>
                         </div>
                     </label>
 
@@ -163,16 +175,23 @@
                             <h3>Layer 5</h3>
                         </div>
                         <div class="aSide">
-                            <input type="checkbox" class="checkbox">
+                            <div class="toggle-rect-color">
+                                <input type="checkbox" id="checkbox5" name="check" class="checkbox">
+                                <label for="checkbox5"></label>
+                            </div>
                         </div>
                     </label>
                 </div> 
             
             
 
-                <div style="display: flex;">
-                    Draw Stroke
-                    <input type="checkbox" onchange="changeStroke(this.checked)" checked onload="changeStroke(this.checked)">
+                <div class="drawStoke">
+                    Draw stroke
+                    <div class="toggle-rect">
+                        <input type="checkbox" id="checkboxDrawStroke"  class="checkbox" onchange="changeStroke(this.checked)" checked onload="changeStroke(this.checked)">
+                        <label for="checkboxDrawStroke"></label>
+                    </div>
+                
                 </div>
             </div>
         </fieldset>
