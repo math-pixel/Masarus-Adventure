@@ -1,6 +1,25 @@
-legend{
-    text-align: center;
+@font-face {
+    font-family: UniSansReg;
+    src: url("Fonts/Uni\ Sans\ Regular.otf");
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: UniSansReg;
+    letter-spacing: 1px;
+    
+}
+
+body{
+    overflow: hidden;
+    background-color: #c8c8c8;
+    background-color: #313338;
+    border: none;
+    font-size: 80%;
+}
+
+
 
 .bloc {
     height: 100px;
@@ -11,7 +30,6 @@ legend{
     flex-direction: column;
 
     border-radius: 10px;
-    border: solid black 2px;
 }
 
 
@@ -24,34 +42,273 @@ legend{
     flex-direction: column;
 
     border-radius: 10px;
-    border: solid black 2px;
 }
-
-.Params {
-    display: flex;
-    width: 20vw;
-}
-
-/* For Tiles Selection*/
 
 .tiles{
     display: flex;
     flex-direction: column;
     width: 20vw;
     right: 2vw;
-    top: 2vh;
+    top: 25vh;
     position: absolute;
 }
 
-#Paint{
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-}
 
 #parent{
     display: flex;
     flex-wrap: wrap;
     overflow-y: scroll;
     height: 500px;
+}
+
+
+
+
+
+
+
+
+.Params {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    height: 22vh;
+    
+    color: white;
+
+    background-color: #2b2d31;
+}
+
+
+/* Paramètres Top bar */
+
+div{
+    border-radius: 5px;
+}
+fieldset{
+    border-radius: 5px;
+    border: 0px;
+    border-right: 1px solid #313338;
+    border-left: 1px solid #313338;
+}
+legend{
+    text-align: left;
+    font-weight: bolder;
+    
+}
+label{
+    margin: 2% 0;
+    
+}
+
+/* Inputs */
+
+input{
+    border-radius: 5px;
+    border: 1px solid #383a40;
+    background-color: #383a40;
+    color: white;
+    padding: 1%;
+    font-size: 80%;
+}
+input[text]::placeholder {
+    color: #6d6f78;
+    
+}
+textarea:focus, input:focus{
+    outline:solid 2px #232428;
+}
+input[type=button]{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #2b2d31;
+    font-size: 100%;
+}
+input[type=file]{
+    display: none;
+}
+input[type="radio"] {
+    height: 0.9rem;
+    width: 0.9rem;
+}
+
+/* Toolbar Items */
+
+.toolBar{
+    width: 100%;
+    height: 80%;
+    padding: 1%;
+}
+
+.toolBarContent{
+    
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Import / Export */
+
+.doubleSide{
+    display: flex;
+    height: 100%;
+}
+
+.aSide{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 100%;
+    background-color: #2b2d31;
+    color: white;
+}
+
+.button:hover{
+    
+    background-color: #383a40;
+}
+
+.container{
+    width: 100%;
+}
+
+
+
+/* Import Tileset */
+
+.blocTileSet{
+    width: 100%;
+}
+
+.tilesetImport{
+    display: flex;
+    flex-direction: column;
+}
+
+.tilesetImport input{
+    width: 100%;
+    font-size: 100%;
+    margin: 5%;
+}
+
+
+/* Layers */
+
+.layers .container {
+    max-height: 125px;
+    border: 2px solid #313338;
+}
+
+.layersOptions{
+    margin: 0;
+    padding: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    border: 1px solid #313338;
+    background-color: #232428;
+}
+.layersOptions:hover{
+    background-color: #383a40;
+}
+
+
+.titleLayers{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.customRadio{
+    width: 1vw;
+    height: 1vw;
+    padding: 3%;
+    margin: 3%;
+    appearance: none;
+    /* Safari support */
+    -webkit-appearance: none;
+    border: 0.1rem solid #fff;
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+.customRadio:checked{
+    background-color: #219e56;
+}
+
+.titleLayers label {
+    padding: 10%;
+    width: 100%;
+    /* background-color: #219e56; */
+}
+
+
+.customCheckbox{
+    width: 1vw;
+    height: 1vw;
+    padding: 3%;
+    margin: 3%;
+    appearance: none;
+    /* Safari support */
+    -webkit-appearance: none;
+    border: 0.1rem solid #fff;
+    background-color: #fff;
+    border-radius: 50px;
+}
+.customCheckbox:focus-visible {
+    outline-offset: 0;
+}
+.customCheckbox:checked{
+    background-color: #219e56;
+}
+
+
+/* info part */
+.infoBlock{
+    
+    background-color: #232428;
+    color: white;
+
+    padding: 1%;
+    font-size: 100%;
+}
+
+.infoBlock .aSide{
+    margin: 2%;
+}
+
+/* Paint part */
+.paintBlock{
+    background-color: #232428;
+    color: white;
+}
+
+.paintBlock .toolBarContent{
+    background-color: #232428;
+}
+.paintBlock #parent {
+    width: 100%;
+}
+.paintBlock .bloc{
+    width: 33%;
+    margin: 4% 0;
 }

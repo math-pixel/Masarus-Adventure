@@ -165,13 +165,14 @@ function preload() {
 
 function setup() {
     canvas = createCanvas(2000, 1000);
+    background(49, 51, 56);
     createGrid(nb_column, nb_row);
     noSmooth()
     // image(image_custom, 0, 0);
 }
 
 function draw() {
-    background(200);
+    
     // image(image_custom, 0, 0);
     // image_custom.resize(widthCanvas, heightCanvas);
 
@@ -379,9 +380,9 @@ function displayArray(array) {
     return strArray;
 }
 
-const preview = document.getElementById('preview');
-function previewFile() {
 
+function previewFile() {
+    const preview = document.getElementById('preview');
     const file = document.getElementById('file').files[0];
     const reader = new FileReader();
 
