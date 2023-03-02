@@ -420,7 +420,7 @@ function needCutTile() {
         }
         
     } else {
-        alert("Add a pixel image for cut the tileSet")
+        alert("Please enter the size of the tiles to cut the Tileset")
     }
 }
 

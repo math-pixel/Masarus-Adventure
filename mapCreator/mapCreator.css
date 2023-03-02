@@ -206,6 +206,10 @@ input[type="radio"] {
     margin: 5%;
 }
 
+#preview{
+    height: 5vw;
+    width: 5vw;
+}
 
 /* Layers */
 
