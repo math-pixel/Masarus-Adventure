@@ -16,34 +16,20 @@
 
 <body>
     <div class="Params">
-        <fieldset class="toolBar">
+        <fieldset class="GridParams">
             <legend>Grid</legend>
 
-            <div class="toolBarContent">
-                <label for="gridName">Grid name</label>
-                <input type="text" id="gridName" placeholder="plains1">
-                <div class="doubleSide">
-                    <div class="aSide gridParameters">
-                        <label for="nbCarreauY">Square number X</label>
-                        <input type="number" id="nbCarreauY" placeholder="10">
-                        
-                        <label for="nbCarreauX">Square number Y</label>
-                        <input type="number" id="nbCarreauX" placeholder="10">
-                    </div>
-                    <div class="aSide gridParameters">
-                        <label for="SideX">Rect size</label>
-                        <input type="number" id="SideX" placeholder="40">
-                    </div>
-                </div>
+            <label for="nbCarreauY">nbCarreauX</label>
+            <input type="text" id="nbCarreauY" placeholder="10">
 
+            <label for="nbCarreauX">nbCarreauY</label>
+            <input type="text" id="nbCarreauX" placeholder="10">
 
-
-            </div>
-
-            
+            <label for="SideX">Side carrer</label>
+            <input type="text" id="SideX" placeholder="40">
         </fieldset>
 
-        <!-- <fieldset class="toolBar">
+        <!-- <fieldset>
             <legend>Background</legend>
 
             <label for="importWallpaper">import Wallpaper</label>
@@ -61,197 +47,100 @@
             <button onclick="feetWallpaperToGrid()">feet Wallpaper to grid</button>
         </fieldset> -->
 
+        <fieldset>
+            <legend>Export/import</legend>
 
-        <!-- Import / Export -->
+            <input type="button" id="export" value="export">
 
-        <fieldset class="toolBar">
-            <legend>Import / Export</legend>
+            <hr>
 
-            <div class="toolBarContent">
-                
-                <div class="doubleSide">
-                    <div class="aSide">
-                        <input id="import" type="file" value="import">
-                        <label for="import" class="button">
-                            Import existing map 
-                        </label>
-                    </div>
-                    <div class="aSide">
-                        <input type="button" id="export" value="Export map", class="button">
-                    </div>
-                </div>
-
-                
+            <div>
+                <input type="file" id="import" value="import">
+                <label for="import">input : file you have already exported</label>
             </div>
-
-            
         </fieldset>
 
-        <!-- Import Tileset -->
-
-        <fieldset class="toolBar">
+        <fieldset>
             <legend>Import TileSet</legend>
 
-            <div class="toolBarContent">
-                <div class="blocTileSet">
-                    <div class="doubleSide">
-                        <div class="aSide tilesetImport">
-                            <label for="Pixel_Side">Rect size (pixel) :</label>
-                            <input type="number" id="Pixel_Side" name="X">
-                        </div>
-                        <div class="aSide">
-                            <!-- <input type="button" id="export" value="Export map", class="button"> -->
-                            <label for="file" class="button">
-                                Import tileset 
-                            </label>
-                            <input type="file" name="file" id="file" accept="image/*" onchange="previewFile();">
-                        </div>
-                        
-                    </div>
+            <div class="blocTileSet">
+                <label for="Pixel_Side">Pixel Side Image :</label>
+                <input type="number" id="Pixel_Side" name="X">
 
-                    <div class="doubleSide">
-                        <div class="aSide">
-                            <input class="button" type="button" value="Cut" id="cut" onclick="needCutTile()">
-                        </div>
-                        <div class="aSide">
-                            <img id="preview">
-                        </div>
-                    </div>
-                    
-                    
-                </div>
+
+                <input type="file" name="file" id="file" accept="image/*" onchange="previewFile();">
+                <img id="preview" style="max-height: 50px; width: auto;">
+                <input type="button" value="cut" id="cut" onclick="needCutTile()">
             </div>
-            
 
 
 
         </fieldset>
 
-        <fieldset class="toolBar layers"> 
+        <fieldset > 
             <legend>Layers</legend>
 
-            <div class="toolBarContent">
-                <div class="container" style="overflow-y: scroll;">
-                    
-                    <label for="0" class="layersOptions">
-                        <div class="aSide titleLayers">
-                            <input type="radio" class="customRadio" checked name="1" id="0" onchange="selectLayer(this.id)">
-                            <h3>Layer 1</h3>
-                        </div>
-                        <div class="aSide">
-                            <div class="toggle-rect-color">
-                                <input type="checkbox" checked id="checkbox1" name="check" class="checkbox">
-                                <label for="checkbox1"></label>
-                            </div>
-                        </div>
-                    </label>
-
-                    <label for="1" class="layersOptions">
-                        <div class="aSide titleLayers">
-                            <input type="radio" class="customRadio" name="1" id="1" onchange="selectLayer(this.id)">
-                            <h3>Layer 2</h3>
-                        </div>
-                        <div class="aSide">
-                            <div class="toggle-rect-color">
-                                <input type="checkbox" id="checkbox2" name="check" class="checkbox">
-                                <label for="checkbox2"></label>
-                            </div>
-                        </div>
-                    </label>
-
-                    <label for="2" class="layersOptions">
-                        <div class="aSide titleLayers">
-                            <input type="radio" class="customRadio" name="1" id="2" onchange="selectLayer(this.id)">
-                            <h3>Layer 3</h3>
-                        </div>
-                        <div class="aSide">
-                            <div class="toggle-rect-color">
-                                <input type="checkbox" id="checkbox3" name="check" class="checkbox">
-                                <label for="checkbox3"></label>
-                            </div>
-                        </div>
-                    </label>
-
-                    <label for="3" class="layersOptions">
-                        <div class="aSide titleLayers">
-                            <input type="radio" class="customRadio" name="1" id="3" onchange="selectLayer(this.id)">
-                            <h3>Layer 4</h3>
-                        </div>
-                        <div class="aSide">
-                            <div class="toggle-rect-color">
-                                <input type="checkbox" id="checkbox4" name="check" class="checkbox">
-                                <label for="checkbox4"></label>
-                            </div>
-                        </div>
-                    </label>
-
-                    <label for="4" class="layersOptions">
-                        <div class="aSide titleLayers">
-                            <input type="radio" class="customRadio" name="1" id="4" onchange="selectLayer(this.id)">
-                            <h3>Layer 5</h3>
-                        </div>
-                        <div class="aSide">
-                            <div class="toggle-rect-color">
-                                <input type="checkbox" id="checkbox5" name="check" class="checkbox">
-                                <label for="checkbox5"></label>
-                            </div>
-                        </div>
-                    </label>
-                </div> 
-            
-            
-
-                <div class="drawStoke">
-                    Draw stroke
-                    <div class="toggle-rect">
-                        <input type="checkbox" id="checkboxDrawStroke"  class="checkbox" onchange="changeStroke(this.checked)" checked onload="changeStroke(this.checked)">
-                        <label for="checkboxDrawStroke"></label>
-                    </div>
-                
+            <div class="container" style="overflow-y: scroll; max-height: 100px;">
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="0" onchange="selectLayer(this.id)">
+                    <p>Layer 1</p>
+                    <input type="checkbox" class="checkbox" checked>
                 </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="1" onchange="selectLayer(this.id)">
+                    <p>Layer 2</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="2" onchange="selectLayer(this.id)">
+                    <p>Layer 3</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="3" onchange="selectLayer(this.id)">
+                    <p>Layer 4</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+
+                <div class="" style="width: 200px; display: flex; border: 1px solid rgba(0,0,0,0.5); background-color: rgba(0,0,0,0.2);">
+                    <input type="radio" name="1" id="4" onchange="selectLayer(this.id)">
+                    <p>Layer 5</p>
+                    <input type="checkbox" class="checkbox">
+                </div>
+            </div>
+
+            <div style="display: flex;">
+                Draw Stroke
+                <input type="checkbox" onchange="changeStroke(this.checked)" checked onload="changeStroke(this.checked)">
             </div>
         </fieldset>
     </div>
 
     <div class="tiles">
-        <fieldset class="infoBlock">
-            <legend>Infos</legend>
+        <fieldset>
+            <legend>Info !</legend>
 
-
-            <div class="toolBarContent doubleSide">
-                <div class="doubleSide">
-                    <div class="aSide">
-                        Current Tile : 
-                    </div>
-                    <div class="aSide">
-                        <img src="" alt="" srcset="" id="currentTileImg">
-                    </div>
-                </div>
-
-                <div class="doubleSide">
-                    <div class="aSide">
-                        Selected Layer : 
-                    </div>
-                    <div class="aSide">
-                        <h4 id="curLayer">Layer : 1</h4>
-                    </div>                    
-                </div>
-                    
-
+            <div style="display: flex;">
+                Current Tile : 
+                <img src="" alt="" srcset="" id="currentTileImg">
             </div>
-            
+
+            <div style="display: flex;">
+                Selected Layer : 
+                <h2 id="curLayer"></h2>
+            </div>
             
         </fieldset>
 
-        <fieldset id="Paint" class="paintBlock">
+        <fieldset style="display: flex;" id="Paint">
             <legend>Paint</legend>
-            <div class="toolBarContent">
-                <button id="buttonClear" class="button" onclick="clearGrid()">Clear Grid</button>
 
-                <div id="parent"></div>
-            </div>
+            <button id="buttonClear" onclick="clearGrid()">Clear Grid</button>
 
-            
+            <div id="parent"></div>
 
         </fieldset>
 
