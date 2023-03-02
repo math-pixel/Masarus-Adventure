@@ -390,6 +390,13 @@ input[type="radio"] {
     width: 100%;
 }
 .paintBlock .bloc{
-    width: 33%;
-    margin: 4% 0;
+    width: 100%;
+    /* margin: 4% 0; */
+    
+}
+
+.paintBlock #parent{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5% 0;
 }
