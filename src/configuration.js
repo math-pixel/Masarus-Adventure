@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 4;
+let numberLoad = 11;
 
 //current engine
 let engine = "engine1";
@@ -44,6 +44,19 @@ let animBottom = [];
 let animRight = [];
 let animLeft = [];
 
+//PNJ
+let pnjTileSet1 = [];
+let pnjAnimTop1 = [];
+let pnjAnimBottom1 = [];
+let pnjAnimRight1 = [];
+let pnjAnimLeft1 = [];
+
+let pnjTileSet2 = [];
+let pnjAnimTop2 = [];
+let pnjAnimBottom2 = [];
+let pnjAnimRight2 = [];
+let pnjAnimLeft2 = [];
+
 // cam 
 let Hcam = 500;
 let Wcam = Hcam * (16/9);
@@ -61,7 +74,7 @@ let allTiles = [];
 
 
 //Debuger Variable
-let drawCollision = true;
+let drawCollision = false;
 
 
 
@@ -101,47 +114,126 @@ function loading(assetArray){
                 });
                 break;
             //! ########### PLAYER ASSETS
-            case "perso" :
+            case "entity":
+                switch(elm.name){
 
-                switch(elm.animation){
-                    case "top":
-                        loadImage(elm.path, (e)=>{
-                            numberAssetsLoading += 1 ;
-                            animTop.splice(elm.index, 0, e);
-                            isLoaded();
-                        });
+                    case "player" :
+                        switch(elm.direction){
+                            case "top":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animTop = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            case "bottom":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animBottom = cutTiles(e, 32);
+                                    // console.log(animBottom)
+                                    isLoaded();
+                                });
+                                break;
+                            case "left":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animLeft = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            case "right":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animRight = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            default:
+                                throw new Error("name aniùation in Json file doesnt correspond")
+                        }
                         break;
-                    case "bottom":
-                        loadImage(elm.path, (e)=>{
-                            numberAssetsLoading += 1 ;
-                            animBottom.splice(elm.index, 0, e);
-                            isLoaded();
-                        });
+
+                    case "pnj1" :
+                        switch(elm.direction){
+                            
+                            case "top":
+                                
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimTop1 = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            case "bottom":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimBottom1 = cutTiles(e, 32);
+                                    console.log("yey" ,pnjAnimBottom1)
+                                    isLoaded();
+                                });
+                                break;
+                            case "left":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimLeft1 = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            case "right":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimRight1 = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            default:
+                                throw new Error("name aniùation in Json file doesnt correspond")
+                        }
                         break;
-                    case "left":
-                        loadImage(elm.path, (e)=>{
-                            numberAssetsLoading += 1 ;
-                            animLeft.splice(elm.index, 0, e);
-                            isLoaded();
-                        });
+
+                    case "pnj2" :
+                        switch(elm.direction){
+                            
+                            case "top":
+                                
+                                console.log("fdp", elm.path)
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimTop2 = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            case "bottom":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimBottom2 = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            case "left":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimLeft2 = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            case "right":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pnjAnimRight2 = cutTiles(e, 32);
+                                    isLoaded();
+                                });
+                                break;
+                            default:
+                                throw new Error("name animation in Json file doesnt correspond")
+                        }
                         break;
-                    case "right":
-                        loadImage(elm.path, (e)=>{
-                            numberAssetsLoading += 1 ;
-                            animRight.splice(elm.index, 0, e);
-                            isLoaded();
-                        });
-                        break;
-                    default:
-                        throw new Error("name aniùation in Json file doesnt correspond")
                 }
-                break;
-                
+                break;            
             //! ########### MAP TILE ASSETS
             case "map":
                 loadImage(elm.path, (e) => {
                     tileSet = e;
-
                     allTiles = cutTiles(tileSet, 32);
                 })
                 break;
@@ -159,10 +251,17 @@ function loading(assetArray){
 function isLoaded(){
 
     if (numberAssetsLoading === numberLoad) {
-        playerTileSet = [animTop,animBottom,animLeft,animRight];
-        assetsLoaded = true;
 
-        console.log("start Game")
+        playerTileSet = [animTop,animBottom,animLeft,animRight];
+
+        pnjTileSet1 = [pnjAnimTop1,pnjAnimBottom1,pnjAnimLeft1,pnjAnimRight1];
+        pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
+
+        console.log(playerTileSet)
+        console.log(pnjTileSet1)
+        console.log(pnjTileSet2)
+        assetsLoaded = true;
+        // console.log("start Game")
     }
 }
 

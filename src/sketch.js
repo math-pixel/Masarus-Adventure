@@ -11,8 +11,8 @@ function setup(){
     text('word', 10, 30);
     // console.log(worlds1.tour.layers)
 
-    createPNJ(5, 500, 200, 500, 1 )
-    createPNJ(8, 550, 250, 400, 2 )
+    createPNJ(5, 500, 200, 500, pnjTileSet1, 15, 1 )
+    createPNJ(8, 550, 250, 400, pnjTileSet1, 10, 2 )
 }
 
 function draw(){
