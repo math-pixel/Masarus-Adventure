@@ -6,9 +6,9 @@
         "nbRow":11,
         "nbColumn":11,
         "layers":[
-            [{"tile":2,"rotation":0},{"tile":0,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":7,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
             [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
-            [{"tile":2,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":1,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":2,"rotation":0}],
             [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
             [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
             [{"tile":2,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":2,"rotation":0}],
