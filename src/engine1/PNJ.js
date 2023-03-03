@@ -69,6 +69,8 @@ function pnjManager(){
         if (drawCollision) {
             fill(255,255,0,30)
             rect(pnjRect[0],pnjRect[1],pnjRect[2],pnjRect[3]);
+            fill(255,255,0)
+            rect(xStartWorld1 + pnj.xStart + pnj.actualDistance, yStartWorld1 + pnj.yStart, sideCarrousel,sideCarrousel)
         }
 
         let player = [xPlayer,yPlayer, sideCarrousel, sideCarrousel];
@@ -78,9 +80,7 @@ function pnjManager(){
         }else{
             pnj.canMove = true
         }
-        
-        // fill(255,255,0)
-        // rect(xStartWorld1 + pnj.xStart + pnj.actualDistance, yStartWorld1 + pnj.yStart, sideCarrousel,sideCarrousel)
+         
         image(pnj.skin[index_Direction][pnj.currentFrame], xStartWorld1 + pnj.xStart + pnj.actualDistance, yStartWorld1 + pnj.yStart, sideCarrousel,sideCarrousel)
     })
 
