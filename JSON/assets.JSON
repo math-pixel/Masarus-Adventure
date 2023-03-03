@@ -13,104 +13,80 @@
             "type":"mapsEngine2"
         },
         {
-            "path":"../assetsTemp/player_top_1.png",
-            "type":"perso",
-            "animation": "top",
-            "index": 0
-        },
-        {
-            "path":"../assetsTemp/player_top_2.png",
-            "type":"perso",
-            "animation": "top",
-            "index": 1
-        },
-        {
-            "path":"../assetsTemp/player_top_1.png",
-            "type":"perso",
-            "animation": "top",
-            "index": 2
-        },
-        {
-            "path":"../assetsTemp/player_top_4.png",
-            "type":"perso",
-            "animation": "top",
-            "index": 3
-        },
-        {
-            "path":"../assetsTemp/player_bottom_1.png",
-            "type":"perso",
-            "animation": "bottom",
-            "index": 0
-        },
-        {
-            "path":"../assetsTemp/player_bottom_2.png",
-            "type":"perso",
-            "animation": "bottom",
-            "index": 1
-        },
-        {
-            "path":"../assetsTemp/player_bottom_1.png",
-            "type":"perso",
-            "animation": "bottom",
-            "index": 2
-        },
-        {
-            "path":"../assetsTemp/player_bottom_4.png",
-            "type":"perso",
-            "animation": "bottom",
-            "index": 3
-        },
-        {
-            "path":"../assetsTemp/player_left_1.png",
-            "type":"perso",
-            "animation": "left",
-            "index": 0
-        },
-        {
-            "path":"../assetsTemp/player_left_2.png",
-            "type":"perso",
-            "animation": "left",
-            "index": 1
-        },
-        {
-            "path":"../assetsTemp/player_left_1.png",
-            "type":"perso",
-            "animation": "left",
-            "index": 2
-        },
-        {
-            "path":"../assetsTemp/player_left_4.png",
-            "type":"perso",
-            "animation": "left",
-            "index": 3
-        },
-        {
-            "path":"../assetsTemp/player_right_1.png",
-            "type":"perso",
-            "animation": "right",
-            "index": 0
-        },
-        {
-            "path":"../assetsTemp/player_right_2.png",
-            "type":"perso",
-            "animation": "right",
-            "index": 1
-        },
-        {
-            "path":"../assetsTemp/player_right_1.png",
-            "type":"perso",
-            "animation": "right",
-            "index": 2
-        },
-        {
-            "path":"../assetsTemp/player_right_4.png",
-            "type":"perso",
-            "animation": "right",
-            "index": 3
-        },
-        {
-            "path":"../assetsTemp/player_right_4.png",
+            "path":"../assets/Tileset.png",
             "type":"map"
+        },
+        {
+            "path":"../assetsTemp/main_player_top.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "top"
+        },
+        {
+            "path":"../assetsTemp/main_player_bottom.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "bottom"
+        },
+        {
+            "path":"../assetsTemp/main_player_left.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "left"
+        },
+        {
+            "path":"../assetsTemp/main_player_right.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "right"
+        },
+        {
+            "path":"../assetsTemp/pnj_top.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "top"
+        },
+        {
+            "path":"../assetsTemp/pnj_bottom.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "bottom"
+        },
+        {
+            "path":"../assetsTemp/pnj_left.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "left"
+        },
+        {
+            "path":"../assetsTemp/pnj_right.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "right"
+        },
+        {
+            "path":"../assetsTemp/singe_top.png",
+            "type":"entity",
+            "name": "pnj2",
+            "direction": "top"
+        },
+        {
+            "path":"../assetsTemp/singe_bottom.png",
+            "type":"entity",
+            "name": "pnj2",
+            "direction": "bottom"
+        },
+        {
+            "path":"../assetsTemp/singe_left.png",
+            "type":"entity",
+            "name": "pnj2",
+            "direction": "left"
+        },
+        {
+            "path":"../assetsTemp/singe_right.png",
+            "type":"entity",
+            "name": "pnj2",
+            "direction": "right"
         }
     ]
 }

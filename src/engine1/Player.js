@@ -27,15 +27,14 @@ function movePlayer() {
 }
 
 function addFrame(dir){
-    if (frameRate % 5 === 0) {
+    if (frameRate % 7 === 0) {
         // console.log(currentFramePlayer, playerTileSet[dir].length)
-        if (currentFramePlayer === playerTileSet[dir].length - 1) {
+        if (currentFramePlayer >= playerTileSet[dir].length - 1) {
             currentFramePlayer = 0;
         }else{
             currentFramePlayer += 1;
         }
-    }
-    
+    }  
 }
 
 function GridCoord(arrayCoord){
@@ -52,7 +51,8 @@ function drawPlayer(){
     fill(255,255,0);
     movePlayer()
     // rect( xPlayer,yPlayer, sideCarrousel,sideCarrousel);
+    if(playerTileSet[direction][currentFramePlayer]){
+        image(playerTileSet[direction][currentFramePlayer], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
+    }
     
-    
-    image(playerTileSet[direction][currentFramePlayer], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
 }
