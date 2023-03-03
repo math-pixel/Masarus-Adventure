@@ -3,32 +3,12 @@ function drawingGridPipeGame(x,y,w,h,array){
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
 
-            switch(array[column][row].tile){
-                case 0:{
-                    currentDrawingImage = pipe_start;
-                    break;
-                }case 1:{
-                    currentDrawingImage = pipe_corner;
-                    break;
-                }case 2:{
-                    currentDrawingImage = pipe_straight;
-                    break;
-                }
-                case 3:{
-                    currentDrawingImage = pipe_tri;
-                    break;
-                }case 4:{
-                    currentDrawingImage = pipe_end;
-                    break;
-                }
-            }   
-
             angleMode(DEGREES);
             push()
             translate(x+w*row,y+h*column);
             let a = atan2(mouseY - height / 2, mouseX - width / 2);
             rotate(array[column][row].rotation);
-            image(currentDrawingImage, -w / 2, -h / 2,w,h); 
+            image(allTiles[array[column][row].tile], -w / 2, -h / 2,w,h); 
             pop() 
         }
     }
