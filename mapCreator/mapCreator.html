@@ -20,8 +20,8 @@
             <legend>Grid</legend>
 
             <div class="toolBarContent">
-                <label for="gridName">Grid name</label>
-                <input type="text" id="gridName" placeholder="plains1">
+                <label for="jsonName">Json name</label>
+                <input type="text" id="jsonName" placeholder="map">
                 <div class="doubleSide">
                     <div class="aSide gridParameters">
                         <label for="nbCarreauY">Square number X</label>
@@ -64,28 +64,7 @@
 
         <!-- Import / Export -->
 
-        <fieldset class="toolBar">
-            <legend>Import / Export</legend>
-
-            <div class="toolBarContent">
-                
-                <div class="doubleSide">
-                    <div class="aSide">
-                        <input id="import" type="file" value="import">
-                        <label for="import" class="button">
-                            Import existing map 
-                        </label>
-                    </div>
-                    <div class="aSide">
-                        <input type="button" id="export" value="Export map", class="button">
-                    </div>
-                </div>
-
-                
-            </div>
-
-            
-        </fieldset>
+        
 
         <!-- Import Tileset -->
 
@@ -126,6 +105,14 @@
 
 
         </fieldset>
+
+        <fieldset>
+            <legend>Background color</legend>
+            <input type="color" id="colorpicker" value="#313338">
+            <legend>Stroke color</legend>
+            <input type="color" id="colorpickerstroke" value="#C8C8C8">
+        </fieldset>
+
 
         <fieldset class="toolBar layers"> 
             <legend>Layers</legend>
@@ -211,6 +198,29 @@
                 </div>
             </div>
         </fieldset>
+
+        <fieldset class="toolBar">
+            <legend>Import / Export</legend>
+
+            <div class="toolBarContent">
+                
+                <div class="doubleSide">
+                    <div class="aSide">
+                        <input id="import" type="file" value="import">
+                        <label for="import" class="button">
+                            Import existing map 
+                        </label>
+                    </div>
+                    <div class="aSide">
+                        <input type="button" id="export" value="Export map", class="button">
+                    </div>
+                </div>
+
+                
+            </div>
+
+            
+        </fieldset>
     </div>
 
     <div class="tiles">
@@ -247,7 +257,7 @@
             <legend>Paint</legend>
             <div class="toolBarContent">
                 <button id="buttonClear" class="button" onclick="clearGrid()">Clear Grid</button>
-
+                <button id="buttonClear" class="button" onclick="resetGridPostion()">Reset Grid Position</button>
                 <div id="parent"></div>
             </div>
 
