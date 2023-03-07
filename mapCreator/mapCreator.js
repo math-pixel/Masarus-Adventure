@@ -42,6 +42,7 @@ let actualBackgroundColor = "#313338";
 let actualStrokeColor = "#C8C8C8";
 
 let ctrlZArray = [];
+let ctrlYArray = [];
 let initialClickX = 0;
 let initialClickY = 0;
 //#endregion
@@ -86,9 +87,26 @@ function getFile(input) {
 document.addEventListener("keyup", (event) => {
   if (event.keyCode == 90 && event.shiftKey) {
     if (ctrlZArray.length != 1) {
-      ctrlZArray.pop();
+      ctrlYArray.push(JSON.parse(JSON.stringify(ctrlZArray.pop())));
       allGrid = ctrlZArray[ctrlZArray.length - 1];
     }
+  }
+  if (event.keyCode == 89 && event.shiftKey) {
+    if (ctrlYArray.length != 1) {
+      allGrid = ctrlYArray[ctrlYArray.length - 1];
+      ctrlYArray.pop();
+    }
+  }
+});
+
+document.addEventListener("wheel", (event) => {
+  if (event.deltaY < 0) {
+    widthGrid += 5;
+    heightGrid += 5;
+  }
+  if (event.deltaY > 0) {
+    widthGrid -= 5;
+    heightGrid -= 5;
   }
 });
 
