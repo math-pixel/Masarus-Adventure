@@ -1,0 +1,20 @@
+{
+    "Map":{
+        "sizeCarrousel":20,
+        "xStart":0,
+        "yStart":0,
+        "nbRow":11,
+        "nbColumn":11,
+        "layers":[
+            [{"tile":2,"rotation":0},{"tile":7,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":7,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":3,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0}],
+            [{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":2,"rotation":0},{"tile":4,"rotation":0},{"tile":2,"rotation":0}]
+        ]
+        
+    }
+}
