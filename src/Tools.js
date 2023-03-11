@@ -162,3 +162,75 @@ function cutTiles(image, tilesSize) {
     }
     return tilesArray
 }
+
+
+/**********************************************/
+/*********************Dialogue*****************/
+/**********************************************/
+//! Pour activer le tout il suffit de faire "writeText(actualDialog);"
+
+//! Fonction a placer dans le dossier configurations
+let tempText = "";
+let i = 0;
+let index = 0;
+let bool = false;
+let actualDialog = [];
+
+//! Appeler la fonction ci dessous dans le draw avec dans actualDialog un tableau sous cette forme ["Bonjour", "Mon Dialogue fonctionne"]
+writeText(actualDialog);
+
+//! Cela affichera les elements du tableau un part un
+
+//* La fonction ceci desous affichera le texte
+function writeText(tab) {
+  if (bool) {
+    rect(20, 10, 715, 100, 10);
+    text(tempText, 200, 50, 490, 80);
+  }
+}
+
+//* Cette fonction ajoute au texte afficher les lettres une pars une afin de données un effet d'animation
+function letter(tab) {
+  if (i == tab[index].length) {
+    return;
+  } else {
+    tempText = tempText + tab[index][i];
+    i++;
+  }
+}
+
+//* La fonction ci-dessous set un interval pour obtenir la lettre suivante
+function write(tab) {
+  if (bool) {
+    intervalId = setInterval(letter, 50, tab);
+  }
+}
+
+//* Cette fonction change le texte c'est à dire l'éléments suivant du tableau
+function keyReleased(event) {
+  if (event.keyCode == 69) {
+    tempText = "";
+    i = 0;
+    if (bool) {
+      if (index < actualDialog.length - 1) {
+        index++;
+      } else {
+        bool = false;
+        index = 0;
+        clearInterval(intervalId);
+      }
+    } else {
+      bool = true;
+      write(actualDialog);
+    }
+  }
+}
+
+
+//? Je recommande d'utilise un booleen pour afficher le texte et éviter les bug
+let canInteract = false;
+//? Dans ce cas tu peu mettre ceci dans le draw ce qui enpechera l'affichage du text en cas de bug
+
+if (canInteract){
+    writeText(actualDialog);
+}
