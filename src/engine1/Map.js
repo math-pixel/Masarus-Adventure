@@ -119,6 +119,7 @@ function isCamNotBoncingBorderWorld(rectCam /*[x,y,x2,y2]*/, sideDirection, arra
             }
         case 'BOTTOM':
             if (rectCam[3] < arrayWorld[3]) {
+
                 return true
             }else{
                 return false
