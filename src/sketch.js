@@ -10,13 +10,13 @@ function setup(){
     textSize(32);
     text('word', 10, 30);
     // console.log(worlds1.tour.layers)
-    createPNJ(5, 50, 1250, 500, pnjTileSet1, 15, 1 )
-    createPNJ(8, 1000, 480 , 350, pnjTileSet1, 7, 2 )
+    createPNJ(5, 100, 1250, 500, pnjTileSet1, 15, 1, ["bienvenue", "comment-vas tu ?", "c'est le pnj 2"], "engine2" )
+    createPNJ(8, 1000, 480 , 350, pnjTileSet1, 7, 2 , ["bienvenue", "comment-vas tu ?", "c'est le pnj 1"], "engine1")
 }
 
 function draw(){
 
-    background(200);
+    // background(200);
     // condition moteur de jeux
     noSmooth()
     if (assetsLoaded) {
@@ -30,6 +30,9 @@ function draw(){
                 break;
             case "startMenu":
                 menu();
+                break;
+            case "dialogue":
+                startEngineDialogue();
                 break;
             default:
                 throw new Error("engine error")
@@ -49,6 +52,8 @@ function keyPressed() {
     }else if (keyCode === 27) {
         engine = "startMenu"
         // console.log("cornerTopLeft X : ", xStartWorld1 + xPlayer, xPlayer, " Y : ", yStartWorld2 + yPlayer)
+    }else if (keyCode === 65 && canInteract) {
+        interact()
     }
     
   }

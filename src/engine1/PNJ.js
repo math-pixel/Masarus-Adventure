@@ -22,7 +22,6 @@ function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratio
         "currentFrameInteraction": 0,
         "dialogue" : dialogue,
         "actionDialogue": actionDialogue,
-        "currentDialogue" : 0
     }
 
     allPnj.push(pnj)
@@ -81,6 +80,15 @@ function pnjManager(){
 
             //? remove the posssibility of move of pnj
             pnj.canMove = false
+
+            if (keyCode === 65) {
+                engine = "dialogue";
+                textDialogue = pnj.dialogue;
+                endAction = pnj.actionDialogue;
+                interact()
+                canInteract = true
+            }
+
         }else{
             pnj.canMove = true
         }

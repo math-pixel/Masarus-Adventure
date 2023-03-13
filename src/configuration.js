@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 11;
+let numberLoad = 12;
 
 //current engine
 let engine = "startMenu";
@@ -88,7 +88,14 @@ let allTiles = [];
 //Debuger Variable
 let drawCollision = false;
 
+//font
 let fontGravityBold;
+
+//interaction
+let canInteract = false
+
+//journal engine 2
+let journalTiles = [];
 
 function loadAsset(){
     loadJSON("./JSON/assets.json", (e) => {
@@ -132,6 +139,13 @@ function loading(assetArray){
                     numberAssetsLoading += 1 ;
                     exclamationPoint = cutTiles(e, 32);
                     // console.log("exclam",exclamationPoint)
+                    isLoaded();
+                });
+                break;
+            case "journal" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    journalTiles = cutTiles(e, 32);
                     isLoaded();
                 });
                 break;
