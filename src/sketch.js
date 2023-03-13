@@ -7,6 +7,7 @@ function preload(){
 
 function setup(){
     createCanvas(1000, 562);
+    setUpBackgroundCanvas()
     textSize(32);
     text('word', 10, 30);
     // console.log(worlds1.tour.layers)
@@ -45,6 +46,7 @@ function draw(){
 function keyPressed() {
     if (keyCode === 69) {
         if (engine === "engine1") {
+            setUpBackgroundCanvas()
             engine = "engine2"  
         }else{
             engine = "engine1"

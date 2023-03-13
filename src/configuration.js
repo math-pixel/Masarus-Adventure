@@ -97,6 +97,9 @@ let canInteract = false
 //journal engine 2
 let journalTiles = [];
 
+//* drawable Image background
+let backgroundImage;
+
 function loadAsset(){
     loadJSON("./JSON/assets.json", (e) => {
         loading(e.assets);

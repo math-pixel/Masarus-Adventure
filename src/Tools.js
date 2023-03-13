@@ -162,3 +162,11 @@ function cutTiles(image, tilesSize) {
     }
     return tilesArray
 }
+
+
+function setUpBackgroundCanvas(){
+    console.log(canvas.toDataURL())
+    backgroundImage = loadImage(canvas.toDataURL(), (e) => {
+        e.filter(BLUR , 2);
+    });
+}
