@@ -1,5 +1,5 @@
 function drawingGridPipeGame(x,y,w,h,array){
-
+    
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
 
@@ -8,7 +8,7 @@ function drawingGridPipeGame(x,y,w,h,array){
             translate(x+w*row,y+h*column);
             // let a = atan2(mouseY - height / 2, mouseX - width / 2);
             rotate(array[column][row].rotation);
-            image(allTiles[array[column][row].tile], -w / 2, -h / 2,w,h); 
+            image(journalTiles[array[column][row].tile], -w / 2, -h / 2,w,h); //allTiles
             pop() 
         }
     }
@@ -21,7 +21,7 @@ function drawingGridPipeGame(x,y,w,h,array){
 function drawMapEngine2(array){
 
     //x,y,w,h,array
-    drawingGridPipeGame(xStartWorld2 ,yStartWorld2 ,sideCarrousel,sideCarrousel,array);
+    drawingGridPipeGame(xStartWorld2 ,yStartWorld2 ,sideCarrousel ,sideCarrousel ,array);
 }
 
 

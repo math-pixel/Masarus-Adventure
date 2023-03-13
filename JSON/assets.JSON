@@ -91,6 +91,10 @@
         {
             "path":"../assets/tileset_Exclamation.png",
             "type":"exclamation"
+        },
+        {
+            "path":"../assets/journalAsset.png",
+            "type":"journal"
         }
     ]
 }
