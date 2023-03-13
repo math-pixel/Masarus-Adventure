@@ -45,7 +45,6 @@ let ctrlZArray = [];
 let ctrlYArray = [];
 let initialClickX = 0;
 let initialClickY = 0;
-let canZoom = false;
 //#endregion
 // #############################
 // ########### Test ############
@@ -96,20 +95,6 @@ document.addEventListener("keyup", (event) => {
     if (ctrlYArray.length != 1) {
       allGrid = ctrlYArray[ctrlYArray.length - 1];
       ctrlYArray.pop();
-    }
-  }
-});
-
-
-document.addEventListener("wheel", (event) => {
-  if (pointIsInside(mouseX, mouseY, coordGrid) && canZoom) {
-    if (event.deltaY < 0) {
-      widthGrid += 5;
-      heightGrid += 5;
-    }
-    if (event.deltaY > 0) {
-      widthGrid -= 5;
-      heightGrid -= 5;
     }
   }
 });
