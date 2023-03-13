@@ -111,11 +111,6 @@
             <input type="color" id="colorpicker" value="#313338">
             <legend>Stroke color</legend>
             <input type="color" id="colorpickerstroke" value="#C8C8C8">
-            <legend>Can Zoom</legend>
-            <div class="toggle-rect">
-                <input type="checkbox" id="checkboxCanZoom"  class="checkbox" onchange="canZoom = this.checked">
-                <label for="checkboxCanZoom"></label>
-            </div>
         </fieldset>
 
 
@@ -250,6 +245,11 @@
                     <div class="aSide">
                         <h4 id="curLayer">Layer : 1</h4>
                     </div>                    
+                </div>
+                <div class="toggle-rect">
+                    <legend>Show all tiles</legend>
+                    <input type="checkbox" id="checkboxShowAllTiles"  class="checkbox" onchange="showAllTiles(this.checked)" checked>
+                    <label for="checkboxShowAllTiles"></label>
                 </div>
                     
 

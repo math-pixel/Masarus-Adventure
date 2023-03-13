@@ -45,7 +45,7 @@ let ctrlZArray = [];
 let ctrlYArray = [];
 let initialClickX = 0;
 let initialClickY = 0;
-let canZoom = false;
+let canShowAllTiles = true;
 //#endregion
 // #############################
 // ########### Test ############
@@ -96,20 +96,6 @@ document.addEventListener("keyup", (event) => {
     if (ctrlYArray.length != 1) {
       allGrid = ctrlYArray[ctrlYArray.length - 1];
       ctrlYArray.pop();
-    }
-  }
-});
-
-
-document.addEventListener("wheel", (event) => {
-  if (pointIsInside(mouseX, mouseY, coordGrid) && canZoom) {
-    if (event.deltaY < 0) {
-      widthGrid += 5;
-      heightGrid += 5;
-    }
-    if (event.deltaY > 0) {
-      widthGrid -= 5;
-      heightGrid -= 5;
     }
   }
 });
@@ -191,7 +177,7 @@ function exportToJsonFile(jsonData) {
   linkElement.click();
 }
 
-function importData() {}
+function importData() { }
 
 // #############################
 // ####### Setup P5.JS #########
@@ -327,7 +313,7 @@ function feetWallpaperToGrid() {
 // ########## Tiles ############
 // #############################
 
-function addTiles() {}
+function addTiles() { }
 
 // #############################
 // ########## Mouse ############
@@ -457,9 +443,11 @@ function needCutTile() {
       parent.innerHTML = "";
 
       allTiles.forEach((currentTile, index) => {
-        let child = `<div class="bloc"><input type="text" value="${index}" id="valueTiles"><img src="${currentTile.canvas.toDataURL()}" alt="${index}" class="img_visualization" onclick="selectTile(parseInt(this.alt))"></div>`;
+        let child = `<div class="bloc"><img src="${currentTile.canvas.toDataURL()}" alt="${index}" class="img_visualization" onclick="selectTile(parseInt(this.alt))"></div>`;
         parent.innerHTML += child;
       });
+      let grid = document.querySelector('.paintBlock #parent');
+      grid.setAttribute('style', 'grid-template-columns: repeat(' + tileSet.width / a + ', 1fr)');
     } else {
       alert("Add an image xD");
     }
@@ -508,5 +496,15 @@ function changeStroke(check) {
     strokeBool = true;
   } else {
     strokeBool = false;
+  }
+}
+
+
+function showAllTiles(value) {
+  if (value ===true){
+    document.querySelector('.paintBlock').style.display = "block"
+  }
+  if (value === false){
+    document.querySelector('.paintBlock').style.display = "none"
   }
 }
