@@ -22,6 +22,7 @@ function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratio
         "currentFrameInteraction": 0,
         "dialogue" : dialogue,
         "actionDialogue": actionDialogue,
+        "canInteractVerification": false,
     }
 
     allPnj.push(pnj)
@@ -81,16 +82,20 @@ function pnjManager(){
             //? remove the posssibility of move of pnj
             pnj.canMove = false
 
-            if (keyCode === 65) {
-                engine = "dialogue";
-                textDialogue = pnj.dialogue;
-                endAction = pnj.actionDialogue;
-                interact()
-                canInteract = true
-            }
+
+            textDialogue = pnj.dialogue;
+            endAction = pnj.actionDialogue;
+            
+            canInteract = true
+            pnj.canInteractVerification = true
+            // console.log(canInteract)
 
         }else{
             pnj.canMove = true
+            if (pnj.canInteractVerification) {
+                pnj.canInteractVerification = false
+                canInteract = false
+            }
         }
 
 
@@ -120,7 +125,7 @@ function addFrameInteraction(pnj){
     if (pnj.frameRate % 30 === 0) {
         if (pnj.currentFrameInteraction >= exclamationPoint.length - 1) {
             pnj.currentFrameInteraction = 0;
-            console.log("yey")
+            // console.log("yey")
         }else{
             pnj.currentFrameInteraction += 1;
             

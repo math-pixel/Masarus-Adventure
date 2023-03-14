@@ -43,26 +43,38 @@ function cutText(){
 }
 
 function interact(){
-    
+
     //* if the gameur interact during the text is already cutting
     if (isCuttingWord) {
         
         //* set fully text
         indexInText = textDialogue[indexInDialogue].length - 1
-    }else if(!isFirstInteraction && !isCuttingWord){
         
+    }else if(!isFirstInteraction && !isCuttingWord && indexInDialogue < textDialogue.length - 1){
+
         //* si ce n'est pas le dernier message a dire alors vas au message suivant
-        if (indexInDialogue < textDialogue.length - 1){
-            indexInDialogue += 1
-            indexInText = 0
-        }else{
-            //* sinon fait laction demander
-            canInteract = false
-            engine = endAction
-        }
+        indexInDialogue += 1
+        indexInText = 0
+        
+    }else if(isFirstInteraction && !isCuttingWord){
+        
+        //*if is first interact do nothing => draw first message
+        isFirstInteraction = false;
+
+    }else{
+
+        //* else do the request action and reset variable
+        isFirstInteraction = true
+        indexInDialogue = 0
+        indexInText = 0
+        canInteract = false
+
+        setUpBackgroundCanvas()
+        engine = endAction
+        
         
     }
-
-    isFirstInteraction = false;
+  
+    
 
 }

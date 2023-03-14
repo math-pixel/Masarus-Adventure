@@ -42,7 +42,7 @@ function mousePressed() {
         // if win else ...
         if (isWin(MapPipeGame.Map.layers)) {
             engine = "engine1";
-            // alert("win")
+            alert("win")
         }
     }
 
@@ -58,7 +58,7 @@ function mousePressed() {
         }
 
         if (isWin(MapPipeGame.Map.layers)) {
-                alert("win")
+            alert("win")
         } 
     }
 }

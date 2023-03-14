@@ -19,6 +19,7 @@ function draw(){
 
     // background(200);
     // condition moteur de jeux
+    // console.log(canInteract, textDialogue, endAction )
     noSmooth()
     if (assetsLoaded) {
         switch(engine){
@@ -55,7 +56,10 @@ function keyPressed() {
         engine = "startMenu"
         // console.log("cornerTopLeft X : ", xStartWorld1 + xPlayer, xPlayer, " Y : ", yStartWorld2 + yPlayer)
     }else if (keyCode === 65 && canInteract) {
+        engine = "dialogue";
+        console.log(textDialogue)
         interact()
+        
     }
     
   }

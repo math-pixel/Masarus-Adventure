@@ -83,7 +83,7 @@ function canPlayerMove(playerRect, Direction){
 }
 
 function collisionPixel(xStartCollision, yStartCollision, playerRect){
-    console.log( [xStartCollision,yStartCollision,sideCarrousel,sideCarrousel], mouseX, mouseY    )
+    // console.log( [xStartCollision,yStartCollision,sideCarrousel,sideCarrousel], mouseX, mouseY    )
     return rectIsInRect([xStartCollision,yStartCollision,sideCarrousel,sideCarrousel] , playerRect )
 }
 
