@@ -83,7 +83,7 @@ function canPlayerMove(playerRect, Direction){
 }
 
 function collisionPixel(xStartCollision, yStartCollision, playerRect){
-    console.log( [xStartCollision,yStartCollision,sideCarrousel,sideCarrousel], mouseX, mouseY    )
+    // console.log( [xStartCollision,yStartCollision,sideCarrousel,sideCarrousel], mouseX, mouseY    )
     return rectIsInRect([xStartCollision,yStartCollision,sideCarrousel,sideCarrousel] , playerRect )
 }
 
@@ -231,19 +231,19 @@ function moveMap() {
     }
 
     if (keyIsDown(LEFT_ARROW) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
-        xStartWorld1 += 8;    
+        xStartWorld1 += speedMoveMap;    
     }
     
     if (keyIsDown(RIGHT_ARROW) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
-        xStartWorld1 -= 8;
+        xStartWorld1 -= speedMoveMap;
     }
     
     if (keyIsDown(UP_ARROW) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
-        yStartWorld1 += 8;
+        yStartWorld1 += speedMoveMap;
     }
     
     if (keyIsDown(DOWN_ARROW) && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
-        yStartWorld1 -= 8;
+        yStartWorld1 -= speedMoveMap;
     }
     
 }

@@ -122,7 +122,7 @@ function getCenterOfRect(rect){
 // Point is in rect
 // Prend un point et un rect et renvoie true ou false
 function pointIsInRect(point, rect) {
-    if (point[0] > rect[0] && point[0] < (rect[0] + rect[2]) && point[1] > rect[1] && (rect[1] + rect[3])) {
+    if (point[0] > rect[0] && point[0] < (rect[0] + rect[2]) && point[1] > rect[1] && point[1] < (rect[1] + rect[3])) {
         return true
     }
     return false
@@ -161,4 +161,12 @@ function cutTiles(image, tilesSize) {
         }
     }
     return tilesArray
+}
+
+
+function setUpBackgroundCanvas(){
+    console.log(canvas.toDataURL())
+    backgroundImage = loadImage(canvas.toDataURL(), (e) => {
+        e.filter(BLUR , 2);
+    });
 }

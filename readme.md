@@ -1,9 +1,9 @@
 <div align="center"> 
 
 
-# <p align="center">Masaru's adventure</p>
+# <p align="center">Project 2D Vidéo Games</p>
 
-<img src="https://www.zupimages.net/up/23/08/31vj.png" style="height:400px, border-radius: 30px">
+<img src="https://as2.ftcdn.net/v2/jpg/03/37/75/39/1000_F_337753935_ieSuyFPSLWuM7fyLQyJ1VF0j3eOPkHYJ.jpg" style="height:400px, border-radius: 30px">
 
 </div>
 

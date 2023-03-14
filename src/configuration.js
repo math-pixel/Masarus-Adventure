@@ -4,10 +4,10 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 11;
+let numberLoad = 12;
 
 //current engine
-let engine = "engine1";
+let engine = "startMenu";
 
 // map engine 1
 let ArrayWorldDisplay = [];
@@ -24,6 +24,8 @@ let nbColumn;
 
 let currentMap = "tour"; // pour set le world a cette map la 
 
+let speedMoveMap = 8;
+
 // map engine 2
 let xStartWorld2 = 250;
 let yStartWorld2 = 35;
@@ -31,8 +33,15 @@ let yStartWorld2 = 35;
 //perso
 let xPlayer = 500;
 let yPlayer = 281;
-let playerCanMoveX = false;
-let playerCanMoveY = false;
+
+let speedMovePlayer = 8;
+
+let playerCanMoveXLeft = false;
+let playerCanMoveXRight = false;
+let playerCanMoveYTop = false;
+let playerCanMoveYBottom = false;
+
+let playerNotCollisionPNJ = true;
 
 // animation player
 let playerTileSet = [];
@@ -57,6 +66,9 @@ let pnjAnimBottom2 = [];
 let pnjAnimRight2 = [];
 let pnjAnimLeft2 = [];
 
+//animation tile interaction 
+let exclamationPoint = [];
+
 // cam 
 let Hcam = 500;
 let Wcam = Hcam * (16/9);
@@ -64,7 +76,7 @@ let Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
 let Ycam = (yPlayer + 20 / 2) - Hcam/2;
 
 let camCanMoveX = true;
-let camCanMoveY = false;
+let camCanMoveY = true;
 
 let rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
 
@@ -76,7 +88,17 @@ let allTiles = [];
 //Debuger Variable
 let drawCollision = false;
 
+//font
+let fontGravityBold;
 
+//interaction
+let canInteract = false
+
+//journal engine 2
+let journalTiles = [];
+
+//* drawable Image background
+let backgroundImage;
 
 function loadAsset(){
     loadJSON("./JSON/assets.json", (e) => {
@@ -84,6 +106,8 @@ function loadAsset(){
     }, (err) => {
         console.log("error : ",err)
     });
+
+    fontGravityBold = loadFont('font/GravityBold.ttf');
 }
 
 function loading(assetArray){
@@ -113,6 +137,21 @@ function loading(assetArray){
                     isLoaded();
                 });
                 break;
+            case "exclamation" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    exclamationPoint = cutTiles(e, 32);
+                    // console.log("exclam",exclamationPoint)
+                    isLoaded();
+                });
+                break;
+            case "journal" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    journalTiles = cutTiles(e, 32);
+                    isLoaded();
+                });
+                break;
             //! ########### PLAYER ASSETS
             case "entity":
                 switch(elm.name){
@@ -122,14 +161,14 @@ function loading(assetArray){
                             case "top":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    animTop = cutTiles(e, 32);
+                                    animTop = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
                             case "bottom":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    animBottom = cutTiles(e, 32);
+                                    animBottom = cutTiles(e, 64);
                                     // console.log(animBottom)
                                     isLoaded();
                                 });
@@ -137,14 +176,14 @@ function loading(assetArray){
                             case "left":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    animLeft = cutTiles(e, 32);
+                                    animLeft = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
                             case "right":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    animRight = cutTiles(e, 32);
+                                    animRight = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;

@@ -13,80 +13,88 @@
             "type":"mapsEngine2"
         },
         {
-            "path":"../assets/Tileset.png",
+            "path":"../assets/tileset_map.png",
             "type":"map"
         },
         {
-            "path":"../assetsTemp/main_player_top.png",
+            "path":"../assets/player/main_player_top.png",
             "type":"entity",
             "name": "player",
             "direction": "top"
         },
         {
-            "path":"../assetsTemp/main_player_bottom.png",
+            "path":"../assets/player/main_player_bottom.png",
             "type":"entity",
             "name": "player",
             "direction": "bottom"
         },
         {
-            "path":"../assetsTemp/main_player_left.png",
+            "path":"../assets/player/main_player_left.png",
             "type":"entity",
             "name": "player",
             "direction": "left"
         },
         {
-            "path":"../assetsTemp/main_player_right.png",
+            "path":"../assets/player/main_player_right.png",
             "type":"entity",
             "name": "player",
             "direction": "right"
         },
         {
-            "path":"../assetsTemp/pnj_top.png",
+            "path":"../assets/pnj/pnj_top.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "top"
         },
         {
-            "path":"../assetsTemp/pnj_bottom.png",
+            "path":"../assets/pnj/pnj_bottom.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "bottom"
         },
         {
-            "path":"../assetsTemp/pnj_left.png",
+            "path":"../assets/pnj/pnj_left.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "left"
         },
         {
-            "path":"../assetsTemp/pnj_right.png",
+            "path":"../assets/pnj/pnj_right.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "right"
         },
         {
-            "path":"../assetsTemp/singe_top.png",
+            "path":"../assets/pnj/singe_top.png",
             "type":"entity",
             "name": "pnj2",
             "direction": "top"
         },
         {
-            "path":"../assetsTemp/singe_bottom.png",
+            "path":"../assets/pnj/singe_bottom.png",
             "type":"entity",
             "name": "pnj2",
             "direction": "bottom"
         },
         {
-            "path":"../assetsTemp/singe_left.png",
+            "path":"../assets/pnj/singe_left.png",
             "type":"entity",
             "name": "pnj2",
             "direction": "left"
         },
         {
-            "path":"../assetsTemp/singe_right.png",
+            "path":"../assets/pnj/singe_right.png",
             "type":"entity",
             "name": "pnj2",
             "direction": "right"
+        },
+        {
+            "path":"../assets/tileset_Exclamation.png",
+            "type":"exclamation"
+        },
+        {
+            "path":"../assets/journalAsset.png",
+            "type":"journal"
         }
     ]
 }
