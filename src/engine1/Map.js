@@ -134,28 +134,3 @@ function isCamNotBoncingBorderWorld(rectCam /*[x,y,x2,y2]*/, sideDirection, arra
             return false
     }
 }
-
-function drawMapEngine1(){
-    mustAddMapAtWorlds();
-    ArrayWorldDisplay.forEach((elm, index)=>{
-        
-        // console.log(elm);
-        let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
-        //x,y,w,h,array
-
-        elm.layers.forEach((layer) => {
-            drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,layer);
-        })
-
-        if (elm.collision && drawCollision) {
-            drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.collision);
-        }
-        
-    });
-
-    
-
-    //Cam
-    fill(255,255,20,0)
-    rect(Xcam,Ycam,Wcam,Hcam)
-}

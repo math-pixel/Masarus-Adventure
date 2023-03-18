@@ -25,7 +25,6 @@ function draw(){
         switch(engine){
             case "engine1":
                 startEngine1();
-                pnjManager()
                 break;
             case "engine2":
                 startEngine2();
