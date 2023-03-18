@@ -7,11 +7,8 @@ function startEngine1(){
 
 function drawEngine1(){
 
-    // draw map
+    //! draw map
     mustAddMapAtWorlds();
-
-
-    let IsDraw = false
     for (let loopLayer = 0; loopLayer < 5; loopLayer++) {
         
         ArrayWorldDisplay.forEach((elm, index)=>{
@@ -26,16 +23,22 @@ function drawEngine1(){
                 drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel, elm.layers[loopLayer]);
                 
 
-                // console.log(ArrayWorldDisplay[ArrayWorldDisplay.length - 1])
+                //! draw pnj and player
                 if ( loopLayer == 1 && index == ArrayWorldDisplay.length - 1) {
-                    pnjManager()
-                    drawPlayer()
+                    console.log(PNJinFrontOfPlayer)
+                    if (PNJinFrontOfPlayer) {
+                        drawPlayer()
+                        pnjManager()
+                    }else{
+                        pnjManager()
+                        drawPlayer()
+                    }
+
                 }
                 
-                // draw collision
+                //! draw collision
                 if (elm.collision && drawCollision) {
                     drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.collision);
-                    IsDraw = true
                 }
 
             }

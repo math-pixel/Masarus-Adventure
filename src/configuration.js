@@ -54,6 +54,8 @@ let animRight = [];
 let animLeft = [];
 
 //PNJ
+let PNJinFrontOfPlayer = false;
+
 let pnjTileSet1 = [];
 let pnjAnimTop1 = [];
 let pnjAnimBottom1 = [];

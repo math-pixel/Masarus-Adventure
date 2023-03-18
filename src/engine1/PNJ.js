@@ -22,7 +22,7 @@ function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratio
         "currentFrameInteraction": 0,
         "dialogue" : dialogue,
         "actionDialogue": actionDialogue,
-        "canInteractVerification": false,
+        "canInteractVerification": false
     }
 
     allPnj.push(pnj)
@@ -34,7 +34,7 @@ function pnjManager(){
     allPnj.forEach((pnj) => {
         let index_Direction = 0;
 
-        //? set direction and movement
+        //! set direction and movement
         if (pnj.canMove) {
             if (pnj.direction === "right") {
                 pnj.actualDistance += 1 * pnj.speed;
@@ -53,7 +53,7 @@ function pnjManager(){
             index_Direction = 1;
         }
 
-        //? animation pnj
+        //! animation pnj
         animatePNJ(pnj, index_Direction)
         // console.log(pnj.id ,pnj.currentFrame )
 
@@ -63,6 +63,7 @@ function pnjManager(){
         let newPnjRect = createNewRect( xStartWorld1 + pnj.xStart + pnj.actualDistance, yStartWorld1 + pnj.yStart, pnj.width, pnj.width, 3 );
         // console.log(newPnjRect)
 
+        // draw pnj collision boucing
         if (drawCollision) {
             fill(255,255,0,30)
             rect(newPnjRect[0],newPnjRect[1],newPnjRect[2],newPnjRect[3]);
@@ -87,14 +88,30 @@ function pnjManager(){
             endAction = pnj.actionDialogue;
             
             canInteract = true
+
+            // verification if the player is in contact with current pnj
             pnj.canInteractVerification = true
-            // console.log(canInteract)
+
+
+
+            //! pnj is in front of player
+            if (pnj.canInteractVerification) {
+                console.log(pnj.yStart < yPlayer)
+                if (yStartWorld1 + pnj.yStart < yPlayer) {
+                    PNJinFrontOfPlayer = false;
+                }else{
+                    PNJinFrontOfPlayer = true;
+                }
+            }
+
 
         }else{
             pnj.canMove = true
             if (pnj.canInteractVerification) {
                 pnj.canInteractVerification = false
                 canInteract = false
+
+                PNJinFrontOfPlayer = false;
             }
         }
 
@@ -107,7 +124,7 @@ function pnjManager(){
         }
          
 
-        // draw png 
+        //! draw png 
         if (pnj.skin[index_Direction][pnj.currentFrame]) {
             image(pnj.skin[index_Direction][pnj.currentFrame], xStartWorld1 + pnj.xStart + pnj.actualDistance, yStartWorld1 + pnj.yStart, sideCarrousel,sideCarrousel)
         }
