@@ -17,25 +17,25 @@
             "type":"map"
         },
         {
-            "path":"../assets/player/main_player_top.png",
+            "path":"../assets/player/masaru-top.png",
             "type":"entity",
             "name": "player",
             "direction": "top"
         },
         {
-            "path":"../assets/player/main_player_bottom.png",
+            "path":"../assets/player/masaru-bottom.png",
             "type":"entity",
             "name": "player",
             "direction": "bottom"
         },
         {
-            "path":"../assets/player/main_player_left.png",
+            "path":"../assets/player/masaru-left.png",
             "type":"entity",
             "name": "player",
             "direction": "left"
         },
         {
-            "path":"../assets/player/main_player_right.png",
+            "path":"../assets/player/masaru-right.png",
             "type":"entity",
             "name": "player",
             "direction": "right"
