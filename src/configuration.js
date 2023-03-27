@@ -22,7 +22,7 @@ let worldBoncing = []; //[x,y,w,h]
 let nbRow;
 let nbColumn;
 
-let currentMap = "tour"; // pour set le world a cette map la 
+let currentMap = "tilemap_16"; // pour set le world a cette map la 
 
 let speedMoveMap = 8;
 
@@ -319,7 +319,12 @@ function initVariableWorld(e){
         ArrayWorldDisplay.push(Maps[Object.keys(Maps)[index]])
     }
 
-    console.log(ArrayWorldDisplay)
+    let coordMap = findIndexValueIn2dArray(world1.World,currentMap)
+
+    xStartWorld1 = - coordMap[1] * nbColumn * sideCarrousel
+    yStartWorld1 = - coordMap[0] * nbRow * sideCarrousel
+
+    console.log("coord : ", xStartWorld1, yStartWorld1)
 }
 
 
