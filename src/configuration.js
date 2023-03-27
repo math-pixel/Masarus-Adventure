@@ -43,6 +43,8 @@ let playerCanMoveYBottom = false;
 
 let playerNotCollisionPNJ = true;
 
+let playerLayer = 1
+
 // animation player
 let playerTileSet = [];
 let direction = 0;

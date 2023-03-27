@@ -1,11 +1,11 @@
 {
     "assets":[
         {
-            "path": "../JSON/engine1/world.json",
+            "path": "../JSON/engine1/world copy.json",
             "type": "world"
         },
         {
-            "path":"../JSON/engine1/allMaps.json",
+            "path":"../JSON/engine1/allMaps2.json",
             "type":"mapsEngine1"
         },
         {

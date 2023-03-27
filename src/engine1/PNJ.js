@@ -96,7 +96,7 @@ function pnjManager(){
 
             //! pnj is in front of player
             if (pnj.canInteractVerification) {
-                console.log(pnj.yStart < yPlayer)
+                // console.log(pnj.yStart < yPlayer)
                 if (yStartWorld1 + pnj.yStart < yPlayer) {
                     PNJinFrontOfPlayer = false;
                 }else{

@@ -16,16 +16,16 @@ function drawEngine1(){
             if (elm.layers[loopLayer]) {
 
                 let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
+                // console.log("a" , world1.World)
                 let indexPlayerInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow , sideCarrousel * nbColumn, xStartWorld1,yStartWorld1,"PlayerInWorld")
                 //x,y,w,h,array
         
                 
                 drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel, elm.layers[loopLayer]);
-                
+
 
                 //! draw pnj and player
-                if ( loopLayer == 1 && index == ArrayWorldDisplay.length - 1) {
-                    console.log(PNJinFrontOfPlayer)
+                if ( loopLayer == playerLayer && index == ArrayWorldDisplay.length - 1) {
                     if (PNJinFrontOfPlayer) {
                         drawPlayer()
                         pnjManager()
