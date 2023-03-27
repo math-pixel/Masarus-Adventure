@@ -310,21 +310,22 @@ function isLoaded(){
 
 
 function initVariableWorld(e){
+    //init variable
     sideCarrousel = e.sizeCarrousel;
-
     nbRow = e.nbRow;
     nbColumn = e.nbColumn;
-
     for (let index = 0; index < 1; index++) {
         ArrayWorldDisplay.push(Maps[Object.keys(Maps)[index]])
     }
 
+
+    // start map at precise tilemap
     let coordMap = findIndexValueIn2dArray(world1.World,currentMap)
 
     xStartWorld1 = - coordMap[1] * nbColumn * sideCarrousel
     yStartWorld1 = - coordMap[0] * nbRow * sideCarrousel
 
-    console.log("coord : ", xStartWorld1, yStartWorld1)
+    console.log('%c coord : ', 'background: #222; color: #FFFF00',  xStartWorld1, yStartWorld1, " START WITH VALUE : currentMap") 
 }
 
 
