@@ -22,9 +22,10 @@ function movePlayer() {
         moduloAnimation = 3
         addFrame(direction)
     }else{
+        // IDLE animation in all direction
         if ( direction + 4 < playerTileSet.length ) {
             direction += 4
-            console.log(direction)
+            // console.log(direction)
         }
         moduloAnimation = 7
         addFrame(direction)

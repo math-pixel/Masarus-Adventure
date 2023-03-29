@@ -96,7 +96,7 @@ function collisionWithArray(playerRect, Direction){
 
     // ################# TEST IF COLLISION ###################
     //! return if it is a collision
-    let typeBlock = typeOfnextBlock(Direction, informationPlayer.Center, informationPlayer.CenterInWorld)
+    let typeBlock = typeOfnextBlock(Direction, informationPlayer.Center, informationPlayer.CenterInWorld, layerCollision)
     if (typeBlock != blockToNotCollision) {
         return true
     }else{
@@ -136,7 +136,7 @@ function getInformationOfCenterOfPlayer(playerRect){
     return {"centerOfPlayer" : centerOfPlayer, "CenterInWorld" : CenterInWorld, "Center" : Center}
 }
 
-function typeOfnextBlock(Direction, Center, CenterInWorld){
+function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
 
     //! for all direction the first condition is when the player is on the same map of his test
     //! and the second test is if the test is out the same map where is the player
@@ -147,7 +147,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
         case "TOP":
             //! UP
             if (StrMap != undefined && Center[1] - 1 >= 0) {
-                valueTop = Maps[StrMap].layers[layerCollision][Center[1] - 1][Center[0]];
+                valueTop = Maps[StrMap].layers[layerTestBlock][Center[1] - 1][Center[0]];
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0] +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1] +  (Center[1] - 1) * sideCarrousel;
@@ -158,7 +158,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
                 }
                 
             }else if(Maps[world1.World[CenterInWorld[1] - 1][CenterInWorld[0]]]){
-                valueTop = Maps[world1.World[CenterInWorld[1] - 1][CenterInWorld[0]]].layers[layerCollision][10][Center[0]];
+                valueTop = Maps[world1.World[CenterInWorld[1] - 1][CenterInWorld[0]]].layers[layerTestBlock][10][Center[0]];
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] - 1 ) +  10 * sideCarrousel;
@@ -173,7 +173,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
         case "BOTTOM":
             //! DOWN
             if (StrMap != undefined && Center[1] + 1 <= 10) {
-                valueDown = Maps[StrMap].layers[layerCollision][Center[1] + 1][Center[0]];
+                valueDown = Maps[StrMap].layers[layerTestBlock][Center[1] + 1][Center[0]];
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  ( Center[1] + 1 ) * sideCarrousel;
@@ -184,7 +184,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
                 }
 
             }else if(Maps[world1.World[CenterInWorld[1] + 1][CenterInWorld[0]]] != undefined){
-                valueDown = Maps[world1.World[CenterInWorld[1] + 1][CenterInWorld[0]]].layers[layerCollision][0][Center[0]];
+                valueDown = Maps[world1.World[CenterInWorld[1] + 1][CenterInWorld[0]]].layers[layerTestBlock][0][Center[0]];
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] + 1 )  +  0 * sideCarrousel;
@@ -198,7 +198,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
         case "LEFT":
             //! LEFT
             if (StrMap != undefined && Center[0] - 1 >= 0) {
-                valueLeft = Maps[StrMap].layers[layerCollision][Center[1]][Center[0] - 1];
+                valueLeft = Maps[StrMap].layers[layerTestBlock][Center[1]][Center[0] - 1];
         
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] - 1 ) * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
@@ -208,7 +208,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
                     rect(collisionX,collisionY , 10,10);
                 }
             }else if (Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] - 1 ]] != undefined){
-                valueLeft = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] - 1 ]].layers[layerCollision][Center[1]][10];
+                valueLeft = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] - 1 ]].layers[layerTestBlock][Center[1]][10];
         
                 collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] - 1 )  +  10 * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
@@ -223,7 +223,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
         case "RIGHT":
             //! RIGHT
             if(StrMap != undefined && Center[0] + 1 <= 10){
-                valueRight = Maps[StrMap].layers[layerCollision][Center[1] ][Center[0] + 1];
+                valueRight = Maps[StrMap].layers[layerTestBlock][Center[1] ][Center[0] + 1];
                 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] + 1 ) * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
@@ -233,7 +233,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld){
                     rect(collisionX,collisionY , 10,10);
                 }
             }else{
-                valueRight = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] + 1 ]].layers[layerCollision][Center[1] ][0];
+                valueRight = Maps[world1.World[CenterInWorld[1]][CenterInWorld[0] + 1 ]].layers[layerTestBlock][Center[1] ][0];
 
                 collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] + 1 )  +  0 * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
