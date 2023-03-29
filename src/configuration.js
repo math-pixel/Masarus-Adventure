@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 12;
+let numberLoad = 21;
 
 //current engine
 let engine = "startMenu";
@@ -22,7 +22,7 @@ let worldBoncing = []; //[x,y,w,h]
 let nbRow;
 let nbColumn;
 
-let currentMap = "tilemap_16"; // pour set le world a cette map la 
+let currentMap = "tilemap_80"; // pour set le world a cette map la 
 
 let speedMoveMap = 8;
 
@@ -34,7 +34,7 @@ let yStartWorld2 = 35;
 let xPlayer = 500;
 let yPlayer = 281;
 
-let speedMovePlayer = 8;
+// let speedMovePlayer = 8;
 
 let playerCanMoveXLeft = false;
 let playerCanMoveXRight = false;
@@ -43,17 +43,22 @@ let playerCanMoveYBottom = false;
 
 let playerNotCollisionPNJ = true;
 
-let playerLayer = 1
+let playerLayer = 0
 
 // animation player
 let playerTileSet = [];
 let direction = 0;
 let currentFramePlayer = 0;
+let moduloAnimation = 10;
 
 let animTop = [];
 let animBottom = [];
 let animRight = [];
 let animLeft = [];
+let animIDLEBottom = [];
+let animIDLETop = [];
+let animIDLELeft = [];
+let animIDLERight = [];
 
 //PNJ
 let PNJinFrontOfPlayer = false;
@@ -191,6 +196,34 @@ function loading(assetArray){
                                     isLoaded();
                                 });
                                 break;
+                            case "idlebottom":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animIDLEBottom = cutTiles(e, 64);
+                                    isLoaded();
+                                })
+                                break;
+                            case "idletop":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animIDLETop = cutTiles(e, 64);
+                                    isLoaded();
+                                })
+                                break;
+                            case "idleleft":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animIDLELeft = cutTiles(e, 64);
+                                    isLoaded();
+                                })
+                                break;
+                            case "idleright":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animIDLERight = cutTiles(e, 64);
+                                    isLoaded();
+                                })
+                                break;
                             default:
                                 throw new Error("name aniùation in Json file doesnt correspond")
                         }
@@ -295,7 +328,7 @@ function isLoaded(){
 
     if (numberAssetsLoading === numberLoad) {
 
-        playerTileSet = [animTop,animBottom,animLeft,animRight];
+        playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight ];
 
         pnjTileSet1 = [pnjAnimTop1,pnjAnimBottom1,pnjAnimLeft1,pnjAnimRight1];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];

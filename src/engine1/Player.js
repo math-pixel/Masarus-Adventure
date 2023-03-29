@@ -6,28 +6,33 @@ function movePlayer() {
     frameRate += 1;
     if (keyIsDown(LEFT_ARROW)) {
         direction = 2;
+        moduloAnimation = 3
         addFrame(direction)
-
-
     }else if (keyIsDown(RIGHT_ARROW)) {
         direction = 3;
+        moduloAnimation = 3
         addFrame(direction)
-
     }else if (keyIsDown(UP_ARROW)) {
         direction = 0;
+        moduloAnimation = 3
         addFrame(direction)
         // console.log("yey")
-        
-
     }else if (keyIsDown(DOWN_ARROW)) {
         direction = 1;
+        moduloAnimation = 3
         addFrame(direction)
-
+    }else{
+        if ( direction + 4 < playerTileSet.length ) {
+            direction += 4
+            console.log(direction)
+        }
+        moduloAnimation = 7
+        addFrame(direction)
     }
 }
 
 function addFrame(dir){
-    if (frameRate % 3 === 0) {
+    if (frameRate % moduloAnimation === 0) {
         // console.log(currentFramePlayer, playerTileSet[dir].length)
         if (currentFramePlayer >= playerTileSet[dir].length - 1) {
             currentFramePlayer = 0;

@@ -41,6 +41,30 @@
             "direction": "right"
         },
         {
+            "path":"../assets/player/masaru-bottom-idle.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "idlebottom"
+        },
+        {
+            "path":"../assets/player/masaru-left-idle.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "idleleft"
+        },
+        {
+            "path":"../assets/player/masaru-right-idle.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "idleright"
+        },
+        {
+            "path":"../assets/player/masaru-top-idle.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "idletop"
+        },
+        {
             "path":"../assets/pnj/pnj_top.png",
             "type":"entity",
             "name": "pnj1",
