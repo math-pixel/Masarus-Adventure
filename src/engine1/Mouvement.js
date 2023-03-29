@@ -92,7 +92,20 @@ function collisionPixel(xStartCollision, yStartCollision, playerRect){
 function collisionWithArray(playerRect, Direction){
 
     // ################# GET VARIABLE FOR COLLISION ###############
+    let informationPlayer = getInformationOfCenterOfPlayer(playerRect)
 
+    // ################# TEST IF COLLISION ###################
+    //! return if it is a collision
+    let typeBlock = typeOfnextBlock(Direction, informationPlayer.Center, informationPlayer.CenterInWorld)
+    if (typeBlock != blockToNotCollision) {
+        return true
+    }else{
+        return false
+    }
+    
+}
+
+function getInformationOfCenterOfPlayer(playerRect){
     // get center of player 
     let centerOfPlayer = getCenterOfRect(playerRect)
 
@@ -103,12 +116,6 @@ function collisionWithArray(playerRect, Direction){
                                                     sideCarrousel * nbColumn ,sideCarrousel * nbRow,xStartWorld1,
                                                     yStartWorld1,
                                                     "world");
-    
-    // draw a rect on the center of the player
-    if (drawCollision) {
-        fill(0,0,255)
-        rect(centerOfPlayer[0], centerOfPlayer[1], 5,5)
-    }
 
     // get the current index of the player in the current MAP
     let Center = findIndexOfPositionIn2dArray(centerOfPlayer[0],
@@ -119,19 +126,18 @@ function collisionWithArray(playerRect, Direction){
                                             xStartWorld1  + CenterInWorld[0] * sideCarrousel * nbRow,
                                             yStartWorld1 + CenterInWorld[1] * sideCarrousel * nbColumn,
                                             "perso");
-
-    //! return if it is a collision
-    let typeBlock = typeOfnextBlock(Direction, Center, CenterInWorld)
-    if (typeBlock != blockToNotCollision) {
-        return true
-    }else{
-        return false
+                    
+    //? draw a rect on the center of the player
+    if (drawCollision) {
+        fill(0,0,255)
+        rect(centerOfPlayer[0], centerOfPlayer[1], 5,5)
     }
-    
+            
+    return {"centerOfPlayer" : centerOfPlayer, "CenterInWorld" : CenterInWorld, "Center" : Center}
 }
 
 function typeOfnextBlock(Direction, Center, CenterInWorld){
-// ################# TEST IF COLLISION ###################
+
     //! for all direction the first condition is when the player is on the same map of his test
     //! and the second test is if the test is out the same map where is the player
     //! and finally i set up collision X and collision Y for test the collision with pixel
