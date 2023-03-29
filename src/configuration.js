@@ -26,6 +26,11 @@ let currentMap = "tilemap_80"; // pour set le world a cette map la
 
 let speedMoveMap = 8;
 
+//TODO a modifier et mettre 4 cf : discord
+let layerCollision = 0;
+//TODO mettre 0 pour le vide
+let blockToNotCollision = 1;
+
 // map engine 2
 let xStartWorld2 = 250;
 let yStartWorld2 = 35;
@@ -94,7 +99,7 @@ let tileSet;
 let allTiles = [];
 
 
-//Debuger Variable
+//! Debuger Variable
 let drawCollision = false;
 
 //font
