@@ -25,7 +25,6 @@ function drawingCollision(x,y,w,h,array){
                 fill(255,0,0,50)
                 rect(x+w*row,y+h*column,w,h); 
             }
-                     
         }
     }
 }

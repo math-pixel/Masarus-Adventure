@@ -16,11 +16,11 @@ function setup(){
 }
 
 function draw(){
-
     // background(200);
     // condition moteur de jeux
     // console.log(canInteract, textDialogue, endAction )
     noSmooth()
+    //! select engine
     if (assetsLoaded) {
         switch(engine){
             case "engine1":
@@ -40,25 +40,25 @@ function draw(){
         }
     }
     
-    
+    //! reset Variable
+    keyInteractionIsPressed = false;
 }
 
 function keyPressed() {
-    if (keyCode === 69) {
+    if (keyCode === 69) {//? key " e "
         if (engine === "engine1") {
             setUpBackgroundCanvas()
             engine = "engine2"  
         }else{
             engine = "engine1"
         }
-    }else if (keyCode === 27) {
+    }else if (keyCode === 27) {//? key " escape "
         engine = "startMenu"
-        // console.log("cornerTopLeft X : ", xStartWorld1 + xPlayer, xPlayer, " Y : ", yStartWorld2 + yPlayer)
-    }else if (keyCode === 65 && canInteract) {
+    }else if (keyCode === 65 && canInteract) { //? key " a "
         engine = "dialogue";
-        console.log(textDialogue)
         interact()
-        
+    }else if(keyCode === 65){
+        keyInteractionIsPressed = true;
     }
     
   }

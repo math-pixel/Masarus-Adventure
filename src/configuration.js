@@ -28,6 +28,7 @@ let speedMoveMap = 8;
 
 //TODO a modifier et mettre 4 cf : discord
 let layerCollision = 0;
+let layerInteraction = 0;
 //TODO mettre 0 pour le vide
 let blockToNotCollision = 1;
 
@@ -100,13 +101,16 @@ let allTiles = [];
 
 
 //! Debuger Variable
-let drawCollision = false;
+let drawCollision = true;
 
 //font
 let fontGravityBold;
 
-//interaction
+//interaction PNJ
 let canInteract = false
+
+//interaction MAP
+let keyInteractionIsPressed = false;
 
 //journal engine 2
 let journalTiles = [];

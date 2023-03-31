@@ -57,6 +57,8 @@ function drawPlayer(){
     fill(255,255,0);
     movePlayer()
     // rect( xPlayer,yPlayer, sideCarrousel,sideCarrousel);
+
+    //! draw player
     if(playerTileSet[direction][currentFramePlayer]){
         image(playerTileSet[direction][currentFramePlayer], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
     }else{

@@ -1,5 +1,4 @@
 function startEngine1(){
-    // drawMapEngine1()
     drawEngine1()
     Move()
 }
@@ -15,14 +14,19 @@ function drawEngine1(){
             
             if (elm.layers[loopLayer]) {
 
+                //! get index current map in world
                 let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
-                // console.log("a" , world1.World)
-                let indexPlayerInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow , sideCarrousel * nbColumn, xStartWorld1,yStartWorld1,"PlayerInWorld")
-                //x,y,w,h,array
+                // let indexPlayerInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow , sideCarrousel * nbColumn, xStartWorld1,yStartWorld1,"PlayerInWorld")
+
         
-                
+                //!draw map
                 drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel, elm.layers[loopLayer]);
 
+
+                //!do interaction
+                if (loopLayer == layerInteraction) {
+                    drawinteraction(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel, elm.layers[loopLayer] )
+                }
 
                 //! draw pnj and player
                 if ( loopLayer == playerLayer && index == ArrayWorldDisplay.length - 1) {
