@@ -22,7 +22,7 @@ let worldBoncing = []; //[x,y,w,h]
 let nbRow;
 let nbColumn;
 
-let currentMap = "tilemap_80"; // pour set le world a cette map la 
+let currentMap = "tilemap_2"; // pour set le world a cette map la 
 
 let speedMoveMap = 8;
 
@@ -115,8 +115,10 @@ let keyInteractionIsPressed = false;
 //journal engine 2
 let journalTiles = [];
 
-//inventory
+// dialogue
 let backgroud_dialogue_box
+
+//inventory
 let inventoryContent = [];
 
 let globalSideInventoryX = 0;

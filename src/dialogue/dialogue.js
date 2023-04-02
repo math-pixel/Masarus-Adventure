@@ -17,10 +17,11 @@ function startEngineDialogue(){
     
     //draw text
     textAlign(LEFT);
-    fill(255,255,255)
-    rect(50,25,800,50) 
+    // fill(255,255,255)
+    // rect(50,25,800,50) 
+    image(backgroud_dialogue_box, 1000 / 2 - 800 / 2, 578 - ( sideCarrousel + 30 ) ,800, sideCarrousel + 20 )
     fill(0,0,0)
-    text(dialogueToDisplay, 50,50)
+    text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 50,  578 - ( sideCarrousel + 30 ) + 50)
 }
 
 function cutText(){
