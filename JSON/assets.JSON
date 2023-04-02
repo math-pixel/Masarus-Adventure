@@ -119,6 +119,11 @@
         {
             "path":"../assets/journalAsset.png",
             "type":"journal"
+        },
+        {
+            "path":"../assets/UI/backgroud_dialogue_box.png",
+            "type":"ui",
+            "name": "backgroud_dialogue_box"
         }
     ]
 }

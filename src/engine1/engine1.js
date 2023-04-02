@@ -1,6 +1,14 @@
 function startEngine1(){
+
+    //! draw map
     drawEngine1()
+
+    //! move map and player
     Move()
+
+    //! draw inventory
+    
+    drawInventory(1000 / 2 - globalSideInventoryX / 2,  578 -  ( globalSideInventoryY + 10 ) ,sideCarrousel)
 }
 
 

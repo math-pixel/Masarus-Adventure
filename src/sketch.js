@@ -1,12 +1,10 @@
-
-
 function preload(){
     //load JSON and Img file
     loadAsset(); 
 }
 
 function setup(){
-    createCanvas(1000, 562);
+    createCanvas(1000, 578);
     setUpBackgroundCanvas()
     textSize(32);
     text('word', 10, 30);

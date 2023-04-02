@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 21;
+let numberLoad = 23;
 
 //current engine
 let engine = "startMenu";
@@ -101,7 +101,7 @@ let allTiles = [];
 
 
 //! Debuger Variable
-let drawCollision = true;
+let drawCollision = false;
 
 //font
 let fontGravityBold;
@@ -114,6 +114,14 @@ let keyInteractionIsPressed = false;
 
 //journal engine 2
 let journalTiles = [];
+
+//inventory
+let backgroud_dialogue_box
+let inventoryContent = [];
+
+let globalSideInventoryX = 0;
+let globalSideInventoryY = 0;
+
 
 //* drawable Image background
 let backgroundImage;
@@ -320,9 +328,23 @@ function loading(assetArray){
                 loadImage(elm.path, (e) => {
                     tileSet = e;
                     allTiles = cutTiles(tileSet, 32);
+                    numberAssetsLoading += 1 ;
+                    isLoaded();
                 })
                 break;
-
+            
+            //! UI
+            case "ui":
+                switch (elm.name){
+                    case "backgroud_dialogue_box":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            backgroud_dialogue_box = e;
+                            isLoaded();
+                        })                        
+                        break;
+                }
+                break;
             //? ERROR MANAGEMENT
             default:
                 throw new Error("Error wrong type")
@@ -346,7 +368,8 @@ function isLoaded(){
         console.log(pnjTileSet1)
         console.log(pnjTileSet2)
         assetsLoaded = true;
-        // console.log("start Game")
+
+        inventoryContent = [{"image": animTop[0]},null,null,null,null];
     }
 }
 

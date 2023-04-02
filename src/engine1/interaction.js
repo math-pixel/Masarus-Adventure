@@ -1,10 +1,11 @@
 
 function interactionWithMap(typeBlock){
-    console.log(typeBlock)
+    // console.log(typeBlock)
 
     switch(typeBlock){
         case 5:
             console.log("yey")
+            addToInventory({"image": animTop[0]})
             break;
     }
 }
