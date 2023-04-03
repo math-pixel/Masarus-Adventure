@@ -5,7 +5,7 @@ function interactionWithMap(typeBlock){
     switch(typeBlock){
         case 5:
             console.log("yey")
-            addToInventory({"image": animTop[0]})
+            addToInventory({"image": allTiles[6]})
             break;
     }
 }

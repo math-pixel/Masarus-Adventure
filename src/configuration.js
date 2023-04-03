@@ -22,7 +22,7 @@ let worldBoncing = []; //[x,y,w,h]
 let nbRow;
 let nbColumn;
 
-let currentMap = "tilemap_1"; // pour set le world a cette map la 
+let currentMap = "tilemap_20"; // pour set le world a cette map la 
 
 let speedMoveMap = 8;
 
@@ -34,8 +34,8 @@ let currentAdvancementQuest = 0;
 let layerCollision = 2;
 let layerInteraction = 3;
 //TODO mettre 0 pour le vide
-let blockToNotCollision = 0;
-let playerLayer = 1
+let blockToNotCollision = 0;    
+let playerLayer = 3
 
 // map engine 2
 let xStartWorld2 = 250;
