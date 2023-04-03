@@ -25,9 +25,9 @@ function startEngineDialogue(){
     fill(0,0,0)
     
     // console.log(imagePersonTalking)
-    if (imagePersonTalking != "") {
+    if (imagePersonTalking[indexInDialogue] != "") {
         textAlign(LEFT);
-        image(imagePersonTalking, 680 , 358 ,sideCarrousel * 3, sideCarrousel * 3 )
+        image(imagePersonTalking[indexInDialogue], 680 , 358 ,sideCarrousel * 3, sideCarrousel * 3 )
         text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 50,  578 - ( sideCarrousel + 30 ) + 50)
     }else{
         textAlign(CENTER);
@@ -83,12 +83,23 @@ function interact(){
         indexInText = 0
         canInteract = false
 
-        // setUpBackgroundCanvas()
-        engine = endAction
-        
-        
-    }
-  
-    
+        //! end dialogue
+        //set next engine
+        engine = endAction[0]
 
+        console.log(endAction.length)
+        if (endAction.length > 1) {
+            doActionGameplay(endAction)
+        } 
+    }
+}
+
+//TODO change place of this function in a special script for quest
+function doActionGameplay(endAction){
+    switch(endAction[1]){
+        case "nextQuest":
+            console.log("aaaaa")
+            currentAdvancementQuest += 1;
+        break;
+    }
 }

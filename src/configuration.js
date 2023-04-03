@@ -26,6 +26,9 @@ let currentMap = "tilemap_1"; // pour set le world a cette map la
 
 let speedMoveMap = 8;
 
+//! quest system
+let currentAdvancementQuest = 0;
+
 //? layer info
 //TODO a modifier et mettre 4 cf : discord
 let layerCollision = 2;
@@ -115,13 +118,16 @@ let keyInteractionIsPressed = false;
 //journal engine 2
 let journalTiles = [];
 
-//?UI
+//!UI
 // ui menu
 let play_button;
 let credit_button;
 let setting_button;
 let background_ui;
 let logo;
+
+//head
+let masaru_head; 
 
 // dialogue
 let backgroud_dialogue_box
@@ -132,8 +138,6 @@ let inventoryContent = [];
 let globalSideInventoryX = 0;
 let globalSideInventoryY = 0;
 
-//head
-let masaru_head; 
 
 //* drawable Image background
 let backgroundImage;

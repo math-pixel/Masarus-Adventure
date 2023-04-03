@@ -1,7 +1,7 @@
 
 let allPnj = []
 
-function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = []){
+function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []){
     // fill(255,150,0)
     // rect(xStartWorld1 + xstartPNJ + maxTranslate, yStartWorld1 + ystartPNJ, 50,50) 
 
@@ -22,7 +22,8 @@ function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratio
         "currentFrameInteraction": 0,
         "dialogue" : dialogue,
         "actionDialogue": actionDialogue,
-        "canInteractVerification": false
+        "canInteractVerification": false,
+        "headDialogue" : headDialogue
     }
 
     allPnj.push(pnj)
@@ -84,9 +85,17 @@ function pnjManager(){
             pnj.canMove = false
 
             //! set up dialogue system variable
-            textDialogue = pnj.dialogue;
-            // imagePersonTalking = masaru_head
-            endAction = pnj.actionDialogue;
+            if (pnj.dialogue[currentAdvancementQuest]) {
+                textDialogue = pnj.dialogue[currentAdvancementQuest];
+                // imagePersonTalking = masaru_head
+                endAction = pnj.actionDialogue[currentAdvancementQuest];
+                imagePersonTalking = pnj.headDialogue[currentAdvancementQuest]
+            }else{
+                textDialogue = pnj.dialogue[pnj.dialogue.length - 1];
+                endAction = pnj.actionDialogue[pnj.actionDialogue.length - 1];
+                imagePersonTalking = pnj.headDialogue[pnj.headDialogue.length - 1];
+            }
+            
             canInteract = true
 
             // verification if the player is in contact with current pnj
