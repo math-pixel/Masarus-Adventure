@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 24;
+let numberLoad = 29;
 
 //current engine
 let engine = "startMenu";
@@ -116,6 +116,13 @@ let keyInteractionIsPressed = false;
 let journalTiles = [];
 
 //?UI
+// ui menu
+let play_button;
+let credit_button;
+let setting_button;
+let background_ui;
+let logo;
+
 // dialogue
 let backgroud_dialogue_box
 
@@ -127,7 +134,6 @@ let globalSideInventoryY = 0;
 
 //head
 let masaru_head; 
-
 
 //* drawable Image background
 let backgroundImage;
@@ -354,6 +360,46 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             masaru_head = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "play_button":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            play_button = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "credit_button":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            credit_button = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "setting_button":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            setting_button = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "background_ui":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            background_ui = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "logo":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            logo = e;
                             isLoaded();
                         })                        
                     break;

@@ -129,6 +129,31 @@
             "path":"../assets/head/masaru_head.png",
             "type":"ui",
             "name": "masaru_head"
+        },
+        {
+            "path":"../assets/UI/play_button.png",
+            "type":"ui",
+            "name": "play_button"
+        },
+        {
+            "path":"../assets/UI/credit_button.png",
+            "type":"ui",
+            "name": "credit_button"
+        },
+        {
+            "path":"../assets/UI/setting_button.png",
+            "type":"ui",
+            "name": "setting_button"
+        },
+        {
+            "path":"../assets/UI/background_ui.png",
+            "type":"ui",
+            "name": "background_ui"
+        },
+        {
+            "path":"../assets/UI/logo.png",
+            "type":"ui",
+            "name": "logo"
         }
     ]
 }
