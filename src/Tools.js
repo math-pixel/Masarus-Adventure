@@ -39,7 +39,7 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, sta
     
     if (arrayObject[objectName] === undefined) {
         Object.assign(arrayObject, JSON.parse(`{"${objectName}": [0,0]}`));
-        console.log(arrayObject)
+        // console.log(arrayObject)
     }
 
     if (drawCollision) {

@@ -83,10 +83,10 @@ function pnjManager(){
             //? remove the posssibility of move of pnj
             pnj.canMove = false
 
-
+            //! set up dialogue system variable
             textDialogue = pnj.dialogue;
+            // imagePersonTalking = masaru_head
             endAction = pnj.actionDialogue;
-            
             canInteract = true
 
             // verification if the player is in contact with current pnj

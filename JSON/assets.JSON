@@ -124,6 +124,11 @@
             "path":"../assets/UI/backgroud_dialogue_box.png",
             "type":"ui",
             "name": "backgroud_dialogue_box"
+        },
+        {
+            "path":"../assets/head/masaru_head.png",
+            "type":"ui",
+            "name": "masaru_head"
         }
     ]
 }

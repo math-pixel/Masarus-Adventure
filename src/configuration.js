@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 23;
+let numberLoad = 24;
 
 //current engine
 let engine = "startMenu";
@@ -22,15 +22,17 @@ let worldBoncing = []; //[x,y,w,h]
 let nbRow;
 let nbColumn;
 
-let currentMap = "tilemap_2"; // pour set le world a cette map la 
+let currentMap = "tilemap_1"; // pour set le world a cette map la 
 
 let speedMoveMap = 8;
 
+//? layer info
 //TODO a modifier et mettre 4 cf : discord
-let layerCollision = 0;
-let layerInteraction = 0;
+let layerCollision = 2;
+let layerInteraction = 3;
 //TODO mettre 0 pour le vide
-let blockToNotCollision = 1;
+let blockToNotCollision = 0;
+let playerLayer = 1
 
 // map engine 2
 let xStartWorld2 = 250;
@@ -48,8 +50,6 @@ let playerCanMoveYTop = false;
 let playerCanMoveYBottom = false;
 
 let playerNotCollisionPNJ = true;
-
-let playerLayer = 0
 
 // animation player
 let playerTileSet = [];
@@ -115,6 +115,7 @@ let keyInteractionIsPressed = false;
 //journal engine 2
 let journalTiles = [];
 
+//?UI
 // dialogue
 let backgroud_dialogue_box
 
@@ -123,6 +124,9 @@ let inventoryContent = [];
 
 let globalSideInventoryX = 0;
 let globalSideInventoryY = 0;
+
+//head
+let masaru_head; 
 
 
 //* drawable Image background
@@ -344,7 +348,15 @@ function loading(assetArray){
                             backgroud_dialogue_box = e;
                             isLoaded();
                         })                        
-                        break;
+                    break;
+
+                    case "masaru_head":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            masaru_head = e;
+                            isLoaded();
+                        })                        
+                    break;
                 }
                 break;
             //? ERROR MANAGEMENT
