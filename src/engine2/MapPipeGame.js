@@ -1,18 +1,31 @@
 function drawingGridPipeGame(x,y,w,h,array){
-    
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
 
             angleMode(DEGREES);
+
+            
+
             push()
             translate(x+w*row,y+h*column);
-            // let a = atan2(mouseY - height / 2, mouseX - width / 2);
+            stroke(250)
             rotate(array[column][row].rotation);
             image(journalTiles[array[column][row].tile], -w / 2, -h / 2,w,h); //allTiles
+
+
+            if (array[column][row].rotation != 0) {
+                stroke(2)
+                noFill()
+                rect(-w / 2, -h / 2, w, h)
+            }
+            
             pop() 
+
+            
         }
     }
 
+    noStroke();
     const maxWidht = w * array.length;
     const maxHeight = w * array[0].length;
     coordMap = [x,y,x + maxWidht , y + maxHeight];// coord de la map rect[x1,y1,x2,y2]
@@ -33,17 +46,23 @@ function mousePressed() {
         
         currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
         
-        if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation === 270) {
-            MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
-        }else{
-            MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation += 90;
-        }
+        if (currentIndex[0] > 1 && currentIndex[0] < 5 && currentIndex[1] > 1 && currentIndex[1] < 5) {
 
-        // if win else ...
-        if (isWin(MapPipeGame.Map.layers)) {
-            engine = "engine1";
-            alert("win")
+            console.log(MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation)
+
+            if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation >= 270) {
+                MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
+            }else{
+                MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation += 90;
+            }
+    
+            // if win else ...
+            if (isWin(MapPipeGame.Map.layers)) {
+                engine = "engine1";
+                alert("win")
+            }
         }
+        
     }
 
 
@@ -68,8 +87,10 @@ function setRandomRotation(array){
     if (mapRandomSet == false) {
         for (let row = 0; row < array[0].length; row++) {
             for (let column = 0; column < array.length; column++) {
-    
-                array[column][row].rotation = (Math.floor(Math.random() * (4 - 0 +1))) * 90; 
+                
+                if (row > 1 && row < 5 && column > 1 && column < 5) {
+                    array[column][row].rotation = (Math.floor(Math.random() * (3 - 1 +1))) * 90; 
+                }
 
             }
         }

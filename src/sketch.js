@@ -9,8 +9,9 @@ function setup(){
     textSize(32);
     text('word', 10, 30);
     // console.log(worlds1.tour.layers)
-    createPNJ(8, 1000, 480 , 350, pnjTileSet1, 7, 2 , [["bienvenue", "masaru : yey", "c'est le pnj 1"],["re bonjour", "tu as fini la queste 1", "bravo, felicitation"]], [["engine1", "nextQuest"], ["engine1"]], [[ animTop[0] , masaru_head, animTop[0]],[ animTop[0] , animTop[0], animTop[0]]])
-    createPNJ(5, 100, 1250, 500, pnjTileSet1, 15, 1, [["bonjour masaru tien le shamisen", "* vous avez obtenue le shamisen sacree *", "allez oust vas faire dodo"]], [["engine1"]] ,[[animTop[0] , "", animTop[0]]])
+    // pnj : id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []
+    createPNJ(8, 3080, 770 , 350, pnjTileSet1, 7, 2 , [["bienvenue", "masaru : yey", "c'est le pnj 1"],["re bonjour", "tu as fini la queste 1", "bravo, felicitation"]], [["engine1", "nextQuest"], ["engine1"]], [[ animTop[0] , masaru_head, animTop[0]],[ animTop[0] , animTop[0], animTop[0]]])
+    createPNJ(5, 3500, 770, 500, pnjTileSet1, 15, 1, [["bonjour masaru tien le shamisen", "* vous avez obtenue le shamisen sacree *", "allez oust vas faire dodo"]], [["engine1"]] ,[[animTop[0] , "", animTop[0]]])
 }
 
 function draw(){
