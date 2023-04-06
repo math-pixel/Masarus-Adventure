@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 29;
+let numberLoad = 30;
 
 //current engine
 let engine = "startMenu";
@@ -85,6 +85,13 @@ let pnjAnimBottom2 = [];
 let pnjAnimRight2 = [];
 let pnjAnimLeft2 = [];
 
+let pnjTileMasaruFather = [];
+let MasaruFatherAnimLeftIdle = [];
+let MasaruFatherAnimLeft = [];
+let MasaruFatherAnimRightIdle = [];
+let MasaruFatherAnimRight = [];
+let MasaruFatherAnimBottomIdle = [];
+
 //animation tile interaction 
 let exclamationPoint = [];
 
@@ -129,8 +136,9 @@ let setting_button;
 let background_ui;
 let logo;
 
-//head
+//! head
 let masaru_head; 
+let masaruFather_head
 
 // dialogue
 let backgroud_dialogue_box
@@ -310,7 +318,7 @@ function loading(assetArray){
                             
                             case "top":
                                 
-                                console.log("fdp", elm.path)
+                                // console.log("fdp", elm.path)
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
                                     pnjAnimTop2 = cutTiles(e, 32);
@@ -342,7 +350,47 @@ function loading(assetArray){
                                 throw new Error("name animation in Json file doesnt correspond")
                         }
                         break;
-                }
+                
+                    case "masaruFather":
+                        switch(elm.direction){
+                            case "bottomIdle":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    MasaruFatherAnimBottomIdle = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "left":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    MasaruFatherAnimLeft = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "leftIdle":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    MasaruFatherAnimLeftIdle = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "right":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    MasaruFatherAnimRight = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "rightIdle":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    MasaruFatherAnimRightIdle = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                        }
+                        break;
+                    }
                 break;            
             //! ########### MAP TILE ASSETS
             case "map":
@@ -369,6 +417,14 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             masaru_head = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "masaruFather_head":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            masaruFather_head = e;
                             isLoaded();
                         })                        
                     break;
@@ -432,10 +488,13 @@ function isLoaded(){
 
         pnjTileSet1 = [pnjAnimTop1,pnjAnimBottom1,pnjAnimLeft1,pnjAnimRight1];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
+        pnjTileMasaruFather = [MasaruFatherAnimLeftIdle,MasaruFatherAnimBottomIdle,MasaruFatherAnimLeft,MasaruFatherAnimRight,MasaruFatherAnimRightIdle]
+        // console.log(MasaruFatherAnimLeft)
 
-        console.log(playerTileSet)
-        console.log(pnjTileSet1)
-        console.log(pnjTileSet2)
+        // console.log(playerTileSet)
+        // console.log(pnjTileSet1)
+        // console.log(pnjTileSet2)
+
         assetsLoaded = true;
 
         inventoryContent = [{"image": animTop[0]},null,null,null,null];

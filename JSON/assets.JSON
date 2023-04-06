@@ -65,28 +65,58 @@
             "direction": "idletop"
         },
         {
-            "path":"../assets/pnj/pnj_top.png",
+            "path":"../assets/pnj/pnj1/pnj_top.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "top"
         },
         {
-            "path":"../assets/pnj/pnj_bottom.png",
+            "path":"../assets/pnj/pnj1/pnj_bottom.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "bottom"
         },
         {
-            "path":"../assets/pnj/pnj_left.png",
+            "path":"../assets/pnj/pnj1/pnj_left.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "left"
         },
         {
-            "path":"../assets/pnj/pnj_right.png",
+            "path":"../assets/pnj/pnj1/pnj_right.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "right"
+        },
+        {
+            "path":"../assets/pnj/masaruFather/masaru_dad_bottom_idle.png",
+            "type":"entity",
+            "name": "masaruFather",
+            "direction": "bottomIdle"
+        },
+        {
+            "path":"../assets/pnj/masaruFather/masaru_dad_left.png",
+            "type":"entity",
+            "name": "masaruFather",
+            "direction": "left"
+        },
+        {
+            "path":"../assets/pnj/masaruFather/masaru_dad_left_idle.png",
+            "type":"entity",
+            "name": "masaruFather",
+            "direction": "leftIdle"
+        },
+        {
+            "path":"../assets/pnj/masaruFather/masaru_dad_right.png",
+            "type":"entity",
+            "name": "masaruFather",
+            "direction": "right"
+        },
+        {
+            "path":"../assets/pnj/masaruFather/masaru_dad_right_idle.png",
+            "type":"entity",
+            "name": "masaruFather",
+            "direction": "rightIdle"
         },
         {
             "path":"../assets/pnj/singe_top.png",
@@ -129,6 +159,11 @@
             "path":"../assets/head/masaru_head.png",
             "type":"ui",
             "name": "masaru_head"
+        },
+        {
+            "path":"../assets/head/masaru_dad.png",
+            "type":"ui",
+            "name": "masaruFather_head"
         },
         {
             "path":"../assets/UI/play_button.png",

@@ -163,13 +163,12 @@ function addFrameInteraction(pnj){
 
 function animatePNJ(pnj,index_Direction){
     if (pnj.frameRate % pnj.ratioFrameRate === 0) {
-        if(index_Direction != 1){//TODO trouver un moyen denlever la condition pour pouvoir faire autre chose que gauche / droite
-            if( pnj.currentFrame >= pnj.skin[index_Direction].length -1){
-                pnj.currentFrame = 0;
-            }else{
-                pnj.currentFrame += 1;
-            }
+        if( pnj.currentFrame >= pnj.skin[index_Direction].length -1){
+            pnj.currentFrame = 0;
+        }else{
+            pnj.currentFrame += 1;
         }
+
     }
     pnj.frameRate += 1;
 }
