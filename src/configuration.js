@@ -4,10 +4,11 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 30;
+let numberLoad = 38;
 
 //current engine
 let engine = "startMenu";
+let displayDialogue = false;
 
 // map engine 1
 let ArrayWorldDisplay = [];

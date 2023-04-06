@@ -90,6 +90,7 @@ function interact(){
         //! end dialogue
         //set next engine
         engine = endAction[0]
+        displayDialogue = false
 
         console.log(endAction.length)
         if (endAction.length > 1) {

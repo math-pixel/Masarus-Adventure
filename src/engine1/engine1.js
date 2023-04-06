@@ -9,6 +9,10 @@ function startEngine1(){
     //! draw inventory
     
     drawInventory(1000 / 2 - globalSideInventoryX / 2,  578 -  ( globalSideInventoryY + 10 ) ,sideCarrousel)
+
+    if (displayDialogue) {
+        startEngineDialogue();
+    }
 }
 
 

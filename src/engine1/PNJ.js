@@ -76,10 +76,13 @@ function pnjManager(){
         if(rectIsInRect([xPlayer,yPlayer, sideCarrousel, sideCarrousel], newPnjRect)){
 
 
-            //? draw exclamation point 
-            image(exclamationPoint[pnj.currentFrameInteraction], xStartWorld1 + pnj.xStart + pnj.actualDistance + sideCarrousel / 4, yStartWorld1 + pnj.yStart - sideCarrousel / 2, sideCarrousel / 2,sideCarrousel / 2)
-            //? add frame of exclamation point
-            addFrameInteraction(pnj)
+            //? draw exclamation point if not in dialogue
+            if (!displayDialogue) {
+                image(exclamationPoint[pnj.currentFrameInteraction], xStartWorld1 + pnj.xStart + pnj.actualDistance + sideCarrousel / 4, yStartWorld1 + pnj.yStart - sideCarrousel / 2, sideCarrousel / 2,sideCarrousel / 2)
+                //? add frame of exclamation point
+                addFrameInteraction(pnj)
+            }
+
 
             //? remove the posssibility of move of pnj
             pnj.canMove = false
