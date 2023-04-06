@@ -27,10 +27,12 @@ function startEngineDialogue(){
     // console.log(imagePersonTalking)
     if (imagePersonTalking[indexInDialogue] != "") {
         textAlign(LEFT);
+        textFont(fontTypeCast);
         image(imagePersonTalking[indexInDialogue], 680 , 358 ,sideCarrousel * 3, sideCarrousel * 3 )
         text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 50,  578 - ( sideCarrousel + 30 ) + 50)
     }else{
         textAlign(CENTER);
+        textFont(fontTypeCastItalic);
         text(dialogueToDisplay, 1000 / 2 ,  578 - ( sideCarrousel + 30 ) + 50)
     }
     
