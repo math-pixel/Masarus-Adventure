@@ -13,6 +13,11 @@ function startEngine1(){
     if (displayDialogue) {
         startEngineDialogue();
     }
+    
+
+    if(displayShamisen){
+        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 , 0 , 130, 250)
+    }
 }
 
 

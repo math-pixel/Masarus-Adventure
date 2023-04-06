@@ -59,7 +59,8 @@ function mousePressed() {
             // if win else ...
             if (isWin(MapPipeGame.Map.layers)) {
                 engine = "engine1";
-                alert("win")
+                // alert("win")
+                currentAdvancementQuest += 1;
             }
         }
         
@@ -78,6 +79,8 @@ function mousePressed() {
 
         if (isWin(MapPipeGame.Map.layers)) {
             alert("win")
+            engine = "engine1";
+            currentAdvancementQuest += 1;
         } 
     }
 }

@@ -62,6 +62,9 @@ function cutText(){
 
 function interact(){
 
+    // undisplay shamisen
+    displayShamisen = false
+
     //* if the gameur interact during the text is already cutting
     if (isCuttingWord) {
         
@@ -92,7 +95,7 @@ function interact(){
         engine = endAction[0]
         displayDialogue = false
 
-        console.log(endAction.length)
+        displayShamisen = true
         if (endAction.length > 1) {
             doActionGameplay(endAction)
         } 
@@ -102,9 +105,13 @@ function interact(){
 //TODO change place of this function in a special script for quest
 function doActionGameplay(endAction){
     switch(endAction[1]){
-        case "nextQuest":
-            console.log("aaaaa")
-            currentAdvancementQuest += 1;
+        case "displayShamisen":
+            displayShamisen = true
+            currentSpriteShamisen = 1
+        break;
+
+        case "addRopeToShamisen":
+            currentSpriteShamisen += 1
         break;
     }
 }

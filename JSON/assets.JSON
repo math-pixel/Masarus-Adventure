@@ -204,6 +204,26 @@
             "path":"../assets/UI/credit_button_hover.png",
             "type":"ui",
             "name": "credit_button_hover"
+        },
+        {
+            "path":"../assets/UI/shamisen_box_1.png",
+            "type":"ui",
+            "name": "shamisen_1"
+        },
+        {
+            "path":"../assets/UI/shamisen_box_2.png",
+            "type":"ui",
+            "name": "shamisen_2"
+        },
+        {
+            "path":"../assets/UI/shamisen_box_3.png",
+            "type":"ui",
+            "name": "shamisen_3"
+        },
+        {
+            "path":"../assets/UI/shamisen_box_4.png",
+            "type":"ui",
+            "name": "shamisen_4"
         }
     ]
 }

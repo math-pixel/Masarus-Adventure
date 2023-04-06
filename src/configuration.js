@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 38;
+let numberLoad = 42;
 
 //current engine
 let engine = "startMenu";
@@ -138,8 +138,17 @@ let background_ui;
 let logo;
 
 let play_button_hover;
-let settings_button_hover;
+let settings_button_hover;4
 let credit_button_hover;
+
+//?shamisen
+let displayShamisen = false
+let currentSpriteShamisen = 0
+let spriteSheetShamisen = [];
+let shamisen_1;
+let shamisen_2;
+let shamisen_3;
+let shamisen_4;
 
 
 //! head
@@ -498,6 +507,38 @@ function loading(assetArray){
                             isLoaded();
                         })                        
                     break;
+
+                    case "shamisen_1":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            shamisen_1 = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "shamisen_2":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            shamisen_2 = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "shamisen_3":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            shamisen_3 = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "shamisen_4":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            credit_button_shamisen_4hover = e;
+                            isLoaded();
+                        })                        
+                    break;
                 }
                 break;
             //? ERROR MANAGEMENT
@@ -527,7 +568,9 @@ function isLoaded(){
 
         assetsLoaded = true;
 
-        inventoryContent = [{"image": animTop[0]},null,null,null,null];
+        inventoryContent = [null,null,null,null,null];
+        spriteSheetShamisen = [allTiles[0],shamisen_1,shamisen_2,shamisen_3,shamisen_4]
+        console.log(spriteSheetShamisen)
     }
 }
 

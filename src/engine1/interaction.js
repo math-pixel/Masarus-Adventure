@@ -1,11 +1,12 @@
 
-function interactionWithMap(typeBlock){
+function interactionWithMap(typeBlock, array, column,row){
     // console.log(typeBlock)
 
     switch(typeBlock){
-        case 5:
-            console.log("yey")
-            addToInventory({"image": allTiles[6]})
+        // parchemin
+        case 3:
+            addToInventory({"image": allTiles[4]})
+            array[column][row] = 0
             break;
     }
 }
@@ -28,7 +29,7 @@ function drawinteraction(x,y,w,h, array){
 
                     if (keyInteractionIsPressed) {
                         console.log("interaction")
-                        interactionWithMap(array[column][row])
+                        interactionWithMap(array[column][row], array, column, row)
 
                     }
                 }
