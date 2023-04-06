@@ -136,6 +136,11 @@ let setting_button;
 let background_ui;
 let logo;
 
+let play_button_hover;
+let settings_button_hover;
+let credit_button_hover;
+
+
 //! head
 let masaru_head; 
 let masaruFather_head
@@ -465,6 +470,30 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             logo = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "play_button_hover":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            play_button_hover = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "settings_button_hover":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            settings_button_hover = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "credit_button_hover":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            credit_button_hover = e;
                             isLoaded();
                         })                        
                     break;

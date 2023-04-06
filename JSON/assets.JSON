@@ -151,7 +151,7 @@
             "type":"journal"
         },
         {
-            "path":"../assets/UI/backgroud_dialogue_box.png",
+            "path":"../assets/UI/background_dialogue_box.png",
             "type":"ui",
             "name": "backgroud_dialogue_box"
         },
@@ -189,6 +189,21 @@
             "path":"../assets/UI/logo.png",
             "type":"ui",
             "name": "logo"
+        },
+        {
+            "path":"../assets/UI/play_button_hover.png",
+            "type":"ui",
+            "name": "play_button_hover"
+        },
+        {
+            "path":"../assets/UI/settings_button_hover.png",
+            "type":"ui",
+            "name": "settings_button_hover"
+        },
+        {
+            "path":"../assets/UI/credit_button_hover.png",
+            "type":"ui",
+            "name": "credit_button_hover"
         }
     ]
 }

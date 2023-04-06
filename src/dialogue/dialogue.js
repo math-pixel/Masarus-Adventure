@@ -19,17 +19,19 @@ function startEngineDialogue(){
     //draw text
     // fill(255,255,255)
     // rect(50,25,800,50) 
-    image(backgroud_dialogue_box, 1000 / 2 - 800 / 2, 578 - ( sideCarrousel + 30 ) ,800, sideCarrousel + 20 )
+    image(backgroud_dialogue_box, 1000 / 2 - 800 / 2, 578 - ( sideCarrousel + 30 ) , 900 , sideCarrousel + 20 )
     
     
     fill(0,0,0)
-    
+    textSize(35);
+    textLeading(27)
     // console.log(imagePersonTalking)
     if (imagePersonTalking[indexInDialogue] != "") {
         textAlign(LEFT);
         textFont(fontTypeCast);
         image(imagePersonTalking[indexInDialogue], 680 , 358 ,sideCarrousel * 3, sideCarrousel * 3 )
-        text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 50,  578 - ( sideCarrousel + 30 ) + 50)
+        text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 50,  578 - ( sideCarrousel + 30 ) + 18, 550, 500)
+        fill(255,0,0)
     }else{
         textAlign(CENTER);
         textFont(fontTypeCastItalic);
