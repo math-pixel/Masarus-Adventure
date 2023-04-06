@@ -10,7 +10,6 @@ function menu(){
 
     fill("#000000");
     textAlign(CENTER);
-    textFont(fontGravityBold);
 
     //titre
     // textSize(50);
@@ -18,7 +17,7 @@ function menu(){
     image(logo,1000 / 2 - 248 * 2 / 2, 50 , 248 * 2, 81 * 2);
 
     //menu
-    textSize(20);
+    
     // text('Play', 500, 220 + 60);
     image(play_button, 1000 / 2 - 207 / 2, 220 + 60);
     // text('Setting', 500, 300 + 60);

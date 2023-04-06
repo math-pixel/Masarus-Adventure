@@ -6,8 +6,8 @@ function preload(){
 function setup(){
     createCanvas(1000, 578);
     // setUpBackgroundCanvas()
-    textSize(32);
-    text('word', 10, 30);
+    textFont(fontTypeCast);
+    textSize(50);
     // console.log(worlds1.tour.layers)
     // pnj : id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []
     createPNJ(8, 3080, 770 , 350, pnjTileSet1, 7, 2 , [["bienvenue", "masaru : yey", "c'est le pnj 1"],["re bonjour", "tu as fini la queste 1", "bravo, felicitation"]], [["engine1", "nextQuest"], ["engine1"]], [[ animTop[0] , masaru_head, animTop[0]],[ animTop[0] , animTop[0], animTop[0]]])

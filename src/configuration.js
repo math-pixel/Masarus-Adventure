@@ -109,6 +109,7 @@ let drawCollision = true;
 
 //font
 let fontGravityBold;
+let fontTypeCast;
 
 //interaction PNJ
 let canInteract = false
@@ -151,6 +152,7 @@ function loadAsset(){
     });
 
     fontGravityBold = loadFont('font/GravityBold.ttf');
+    fontTypeCast =  loadFont('font/Typecast.ttf');
 }
 
 function loading(assetArray){
