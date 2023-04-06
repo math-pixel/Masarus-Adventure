@@ -22,7 +22,8 @@ let worldBoncing = []; //[x,y,w,h]
 let nbRow;
 let nbColumn;
 
-let currentMap = "tilemap_20"; // pour set le world a cette map la 
+//? on commence a la map 20
+let currentMap = "tilemap_20"; // pour set le world a cette map la  
 
 let speedMoveMap = 8;
 
@@ -104,7 +105,7 @@ let allTiles = [];
 
 
 //! Debuger Variable
-let drawCollision = false;
+let drawCollision = true;
 
 //font
 let fontGravityBold;

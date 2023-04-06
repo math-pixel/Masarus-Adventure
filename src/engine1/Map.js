@@ -21,8 +21,9 @@ function drawingCollision(x,y,w,h,array){
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
             
-            if(array[column][row] === 1){
-                fill(255,0,0,50)
+            if(array[column][row] !== blockToNotCollision){
+                // console.log("collision")
+                fill(255,255,0,50)
                 rect(x+w*row,y+h*column,w,h); 
             }
         }

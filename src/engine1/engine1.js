@@ -49,8 +49,8 @@ function drawEngine1(){
                 }
                 
                 //! draw collision
-                if (elm.collision && drawCollision) {
-                    drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.collision);
+                if (loopLayer == layerCollision && drawCollision) {
+                    drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[loopLayer]);
                 }
 
             }
