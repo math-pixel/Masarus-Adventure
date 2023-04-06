@@ -134,3 +134,21 @@ function isCamNotBoncingBorderWorld(rectCam /*[x,y,x2,y2]*/, sideDirection, arra
             return false
     }
 }
+
+
+// draw tilemap and his name
+function drawDebugMap(currentMap, indexElm){
+
+        textAlign(LEFT);
+        textSize(50);
+        strokeWeight(2);
+        textFont(fontGravityBold);
+        fill(255,100,0)
+        text(currentMap.name,xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] + 100)
+        
+        noFill()
+        stroke(8)
+        strokeWeight(4);
+        rect(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel * nbRow,sideCarrousel * nbColumn)
+
+}

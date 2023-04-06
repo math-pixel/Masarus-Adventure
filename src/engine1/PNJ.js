@@ -65,7 +65,7 @@ function pnjManager(){
         // console.log(newPnjRect)
 
         // draw pnj collision boucing
-        if (drawCollision) {
+        if (debugMode) {
             fill(255,255,0,30)
             rect(newPnjRect[0],newPnjRect[1],newPnjRect[2],newPnjRect[3]);
             fill(255,255,0)

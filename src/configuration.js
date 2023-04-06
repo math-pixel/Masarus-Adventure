@@ -112,7 +112,7 @@ let allTiles = [];
 
 
 //! Debuger Variable
-let drawCollision = true;
+let debugMode = false;
 
 //font
 let fontGravityBold;

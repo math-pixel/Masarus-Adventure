@@ -42,7 +42,7 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, sta
         // console.log(arrayObject)
     }
 
-    if (drawCollision) {
+    if (debugMode) {
         fill(0,0,255)
         rect(posX,posY,5,5) 
     }

@@ -128,7 +128,7 @@ function getInformationOfCenterOfPlayer(playerRect){
                                             "perso");
                     
     //? draw a rect on the center of the player
-    if (drawCollision) {
+    if (debugMode) {
         fill(0,0,255)
         rect(centerOfPlayer[0], centerOfPlayer[1], 5,5)
     }
@@ -152,7 +152,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0] +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1] +  (Center[1] - 1) * sideCarrousel;
 
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -163,7 +163,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] - 1 ) +  10 * sideCarrousel;
 
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -178,7 +178,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  ( Center[1] + 1 ) * sideCarrousel;
                 
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -189,7 +189,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  Center[0] * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[1] + 1 )  +  0 * sideCarrousel;
                 
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -203,7 +203,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] - 1 ) * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
         
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -213,7 +213,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] - 1 )  +  10 * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
         
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -228,7 +228,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * CenterInWorld[0]  +  ( Center[0] + 1 ) * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
 
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -238,7 +238,7 @@ function typeOfnextBlock(Direction, Center, CenterInWorld, layerTestBlock){
                 collisionX = xStartWorld1 + 11 * sideCarrousel * ( CenterInWorld[0] + 1 )  +  0 * sideCarrousel;
                 collisionY = yStartWorld1 + 11 * sideCarrousel * CenterInWorld[1]  +  Center[1] * sideCarrousel;
 
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,150,0);
                     rect(collisionX,collisionY , 10,10);
                 }
@@ -253,7 +253,7 @@ function moveMap() {
 
     rectBoncingPlayer = [xPlayer,yPlayer,sideCarrousel,sideCarrousel]//createNewRect(xPlayer,yPlayer, sideCarrousel,sideCarrousel, 0.5)
     // console.log(rectBoncingPlayer)
-    if (drawCollision) {
+    if (debugMode) {
         fill(255,0,0,80)
         rect(rectBoncingPlayer[0],rectBoncingPlayer[1],rectBoncingPlayer[2],rectBoncingPlayer[3]) 
     }

@@ -62,7 +62,7 @@ function drawPlayer(){
     if(playerTileSet[direction][currentFramePlayer]){
         image(playerTileSet[direction][currentFramePlayer], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
     }else{
-        image(playerTileSet[0][0], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
+        image(playerTileSet[direction][0], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
     }
     
 }

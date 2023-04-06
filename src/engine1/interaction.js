@@ -33,7 +33,7 @@ function drawinteraction(x,y,w,h, array){
                     }
                 }
 
-                if (drawCollision) {
+                if (debugMode) {
                     fill(255,0,0, 80)
                     rect(newRectInteraction[0],newRectInteraction[1],newRectInteraction[2],newRectInteraction[3]);          
                 }

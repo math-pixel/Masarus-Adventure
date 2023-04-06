@@ -19,11 +19,13 @@ function drawEngine1(){
     for (let loopLayer = 0; loopLayer < 5; loopLayer++) {
         
         ArrayWorldDisplay.forEach((elm, index)=>{
+
+            //! get index current map in world
+            let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
             
             if (elm.layers[loopLayer]) {
 
-                //! get index current map in world
-                let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
+
                 // let indexPlayerInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow , sideCarrousel * nbColumn, xStartWorld1,yStartWorld1,"PlayerInWorld")
 
         
@@ -48,19 +50,18 @@ function drawEngine1(){
 
                 }
                 
-                //! draw collision
-                if (loopLayer == layerCollision && drawCollision) {
-                    drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[loopLayer]);
-                }
+            }
 
+            //! draw collision
+            if (loopLayer == layerCollision && debugMode) {
+                drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.layers[loopLayer]);
+                drawDebugMap(elm , indexElm)
             }
             
         });
 
 
     }
-
-    
 
     
 
