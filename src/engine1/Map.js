@@ -1,4 +1,6 @@
 let currentDrawingImage;
+
+// function to draw map
 function drawingGrid(x,y,w,h,array){
     noStroke();
     for (let row = 0; row < array[0].length; row++) {
@@ -19,32 +21,28 @@ function drawingCollision(x,y,w,h,array){
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
             
-            if(array[column][row] === 1){
-                fill(255,0,0,50)
+            if(array[column][row] !== blockToNotCollision){
+                // console.log("collision")
+                fill(255,255,0,50)
                 rect(x+w*row,y+h*column,w,h); 
             }
-                     
         }
     }
 }
 
 // si out of array
-    // camera stop avant de voir la sortie du tableau
+// camera stop avant de voir la sortie du tableau
+    
+//? add the nine map arround the player
 function mustAddMapAtWorlds(){
 
     ArrayWorldDisplay = [] //clear map
     
-    // current position of player in World
     let currentPositionIndexInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow,sideCarrousel * nbColumn, xStartWorld1, yStartWorld1, "map");
 
-    // console.log(currentPositionIndexInWorld)
-    // add the nine map arround the player
 
     let currentX = currentPositionIndexInWorld[0];
     let currentY = currentPositionIndexInWorld[1];
-
-    // console.log(currentX,currentY,world1.World[currentY][currentX]);
-
 
     // Haut Gauche
     if (currentX -1  >= 0 && currentY-1 >= 0  ) {
@@ -92,6 +90,8 @@ function mustAddMapAtWorlds(){
     }
 }
 
+
+// get limite of the world
 function getWorldBoncingArray(){
 
     let xMin = xStartWorld1 + sideCarrousel;
@@ -102,7 +102,7 @@ function getWorldBoncingArray(){
     return [xMin,yMin,xMax,yMax]
 }
 
-
+//? verifie que la camera ( les contour du canvas remplacer par un rectangle ) ne regarde pas a lexterieur de la map | check that the camera (the outline of the canvas replaced by a rectangle) does not look outside the map
 function isCamNotBoncingBorderWorld(rectCam /*[x,y,x2,y2]*/, sideDirection, arrayWorld /*[x,y,x2,y2]*/){
     switch(sideDirection){
         case 'TOP':
@@ -135,27 +135,20 @@ function isCamNotBoncingBorderWorld(rectCam /*[x,y,x2,y2]*/, sideDirection, arra
     }
 }
 
-function drawMapEngine1(){
-    mustAddMapAtWorlds();
-    ArrayWorldDisplay.forEach((elm, index)=>{
+
+// draw tilemap and his name
+function drawDebugMap(currentMap, indexElm){
+
+        textAlign(LEFT);
+        textSize(50);
+        strokeWeight(2);
+        textFont(fontGravityBold);
+        fill(255,100,0)
+        text(currentMap.name,xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] + 100)
         
-        // console.log(elm);
-        let indexElm = findIndexValueIn2dArray(world1.World,elm.name);
-        //x,y,w,h,array
+        noFill()
+        stroke(8)
+        strokeWeight(4);
+        rect(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel * nbRow,sideCarrousel * nbColumn)
 
-        elm.layers.forEach((layer) => {
-            drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,layer);
-        })
-
-        if (elm.collision && drawCollision) {
-            drawingCollision(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel,elm.collision);
-        }
-        
-    });
-
-    
-
-    //Cam
-    fill(255,255,20,0)
-    rect(Xcam,Ycam,Wcam,Hcam)
 }

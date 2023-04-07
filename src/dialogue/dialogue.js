@@ -1,6 +1,7 @@
-// set up text array like ["Hello", "world"]
+//! set up text array like ["Hello", "world"]
 let textDialogue = [];
 let endAction = "";
+let imagePersonTalking = "";
 
 
 //variable for cut the text
@@ -16,11 +17,28 @@ function startEngineDialogue(){
     cutText()
     
     //draw text
-    textAlign(LEFT);
-    fill(255,255,255)
-    rect(50,25,800,50) 
+    // fill(255,255,255)
+    // rect(50,25,800,50) 
+    image(backgroud_dialogue_box, 1000 / 2 - 800 / 2, 578 - ( sideCarrousel + 30 ) , 800 , sideCarrousel + 20 )
+    
+    
     fill(0,0,0)
-    text(dialogueToDisplay, 50,50)
+    textSize(35);
+    textLeading(27)
+    // console.log(imagePersonTalking)
+    if (imagePersonTalking[indexInDialogue] != "") {
+        textAlign(LEFT);
+        textFont(fontTypeCast);
+        image(imagePersonTalking[indexInDialogue], 680 , 358 ,sideCarrousel * 3, sideCarrousel * 3 )
+        text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 50,  578 - ( sideCarrousel + 30 ) + 18, 550, 500)
+        fill(255,0,0)
+    }else{
+        textAlign(CENTER);
+        textFont(fontTypeCastItalic);
+        text(dialogueToDisplay, 1000 / 2 ,  578 - ( sideCarrousel + 30 ) + 50)
+    }
+    
+    
 }
 
 function cutText(){
@@ -43,6 +61,9 @@ function cutText(){
 }
 
 function interact(){
+
+    // undisplay shamisen
+    displayShamisen = false
 
     //* if the gameur interact during the text is already cutting
     if (isCuttingWord) {
@@ -69,12 +90,28 @@ function interact(){
         indexInText = 0
         canInteract = false
 
-        setUpBackgroundCanvas()
-        engine = endAction
-        
-        
-    }
-  
-    
+        //! end dialogue
+        //set next engine
+        engine = endAction[0]
+        displayDialogue = false
 
+        displayShamisen = true
+        if (endAction.length > 1) {
+            doActionGameplay(endAction)
+        } 
+    }
+}
+
+//TODO change place of this function in a special script for quest
+function doActionGameplay(endAction){
+    switch(endAction[1]){
+        case "displayShamisen":
+            displayShamisen = true
+            currentSpriteShamisen = 1
+        break;
+
+        case "addRopeToShamisen":
+            currentSpriteShamisen += 1
+        break;
+    }
 }

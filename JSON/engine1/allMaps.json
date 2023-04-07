@@ -89,10 +89,6 @@
   },
   "tour_1": {
     "name": "tour_1",
-    "xStart": 1,
-    "yStart": 0,
-    "nbRow": 11,
-    "nbColumn": 11,
     "layers": [
       [
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],

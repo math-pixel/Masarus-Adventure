@@ -20,9 +20,10 @@ function whichCaseInGrid(X,Y,array, sideCarrousel){
 }
 
 function findIndexValueIn2dArray(array, value){
+    // console.log("b" , "tilemap_1 " == value, value, typeof(value))
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
-            // alert(array)
+            // console.log(value == array[column][row])
             if (value === array[column][row]) {
                 return [column,row];
             }
@@ -38,10 +39,10 @@ function findIndexOfPositionIn2dArray(posX,posY,array,sideArrayX,sideArrayY, sta
     
     if (arrayObject[objectName] === undefined) {
         Object.assign(arrayObject, JSON.parse(`{"${objectName}": [0,0]}`));
-        console.log(arrayObject)
+        // console.log(arrayObject)
     }
 
-    if (drawCollision) {
+    if (debugMode) {
         fill(0,0,255)
         rect(posX,posY,5,5) 
     }
