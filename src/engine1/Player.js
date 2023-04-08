@@ -54,8 +54,10 @@ function drawPlayer(){
 
     // console.log(playerTile)
 
-    fill(255,255,0);
-    movePlayer()
+    if (canMove) {
+        fill(255,255,0);
+        movePlayer()
+    }
     // rect( xPlayer,yPlayer, sideCarrousel,sideCarrousel);
 
     //! draw player

@@ -27,15 +27,14 @@ let nbColumn;
 let currentMap = "tilemap_20"; // pour set le world a cette map la  
 
 let speedMoveMap = 8;
+let canMove = true;
 
 //! quest system
 let currentAdvancementQuest = 0;
 
 //? layer info
-//TODO a modifier et mettre 4 cf : discord
 let layerCollision = 2;
 let layerInteraction = 3;
-//TODO mettre 0 pour le vide
 let blockToNotCollision = 0;    
 let playerLayer = 3
 
