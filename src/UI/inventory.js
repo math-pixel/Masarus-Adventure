@@ -8,7 +8,7 @@ let caseGap = 1.2
 function drawInventory(xstart,ystart,sideRectInventory){
 
     let lengthInventory = inventoryContent.length + 1
-    let sideBackgroundInventoryX = sideRectInventory * lengthInventory + ofsetCaseInventoryX * 2;
+    let sideBackgroundInventoryX = sideRectInventory * lengthInventory + ofsetCaseInventoryX;
     let sideBackgroundInventoryY = sideRectInventory + ofsetCaseInventoryY * 2
     
     globalSideInventoryX = sideBackgroundInventoryX;
@@ -27,6 +27,13 @@ function drawInventory(xstart,ystart,sideRectInventory){
         if (currentContentInventory != null && currentContentInventory.image != undefined ) {
             image(currentContentInventory.image , xstart + ofsetCaseInventoryX + indexInventory * sideRectInventory * caseGap, ystart + ofsetCaseInventoryY , sideRectInventory,sideRectInventory)
         }
+
+        //! draw number inventory
+        fill('#4c2512')
+        textAlign(LEFT);
+        textSize(25);
+        text(indexInventory + 1, xstart + ofsetCaseInventoryX + indexInventory * sideRectInventory * caseGap + 5, ystart + ofsetCaseInventoryY + 14)
+
     })
 }
 
