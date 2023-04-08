@@ -21,14 +21,14 @@
 
 ## Description
 
-Masaru's adventure est un jeux d'aventure 2d en vu top down.
-Ce project est un project d'ecole dont le rendue seras la version x.x.x
-Au dessus de cette version les mises a jour et caracteristiques du jeux seront un simple divertissement pour aboutir a un jeux plus pousser.
+Masaru's adventure is a 2d adventure game in top down view.
+This project is a school project whose rendering will be the version x.x.x
+Above this version the updates and features of the game will be a simple entertainment to end up with a more advanced game.
 
-Les graphisme de ce jeux ont ete entierement fait par :
+The graphics of this game have been entirely made by :
 - Elsa Freppaz (<a href="https://www.instagram.com/meraki.fr/" target="_blank" > @meraki </a>)
-- Theotime Noblet ( <a href="https://www.instagram.com/meraki.fr/" target="_blank" > @meraki </a> )
-- Pablo Delcoy ( <a href="https://www.instagram.com/meraki.fr/" target="_blank" > @meraki </a> )
+- Theotime Noblet ( <a href="https://www.instagram.com/theotime_nbt/" target="_blank" > @theotime_nbt </a> )
+- Pablo Delcoy ( <a href="https://www.instagram.com/pablito.psd/" target="_blank" > @pablito.psd </a> )
 
 ## Installation
 
