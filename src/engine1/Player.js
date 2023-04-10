@@ -1,9 +1,9 @@
 
 
-let frameRate = 0;
+let frameRatePlayer = 0;
 function movePlayer() {
     
-    frameRate += 1;
+    frameRatePlayer += 1;
     if (keyIsDown(LEFT_ARROW)) {
         direction = 2;
         moduloAnimation = 3
@@ -33,7 +33,7 @@ function movePlayer() {
 }
 
 function addFrame(dir){
-    if (frameRate % moduloAnimation === 0) {
+    if (frameRatePlayer % moduloAnimation === 0) {
         // console.log(currentFramePlayer, playerTileSet[dir].length)
         if (currentFramePlayer >= playerTileSet[dir].length - 1) {
             currentFramePlayer = 0;
@@ -64,8 +64,6 @@ function drawPlayer(){
     if(playerTileSet[direction][currentFramePlayer]){
         image(playerTileSet[direction][currentFramePlayer], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
     }else{
-        console.log(direction)
-        console.log(playerTileSet[direction][0])
         image(playerTileSet[direction][0], xPlayer, yPlayer, sideCarrousel,sideCarrousel);
     }
     

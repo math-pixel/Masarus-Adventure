@@ -5,6 +5,8 @@ function preload(){
 
 function setup(){
     createCanvas(1000, 578);
+    frameRate(60);
+
     // setUpBackgroundCanvas()
     textFont(fontTypeCast);
     textSize(50);

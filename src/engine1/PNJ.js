@@ -16,7 +16,7 @@ function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratio
         "canMove": true,
         "direction": "right",
         "currentFrame": 0,
-        "frameRate": 0,
+        "frameRatePNJ": 0,
         "ratioFrameRate" : ratioFrameRate,
         "skin": skin,
         "currentFrameInteraction": 0,
@@ -151,7 +151,7 @@ function pnjManager(){
 
 //animate exclamation point
 function addFrameInteraction(pnj){
-    if (pnj.frameRate % 30 === 0) {
+    if (pnj.frameRatePNJ % 30 === 0) {
         if (pnj.currentFrameInteraction >= exclamationPoint.length - 1) {
             pnj.currentFrameInteraction = 0;
             // console.log("yey")
@@ -165,7 +165,7 @@ function addFrameInteraction(pnj){
 
 
 function animatePNJ(pnj,index_Direction){
-    if (pnj.frameRate % pnj.ratioFrameRate === 0) {
+    if (pnj.frameRatePNJ % pnj.ratioFrameRate === 0) {
         if( pnj.currentFrame >= pnj.skin[index_Direction].length -1){
             pnj.currentFrame = 0;
         }else{
@@ -173,5 +173,5 @@ function animatePNJ(pnj,index_Direction){
         }
 
     }
-    pnj.frameRate += 1;
+    pnj.frameRatePNJ += 1;
 }

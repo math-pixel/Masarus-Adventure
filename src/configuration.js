@@ -168,7 +168,7 @@ let globalSideInventoryY = 0;
 let backgroundImage;
 
 function loadAsset(){
-    loadJSON("./JSON/assets.json", (e) => {
+    loadJSON("./JSON/assets.JSON", (e) => {
         loading(e.assets);
     }, (err) => {
         console.log("error : ",err)
