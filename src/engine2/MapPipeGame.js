@@ -26,9 +26,6 @@ function drawingGridPipeGame(x,y,w,h,array){
     }
 
     noStroke();
-    const maxWidht = w * array.length;
-    const maxHeight = w * array[0].length;
-    coordMap = [x,y,x + maxWidht , y + maxHeight];// coord de la map rect[x1,y1,x2,y2]
 }
 
 function drawMapEngine2(array){
@@ -58,9 +55,10 @@ function mousePressed() {
     
             // if win else ...
             if (isWin(MapPipeGame.Map.layers)) {
-                engine = "engine1";
-                // alert("win")
-                currentAdvancementQuest += 1;
+                setTimeout(() => {
+                    engine = "engine1";
+                    currentAdvancementQuest += 1;
+                }, "1000");
             }
         }
         
