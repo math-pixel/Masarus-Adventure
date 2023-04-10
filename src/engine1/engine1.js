@@ -4,12 +4,14 @@ function startEngine1(){
     drawEngine1()
 
     //! move map and player
-    Move()
+    if (canMove) {
+        Move()
+    }
 
     //! draw inventory
-    
     drawInventory(1000 / 2 - globalSideInventoryX / 2,  578 -  ( globalSideInventoryY + 10 ) ,sideCarrousel)
 
+    //! draw dialogue
     if (displayDialogue) {
         startEngineDialogue();
     }
@@ -81,11 +83,3 @@ function drawEngine1(){
 
 
 }
-
-
-
-function isEqual(tableau1, tableau2) {
-    if (tableau1.length !== tableau2.length) return false
-  
-    return tableau1.every((value, index) => value === tableau2[index])
-  }

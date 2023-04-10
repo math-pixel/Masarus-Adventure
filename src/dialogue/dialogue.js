@@ -64,6 +64,7 @@ function interact(){
 
     // undisplay shamisen
     displayShamisen = false
+    canMove = false;
 
     //* if the gameur interact during the text is already cutting
     if (isCuttingWord) {
@@ -93,9 +94,13 @@ function interact(){
         //! end dialogue
         //set next engine
         engine = endAction[0]
+        
+        // reset variable
         displayDialogue = false
-
         displayShamisen = true
+        canMove = true
+
+        // next action
         if (endAction.length > 1) {
             doActionGameplay(endAction)
         } 
