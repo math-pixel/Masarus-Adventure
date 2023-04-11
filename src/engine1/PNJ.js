@@ -1,7 +1,5 @@
 
-let allPnj = []
-
-function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []){
+function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , direction, skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []){
     // fill(255,150,0)
     // rect(xStartWorld1 + xstartPNJ + maxTranslate, yStartWorld1 + ystartPNJ, 50,50) 
 
@@ -14,7 +12,7 @@ function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratio
         "actualDistance": 0,
         "speed": speed,
         "canMove": true,
-        "direction": "right",
+        "direction": direction,
         "currentFrame": 0,
         "frameRatePNJ": 0,
         "ratioFrameRate" : ratioFrameRate,
@@ -33,25 +31,101 @@ function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratio
 function pnjManager(){
 
     allPnj.forEach((pnj) => {
-        let index_Direction = 0;
+        let index_Direction = 1;
 
         //! set direction and movement
+        //? if the pnj is not in interaction with player
         if (pnj.canMove) {
-            if (pnj.direction === "right") {
-                pnj.actualDistance += 1 * pnj.speed;
-                index_Direction = 3;
-                if (pnj.actualDistance >= pnj.distanceToTravel) {
-                    pnj.direction = "reculer"
+
+            switch(pnj.direction){
+                case "right":
+
+                    //! si la position du pnj ne doit pas etre en mouvement
+                    if (pnj.distanceToTravel > 0) {
+
+                        pnj.actualDistance += 1 * pnj.speed;
+                        index_Direction = 1;
+                        if (pnj.actualDistance >= pnj.distanceToTravel) {
+                            pnj.direction = "left"
+                        }
+
+                    }else{
+                        index_Direction = 0
+                    }
+
+                    break;
+                case "left":
+
+                    //! si la position du pnj ne doit pas etre en mouvement
+                    if (pnj.distanceToTravel > 0) {
+
+                        pnj.actualDistance -= 1 * pnj.speed;
+                        index_Direction = 3;
+                        if (pnj.actualDistance <= 0) {
+                            pnj.direction = "right"
+                        }
+
+                    }else{
+                        index_Direction = 2
+                    }
+
+                    break;
+                case "bottom":
+
+                if (pnj.distanceToTravel > 0) {
+
+                    // pnj.actualDistance += 1 * pnj.speed;
+                    // index_Direction = 1;
+                    // if (pnj.actualDistance >= pnj.distanceToTravel) {
+                    //     pnj.direction = "left"
+                    // }
+
+                }else{
+                    index_Direction = 4
                 }
-            }else if(pnj.direction === "reculer"){
-                index_Direction = 2;
-                pnj.actualDistance -= 1 * pnj.speed
-                if (pnj.actualDistance <= 0) {
-                    pnj.direction = "right"
+
+                    break;
+                case "top":
+                    if (pnj.distanceToTravel > 0) {
+
+                        // pnj.actualDistance += 1 * pnj.speed;
+                        // index_Direction = 1;
+                        // if (pnj.actualDistance >= pnj.distanceToTravel) {
+                        //     pnj.direction = "left"
+                        // }
+
+                    }else{
+                        index_Direction = 5
+                    }
+                    break;
+                default:
+                    index_Direction = 0
+            }
+
+        }else{
+            //! set direction to player
+
+            //! when player in on the same line of pnj
+            if (yStartWorld1 + pnj.yStart - (sideCarrousel / 2)  < yPlayer && yStartWorld1 + pnj.yStart + (sideCarrousel / 2) > yPlayer) {
+
+                if (xStartWorld1 + pnj.xStart + pnj.actualDistance > xPlayer) {
+                    index_Direction = 2
+                }else if (xStartWorld1 + pnj.xStart + pnj.actualDistance < xPlayer){
+                    index_Direction = 0
+                }else{
+                    index_Direction = 4
+                }
+            }else{
+
+                if (yStartWorld1 + pnj.yStart < yPlayer) {
+                    index_Direction = 4
+                }else{
+                    index_Direction = 1
                 }
             }
-        }else{
-            index_Direction = 1;
+
+           
+
         }
 
         //! animation pnj

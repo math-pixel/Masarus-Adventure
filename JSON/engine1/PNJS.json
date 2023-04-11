@@ -1,0 +1,46 @@
+{
+  "PNJS": [
+    {
+      "id": 1,
+      "name": "MASARU_S_FATHER",
+      "xStart": 4200,
+      "yStart": 1300,
+      "width": "",
+      "distanceToTravel": 230,
+      "actualDistance": 0,
+      "speed": 1,
+      "canMove": true,
+      "direction": "right",
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "ratioFrameRate": 7,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "dialogue": [],
+      "actionDialogue": [],
+      "canInteractVerification": false,
+      "headDialogue": []
+    },
+    {
+      "id": 1,
+      "name": "PNJ_QUEST_1",
+      "xStart": 4200,
+      "yStart": 1300,
+      "width": "",
+      "distanceToTravel": 230,
+      "actualDistance": 0,
+      "speed": 1,
+      "canMove": true,
+      "direction": "right",
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "ratioFrameRate": 7,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "dialogue": [],
+      "actionDialogue": [],
+      "canInteractVerification": false,
+      "headDialogue": []
+    }
+  ]
+}

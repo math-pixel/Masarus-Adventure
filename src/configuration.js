@@ -71,6 +71,7 @@ let animIDLELeft = [];
 let animIDLERight = [];
 
 //PNJ
+let allPnj = []
 let PNJinFrontOfPlayer = false;
 
 let pnjTileSet1 = [];
@@ -558,7 +559,7 @@ function isLoaded(){
 
         pnjTileSet1 = [pnjAnimTop1,pnjAnimBottom1,pnjAnimLeft1,pnjAnimRight1];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
-        pnjTileMasaruFather = [MasaruFatherAnimLeftIdle,MasaruFatherAnimBottomIdle,MasaruFatherAnimLeft,MasaruFatherAnimRight,MasaruFatherAnimRightIdle]
+        pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle]
         // console.log(MasaruFatherAnimLeft)
 
         // console.log(playerTileSet)
@@ -569,7 +570,7 @@ function isLoaded(){
 
         inventoryContent = [null,null,null,null,null];
         spriteSheetShamisen = [allTiles[0],shamisen_1,shamisen_2,shamisen_3,shamisen_4]
-        console.log(spriteSheetShamisen)
+        console.log("end is loaded")
     }
 }
 
