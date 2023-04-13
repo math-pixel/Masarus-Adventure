@@ -113,6 +113,9 @@ function doActionGameplay(endAction){
         case "displayShamisen":
             displayShamisen = true
             currentSpriteShamisen = 1
+            if (canAddToInventory({"name" : "shamisen" , "image": allTiles[6]})) {
+                addToInventory({"name" : "shamisen" , "image": allTiles[6]})
+            }
         break;
 
         case "addRopeToShamisen":

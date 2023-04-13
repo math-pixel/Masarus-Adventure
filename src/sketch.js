@@ -49,14 +49,7 @@ function draw(){
 }
 
 function keyPressed() {
-    // if (keyCode === 69) {//? key " e "
-    //     if (engine === "engine1") {
-    //         // setUpBackgroundCanvas()
-    //         engine = "engine2"  
-    //     }else{
-    //         engine = "engine1"
-    //     }
-    // }else 
+    
     if (keyCode === 27) {//? key " escape "
         engine = "startMenu"
     }else if (keyCode === 65 && canInteract) { //? key " a "
@@ -65,8 +58,20 @@ function keyPressed() {
     }else if(keyCode === 65){
         keyInteractionIsPressed = true;
     }else if(keyCode === 49){
-        //? touch " & "
-        engine = "engine2"
+        //? touche " 1 "
+        useObject(0)
+    }else if(keyCode === 50){
+        //? touche " 2 "
+        useObject(1)
+    }else if(keyCode === 51){
+        //? touche " 3 "
+        useObject(2)
+    }else if(keyCode === 52){
+        //? touche " 4 "
+        useObject(3)
+    }else if(keyCode === 53){
+        //? touche " 5 "
+        useObject(4)
     }
     
   }

@@ -37,37 +37,70 @@ function drawInventory(xstart,ystart,sideRectInventory){
     })
 }
 
+function inventoryIsEmpty(){
+    
+    for (let index = 0; index < inventoryContent.length; index++) {
+
+        if (inventoryContent[index] === null) {
+
+            return true
+
+        }
+    }
+
+    return false
+}
+
+function inventoryAlreadyHaveObject(object){
+    for (let index = 0; index < inventoryContent.length; index++) {
+
+        if (inventoryContent[index] !== null) {
+            
+            if (inventoryContent[index].name === object.name) {
+                return true
+            }
+
+        }
+    }
+
+    return false
+}
 
 
 function canAddToInventory(objectToAdd){
 
+    //! verification if there is a place for object
+    if(inventoryIsEmpty()){
 
-    return true
-
-     //!verification not yet object
-     for (let index = 0; index < inventoryContent.length; index++) {
-
-        if (inventoryContent[index].image !== null) {
+        //!verification not yet object
+        if (!inventoryAlreadyHaveObject(objectToAdd)) {
             
-            if (inventoryContent[index].image !== objectToAdd.image) {
+            if (objectToAdd.name != undefined && objectToAdd.image != undefined) {
+
                 return true
+            
+            }else{
+
+                console.error("lobject a ajouter a linventaire ne contient pas d'attribut image ou name")
+                return false
+
             }
+
+        }else{
+
+            return false
+            //TODO dialogue object already in inventory
+
         }
+
+
+    }else{
+
+        return false
+        //TODO dialogue inventory is full
+
     }
 
-    // //! verification if there is a place for object
-    // for (let index = 0; index < inventoryContent.length; index++) {
-    //     if (inventoryContent[index] === null) {
-
-    //         //TODO dialogue you already have this object
-    //         console.log("%c plus de place dans l'inventaire", "red")
-    //         return false
-
-    //     }
-    // }
-
-    //TODO dialogue cant add to inventory
-    return false
 }
 
 
@@ -83,5 +116,54 @@ function addToInventory(objectToAdd){
         
     }
 
-    // console.log(inventoryContent)
+}
+
+function removeToInventory(objectToRemove){
+
+    for (let index = 0; index < inventoryContent.length; index++) {
+
+        if (inventoryContent[index] !== null) {
+
+            if (inventoryContent[index].name === objectToRemove.name) {
+                inventoryContent[index] = null
+            }
+
+        }
+        
+    }
+}
+
+function updateObjectInInventory(lastObject,newObject){
+    for (let index = 0; index < inventoryContent.length; index++) {
+
+        if (inventoryContent[index] !== null) {
+
+            if (inventoryContent[index].name === lastObject.name) {
+
+                if (canAddToInventory(newObject)) {
+                    inventoryContent[index] = newObject
+                }
+                
+            }
+
+        }
+        
+    }
+}
+
+function useObject(indexOfCase){
+    console.log("use Inventory")
+    switch(inventoryContent[indexOfCase].name){
+        case "shamisen":
+            break;
+        case "parcheminEncode":
+            console.log("parcheminEncode")
+            if (engine == "engine2") {
+                engine = "engine1"
+            }else if (engine == "engine1"){
+                engine = "engine2"
+            }
+            break;
+    }
+
 }

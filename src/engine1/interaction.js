@@ -5,8 +5,10 @@ function interactionWithMap(typeBlock, array, column,row){
     switch(typeBlock){
         // parchemin
         case 3:
-            addToInventory({"image": allTiles[4]})
-            array[column][row] = 0
+            if (canAddToInventory({"name" : "parcheminEncode" , "image": allTiles[4]})) {
+                addToInventory({"name" : "parcheminEncode" , "image": allTiles[4]})
+                array[column][row] = 0
+            }
             break;
     }
 }
