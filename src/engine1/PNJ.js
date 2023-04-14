@@ -110,17 +110,28 @@ function pnjManager(){
 
                 if (xStartWorld1 + pnj.xStart + pnj.actualDistance > xPlayer) {
                     index_Direction = 2
+
+                    //? reset frame for bug draw
+                    pnj.currentFrame = 0;
                 }else if (xStartWorld1 + pnj.xStart + pnj.actualDistance < xPlayer){
                     index_Direction = 0
+
+                    //? reset frame for bug draw
+                    pnj.currentFrame = 0;
                 }else{
                     index_Direction = 4
+
+                    //? reset frame for bug draw
+                    pnj.currentFrame = 0;
                 }
             }else{
 
+                //! player out of line pnj
+                //?pnj is above player 
                 if (yStartWorld1 + pnj.yStart < yPlayer) {
                     index_Direction = 4
                 }else{
-                    index_Direction = 1
+                    index_Direction = 5
                 }
             }
 
@@ -240,6 +251,8 @@ function addFrameInteraction(pnj){
 
 function animatePNJ(pnj,index_Direction){
     if (pnj.frameRatePNJ % pnj.ratioFrameRate === 0) {
+
+        //! add frame at pnj
         if( pnj.currentFrame >= pnj.skin[index_Direction].length -1){
             pnj.currentFrame = 0;
         }else{
@@ -247,5 +260,7 @@ function animatePNJ(pnj,index_Direction){
         }
 
     }
+
+    //! counter of frame for individual pnj
     pnj.frameRatePNJ += 1;
 }

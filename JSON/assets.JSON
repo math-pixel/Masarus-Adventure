@@ -107,6 +107,12 @@
             "direction": "bottomIdle"
         },
         {
+            "path":"assets/pnj/masaruFather/masaru_dad_top_idle.png",
+            "type":"entity",
+            "name": "masaruFather",
+            "direction": "idletop"
+        },
+        {
             "path":"assets/pnj/masaruFather/masaru_dad_left.png",
             "type":"entity",
             "name": "masaruFather",

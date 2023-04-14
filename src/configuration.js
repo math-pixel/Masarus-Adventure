@@ -94,6 +94,7 @@ let MasaruFatherAnimLeft = [];
 let MasaruFatherAnimRightIdle = [];
 let MasaruFatherAnimRight = [];
 let MasaruFatherAnimBottomIdle = [];
+let MasaruFatherAnimTopIdle = [];
 
 //animation tile interaction 
 let exclamationPoint = [];
@@ -299,6 +300,7 @@ function loading(assetArray){
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
                                     pandaAnimIdleTop = cutTiles(e, 64);
+                                    console.log(pandaAnimIdleTop)
                                     isLoaded();
                                 });
                                 break;
@@ -386,6 +388,13 @@ function loading(assetArray){
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
                                     MasaruFatherAnimBottomIdle = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idletop":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    MasaruFatherAnimTopIdle = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
@@ -573,10 +582,10 @@ function isLoaded(){
 
         pandaTileSet = [pandaAnimIdleRight,pandaAnimRight,pandaAnimIdleLeft,pandaAnimLeft,pandaAnimIdleBottom,pandaAnimIdleTop];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
-        pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle]
+        pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle,MasaruFatherAnimTopIdle]
         // console.log(MasaruFatherAnimLeft)
 
-        console.log(pandaAnimRight)
+        console.log(MasaruFatherAnimTopIdle)
         // console.log(pnjTileSet1)
         // console.log(pnjTileSet2)
 
