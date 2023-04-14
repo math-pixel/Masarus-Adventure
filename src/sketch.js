@@ -17,7 +17,7 @@ function setup(){
     [["engine1", "displayShamisen"]],
     [[ masaruFather_head , masaruFather_head,  masaru_head, masaru_head, masaruFather_head , masaruFather_head, "", masaru_head, masaru_head ]])
 
-    createPNJ(5, 4200, 1300, 230, "right", pnjTileSet1, 15, 1, [["Bonjour jeune homme.", "Je pourrais peut être t’aider mais il te faut encore chercher.", "Reviens plus tard."], ["Félicitation jeune homme ! ", "Tu es parvenu à déchiffrer ma lettre.", "C’est donc que tu es digne de recevoir cette corde.", "Fais en bon usage.", "Tu as obtenu une corde.", "Et si tu essayais de jouer du shamisen ?", "Et oui", "Même si le shamisen n’est pas complet,", "Chaque corde te rapproche du sauvetage de l’île.", "Il te reste encore deux cordes alors pars vite terminer ta mission."]],
+    createPNJ(5, 4200, 1300, 230, "right", pandaTileSet, 15, 1, [["Bonjour jeune homme.", "Je pourrais peut être t’aider mais il te faut encore chercher.", "Reviens plus tard."], ["Félicitation jeune homme ! ", "Tu es parvenu à déchiffrer ma lettre.", "C’est donc que tu es digne de recevoir cette corde.", "Fais en bon usage.", "Tu as obtenu une corde.", "Et si tu essayais de jouer du shamisen ?", "Et oui", "Même si le shamisen n’est pas complet,", "Chaque corde te rapproche du sauvetage de l’île.", "Il te reste encore deux cordes alors pars vite terminer ta mission."]],
     [["engine1"],["engine1", "addRopeToShamisen"]],
     [[animTop[0] , animTop[0], animTop[0]], [animTop[0] , animTop[0], animTop[0],animTop[0], "", "" , animTop[0] , animTop[0], animTop[0],animTop[0]]])
 }

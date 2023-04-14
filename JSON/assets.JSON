@@ -65,28 +65,40 @@
             "direction": "idletop"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_top.png",
+            "path":"assets/pnj/pnj1/panda_top_idle.png",
             "type":"entity",
             "name": "pnj1",
-            "direction": "top"
+            "direction": "idletop"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_bottom.png",
+            "path":"assets/pnj/pnj1/panda_bottom_idle.png",
             "type":"entity",
             "name": "pnj1",
-            "direction": "bottom"
+            "direction": "idlebottom"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_left.png",
+            "path":"assets/pnj/pnj1/panda_left.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "left"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_right.png",
+            "path":"assets/pnj/pnj1/panda_right.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "right"
+        },
+        {
+            "path":"assets/pnj/pnj1/panda_left_idle.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "idleleft"
+        },
+        {
+            "path":"assets/pnj/pnj1/panda_right_idle.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "idleright"
         },
         {
             "path":"assets/pnj/masaruFather/masaru_dad_bottom_idle.png",

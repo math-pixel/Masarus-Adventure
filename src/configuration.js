@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 42;
+let numberLoad = 44;
 
 //current engine
 let engine = "startMenu";
@@ -74,11 +74,13 @@ let animIDLERight = [];
 let allPnj = []
 let PNJinFrontOfPlayer = false;
 
-let pnjTileSet1 = [];
-let pnjAnimTop1 = [];
-let pnjAnimBottom1 = [];
-let pnjAnimRight1 = [];
-let pnjAnimLeft1 = [];
+let pandaTileSet = [];
+let pandaAnimIdleTop = [];
+let pandaAnimIdleBottom = [];
+let pandaAnimRight = [];
+let pandaAnimLeft = [];
+let pandaAnimIdleRight = [];
+let pandaAnimIdleLeft = [];
 
 let pnjTileSet2 = [];
 let pnjAnimTop2 = [];
@@ -293,33 +295,45 @@ function loading(assetArray){
                     case "pnj1" :
                         switch(elm.direction){
                             
-                            case "top":
-                                
+                            case "idletop":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimTop1 = cutTiles(e, 32);
+                                    pandaAnimIdleTop = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
-                            case "bottom":
+                            case "idlebottom":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimBottom1 = cutTiles(e, 32);
-                                    console.log("yey" ,pnjAnimBottom1)
+                                    pandaAnimIdleBottom = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
                             case "left":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimLeft1 = cutTiles(e, 32);
+                                    pandaAnimLeft = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
                             case "right":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimRight1 = cutTiles(e, 32);
+                                    pandaAnimRight = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleleft":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pandaAnimIdleLeft = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleright":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    pandaAnimIdleRight = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
@@ -557,12 +571,12 @@ function isLoaded(){
 
         playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight ];
 
-        pnjTileSet1 = [pnjAnimTop1,pnjAnimBottom1,pnjAnimLeft1,pnjAnimRight1];
+        pandaTileSet = [pandaAnimIdleRight,pandaAnimRight,pandaAnimIdleLeft,pandaAnimLeft,pandaAnimIdleBottom,pandaAnimIdleTop];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
         pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle]
         // console.log(MasaruFatherAnimLeft)
 
-        // console.log(playerTileSet)
+        console.log(pandaAnimRight)
         // console.log(pnjTileSet1)
         // console.log(pnjTileSet2)
 
