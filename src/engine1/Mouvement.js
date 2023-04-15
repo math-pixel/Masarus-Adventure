@@ -94,6 +94,22 @@ function collisionWithArray(playerRect, Direction){
     // ################# GET VARIABLE FOR COLLISION ###############
     let informationPlayer = getInformationOfCenterOfPlayer(playerRect)
 
+    
+    //! bug fix affichage player on the layer
+    let yOfTheCurrentRectWherePlayerIsOn = yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel
+    //? si player is on top of the rect
+    if ((yOfTheCurrentRectWherePlayerIsOn + sideCarrousel ) - ( sideCarrousel / 2 ) < informationPlayer.centerOfPlayer[1]) {
+        fill(0,0,0)
+        playerLayer = 1
+    }else{
+        playerLayer = 3
+        fill(255,255,255)
+    }
+    if (debugMode) {
+        rect(xStartWorld1 + informationPlayer.CenterInWorld[0] * 11 * sideCarrousel + informationPlayer.Center[0] * sideCarrousel + sideCarrousel / 2, yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel,20,20)
+    }
+
+
     // ################# TEST IF COLLISION ###################
     //! return if it is a collision
     let typeBlock = typeOfnextBlock(Direction, informationPlayer.Center, informationPlayer.CenterInWorld, layerCollision)
