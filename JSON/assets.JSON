@@ -199,9 +199,29 @@
             "name": "setting_button"
         },
         {
+            "path":"assets/UI/replay_button_main.png",
+            "type":"ui",
+            "name": "replay_button_main"
+        },
+        {
+            "path":"assets/UI/mouse_animation.png",
+            "type":"ui",
+            "name": "mouseAnimation"
+        },
+        {
+            "path":"assets/UI/replay_button_hover.png",
+            "type":"ui",
+            "name": "replay_button_hover"
+        },
+        {
             "path":"assets/UI/background_ui.png",
             "type":"ui",
             "name": "background_ui"
+        },
+        {
+            "path":"assets/UI/settings_box.png",
+            "type":"ui",
+            "name": "imageInstruction"
         },
         {
             "path":"assets/UI/logo.png",

@@ -16,10 +16,12 @@ function startEngine1(){
         startEngineDialogue();
     }
     
-
+    //! draw shamisen
     if(displayShamisen){
-        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 , 0 , 130, 250)
+        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
     }
+
+    
 }
 
 

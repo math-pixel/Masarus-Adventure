@@ -4,13 +4,14 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 44;
+let numberLoad = 49 ;
 
-//current engine
+//! current engine
+let lastEngine = "startMenu";
 let engine = "startMenu";
 let displayDialogue = false;
 
-// map engine 1
+//! map engine 1
 let ArrayWorldDisplay = [];
 
 let sideCarrousel;
@@ -38,11 +39,11 @@ let layerInteraction = 3;
 let blockToNotCollision = 0;    
 let playerLayer = 3
 
-// map engine 2
+//! map engine 2
 let xStartWorld2 = 250;
 let yStartWorld2 = 35;
 
-//perso
+//! perso
 let xPlayer = 500;
 let yPlayer = 281;
 
@@ -55,7 +56,7 @@ let playerCanMoveYBottom = false;
 
 let playerNotCollisionPNJ = true;
 
-// animation player
+//! animation player
 let playerTileSet = [];
 let direction = 0;
 let currentFramePlayer = 0;
@@ -70,7 +71,7 @@ let animIDLETop = [];
 let animIDLELeft = [];
 let animIDLERight = [];
 
-//PNJ
+//! PNJ
 let allPnj = []
 let PNJinFrontOfPlayer = false;
 
@@ -96,10 +97,10 @@ let MasaruFatherAnimRight = [];
 let MasaruFatherAnimBottomIdle = [];
 let MasaruFatherAnimTopIdle = [];
 
-//animation tile interaction 
+//! animation tile interaction 
 let exclamationPoint = [];
 
-// cam 
+//! cam 
 let Hcam = 500;
 let Wcam = Hcam * (16/9);
 let Xcam = ( xPlayer + 20 / 2) -  Wcam/2;
@@ -110,7 +111,7 @@ let camCanMoveY = true;
 
 let rectCam = [Xcam,Ycam,Xcam + Wcam, Ycam +Hcam]
 
-//Map TileSet
+//! Map TileSet
 let tileSet;
 let allTiles = [];
 
@@ -118,31 +119,36 @@ let allTiles = [];
 //! Debuger Variable
 let debugMode = false;
 
-//font
+//! font
 let fontGravityBold;
 let fontTypeCast;
 let fontTypeCastItalic;
 
-//interaction PNJ
+//! interaction PNJ
 let canInteract = false
 
-//interaction MAP
+//! interaction MAP
 let keyInteractionIsPressed = false;
 
-//journal engine 2
+//! journal engine 2
 let journalTiles = [];
 
 //!UI
 // ui menu
+let background_ui;
+let imageInstruction;
+let logo;
+
+//? button
 let play_button;
 let credit_button;
 let setting_button;
-let background_ui;
-let logo;
+let continue_button;
 
 let play_button_hover;
-let settings_button_hover;4
+let settings_button_hover;
 let credit_button_hover;
+let continue_button_hover
 
 //?shamisen
 let displayShamisen = false
@@ -152,6 +158,9 @@ let shamisen_1;
 let shamisen_2;
 let shamisen_3;
 let shamisen_4;
+
+//? mouse
+let mouseTileset = []
 
 
 //! head
@@ -221,7 +230,7 @@ function loading(assetArray){
             case "journal" :
                 loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
-                    journalTiles = cutTiles(e, 32);
+                    journalTiles = cutTiles(e, 64);
                     isLoaded();
                 });
                 break;
@@ -434,7 +443,7 @@ function loading(assetArray){
             case "map":
                 loadImage(elm.path, (e) => {
                     tileSet = e;
-                    allTiles = cutTiles(tileSet, 32);
+                    allTiles = cutTiles(e, 32);
                     numberAssetsLoading += 1 ;
                     isLoaded();
                 })
@@ -447,6 +456,14 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             backgroud_dialogue_box = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "mouseAnimation":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            mouseTileset = cutTiles(e, 64);
                             isLoaded();
                         })                        
                     break;
@@ -475,6 +492,22 @@ function loading(assetArray){
                         })                        
                     break;
 
+                    case "replay_button_main":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            continue_button = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "replay_button_hover":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            continue_button_hover = e;
+                            isLoaded();
+                        })                        
+                    break;
+
                     case "credit_button":
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
@@ -495,6 +528,14 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             background_ui = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "imageInstruction":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            imageInstruction = e;
                             isLoaded();
                         })                        
                     break;

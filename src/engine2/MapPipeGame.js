@@ -43,7 +43,7 @@ function mousePressed() {
         
         currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
         
-        if (currentIndex[0] > 1 && currentIndex[0] < 5 && currentIndex[1] > 1 && currentIndex[1] < 5) {
+        if (currentIndex[0] > 1 && currentIndex[0] < 6 && currentIndex[1] > 1 && currentIndex[1] < 6) {
 
             console.log(MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation)
 
@@ -58,7 +58,7 @@ function mousePressed() {
                 setTimeout(() => {
                     engine = "engine1";
                     currentAdvancementQuest += 1;
-                }, "1000");
+                }, "10000");
             }
         }
         
@@ -89,7 +89,7 @@ function setRandomRotation(array){
         for (let row = 0; row < array[0].length; row++) {
             for (let column = 0; column < array.length; column++) {
                 
-                if (row > 1 && row < 5 && column > 1 && column < 5) {
+                if (row > 1 && row < 6 && column > 1 && column < 6) {
                     array[column][row].rotation = (Math.floor(Math.random() * (3 - 1 +1))) * 90; 
                 }
 

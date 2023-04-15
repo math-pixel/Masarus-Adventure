@@ -39,6 +39,9 @@ function draw(){
             case "startMenu":
                 menu();
                 break;
+            case "pauseMenu":
+                pauseMenu();
+                break;
             default:
                 throw new Error("engine error")
         }
@@ -51,7 +54,15 @@ function draw(){
 function keyPressed() {
     
     if (keyCode === 27) {//? key " escape "
-        engine = "startMenu"
+
+        if (engine != "startMenu") {
+            if (engine !== "pauseMenu") {
+                lastEngine = engine
+                engine = "pauseMenu"
+            }else{
+                engine = lastEngine
+            }
+        }
     }else if (keyCode === 65 && canInteract) { //? key " a "
         displayDialogue = true
         interact()
