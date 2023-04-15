@@ -619,7 +619,7 @@ function isLoaded(){
 
     if (numberAssetsLoading === numberLoad) {
 
-        playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight ];
+        playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight, MasaruFatherAnimRightIdle ];
 
         pandaTileSet = [pandaAnimIdleRight,pandaAnimRight,pandaAnimIdleLeft,pandaAnimLeft,pandaAnimIdleBottom,pandaAnimIdleTop];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];

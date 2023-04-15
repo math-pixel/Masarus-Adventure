@@ -1,50 +1,92 @@
-
-
+let doingBackFlip = false;
+let intervalBackflip = 0;
 let frameRatePlayer = 0;
+
+
 function movePlayer() {
     
+    //? for modulo operation
     frameRatePlayer += 1;
+
     if (keyIsDown(LEFT_ARROW)) {
+
+        //? reset easter egg time ( frame )
+        intervalBackflip = 0
+
+        //? set up the direction of the player
         direction = 2;
+
+        //? set up the time frame between each frame of the animation
         moduloAnimation = 3
+
+        //? add frame for animation
         addFrame(direction)
+
     }else if (keyIsDown(RIGHT_ARROW)) {
+        intervalBackflip = 0
         direction = 3;
         moduloAnimation = 3
         addFrame(direction)
     }else if (keyIsDown(UP_ARROW)) {
+        intervalBackflip = 0
         direction = 0;
         moduloAnimation = 3
         addFrame(direction)
         // console.log("yey")
     }else if (keyIsDown(DOWN_ARROW)) {
+        intervalBackflip = 0
         direction = 1;
         moduloAnimation = 3
         addFrame(direction)
     }else{
         // IDLE animation in all direction
-        if ( direction + 4 < playerTileSet.length ) {
-            direction += 4
-            // console.log(direction)
+
+        
+        if (!doingBackFlip) {
+
+            //! set idle animation 
+            if ( direction + 4 < 8 ) {
+                direction += 4
+            }
+
+            //! set backflip animation easter egg
+            if (intervalBackflip > 10000) {
+                direction = 8
+                doingBackFlip = true
+            }
         }
+
+        intervalBackflip += 1
         moduloAnimation = 7
         addFrame(direction)
     }
 }
 
 function addFrame(dir){
+
+    
     if (frameRatePlayer % moduloAnimation === 0) {
-        // console.log(currentFramePlayer, playerTileSet[dir].length)
+
         if (currentFramePlayer >= playerTileSet[dir].length - 1) {
+            
             currentFramePlayer = 0;
+
+
+            //! reset backflip
+            if (doingBackFlip) {
+                direction = 5
+                doingBackFlip = false
+                intervalBackflip = 1
+            }
         }else{
             currentFramePlayer += 1;
         }
-    }  
-}
+        
+        
+    }
+    
 
-function GridCoord(arrayCoord){
-    GridCoord = arrayCoord;
+    
 }
 
 
