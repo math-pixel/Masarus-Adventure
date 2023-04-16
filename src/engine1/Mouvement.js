@@ -92,32 +92,58 @@ function collisionPixel(xStartCollision, yStartCollision, playerRect){
 function collisionWithArray(playerRect, Direction){
 
     // ################# GET VARIABLE FOR COLLISION ###############
+    let informationPlayeratRight = getInformationOfCenterOfPlayer([playerRect[0] + sideCarrousel,playerRect[1],playerRect[2],playerRect[3] ])
+    let informationPlayerLeft = getInformationOfCenterOfPlayer([playerRect[0] - sideCarrousel,playerRect[1],playerRect[2],playerRect[3] ])
     let informationPlayer = getInformationOfCenterOfPlayer(playerRect)
 
     
     //! bug fix affichage player on the layer
     let yOfTheCurrentRectWherePlayerIsOn = yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel
+    let nextDirection = ""
     //? si player is on top of the rect
     if ((yOfTheCurrentRectWherePlayerIsOn + sideCarrousel ) - ( sideCarrousel / 2 ) < informationPlayer.centerOfPlayer[1]) {
         fill(0,0,0)
-        playerLayer = 1
+        nextDirection = "BOTTOM"
     }else{
-        playerLayer = 3
+        nextDirection = "TOP"
+        
         fill(255,255,255)
     }
+
+    
+
+
+    rect(xStartWorld1 + informationPlayer.CenterInWorld[0] * 11 * sideCarrousel + informationPlayer.Center[0] * sideCarrousel + sideCarrousel / 2, yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel,20,20)
     if (debugMode) {
-        rect(xStartWorld1 + informationPlayer.CenterInWorld[0] * 11 * sideCarrousel + informationPlayer.Center[0] * sideCarrousel + sideCarrousel / 2, yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel,20,20)
     }
 
+
+    let typeBlockRight = typeOfnextBlock(nextDirection, informationPlayeratRight.Center, informationPlayeratRight.CenterInWorld, layerCollision)
+    let typeBlockLeft = typeOfnextBlock(nextDirection, informationPlayerLeft.Center, informationPlayerLeft.CenterInWorld, layerCollision)
+    let typeBlockCenter = typeOfnextBlock(nextDirection, informationPlayer.Center, informationPlayer.CenterInWorld, layerCollision)
 
     // ################# TEST IF COLLISION ###################
     //! return if it is a collision
     let typeBlock = typeOfnextBlock(Direction, informationPlayer.Center, informationPlayer.CenterInWorld, layerCollision)
+    
+    //! bug fix affichage player on the layer
+    if (typeBlockCenter != blockToNotCollision || typeBlockRight != blockToNotCollision || typeBlockLeft != blockToNotCollision) {
+        console.log("collision")
+
+        if (nextDirection === "TOP") {
+            playerLayer = 3
+        }else{
+            playerLayer = 1
+        }
+    }
+    
+    //! return if can move
     if (typeBlock != blockToNotCollision) {
         return true
     }else{
         return false
     }
+    
     
 }
 
