@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 49 ;
+let numberLoad = 51 ;
 
 //! current engine
 let lastEngine = "startMenu";
@@ -166,6 +166,7 @@ let mouseTileset = []
 //! head
 let masaru_head; 
 let masaruFather_head
+let panda_head;
 
 // dialogue
 let backgroud_dialogue_box
@@ -202,6 +203,14 @@ function loading(assetArray){
                 world1 = loadJSON(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
                     isLoaded();
+                });
+                break;
+            //! ########### PNJs JSON
+            case "pnjJSON" :
+                loadJSON(elm.path, (e)=> {
+                    numberAssetsLoading += 1 ;
+                    allPnj = e.PNJS;
+                    isLoaded();   
                 });
                 break;
             //! ########### MAP ENGINE 1 JSON
@@ -476,6 +485,14 @@ function loading(assetArray){
                         })                        
                     break;
 
+                    case "panda_head":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            panda_head = e;
+                            isLoaded();
+                        })                        
+                    break;
+
                     case "masaruFather_head":
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
@@ -626,7 +643,7 @@ function isLoaded(){
         pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle,MasaruFatherAnimTopIdle]
         // console.log(MasaruFatherAnimLeft)
 
-        console.log(MasaruFatherAnimTopIdle)
+        // console.log(MasaruFatherAnimTopIdle)
         // console.log(pnjTileSet1)
         // console.log(pnjTileSet2)
 
@@ -634,6 +651,9 @@ function isLoaded(){
 
         inventoryContent = [null,null,null,null,null];
         spriteSheetShamisen = [allTiles[0],shamisen_1,shamisen_2,shamisen_3,shamisen_4]
+
+
+        createPNJ()
         console.log("end is loaded")
     }
 }

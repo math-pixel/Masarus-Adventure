@@ -113,8 +113,8 @@ function collisionWithArray(playerRect, Direction){
     
 
 
-    rect(xStartWorld1 + informationPlayer.CenterInWorld[0] * 11 * sideCarrousel + informationPlayer.Center[0] * sideCarrousel + sideCarrousel / 2, yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel,20,20)
     if (debugMode) {
+        rect(xStartWorld1 + informationPlayer.CenterInWorld[0] * 11 * sideCarrousel + informationPlayer.Center[0] * sideCarrousel + sideCarrousel / 2, yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel,20,20)
     }
 
 
@@ -128,7 +128,7 @@ function collisionWithArray(playerRect, Direction){
     
     //! bug fix affichage player on the layer
     if (typeBlockCenter != blockToNotCollision || typeBlockRight != blockToNotCollision || typeBlockLeft != blockToNotCollision) {
-        console.log("collision")
+        // console.log("collision")
 
         if (nextDirection === "TOP") {
             playerLayer = 3

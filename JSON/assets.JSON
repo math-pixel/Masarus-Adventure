@@ -13,6 +13,10 @@
             "type":"mapsEngine2"
         },
         {
+            "path":"JSON/engine1/PNJS.json",
+            "type":"pnjJSON"
+        },
+        {
             "path":"assets/tileset_map.png",
             "type":"map"
         },
@@ -182,6 +186,11 @@
             "path":"assets/head/masaru_dad.png",
             "type":"ui",
             "name": "masaruFather_head"
+        },
+        {
+            "path":"assets/head/head_panda.png",
+            "type":"ui",
+            "name": "panda_head"
         },
         {
             "path":"assets/UI/play_button.png",

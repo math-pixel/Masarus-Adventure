@@ -1,30 +1,21 @@
 
-function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , direction, skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []){
-    // fill(255,150,0)
-    // rect(xStartWorld1 + xstartPNJ + maxTranslate, yStartWorld1 + ystartPNJ, 50,50) 
+function createPNJ(){  
 
-    let pnj = {
-        "id": id,
-        "xStart": xstartPNJ,
-        "yStart": ystartPNJ,
-        "width": sideCarrousel,
-        "distanceToTravel": distanceToTravel, 
-        "actualDistance": 0,
-        "speed": speed,
-        "canMove": true,
-        "direction": direction,
-        "currentFrame": 0,
-        "frameRatePNJ": 0,
-        "ratioFrameRate" : ratioFrameRate,
-        "skin": skin,
-        "currentFrameInteraction": 0,
-        "dialogue" : dialogue,
-        "actionDialogue": actionDialogue,
-        "canInteractVerification": false,
-        "headDialogue" : headDialogue
-    }
+    allPnj.forEach((currentPnj) => {
+        switch(currentPnj.name){
+            case "MASARU_S_FATHER":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pnjTileMasaruFather
+                currentPnj.headDialogue = [[ masaruFather_head , masaruFather_head,  masaru_head, masaru_head, masaruFather_head , masaruFather_head, "", masaru_head, masaru_head ]]
+                break;
 
-    allPnj.push(pnj)
+            case "PNJ_QUEST_1":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pandaTileSet
+                currentPnj.headDialogue = [[panda_head , panda_head, panda_head], [panda_head , panda_head, panda_head,panda_head, "", "" , panda_head , panda_head, panda_head,panda_head]]
+                break;
+        }
+    })
 
 }
 

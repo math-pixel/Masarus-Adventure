@@ -47,7 +47,7 @@ function cutText(){
     if (indexInText < textDialogue[indexInDialogue].length) {
         isCuttingWord = true
         dialogueToDisplay = textDialogue[indexInDialogue].split("", Math.round(indexInText)).join('')
-        indexInText += 0.3;
+        indexInText += 0.5;
         
         
         // end of text spliting => prepare to the next text
