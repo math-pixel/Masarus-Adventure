@@ -153,17 +153,21 @@ function updateObjectInInventory(lastObject,newObject){
 
 function useObject(indexOfCase){
     console.log("use Inventory")
-    switch(inventoryContent[indexOfCase].name){
-        case "shamisen":
-            break;
-        case "parcheminEncode":
-            console.log("parcheminEncode")
-            if (engine == "engine2") {
-                engine = "engine1"
-            }else if (engine == "engine1"){
-                engine = "engine2"
-            }
-            break;
+
+    if (inventoryContent[indexOfCase] != null) {
+        switch(inventoryContent[indexOfCase].name){
+            case "shamisen":
+                break;
+            case "parcheminEncode":
+                console.log("parcheminEncode")
+                if (engine == "engine2") {
+                    engine = "engine1"
+                }else if (engine == "engine1"){
+                    engine = "engine2"
+                }
+                break;
+        }
     }
+    
 
 }
