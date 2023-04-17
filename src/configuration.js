@@ -4,7 +4,7 @@ let MapPipeGame;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 51 ;
+let numberLoad = 56 ;
 
 //! current engine
 let lastEngine = "startMenu";
@@ -139,16 +139,24 @@ let background_ui;
 let imageInstruction;
 let logo;
 
+let index_setting_button_inGame = 0
+let setting_button_inGame;
+
 //? button
 let play_button;
 let credit_button;
 let setting_button;
 let continue_button;
+let backToMenu_main;
 
 let play_button_hover;
 let settings_button_hover;
 let credit_button_hover;
-let continue_button_hover
+let continue_button_hover;
+let backToMenu_hover;
+
+let sound_button_on;
+let sound_button_off;
 
 //?shamisen
 let displayShamisen = false
@@ -176,6 +184,9 @@ let inventoryContent = [];
 
 let globalSideInventoryX = 0;
 let globalSideInventoryY = 0;
+
+//! Audio
+let useAudio = false
 
 
 //* drawable Image background
@@ -469,6 +480,30 @@ function loading(assetArray){
                         })                        
                     break;
 
+                    case "setting_button_inGame":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            setting_button_inGame = cutTiles(e, 32);
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "sound_button_on":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            sound_button_on = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "sound_button_off":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            sound_button_off = e;
+                            isLoaded();
+                        })                        
+                    break;
+
                     case "mouseAnimation":
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
@@ -505,6 +540,22 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             play_button = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "backToMenu_hover":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            backToMenu_hover = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "backToMenu_main":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            backToMenu_main = e;
                             isLoaded();
                         })                        
                     break;

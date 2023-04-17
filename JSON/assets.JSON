@@ -178,6 +178,33 @@
             "name": "backgroud_dialogue_box"
         },
         {
+            "path":"assets/UI/settings_access_spritesheet.png",
+            "type":"ui",
+            "name": "setting_button_inGame"
+        },
+        {
+            "path":"assets/UI/backToMenu_hover.png",
+            "type":"ui",
+            "name": "backToMenu_hover"
+        },
+        {
+            "path":"assets/UI/backToMenu_main.png",
+            "type":"ui",
+            "name": "backToMenu_main"
+        }
+        ,
+        {
+            "path":"assets/UI/sound_button_on.png",
+            "type":"ui",
+            "name": "sound_button_on"
+        }
+        ,
+        {
+            "path":"assets/UI/sound_button_off.png",
+            "type":"ui",
+            "name": "sound_button_off"
+        },
+        {
             "path":"assets/head/masaru_head.png",
             "type":"ui",
             "name": "masaru_head"

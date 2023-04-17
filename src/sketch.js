@@ -25,16 +25,24 @@ function draw(){
     if (assetsLoaded) {
         switch(engine){
             case "engine1":
+                lastEngine = "engine1"
                 startEngine1();
                 break;
             case "engine2":
+                lastEngine = "engine2"
                 startEngine2();
                 break;
             case "startMenu":
-                menu();
+                startMenu();
                 break;
             case "pauseMenu":
                 pauseMenu();
+                break;
+            case "settingMenu":
+                settingMenu();
+                break;
+            case "creditMenu":
+                creditMenu();
                 break;
             default:
                 throw new Error("engine error")

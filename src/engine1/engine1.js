@@ -21,6 +21,10 @@ function startEngine1(){
         image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
     }
 
+
+    image(setting_button_inGame[index_setting_button_inGame], 20,20,48,48 )
+    actionOnText([20,20 ,48,48], "pauseMenu", setting_button_inGame[2])
+
     
 }
 
