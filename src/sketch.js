@@ -51,13 +51,29 @@ function draw(){
     
     //! reset Variable
     keyInteractionIsPressed = false;
+
+    //! log speed when 2 key is down
+    if(nbKeyIsPressed < 2){
+        speedMoveMap = 8
+    }else{
+        speedMoveMap = 3.5 * 8/4
+    }
+
+    // console.log(speedMoveMap)
 }
 
+let nbKeyIsPressed = 0
+
 function keyPressed() {
+
+    if (keyCode != 91 && keyCode != 18 ) {
+        nbKeyIsPressed += 1
+    }
+
     
     if (keyCode === 27) {//? key " escape "
 
-        if (engine != "startMenu") {
+        if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu") {
             if (engine !== "pauseMenu") {
                 lastEngine = engine
                 engine = "pauseMenu"
@@ -87,4 +103,11 @@ function keyPressed() {
         useObject(4)
     }
     
-  }
+}
+
+function keyReleased() {
+
+    if (keyCode != 91 && keyCode != 18 ) {
+        nbKeyIsPressed -= 1
+    }
+}
