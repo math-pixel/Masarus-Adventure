@@ -21,11 +21,13 @@ function startEngine1(){
         image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
     }
 
-
+    //! setting button
     image(setting_button_inGame[index_setting_button_inGame], 20,20,48,48 )
     actionOnText([20,20 ,48,48], "pauseMenu", setting_button_inGame[2])
 
-    
+
+    //! draw note shamisen quest 2
+    drawNote()
 }
 
 
@@ -87,5 +89,24 @@ function drawEngine1(){
     rect(Xcam,Ycam,Wcam,Hcam)
 
 
+
+}
+
+
+function drawNote(){
+
+    if (lifeTimeNote > 0) {
+        // console.log("lifetime" , lifeTimeNote)
+        lifeTimeNote -= 1
+
+        let speedX = ((xStartWorld1 + allPnj[1].xStart + allPnj[1].actualDistance) - xNote) / 200
+        let speedY = ((yStartWorld1 + allPnj[1].yStart) - yNote) / 200
+
+        xNote = xNote + speedX
+        yNote = yNote + speedY
+
+        fill(255,0,0)
+        rect(xNote, yNote, 20, 20)
+    }
 
 }

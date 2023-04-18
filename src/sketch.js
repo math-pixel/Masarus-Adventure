@@ -13,6 +13,9 @@ function setup(){
     textSize(50);
     // console.log(worlds1.tour.layers)
 
+
+    //! quest system
+    questManager()
     
 }
 
@@ -81,7 +84,10 @@ function keyPressed() {
                 engine = lastEngine
             }
         }
-    }else if (keyCode === 69 && canInteract) { //? key " a "
+    }else if(keyCode === 65){
+        //! give shamisen
+        addToInventory({"name": "shamisen", "image": allTiles[6]})
+    }else if (keyCode === 69 && canInteract) { //? key " e "
         displayDialogue = true
         interact()
     }else if(keyCode === 69){

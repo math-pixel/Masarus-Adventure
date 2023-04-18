@@ -32,6 +32,7 @@ let canMove = true;
 
 //! quest system
 let currentAdvancementQuest = 0;
+let theCurrentQuestIsEnded = false;
 
 //? layer info
 let layerCollision = 2;
@@ -166,6 +167,11 @@ let shamisen_1;
 let shamisen_2;
 let shamisen_3;
 let shamisen_4;
+
+//? note Shamisen
+let lifeTimeNote = 0
+let xNote;
+let yNote;
 
 //? mouse
 let mouseTileset = []

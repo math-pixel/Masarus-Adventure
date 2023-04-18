@@ -157,6 +157,14 @@ function useObject(indexOfCase){
     if (inventoryContent[indexOfCase] != null) {
         switch(inventoryContent[indexOfCase].name){
             case "shamisen":
+
+                console.log("shamisen")
+                if (lifeTimeNote == 0) {
+                    lifeTimeNote = 100
+                    xNote = xPlayer
+                    yNote = yPlayer
+                }
+
                 break;
             case "parcheminEncode":
                 console.log("parcheminEncode")
