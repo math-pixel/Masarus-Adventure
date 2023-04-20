@@ -10,34 +10,48 @@ function movePlayer() {
 
     if (keyIsDown(LEFT_ARROW)) {
 
-        //? reset easter egg time ( frame )
-        intervalBackflip = 0
+        if (canMove) {
+            //? reset easter egg time ( frame )
+            intervalBackflip = 0
 
-        //? set up the direction of the player
-        direction = 2;
+            //? set up the direction of the player
+            direction = 2;
 
-        //? set up the time frame between each frame of the animation
-        moduloAnimation = 3
+            //? set up the time frame between each frame of the animation
+            moduloAnimation = 3
 
-        //? add frame for animation
-        addFrame(direction)
+            //? add frame for animation
+            addFrame(direction)
+        }
 
     }else if (keyIsDown(RIGHT_ARROW)) {
-        intervalBackflip = 0
-        direction = 3;
-        moduloAnimation = 3
-        addFrame(direction)
+
+        if (canMove) {
+            intervalBackflip = 0
+            direction = 3;
+            moduloAnimation = 3
+            addFrame(direction)
+        }
+
     }else if (keyIsDown(UP_ARROW)) {
-        intervalBackflip = 0
-        direction = 0;
-        moduloAnimation = 3
-        addFrame(direction)
-        // console.log("yey")
+
+        if (canMove) {
+            intervalBackflip = 0
+            direction = 0;
+            moduloAnimation = 3
+            addFrame(direction)
+            // console.log("yey")
+        }
+        
     }else if (keyIsDown(DOWN_ARROW)) {
-        intervalBackflip = 0
-        direction = 1;
-        moduloAnimation = 3
-        addFrame(direction)
+
+        if (canMove) {
+            intervalBackflip = 0
+            direction = 1;
+            moduloAnimation = 3
+            addFrame(direction)
+        }
+
     }else{
         // IDLE animation in all direction
 
@@ -50,7 +64,7 @@ function movePlayer() {
             }
 
             //! set backflip animation easter egg
-            if (intervalBackflip > 10000) {
+            if (intervalBackflip > 1000) {
                 direction = 8
                 doingBackFlip = true
             }
@@ -78,6 +92,7 @@ function addFrame(dir){
                 doingBackFlip = false
                 intervalBackflip = 1
             }
+
         }else{
             currentFramePlayer += 1;
         }
@@ -96,10 +111,10 @@ function drawPlayer(){
 
     // console.log(playerTile)
 
-    if (canMove) {
-        fill(255,255,0);
-        movePlayer()
-    }
+
+    fill(255,255,0);
+    movePlayer()
+
     // rect( xPlayer,yPlayer, sideCarrousel,sideCarrousel);
 
     //! draw player

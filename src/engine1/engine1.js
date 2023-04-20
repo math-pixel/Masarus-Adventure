@@ -99,8 +99,8 @@ function drawNote(){
         // console.log("lifetime" , lifeTimeNote)
         lifeTimeNote -= 1
 
-        let speedX = ((xStartWorld1 + allPnj[1].xStart + allPnj[1].actualDistance) - xNote) / 200
-        let speedY = ((yStartWorld1 + allPnj[1].yStart) - yNote) / 200
+        let speedX = ((xStartWorld1 + allPnj[2].xStart + allPnj[2].actualDistance) - xNote) / 200
+        let speedY = ((yStartWorld1 + allPnj[2].yStart) - yNote) / 200
 
         xNote = xNote + speedX
         yNote = yNote + speedY

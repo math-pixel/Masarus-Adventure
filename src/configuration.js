@@ -1,10 +1,11 @@
 let world1 
 let Maps =[]
 let MapPipeGame;
+let quests;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 56 ;
+let numberLoad = 57 ;
 
 //! current engine
 let lastEngine = "startMenu";
@@ -219,6 +220,14 @@ function loading(assetArray){
             case "world" :
                 world1 = loadJSON(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
+                    isLoaded();
+                });
+                break;
+            //! ########### WORLD JSON
+            case "quest" :
+                loadJSON(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    quests = e.quests
                     isLoaded();
                 });
                 break;

@@ -14,6 +14,36 @@ function createPNJ(){
                 currentPnj.skin = pandaTileSet
                 currentPnj.headDialogue = [[panda_head , panda_head, panda_head], [panda_head , panda_head, panda_head,panda_head, "", "" , panda_head , panda_head, panda_head,panda_head]]
                 break;
+
+            case "PNJ_QUEST_2":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pandaTileSet
+                currentPnj.headDialogue = [
+                    [panda_head , panda_head], 
+                    [
+                        panda_head, 
+                        panda_head, 
+                        panda_head,
+                        masaru_head, 
+                        panda_head, 
+                        panda_head, 
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        panda_head
+                    ],
+                    [
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        masaru_head,
+                        masaru_head,
+                        panda_head
+                    ]
+                ]
+                break;
         }
     })
 
@@ -163,26 +193,12 @@ function pnjManager(){
             //? remove the posssibility of move of pnj
             pnj.canMove = false
 
-            //! set up dialogue system variable
-            if (pnj.dialogue[currentAdvancementQuest]) {
-                textDialogue = pnj.dialogue[currentAdvancementQuest];
-                // imagePersonTalking = masaru_head
-                endAction = pnj.actionDialogue[currentAdvancementQuest];
-                imagePersonTalking = pnj.headDialogue[currentAdvancementQuest]
-            }else{
-                textDialogue = pnj.dialogue[pnj.dialogue.length - 1];
-                endAction = pnj.actionDialogue[pnj.actionDialogue.length - 1];
-                imagePersonTalking = pnj.headDialogue[pnj.headDialogue.length - 1];
-            }
-            
-            canInteract = true
+            setUpDialoguePnj(pnj)
 
             // verification if the player is in contact with current pnj
             pnj.canInteractVerification = true
 
-
-
-            //! pnj is in front of player
+            //! pnj is in front of player ( for draw player above or below pnj )
             if (pnj.canInteractVerification) {
                 // console.log(pnj.yStart < yPlayer)
                 if (yStartWorld1 + pnj.yStart < yPlayer) {
@@ -254,4 +270,134 @@ function animatePNJ(pnj,index_Direction){
 
     //! counter of frame for individual pnj
     pnj.frameRatePNJ += 1;
+}
+
+
+
+function setUpDialoguePnj(pnj){
+    //! set up dialogue system variable
+    canInteract = true
+
+    //! ### set up pnj masarus father
+    if (pnj.name === "MASARU_S_FATHER") {
+
+        //*quest 1
+        //? not already talk 
+        if (!pnj.alreadyTalk) {
+            textDialogue = pnj.dialogue[0];
+            endAction = pnj.actionDialogue[0];
+            imagePersonTalking = pnj.headDialogue[0]
+
+            //* quest finish
+            quests[0].isFinish = true
+
+            //* set up pnj already talk 
+            // pnj.alreadyTalk = true
+
+        }else{
+
+            textDialogue = pnj.dialogueAlreadyTalk[0];
+            endAction = pnj.actionAlreadyTalk[0];
+            imagePersonTalking = pnj.headAlreadyTalk[0]
+        }
+        
+    }
+
+
+
+    //! ### set up pnj 2 ( parchemin )
+    if (pnj.name === "PNJ_QUEST_1") {
+
+        //*quest 2 ( lettre dechifrer )
+        if (quests[1].isFinish) {
+
+            //? not already talk 
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[1];
+                endAction = pnj.actionDialogue[1];
+                imagePersonTalking = pnj.headDialogue[1]
+
+                //* quest finish to talk pnj 2
+                quests[2].isFinish = true
+
+            }else{
+                textDialogue = pnj.dialogueAlreadyTalk[0];
+                endAction = pnj.actionAlreadyTalk[0];
+                imagePersonTalking = pnj.headAlreadyTalk[0]
+            }
+        }else{
+
+            //* default text
+
+            textDialogue = pnj.dialogue[0];
+            endAction = pnj.actionDialogue[0];
+            imagePersonTalking = pnj.headDialogue[0]
+
+        }
+        
+    }
+
+
+
+    //! ### set up pnj 3 ( eventail )
+    if (pnj.name === "PNJ_QUEST_2") {
+
+        //*quest 3 ( corde 1 recuperer )
+        if (quests[2].isFinish) {
+
+            //? not already talk 
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[1];
+                endAction = pnj.actionDialogue[1];
+                imagePersonTalking = pnj.headDialogue[1]
+
+                //* quest finish to talk pnj 2
+                quests[2].isFinish = true
+
+                //? already talk
+            }else{
+                textDialogue = pnj.dialogueAlreadyTalk[0];
+                endAction = pnj.actionAlreadyTalk[0];
+                imagePersonTalking = pnj.headAlreadyTalk[0]
+            }
+
+            //TODO reset already talk
+
+            //* get eventail in inventory
+            if (quests[4].isFinish) {
+                //? not already talk 
+                if (!pnj.alreadyTalk) {
+                    textDialogue = pnj.dialogue[2];
+                    endAction = pnj.actionDialogue[2];
+                    imagePersonTalking = pnj.headDialogue[2]
+
+                    //* quest finish to talk pnj 2
+                    quests[2].isFinish = true
+
+                    //? already talk
+                }else{
+                    textDialogue = pnj.dialogueAlreadyTalk[0];
+                    endAction = pnj.actionAlreadyTalk[0];
+                    imagePersonTalking = pnj.headAlreadyTalk[0]
+                }
+            }
+
+
+
+        }else{
+
+            //* default text
+            textDialogue = pnj.dialogue[0];
+            endAction = pnj.actionDialogue[0];
+            imagePersonTalking = pnj.headDialogue[0]
+
+        }
+        
+    }
+
+
+
+
+
+    
 }

@@ -1,0 +1,46 @@
+{
+    "quests":[
+        {
+            "name":"parler au pere de masaru",
+            "description" : "parler au pere de masaru pour recuperer le shamisen",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "name":"dechiffrer la lettre",
+            "description" : "ouverture engine 2 si win alors mission reussis",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "name":"recuperer la corde au pnj",
+            "description" : "allez parler au pnj panda puis utilisation du shamisen",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "name":"parler au pnj 3",
+            "description" : "parler au pnj decouvert grace au shamisen",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "name":"recuperer l'eventail",
+            "description" : "eventail dans l'arbre",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "name":"parler au pnj pour trouvé la prochaine corde",
+            "description" : "pnj 3",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "name":"recuperer la corde dans le jardin",
+            "description" : "reussis quand le coffre a ete ouvert",
+            "isFinish": false,
+            "beDisplayed" : true
+        }
+    ]
+}

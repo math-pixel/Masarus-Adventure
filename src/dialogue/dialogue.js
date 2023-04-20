@@ -92,7 +92,6 @@ function interact(){
         canInteract = false
 
         //! end dialogue
-        //set next engine
         engine = endAction[0]
         
         // reset variable
@@ -100,26 +99,53 @@ function interact(){
         displayShamisen = true
         canMove = true
 
-        // next action
+        //! next action
+        // console.log(endAction)
         if (endAction.length > 1) {
-            doActionGameplay(endAction)
+            for (let index = 1; index < endAction.length; index++) {
+                doActionGameplay(endAction[index])
+            }
+            
         } 
     }
 }
 
-//TODO change place of this function in a special script for quest
+
 function doActionGameplay(endAction){
-    switch(endAction[1]){
-        case "displayShamisen":
+    switch(endAction){
+
+        case "endDialogueMasarusDad":
             displayShamisen = true
             currentSpriteShamisen = 1
             if (canAddToInventory({"name" : "shamisen" , "image": allTiles[6]})) {
                 addToInventory({"name" : "shamisen" , "image": allTiles[6]})
             }
+
+            //! advencement in quest
+            quests[0].isFinish = true
+            questManager()
         break;
 
         case "addRopeToShamisen":
             currentSpriteShamisen += 1
+        break;
+
+        case "endQuest2":
+            //* quest finish recuperer corde
+            quests[2].isFinish = true
+            questManager()
+        break;
+
+        case "endQuest3":
+            //* quest finish recuperer corde
+            quests[3].isFinish = true
+            questManager()
+        break;
+
+        case "endQuest5":
+            //* quest parler au pnj 3 et nous indique l'endroit de la corde
+            quests[5].isFinish = true
+            questManager()
         break;
     }
 }

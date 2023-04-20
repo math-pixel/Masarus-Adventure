@@ -5,6 +5,10 @@
             "type": "world"
         },
         {
+            "path": "JSON/quest.json",
+            "type": "quest"
+        },
+        {
             "path":"JSON/engine1/allMaps2.json",
             "type":"mapsEngine1"
         },

@@ -38,7 +38,7 @@ function drawMapEngine2(array){
 function mousePressed() {
     let currentIndex;
 
-    // add rotation on tile
+    //! add rotation on tile
     if (pointIsInside(mouseX,mouseY, [xStartWorld2 - sideCarrousel / 2, yStartWorld2 - sideCarrousel / 2 , xStartWorld2 + sideCarrousel * MapPipeGame.Map.layers[0].length, yStartWorld2 + sideCarrousel * MapPipeGame.Map.layers.length])) {
         
         currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
@@ -54,10 +54,17 @@ function mousePressed() {
             }
     
             // if win else ...
+            //! win
             if (isWin(MapPipeGame.Map.layers)) {
                 setTimeout(() => {
                     engine = "engine1";
-                    currentAdvancementQuest += 1;
+
+                    //* quest finish
+                    quests[1].isFinish = true
+
+                    questManager()
+
+                    
                 }, "10000");
             }
         }
@@ -65,7 +72,7 @@ function mousePressed() {
     }
 
 
-    //set all tile in good pos for debug win
+    //! set all tile in good pos for debug win
     if (pointIsInside(mouseX,mouseY , [0,0,30,20])) {
         for (let row = 0; row < MapPipeGame.Map.layers[0].length; row++) {
             for (let column = 0; column < MapPipeGame.Map.layers.length; column++) {
@@ -75,10 +82,15 @@ function mousePressed() {
             }
         }
 
+        //! win
         if (isWin(MapPipeGame.Map.layers)) {
             alert("win")
             engine = "engine1";
-            currentAdvancementQuest += 1;
+
+            //* quest finish
+            quests[1].isFinish = true
+            questManager()
+            
         } 
     }
 }

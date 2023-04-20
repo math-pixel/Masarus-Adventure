@@ -10,6 +10,17 @@ function interactionWithMap(typeBlock, array, column,row){
                 array[column][row] = 0
             }
             break;
+
+        case 6:
+
+            if (canAddToInventory({"name" : "eventail" , "image": allTiles[10]})) {
+                addToInventory({"name" : "eventail" , "image": allTiles[10]})
+                array[column][row] = 0
+                quests[4].isFinish = true
+            }
+        
+
+            break;
     }
 }
 

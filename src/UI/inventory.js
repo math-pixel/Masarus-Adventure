@@ -156,24 +156,27 @@ function useObject(indexOfCase){
 
     if (inventoryContent[indexOfCase] != null) {
         switch(inventoryContent[indexOfCase].name){
+
             case "shamisen":
-
-                console.log("shamisen")
-                if (lifeTimeNote == 0) {
-                    lifeTimeNote = 100
-                    xNote = xPlayer
-                    yNote = yPlayer
+                
+                //! si il a  parler au pnj et recuperer la premiere corde alors le shamisen joue une note de musique
+                if (quests[2].isFinish === true && !quests[3].isFinish) {
+                    if (lifeTimeNote == 0) {
+                        lifeTimeNote = 100
+                        xNote = xPlayer
+                        yNote = yPlayer
+                    }
                 }
+            break;
 
-                break;
             case "parcheminEncode":
-                console.log("parcheminEncode")
+                // console.log("parcheminEncode")
                 if (engine == "engine2") {
                     engine = "engine1"
                 }else if (engine == "engine1"){
                     engine = "engine2"
                 }
-                break;
+            break;
         }
     }
     

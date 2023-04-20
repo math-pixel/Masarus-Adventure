@@ -16,10 +16,26 @@
       "frameRatePNJ": 0,
       "skin": [],
       "currentFrameInteraction": 0,
-      "dialogue": [["Bonjour mon fils !", "Aujourd’hui est un grand jour pour toi !", "Bonjour père !", "C’est aujourd’hui que je pars à l’aventure, retrouver les 3 cordes de notre shamisen sacré.","Tu sais que tout le village compte sur toi.","Avant que tu partes j’aimerais t’offrir un présent Masaru.","Tu as obtenu le shamisen sacré.","Merci pour votre confiance père.","Je me montrerai digne de cette mission."]],
-      "actionDialogue": [["engine1", "displayShamisen"]],
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": ["yey"],
+      "dialogue": [
+        ["Bonjour mon fils !", 
+        "Aujourd’hui est un grand jour pour toi !", 
+        "Bonjour père !", 
+        "C’est aujourd’hui que je pars à l’aventure, retrouver les 3 cordes de notre shamisen sacré.",
+        "Tu sais que tout le village compte sur toi.",
+        "Avant que tu partes j’aimerais t’offrir un présent Masaru.",
+        "Tu as obtenu le shamisen sacré.",
+        "Merci pour votre confiance père.",
+        "Je me montrerai digne de cette mission."
+        ]],
+      "actionAlreadyTalk": [
+        ["engine1"]
+      ],
+        "actionDialogue": [["engine1", "endDialogueMasarusDad"]],
       "canInteractVerification": false,
-      "headDialogue": []
+      "headDialogue": [],
+      "headAlreadyTalk": []
     },
     {
       "id": 1,
@@ -37,10 +53,86 @@
       "ratioFrameRate": 15,
       "skin": [],
       "currentFrameInteraction": 0,
-      "dialogue": [["Bonjour jeune homme.", "Je pourrais peut être t’aider mais il te faut encore chercher.", "Reviens plus tard."], ["Félicitation jeune homme ! ", "Tu es parvenu à déchiffrer ma lettre.", "C’est donc que tu es digne de recevoir cette corde.", "Fais en bon usage.", "Tu as obtenu une corde.", "Et si tu essayais de jouer du shamisen ?", "Et oui", "Même si le shamisen n’est pas complet,", "Chaque corde te rapproche du sauvetage de l’île.", "Il te reste encore deux cordes alors pars vite terminer ta mission."]],
-      "actionDialogue": [["engine1"],["engine1", "addRopeToShamisen"]],
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": ["yey"],
+      "dialogue": [
+        ["Bonjour jeune homme.",
+         "Je pourrais peut être t’aider mais il te faut encore chercher.", "Reviens plus tard."], 
+        ["Félicitation jeune homme ! ", 
+        "Tu es parvenu à déchiffrer ma lettre.", 
+        "C’est donc que tu es digne de recevoir cette corde.", 
+        "Fais en bon usage.", 
+        "Tu as obtenu une corde.", 
+        "Et si tu essayais de jouer du shamisen ?", 
+        "Et oui", "Même si le shamisen n’est pas complet,", 
+        "Chaque corde te rapproche du sauvetage de l’île.", 
+        "Il te reste encore deux cordes alors pars vite terminer ta mission."]
+      ],
+      "actionAlreadyTalk": [
+        ["engine1"]
+      ],
+      "actionDialogue": [
+        ["engine1"],
+        ["engine1", "addRopeToShamisen", "endQuest2"]],
       "canInteractVerification": false,
-      "headDialogue": []
+      "headDialogue": [],
+      "headAlreadyTalk": []
+    },
+    {
+      "id": 2,
+      "name": "PNJ_QUEST_2",
+      "xStart": 4200,
+      "yStart": 1700,
+      "distanceToTravel": 230,
+      "direction": "right",
+      "width": "",
+      "actualDistance": 0,
+      "speed": 1,
+      "canMove": true,
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "ratioFrameRate": 15,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": ["yey"],
+      "dialogue": [
+        ["Bonjour Masaru !",
+        "J’adorerai t’aider mais je suis trop occupé pour le moment, reviens plus tard !"
+        ],
+        ["Salut Masaru", 
+         "J’ai entendu dire que tu étais en quêtes des cordes du shamisen sacré.",
+         "C’est très courageux de ta part.", 
+         "Aurais-tu des informations au sujet des cordes ?",
+         "J’ai entendu des rumeurs en effet…",
+         "Je crois que je peux t’aider.", 
+         "Mais d’abord c’est moi qui ait besoin de ton aide.", 
+         "Si tu acceptes de m’aider à retrouver mon éventail que j’ai égaré au village", 
+         "Je te dirais où tu peux trouver une corde.", 
+         "Retrouves mon éventail !" 
+        ],
+        [
+          "Merci infiniment Masaru !",
+          "Cela ne fait aucun doute, c’est toi qui parviendra à sauver l’île.",
+          "Comme promis, je te transmets les informations qui sont en ma possession .",
+          "J’ai entendu dire qu’une corde est caché dans le jardin du village. ",
+          "Tu trouveras sûrement ton bonheur là-bas.",
+          "Merci infiniment pour ces précieuses informations.",
+          "Je m’y rends de ce pas.",
+          "Bon courage Masaru !"
+        ]
+      ],
+      "actionAlreadyTalk": [
+        ["engine1"]
+      ],
+      "actionDialogue": [
+        ["engine1"],
+        ["engine1", "endQuest3"],
+        ["engine1", "endQuest5"]
+      ],
+      "canInteractVerification": false,
+      "headDialogue": [],
+      "headAlreadyTalk": []
     }
   ]
 }
