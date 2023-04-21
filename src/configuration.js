@@ -197,6 +197,11 @@ let globalSideInventoryY = 0;
 //! Audio
 let useAudio = false
 
+//! importante block
+let indexTileParchemin = 3
+let indexTileeventaille = 6
+let indexTilecoffre = 10
+
 
 //* drawable Image background
 let backgroundImage;

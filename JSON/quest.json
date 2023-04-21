@@ -37,8 +37,8 @@
             "beDisplayed" : true
         },
         {
-            "name":"recuperer la corde dans le jardin",
-            "description" : "reussis quand le coffre a ete ouvert",
+            "name":"recuperer la corde dans le coffre du jardin",
+            "description" : "reussis quand le coffre a ete ouvert et resolue",
             "isFinish": false,
             "beDisplayed" : true
         }

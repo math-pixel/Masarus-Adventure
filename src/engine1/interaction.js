@@ -4,23 +4,29 @@ function interactionWithMap(typeBlock, array, column,row){
 
     switch(typeBlock){
         // parchemin
-        case 3:
+        case indexTileParchemin:
             if (canAddToInventory({"name" : "parcheminEncode" , "image": allTiles[4]})) {
                 addToInventory({"name" : "parcheminEncode" , "image": allTiles[4]})
                 array[column][row] = 0
             }
             break;
 
-        case 6:
+        // eventail
+        case indexTileeventaille:
 
             if (canAddToInventory({"name" : "eventail" , "image": allTiles[10]})) {
                 addToInventory({"name" : "eventail" , "image": allTiles[10]})
                 array[column][row] = 0
                 quests[4].isFinish = true
             }
-        
-
             break;
+        
+        // coffre
+        case indexTilecoffre:
+
+            engine = "engine2"
+
+        break;
     }
 }
 
