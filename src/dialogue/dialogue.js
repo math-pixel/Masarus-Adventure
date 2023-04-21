@@ -147,5 +147,10 @@ function doActionGameplay(endAction){
             quests[5].isFinish = true
             questManager()
         break;
+
+        case "startDialogueQuest8":
+            //? in questSystem.js
+            dialogueQuest8()
+        break;
     }
 }

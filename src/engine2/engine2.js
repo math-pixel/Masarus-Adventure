@@ -5,6 +5,10 @@ function startEngine2(){
     // fill(0,0,0,10)
     // rect(0,0,1000,578) 
 
+    //! draw background
+    image(imageBackgroundEng2, 0, 0 , 1000, 578)
+
+    //! draw system engine
     setRandomRotation(MapPipeGame.Map.layers);
     drawMapEngine2(MapPipeGame.Map.layers);
 

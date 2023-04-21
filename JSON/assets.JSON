@@ -181,6 +181,18 @@
             "type":"journal"
         },
         {
+            "path":"assets/background_eng2_coffre.png",
+            "type":"background_eng2_coffre"
+        },
+        {
+            "path":"assets/background_eng2_parchemin.png",
+            "type":"background_eng2_parchemin"
+        },
+        {
+            "path":"assets/coffre_eng2.png",
+            "type":"coffreEng2"
+        },
+        {
             "path":"assets/UI/background_dialogue_box.png",
             "type":"ui",
             "name": "backgroud_dialogue_box"

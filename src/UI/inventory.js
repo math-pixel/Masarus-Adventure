@@ -172,10 +172,12 @@ function useObject(indexOfCase){
 
             case "parcheminEncode":
                 // console.log("parcheminEncode")
-                if (engine == "engine2") {
-                    engine = "engine1"
-                }else if (engine == "engine1"){
-                    engine = "engine2"
+                if (quests[1].isFinish == false) {
+                    if (engine == "engine2") {
+                        engine = "engine1"
+                    }else if (engine == "engine1"){
+                        engine = "engine2"
+                    }
                 }
             break;
         }

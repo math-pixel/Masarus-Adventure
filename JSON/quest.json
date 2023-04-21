@@ -41,6 +41,12 @@
             "description" : "reussis quand le coffre a ete ouvert et resolue",
             "isFinish": false,
             "beDisplayed" : true
+        },
+        {
+            "name":"allez au sommet de la montagne et parler a l'etranger",
+            "description" : "reussis quand le coffre a ete ouvert et resolue",
+            "isFinish": false,
+            "beDisplayed" : true
         }
     ]
 }

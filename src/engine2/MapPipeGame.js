@@ -10,7 +10,7 @@ function drawingGridPipeGame(x,y,w,h,array){
             translate(x+w*row,y+h*column);
             stroke(250)
             rotate(array[column][row].rotation);
-            image(journalTiles[array[column][row].tile], -w / 2, -h / 2,w,h); //allTiles
+            image(tilesetEngine2[array[column][row].tile], -w / 2, -h / 2,w,h); //allTiles
 
 
             if (array[column][row].rotation != 0) {
@@ -56,42 +56,33 @@ function mousePressed() {
             // if win else ...
             //! win
             if (isWin(MapPipeGame.Map.layers)) {
-                setTimeout(() => {
-                    engine = "engine1";
 
-                    //* quest finish
-                    quests[1].isFinish = true
+                //! if parchemin wait 10 sec for reading time 
+                if (!quests[1].isFinish) {
+                    setTimeout(() => {
+                        winEngine2()
+                    }, "10000")
+                }else if(quests[5].isFinish && !quests[6].isFinish){
+                    winEngine2()
+                }
 
-                    questManager()
-
-                    
-                }, "10000");
+                engine = "engine1";
             }
         }
         
     }
 
 
-    //! set all tile in good pos for debug win
+    //! CHEAT MODE
     if (pointIsInside(mouseX,mouseY , [0,0,30,20])) {
-        for (let row = 0; row < MapPipeGame.Map.layers[0].length; row++) {
-            for (let column = 0; column < MapPipeGame.Map.layers.length; column++) {
-    
-                MapPipeGame.Map.layers[column][row].rotation = 0; 
 
-            }
-        }
 
         //! win
-        if (isWin(MapPipeGame.Map.layers)) {
-            alert("win")
-            engine = "engine1";
 
-            //* quest finish
-            quests[1].isFinish = true
-            questManager()
-            
-        } 
+        //! cheat mode no wait
+        alert("win ")
+        winEngine2()
+
     }
 }
 
@@ -127,4 +118,42 @@ function isWin(array){
     }
 
     return win;
+}
+
+
+
+function winEngine2(){
+    //! si quete 1 pas fini
+    if (!quests[1].isFinish) {
+
+        engine = "engine1";
+
+        //* quest finish
+        quests[1].isFinish = true
+        questManager()
+
+    }
+
+    //! si quete 6 pas fini donc coffre
+    if (quests[5].isFinish && !quests[6].isFinish) {
+        
+        quests[6].isFinish = true
+        questManager()
+
+        //? return to engine 1
+        engine = "engine1";
+
+        //* set up dialogue
+        canInteract = true
+
+        textDialogue = ["tu as obtenu une corde"]
+        endAction = ["engine1", "addRopeToShamisen", "startDialogueQuest8"]
+        imagePersonTalking = [""]
+
+        //* display dialogue
+        displayDialogue = true
+        interact()
+
+ 
+    }
 }

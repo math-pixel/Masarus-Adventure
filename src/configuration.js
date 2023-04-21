@@ -5,7 +5,7 @@ let quests;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 58 ;
+let numberLoad = 61 ;
 
 //! current engine
 let lastEngine = "startMenu";
@@ -132,8 +132,14 @@ let canInteract = false
 //! interaction MAP
 let keyInteractionIsPressed = false;
 
-//! journal engine 2
+//! engine 2
+let tilesetEngine2;
 let journalTiles = [];
+let chestTiles = []
+
+let imageBackgroundEng2
+let imageBackgroundEng2Parchemin;
+let imageBackgroundEng2Coffre;
 
 //!UI
 // ui menu
@@ -281,6 +287,27 @@ function loading(assetArray){
                 loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
                     journalTiles = cutTiles(e, 64);
+                    isLoaded();
+                });
+                break;
+            case "coffreEng2" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    chestTiles = cutTiles(e, 64);
+                    isLoaded();
+                });
+                break;
+            case "background_eng2_coffre" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    imageBackgroundEng2Coffre = e;
+                    isLoaded();
+                });
+                break;
+            case "background_eng2_parchemin" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    imageBackgroundEng2Parchemin = e;
                     isLoaded();
                 });
                 break;
@@ -717,24 +744,31 @@ function isLoaded(){
 
     if (numberAssetsLoading === numberLoad) {
 
+        //! set up tileset player
         playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight, MasaruFatherAnimRightIdle ];
 
+        //! set up tileset PNJ
         pandaTileSet = [pandaAnimIdleRight,pandaAnimRight,pandaAnimIdleLeft,pandaAnimLeft,pandaAnimIdleBottom,pandaAnimIdleTop];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
         pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle,MasaruFatherAnimTopIdle]
-        // console.log(MasaruFatherAnimLeft)
 
-        // console.log(MasaruFatherAnimTopIdle)
-        // console.log(pnjTileSet1)
-        // console.log(pnjTileSet2)
-
-        assetsLoaded = true;
-
-        inventoryContent = [null,null,null,null,null];
+        //! set up tileset shamisen
         spriteSheetShamisen = [allTiles[0],shamisen_1,shamisen_2,shamisen_3,shamisen_4]
 
+        //! set up tile engine 2
+        tilesetEngine2 = journalTiles
+        imageBackgroundEng2 = imageBackgroundEng2Parchemin
 
+        
+        //! set up inventory
+        inventoryContent = [null,null,null,null,null];
+        
+        //! set up pnj
         createPNJ()
+        
+        //! end loading
+        assetsLoaded = true;
+
         console.log("end is loaded")
     }
 }
