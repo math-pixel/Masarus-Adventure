@@ -25,6 +25,10 @@
             "type":"map"
         },
         {
+            "path":"assets/croche_song_sprite_sheet.png",
+            "type":"songSprite"
+        },
+        {
             "path":"assets/player/masaru-top.png",
             "type":"entity",
             "name": "player",

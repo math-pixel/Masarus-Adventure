@@ -163,8 +163,9 @@ function useObject(indexOfCase){
                 if (quests[2].isFinish === true && !quests[3].isFinish) {
                     if (lifeTimeNote == 0) {
                         lifeTimeNote = 100
-                        xNote = xPlayer
-                        yNote = yPlayer
+                        let centerPlayer = getCenterOfRect([xPlayer,yPlayer,sideCarrousel,sideCarrousel])
+                        xNote = centerPlayer[0]
+                        yNote = centerPlayer[1]
                     }
                 }
             break;

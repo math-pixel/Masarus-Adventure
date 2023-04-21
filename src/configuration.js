@@ -5,7 +5,7 @@ let quests;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 57 ;
+let numberLoad = 58 ;
 
 //! current engine
 let lastEngine = "startMenu";
@@ -170,6 +170,8 @@ let shamisen_3;
 let shamisen_4;
 
 //? note Shamisen
+let songSprite;
+let songSpriteCurrentFrame = 0
 let lifeTimeNote = 0
 let xNote;
 let yNote;
@@ -223,11 +225,19 @@ function loading(assetArray){
                     isLoaded();
                 });
                 break;
-            //! ########### WORLD JSON
+            //! ########### Quest JSON
             case "quest" :
                 loadJSON(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
                     quests = e.quests
+                    isLoaded();
+                });
+                break;
+            //! ########### song sprite
+            case "songSprite" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    songSprite = cutTiles(e, 32)
                     isLoaded();
                 });
                 break;

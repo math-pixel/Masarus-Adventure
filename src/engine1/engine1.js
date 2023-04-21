@@ -97,16 +97,34 @@ function drawNote(){
 
     if (lifeTimeNote > 0) {
         // console.log("lifetime" , lifeTimeNote)
+        //! move note
         lifeTimeNote -= 1
 
-        let speedX = ((xStartWorld1 + allPnj[2].xStart + allPnj[2].actualDistance) - xNote) / 200
-        let speedY = ((yStartWorld1 + allPnj[2].yStart) - yNote) / 200
+        let distanceX =  ((xStartWorld1 + allPnj[2].xStart + allPnj[2].actualDistance) - xNote)
+        let distanceY =  ((yStartWorld1 + allPnj[2].yStart) - yNote)
+
+        let speedX = distanceX / 200
+        let speedY = distanceY / 200
 
         xNote = xNote + speedX
         yNote = yNote + speedY
 
-        fill(255,0,0)
-        rect(xNote, yNote, 20, 20)
+        // fill(255,0,0)
+        // rect(xNote, yNote, 20, 20)
+
+        //! note animation
+        if (lifeTimeNote % 2 == 0) {     
+            
+            if ( songSpriteCurrentFrame + 1 < songSprite.length ) {
+                songSpriteCurrentFrame += 1
+            }else{
+                songSpriteCurrentFrame = 0
+            }
+            
+        }
+        
+        //! draw note
+        image(songSprite[songSpriteCurrentFrame], xNote, yNote, 48, 48)
     }
 
 }
