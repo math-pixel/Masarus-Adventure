@@ -35,7 +35,16 @@ let canMove = true;
 let currentAdvancementQuest = 0;
 let theCurrentQuestIsEnded = false;
 
-//? layer info
+//? the interactive rock
+let playerNearToTheRock = false
+let tilemapTheRock = "tilemap_21"
+let coordTheRockInteractive = [1, 9]
+
+//? last rope
+let tilemapRope = "tilemap_21"
+let coordLastRope = [3, 9]
+
+//! layer info
 let layerCollision = 2;
 let layerInteraction = 3;
 let blockToNotCollision = 0;    
@@ -191,10 +200,10 @@ let masaru_head;
 let masaruFather_head
 let panda_head;
 
-// dialogue
+//! dialogue
 let backgroud_dialogue_box
 
-//inventory
+//! inventory
 let inventoryContent = [];
 
 let globalSideInventoryX = 0;
@@ -207,6 +216,9 @@ let useAudio = false
 let indexTileParchemin = 3
 let indexTileeventaille = 6
 let indexTilecoffre = 10
+let indexTileRoche = 7
+let indexRubbleRockTile = 17
+let indexTileRope = 4
 
 
 //* drawable Image background

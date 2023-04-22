@@ -168,6 +168,40 @@ function useObject(indexOfCase){
                         yNote = centerPlayer[1]
                     }
                 }
+
+                //! shamisen on rock but not the current quest
+                if (!quests[7].isFinish && playerNearToTheRock) {
+                    canInteract = true
+                    textDialogue = [
+                        "le shamisen n'est pas assez puissant pour detruire ces pierres"
+                    ];
+                    endAction = ["engine1"];
+                    imagePersonTalking = [
+                        masaru_head
+                    ]
+                    
+                    //* display dialogue
+                    displayDialogue = true
+                    interact()
+                }
+
+                //! The rock on top of montain
+                if (quests[7].isFinish && playerNearToTheRock) {
+
+                    //? end quest 
+                    quests[8].isFinish = true
+
+                    //? remome rock from interaction layer
+                    Maps[tilemapTheRock].layers[layerInteraction][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = blockToNotCollision
+
+                    //? remome rock from collision layer
+                    Maps[tilemapTheRock].layers[layerCollision][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = blockToNotCollision
+
+                    //? set up rock rubble to layer 2
+                    Maps[tilemapTheRock].layers[1][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexRubbleRockTile
+
+                }
+
             break;
 
             case "parcheminEncode":

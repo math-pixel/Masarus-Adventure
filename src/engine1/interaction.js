@@ -27,6 +27,50 @@ function interactionWithMap(typeBlock, array, column,row){
             engine = "engine2"
 
         break;
+
+        // pierre
+        case indexTileRoche:
+
+            canInteract = true
+            textDialogue = [
+                "je pense que je n'arriverait pas a detruire ces pierre a la main"
+            ];
+            endAction = ["engine1"];
+            imagePersonTalking = [
+                masaru_head
+            ]
+            
+            //* display dialogue
+            displayDialogue = true
+            interact()
+
+        break;
+
+        // corde
+        case indexTileRope:
+
+            quests[9].isFinish = true
+
+            //? remome rope from interaction layer
+            Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = blockToNotCollision
+
+            canInteract = true
+            textDialogue = [
+                "vous avez obtenu une corde",
+                "je dois vite rentrer au village"
+            ];
+            endAction = ["engine1", "addRopeToShamisen", "endGame"];
+            imagePersonTalking = [
+                "",
+                masaru_head
+            ]
+            
+            //* display dialogue
+            displayDialogue = true
+            interact()
+
+        break;
+
     }
 }
 
@@ -45,6 +89,13 @@ function drawinteraction(x,y,w,h, array){
 
                     //! draw exclamation point
                     image(exclamationPoint[0], x+w*row + sideCarrousel / 4, y+h*column - sideCarrousel / 2, sideCarrousel / 2,sideCarrousel / 2);
+
+                    //! set up event for quest system
+                    if (array[column][row] == indexTileRoche) {
+                        playerNearToTheRock = true
+                    }else{
+                        playerNearToTheRock = false
+                    }
 
                     if (keyInteractionIsPressed) {
                         console.log("interaction")

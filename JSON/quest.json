@@ -1,50 +1,72 @@
 {
     "quests":[
         {
+            "id" : 0,
             "name":"parler au pere de masaru",
             "description" : "parler au pere de masaru pour recuperer le shamisen",
             "isFinish": false,
             "beDisplayed" : true
         },
         {
+            "id" : 1,
             "name":"dechiffrer la lettre",
             "description" : "ouverture engine 2 si win alors mission reussis",
             "isFinish": false,
             "beDisplayed" : true
         },
         {
+            "id" : 2,
             "name":"recuperer la corde au pnj",
             "description" : "allez parler au pnj panda puis utilisation du shamisen",
             "isFinish": false,
             "beDisplayed" : true
         },
         {
+            "id" : 3,
             "name":"parler au pnj 3",
             "description" : "parler au pnj decouvert grace au shamisen",
             "isFinish": false,
             "beDisplayed" : true
         },
         {
+            "id" : 4,
             "name":"recuperer l'eventail",
             "description" : "eventail dans l'arbre",
             "isFinish": false,
             "beDisplayed" : true
         },
         {
+            "id" : 5,
             "name":"parler au pnj pour trouvé la prochaine corde",
             "description" : "pnj 3",
             "isFinish": false,
             "beDisplayed" : true
         },
         {
+            "id" : 6,
             "name":"recuperer la corde dans le coffre du jardin",
             "description" : "reussis quand le coffre a ete ouvert et resolue",
             "isFinish": false,
             "beDisplayed" : true
         },
         {
-            "name":"allez au sommet de la montagne et parler a l'etranger",
-            "description" : "reussis quand le coffre a ete ouvert et resolue",
+            "id" : 7,
+            "name":"secourir le pnj dans la montagne",
+            "description" : "reussis quand on parle au pnj",
+            "isFinish": false,
+            "beDisplayed" : false
+        },
+        {
+            "id" : 8,
+            "name":"casser la pierre en haut de la montagne",
+            "description" : "reussis quand on utilise le shamisen en haut de la montagne devant la pierre",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "id" : 9,
+            "name":"recuperer l' artefact",
+            "description" : "reussis quand on recupere la corde en haut de la montagne",
             "isFinish": false,
             "beDisplayed" : true
         }

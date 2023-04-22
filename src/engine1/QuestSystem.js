@@ -6,9 +6,11 @@ function questManager(){
     //! display none eventail
     Maps["tilemap_20"].layers[layerInteraction][5][7] = 0
 
-
     //! display none coffre
     Maps["tilemap_20"].layers[layerInteraction][10][7] = 0
+
+    //! display last rope
+    Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = indexTileRope
 
     //* talk to masarus father
     if(quests[0].isFinish && !quests[1].isFinish){
@@ -35,6 +37,9 @@ function questManager(){
         imageBackgroundEng2 = imageBackgroundEng2Coffre
     }
 
+    if (quests[9].isFinish == true) {
+        alert("bravo ta fini le jeux")
+    }
         
 
 }
@@ -42,45 +47,22 @@ function questManager(){
 
 
 
-function dialogueQuest8(){
+function dialogueQuest7(){
     //? prepare the quest num : 7
     setTimeout(() => {
 
         //* set up dialogue
         canInteract = true
         textDialogue = [
-            "Bonjour Masaru.",
-            "Tu ne peux pas me voir mais je suis là pour t’aider à remplir ta quête.",
-            "Je sais qu’il le reste une corde à trouver.",
-            "Et je sais où elle se trouve.",
-            "Les anciens m’ont envoyés pour te tester.",
-            "Pour savoir si tu es dignes de ce pouvoir.",
-            "J’ai une énigme pour toi. Si tu la résous, je t’indiquerai où se trouve la corde.",
-            
-            "Je suis prêt à t’écouter",
-        
-            "Énigme",
-        
-            "Les anciens avaient raison",
-            "Nous pouvons te faire confiance.",
-            "Va trouver la dernière corde, elle se trouve au sommet de la montagne.",
-            "Cours la retrouver."
+            "A laideeeeeeeeeeee ....",
+            "Ca vient de la montagne !!!",
+            "Il faut que j'aille l'aider"
         ];
-        endAction = ["engine1"];
+        endAction = ["engine1", "displayQuest7"];
         imagePersonTalking = [
             playerTileSet[1][0],
-            playerTileSet[1][0],
-            playerTileSet[1][0],
-            playerTileSet[1][0],
-            playerTileSet[1][0],
-            playerTileSet[1][0],
-            playerTileSet[1][0],
-            masaru_head,
-            "",
-            playerTileSet[1][0],
-            playerTileSet[1][0],
-            playerTileSet[1][0],
-            playerTileSet[1][0],
+            panda_head,
+            masaru_head
         ]
         
         //* display dialogue

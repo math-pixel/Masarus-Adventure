@@ -148,9 +148,20 @@ function doActionGameplay(endAction){
             questManager()
         break;
 
-        case "startDialogueQuest8":
+        case "startDialogueQuest7":
             //? in questSystem.js
-            dialogueQuest8()
+            dialogueQuest7()
         break;
+
+        case "displayQuest7":
+            quests[7].beDisplayed = true
+        break;
+
+        case "endGame":
+
+        // draw last animation
+            questManager()
+        break;
+
     }
 }

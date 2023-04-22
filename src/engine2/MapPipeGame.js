@@ -147,7 +147,7 @@ function winEngine2(){
         canInteract = true
 
         textDialogue = ["tu as obtenu une corde"]
-        endAction = ["engine1", "addRopeToShamisen", "startDialogueQuest8"]
+        endAction = ["engine1", "addRopeToShamisen", "startDialogueQuest7"]
         imagePersonTalking = [""]
 
         //* display dialogue

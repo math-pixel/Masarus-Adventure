@@ -44,6 +44,24 @@ function createPNJ(){
                     ]
                 ]
                 break;
+
+            case "PNJ_QUEST_Mountain":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pandaTileSet
+                currentPnj.headDialogue = [
+                    [panda_head , 
+                    panda_head,
+                    masaru_head,
+                    panda_head,
+                    panda_head,
+                    panda_head,
+                    panda_head,
+                    panda_head,
+                    masaru_head,
+                    masaru_head
+                ]
+                ]
+                break;
         }
     })
 
@@ -396,6 +414,37 @@ function setUpDialoguePnj(pnj){
     }
 
 
+    //! ### set up pnj 2 ( parchemin )
+    if (pnj.name === "PNJ_QUEST_Mountain") {
+
+        //*quest 2 ( lettre dechifrer )
+        if (quests[6].isFinish) {
+
+            //? not already talk 
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[0];
+                endAction = pnj.actionDialogue[0];
+                imagePersonTalking = pnj.headDialogue[0]
+
+                //* quest finish to talk pnj 2
+                quests[7].isFinish = true
+
+            }else{
+                textDialogue = ["deja pareer"];
+                endAction = ["engine1"];
+                imagePersonTalking = [panda_head]
+            }
+        }else{
+
+            //* default text
+
+            textDialogue = ["non"];
+            endAction = ["engine1"];
+            imagePersonTalking = [panda_head]
+
+        }
+        
+    }
 
 
 

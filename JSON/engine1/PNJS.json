@@ -38,7 +38,7 @@
       "headAlreadyTalk": []
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "PNJ_QUEST_1",
       "xStart": 4200,
       "yStart": 1300,
@@ -79,7 +79,7 @@
       "headAlreadyTalk": []
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "PNJ_QUEST_2",
       "xStart": 4200,
       "yStart": 1700,
@@ -129,6 +129,47 @@
         ["engine1"],
         ["engine1", "endQuest3"],
         ["engine1", "endQuest5"]
+      ],
+      "canInteractVerification": false,
+      "headDialogue": [],
+      "headAlreadyTalk": []
+    },
+    {
+      "id": 4,
+      "name": "PNJ_QUEST_Mountain",
+      "xStart": 4200,
+      "yStart": 1800,
+      "distanceToTravel": 0,
+      "direction": "bottom",
+      "width": "",
+      "actualDistance": 0,
+      "speed": 1,
+      "canMove": true,
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "ratioFrameRate": 15,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": ["yey"],
+      "dialogue": [
+        ["Bonjour toi",
+        "Merci de m'avoir sauver de cette eboulement",
+        "Nous vous avons tous entendue crier",
+        "Merci infiniment",
+        "enfaite pour tout te dire jetais en train d'escalader cette paroie",
+        "on dit que au sommet ce cache un artefact cacher",
+        "seulement le chemin est bloquer par des pierres",
+        "mais toi avec la puissance de ton shamisen tu reussira surement a deplacer cette montagne de pierre",
+        "merci pour tes encouragements",
+        "a bientot"
+        ]
+      ],
+      "actionAlreadyTalk": [
+        ["engine1"]
+      ],
+      "actionDialogue": [
+        ["engine1", "endQuest7"]
       ],
       "canInteractVerification": false,
       "headDialogue": [],
