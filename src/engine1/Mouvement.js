@@ -300,19 +300,19 @@ function moveMap() {
         rect(rectBoncingPlayer[0],rectBoncingPlayer[1],rectBoncingPlayer[2],rectBoncingPlayer[3]) 
     }
 
-    if (keyIsDown(LEFT_ARROW) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(81) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
         xStartWorld1 += speedMoveMap;    
     }
     
-    if (keyIsDown(RIGHT_ARROW) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
+    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
         xStartWorld1 -= speedMoveMap;
     }
     
-    if (keyIsDown(UP_ARROW) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
+    if (keyIsDown(UP_ARROW) || keyIsDown(90) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
         yStartWorld1 += speedMoveMap;
     }
     
-    if (keyIsDown(DOWN_ARROW) && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
+    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)  && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
         yStartWorld1 -= speedMoveMap;
     }
     

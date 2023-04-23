@@ -8,7 +8,7 @@ function movePlayer() {
     //? for modulo operation
     frameRatePlayer += 1;
 
-    if (keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {//? q
 
         if (canMove) {
             //? reset easter egg time ( frame )
@@ -24,7 +24,7 @@ function movePlayer() {
             addFrame(direction)
         }
 
-    }else if (keyIsDown(RIGHT_ARROW)) {
+    }else if (keyIsDown(RIGHT_ARROW)|| keyIsDown(68)) {//? d
 
         if (canMove) {
             intervalBackflip = 0
@@ -33,7 +33,7 @@ function movePlayer() {
             addFrame(direction)
         }
 
-    }else if (keyIsDown(UP_ARROW)) {
+    }else if (keyIsDown(UP_ARROW) || keyIsDown(90)) {//? z
 
         if (canMove) {
             intervalBackflip = 0
@@ -43,7 +43,7 @@ function movePlayer() {
             // console.log("yey")
         }
         
-    }else if (keyIsDown(DOWN_ARROW)) {
+    }else if (keyIsDown(DOWN_ARROW)|| keyIsDown(83)) {//? s
 
         if (canMove) {
             intervalBackflip = 0
