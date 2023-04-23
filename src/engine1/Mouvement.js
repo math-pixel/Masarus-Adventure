@@ -34,7 +34,6 @@ function canMoveMap(){
 
 function canPlayerMove(playerRect, Direction){
     
-
     let nextBlockIsCollision = collisionWithArray(playerRect, Direction)
 
     //? return if can move
@@ -90,6 +89,8 @@ function collisionPixel(xStartCollision, yStartCollision, playerRect){
 
 // verifie que selon la direction le carrer en face du perso n'est pas un bloc de collision
 function collisionWithArray(playerRect, Direction){
+
+    
 
     // ################# GET VARIABLE FOR COLLISION ###############
     let informationPlayeratRight = getInformationOfCenterOfPlayer([playerRect[0] + sideCarrousel,playerRect[1],playerRect[2],playerRect[3] ])
@@ -300,19 +301,19 @@ function moveMap() {
         rect(rectBoncingPlayer[0],rectBoncingPlayer[1],rectBoncingPlayer[2],rectBoncingPlayer[3]) 
     }
 
-    if (keyIsDown(LEFT_ARROW) || keyIsDown(81) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
+    if ( (keyIsDown(LEFT_ARROW) || keyIsDown(81)) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
         xStartWorld1 += speedMoveMap;    
     }
     
-    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
+    if ((keyIsDown(RIGHT_ARROW) || keyIsDown(68)) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
         xStartWorld1 -= speedMoveMap;
     }
     
-    if (keyIsDown(UP_ARROW) || keyIsDown(90) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
+    if ((keyIsDown(UP_ARROW) || keyIsDown(90)) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
         yStartWorld1 += speedMoveMap;
     }
     
-    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)  && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
+    if ((keyIsDown(DOWN_ARROW) || keyIsDown(83))  && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
         yStartWorld1 -= speedMoveMap;
     }
     
