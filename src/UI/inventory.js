@@ -204,6 +204,11 @@ function useObject(indexOfCase){
 
                 }
 
+                if (quests[10].isFinish && !quests[11].isFinish) {
+                    quests[11].isFinish = true
+                    questManager()
+                }
+
             break;
 
             case "parcheminEncode":

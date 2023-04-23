@@ -9,7 +9,7 @@
             "type": "quest"
         },
         {
-            "path":"JSON/engine1/allMaps2.json",
+            "path":"JSON/engine1/allMaps.json",
             "type":"mapsEngine1"
         },
         {

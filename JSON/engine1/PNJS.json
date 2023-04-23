@@ -28,9 +28,17 @@
         "Tu as obtenu le shamisen sacré.",
         "Merci pour votre confiance père.",
         "Je me montrerai digne de cette mission."
-        ]],
+        ],
+        [
+          "pere, pere, pere jai reussis wola",
+          "gg mec vsy joue du shamisen voir ce que ca fait",
+          "tout de suite pere"
+        ]
+      
+      ],
       "actionAlreadyTalk": [
-        ["engine1"]
+        ["engine1"],
+        ["engine1", "endQuest10"]
       ],
         "actionDialogue": [["engine1", "endDialogueMasarusDad"]],
       "canInteractVerification": false,

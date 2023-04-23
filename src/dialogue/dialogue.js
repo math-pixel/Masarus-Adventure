@@ -157,10 +157,20 @@ function doActionGameplay(endAction){
             quests[7].beDisplayed = true
         break;
 
+        case "endQuest7":
+            quests[7].isFinish = true
+            questManager()
+        break;
+
+        case "endQuest10":
+            quests[10].isFinish = true
+            questManager()
+        break;
+
         case "endGame":
 
-        // draw last animation
-            questManager()
+            // draw last animation
+            
         break;
 
     }

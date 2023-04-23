@@ -50,6 +50,7 @@ function interactionWithMap(typeBlock, array, column,row){
         case indexTileRope:
 
             quests[9].isFinish = true
+            questManager()
 
             //? remome rope from interaction layer
             Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = blockToNotCollision
@@ -57,9 +58,9 @@ function interactionWithMap(typeBlock, array, column,row){
             canInteract = true
             textDialogue = [
                 "vous avez obtenu une corde",
-                "je dois vite rentrer au village"
+                "je dois vite rentrer au village pour l'annocer a mon pere"
             ];
-            endAction = ["engine1", "addRopeToShamisen", "endGame"];
+            endAction = ["engine1", "addRopeToShamisen"];
             imagePersonTalking = [
                 "",
                 masaru_head

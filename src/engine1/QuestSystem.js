@@ -9,8 +9,8 @@ function questManager(){
     //! display none coffre
     Maps["tilemap_20"].layers[layerInteraction][10][7] = 0
 
-    //! display last rope
-    Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = indexTileRope
+    //! display none last rope
+    Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = 0
 
     //* talk to masarus father
     if(quests[0].isFinish && !quests[1].isFinish){
@@ -37,8 +37,27 @@ function questManager(){
         imageBackgroundEng2 = imageBackgroundEng2Coffre
     }
 
+    //display last rope
+    if (quests[8].isFinish) {
+        Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = indexTileRope
+    }
+
     if (quests[9].isFinish == true) {
+    }
+
+    if (quests[10].isFinish == true) {
+        //TODO remove mouvement for player
+    }
+
+    if (quests[11].isFinish == true) {
         alert("bravo ta fini le jeux")
+        /*
+        - animation note multi color
+        - tilemap au alentour change
+  10 pnj qui start hors de la map $
+  dialogue 3 / 4 pnj qui remercie masaru
+  fondue couleur de fond vers credit de fin
+        */
     }
         
 

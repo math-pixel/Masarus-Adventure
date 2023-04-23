@@ -4,6 +4,10 @@ function preload(){
 }
 
 function setup(){
+
+    
+
+
     console.log("start setup")
     createCanvas(1000, 578);
     frameRate(60);
@@ -16,6 +20,8 @@ function setup(){
 
     //! quest system
     questManager()
+
+    
     
 }
 

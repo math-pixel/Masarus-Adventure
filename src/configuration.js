@@ -5,7 +5,7 @@ let quests;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 61 ;
+let numberLoad = 62 ;
 
 //! current engine
 let lastEngine = "startMenu";
@@ -45,8 +45,8 @@ let tilemapRope = "tilemap_21"
 let coordLastRope = [3, 9]
 
 //! layer info
-let layerCollision = 2;
-let layerInteraction = 3;
+let layerCollision = 3;
+let layerInteraction = 2;
 let blockToNotCollision = 0;    
 let playerLayer = 3
 
@@ -194,6 +194,8 @@ let yNote;
 //? mouse
 let mouseTileset = []
 
+//? inventory
+let inventory_empty;
 
 //! head
 let masaru_head; 
@@ -737,6 +739,14 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             credit_button_shamisen_4hover = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "inventory_empty":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            inventory_empty = e;
                             isLoaded();
                         })                        
                     break;

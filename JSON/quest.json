@@ -69,6 +69,20 @@
             "description" : "reussis quand on recupere la corde en haut de la montagne",
             "isFinish": false,
             "beDisplayed" : true
+        },
+        {
+            "id" : 10,
+            "name":"parler au pere de masaru",
+            "description" : "reussis quand on parle au pere de masaru",
+            "isFinish": false,
+            "beDisplayed" : true
+        },
+        {
+            "id" : 11,
+            "name":"jouer du shamisen pour restaurer l'equilibre",
+            "description" : "reussis quand on joue du shamisen",
+            "isFinish": false,
+            "beDisplayed" : true
         }
     ]
 }
