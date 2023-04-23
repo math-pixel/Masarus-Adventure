@@ -318,6 +318,11 @@
             "path":"assets/UI/shamisen_box_4.png",
             "type":"ui",
             "name": "shamisen_4"
+        },
+        {
+            "path":"assets/UI/inventory_empty.png",
+            "type":"ui",
+            "name": "inventory_empty"
         }
     ]
 }
