@@ -1,6 +1,6 @@
-let ofsetCaseInventoryX = 10
-let ofsetCaseInventoryY = 10
-let caseGap = 1.2
+let ofsetCaseInventoryX = 19
+let ofsetCaseInventoryY = 18
+let caseGap = 11.5
 
 
 
@@ -11,28 +11,29 @@ function drawInventory(xstart,ystart,sideRectInventory){
     let sideBackgroundInventoryX = sideRectInventory * lengthInventory + ofsetCaseInventoryX;
     let sideBackgroundInventoryY = sideRectInventory + ofsetCaseInventoryY * 2
     
-    globalSideInventoryX = sideBackgroundInventoryX;
-    globalSideInventoryY = sideBackgroundInventoryY;
+    globalSideInventoryX = 420;
+    globalSideInventoryY = 100;
     
     //! draw background inventory
-    image(backgroud_dialogue_box, xstart, ystart, sideBackgroundInventoryX ,  sideBackgroundInventoryY)
+    image(inventory_empty, xstart, ystart, 420, 100 )//sideBackgroundInventoryX ,  sideBackgroundInventoryY)
     // stroke()
     inventoryContent.forEach((currentContentInventory, indexInventory) => {
         
         //! draw case background inventory
         fill("#FAEFE0")
-        rect(xstart + ofsetCaseInventoryX + indexInventory * sideRectInventory * caseGap, ystart + ofsetCaseInventoryY, sideCarrousel, sideCarrousel, 10)
+        fill("#00000050")
+        // rect(xstart + ofsetCaseInventoryX + (67 + caseGap) * indexInventory , ystart + ofsetCaseInventoryY, 67, 64, 10)
 
         //! draw content inventory
         if (currentContentInventory != null && currentContentInventory.image != undefined ) {
-            image(currentContentInventory.image , xstart + ofsetCaseInventoryX + indexInventory * sideRectInventory * caseGap, ystart + ofsetCaseInventoryY , sideRectInventory,sideRectInventory)
+            image(currentContentInventory.image , xstart + ofsetCaseInventoryX + (67 + caseGap) * indexInventory , ystart + ofsetCaseInventoryY, 67, 64)
         }
 
         //! draw number inventory
-        fill('#4c2512')
+        fill('#bf8b65')
         textAlign(LEFT);
         textSize(25);
-        text(indexInventory + 1, xstart + ofsetCaseInventoryX + indexInventory * sideRectInventory * caseGap + 5, ystart + ofsetCaseInventoryY + 14)
+        text(indexInventory + 1, xstart + ofsetCaseInventoryX + (67 + caseGap) * indexInventory + 5, ystart + ofsetCaseInventoryY + 14)
 
     })
 }
@@ -190,6 +191,7 @@ function useObject(indexOfCase){
 
                     //? end quest 
                     quests[8].isFinish = true
+                    questManager()
 
                     //? remome rock from interaction layer
                     Maps[tilemapTheRock].layers[layerInteraction][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = blockToNotCollision
