@@ -4,6 +4,11 @@ function preload(){
 }
 
 function setup(){
+
+    
+
+
+    console.log("start setup")
     createCanvas(1000, 578);
     frameRate(60);
 
@@ -11,32 +16,44 @@ function setup(){
     textFont(fontTypeCast);
     textSize(50);
     // console.log(worlds1.tour.layers)
-    // pnj : id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []
-    createPNJ(8, 3500, 700 , 280, pnjTileMasaruFather, 7, 2 , [["Bonjour mon fils !", "Aujourd’hui est un grand jour pour toi !", "Bonjour père !", "C’est aujourd’hui que je pars à l’aventure, retrouver les 3 cordes de notre shamisen sacré.","Tu sais que tout le village compte sur toi.","Avant que tu partes j’aimerais t’offrir un présent Masaru.","Tu as obtenu le shamisen sacré.","Merci pour votre confiance père.","Je me montrerai digne de cette mission."]],
-    [["engine1", "displayShamisen"]],
-    [[ masaruFather_head , masaruFather_head,  masaru_head, masaru_head, masaruFather_head , masaruFather_head, "", masaru_head, masaru_head ]])
 
-    createPNJ(5, 4200, 1300, 230, pnjTileSet1, 15, 1, [["Bonjour jeune homme.", "Je pourrais peut être t’aider mais il te faut encore chercher.", "Reviens plus tard."], ["Félicitation jeune homme ! ", "Tu es parvenu à déchiffrer ma lettre.", "C’est donc que tu es digne de recevoir cette corde.", "Fais en bon usage.", "Tu as obtenu une corde.", "Et si tu essayais de jouer du shamisen ?", "Et oui", "Même si le shamisen n’est pas complet,", "Chaque corde te rapproche du sauvetage de l’île.", "Il te reste encore deux cordes alors pars vite terminer ta mission."]],
-    [["engine1"],["engine1", "addRopeToShamisen"]],
-    [[animTop[0] , animTop[0], animTop[0]], [animTop[0] , animTop[0], animTop[0],animTop[0], "", "" , animTop[0] , animTop[0], animTop[0],animTop[0]]])
+
+    //! quest system
+    questManager()
+
+    vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
+    
 }
 
 function draw(){
     // background(200);
     // condition moteur de jeux
     // console.log(canInteract, textDialogue, endAction )
+    // console.log("a", textDialogue, endAction, imagePersonTalking)
+    
     noSmooth()
     //! select engine
     if (assetsLoaded) {
         switch(engine){
             case "engine1":
+                lastEngine = "engine1"
                 startEngine1();
                 break;
             case "engine2":
+                lastEngine = "engine2"
                 startEngine2();
                 break;
             case "startMenu":
-                menu();
+                startMenu();
+                break;
+            case "pauseMenu":
+                pauseMenu();
+                break;
+            case "settingMenu":
+                settingMenu();
+                break;
+            case "creditMenu":
+                creditMenu();
                 break;
             default:
                 throw new Error("engine error")
@@ -45,27 +62,100 @@ function draw(){
     
     //! reset Variable
     keyInteractionIsPressed = false;
-}
 
-function keyPressed() {
-    // if (keyCode === 69) {//? key " e "
-    //     if (engine === "engine1") {
-    //         // setUpBackgroundCanvas()
-    //         engine = "engine2"  
-    //     }else{
-    //         engine = "engine1"
-    //     }
-    // }else 
-    if (keyCode === 27) {//? key " escape "
-        engine = "startMenu"
-    }else if (keyCode === 65 && canInteract) { //? key " a "
-        displayDialogue = true
-        interact()
-    }else if(keyCode === 65){
-        keyInteractionIsPressed = true;
-    }else if(keyCode === 49){
-        //? touch " & "
-        engine = "engine2"
+    //! log speed when 2 key is down
+    if(nbKeyIsPressed < 2){
+        speedMoveMap = 8
+    }else{
+        speedMoveMap = 3.5 * 8/4
+    }
+
+    // text([mouseX, " , ", mouseY].join(" "), mouseX, mouseY)
+    // console.log(speedMoveMap)
+    
+    //! fade system
+    if (transition) {
+        if (transitionState == "in") {
+            
+            if(opacityFade+1 < 255){
+                opacityFade += 1
+            }else{
+                engine = nextEngine
+                transitionState = "out"
+            }
+        }else{
+            if(opacityFade - 1 > 0){
+                opacityFade -= 1
+            }else{
+                transition = false
+                transitionState = "in"
+            }
+        }
     }
     
-  }
+    noStroke()
+    fill(34,34,34, opacityFade)
+    rect(0,0,1000,578)
+}
+
+let nbKeyIsPressed = 0
+
+function keyPressed() {
+
+    if (keyCode != 91 && keyCode != 18 ) {
+        nbKeyIsPressed += 1
+    }
+
+    
+    if (keyCode === 27) {//? key " escape "
+
+        if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu") {
+            if (engine !== "pauseMenu") {
+                lastEngine = engine
+                engine = "pauseMenu"
+            }else{
+                engine = lastEngine
+            }
+        }
+    }else if(keyCode === 65){
+        //! give shamisen
+        addToInventory({"name": "shamisen", "image": allTiles[6]})
+    }else if (keyCode === 69 && canInteract) { //? key " e "
+        displayDialogue = true
+        interact()
+    }else if(keyCode === 69){
+        keyInteractionIsPressed = true;
+    }else if(keyCode === 49){
+        //? touche " 1 "
+        useObject(0)
+    }else if(keyCode === 50){
+        //? touche " 2 "
+        useObject(1)
+    }else if(keyCode === 51){
+        //? touche " 3 "
+        useObject(2)
+    }else if(keyCode === 52){
+        //? touche " 4 "
+        useObject(3)
+    }else if(keyCode === 53){
+        //? touche " 5 "
+        useObject(4)
+    }
+    
+}
+
+function keyReleased() {
+
+    if (keyCode != 91 && keyCode != 18 ) {
+        nbKeyIsPressed -= 1
+    }
+}
+
+function gameIsEnding(){
+    vidOutro.show()
+    vidOutro.play()
+}
+
+
+
+

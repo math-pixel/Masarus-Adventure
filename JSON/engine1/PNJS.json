@@ -1,0 +1,187 @@
+{
+  "PNJS": [
+    {
+      "id": 1,
+      "name": "MASARU_S_FATHER",
+      "xStart": 3430,
+      "yStart": 1220,
+      "direction": "bottom",
+      "distanceToTravel": 0,
+      "ratioFrameRate": 4,
+      "speed": 2,
+      "width": "",
+      "actualDistance": 0,
+      "canMove": true,
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": [["Courage mon fils, toute la famille est derrière toi !"], ["Bravo"]],
+      "dialogue": [
+        ["Bonjour mon fils !", 
+        "Aujourd’hui est un grand jour pour toi !", 
+        "Bonjour père !", 
+        "C’est aujourd’hui que je pars à l’aventure, retrouver les 3 cordes de notre shamisen sacré.",
+        "Tu sais que tout le village compte sur toi.",
+        "Avant que tu partes j’aimerais t’offrir un présent Masaru.",
+        "Tu as obtenu le shamisen sacré.",
+        "Merci pour votre confiance père.",
+        "Je me montrerai digne de cette mission."
+        ],
+        [
+          "Ça y est père j’ai obtenu toutes les cordes du shamisen !",
+          "Je suis fière de toi mon fils.",
+          "L’île va pouvoir retrouver sa joie d’antan désormais.",
+          "Et si tu essayais d’en jouer"
+        ]
+      
+      ],
+      "actionAlreadyTalk": [
+        ["engine1"],
+        ["engine1"]
+      ],
+      "actionDialogue": [
+        ["engine1", "endQuest0"],
+      ["engine1", "endQuest10"]],
+      "canInteractVerification": false,
+      "headDialogue": [],
+      "headAlreadyTalk": []
+    },
+    {
+      "id": 2,
+      "name": "PNJ_QUEST_1",
+      "xStart": 3430,
+      "yStart": 1520,
+      "distanceToTravel": 230,
+      "direction": "right",
+      "width": "",
+      "actualDistance": 0,
+      "speed": 1,
+      "canMove": true,
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "ratioFrameRate": 15,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": [["Je suis ravie de t’avoir aidé, bon courage pour la suite !"]],
+      "dialogue": [
+        ["Bonjour jeune homme.",
+         "Je pourrais peut être t’aider mais il te faut encore chercher.", "Reviens plus tard."], 
+        ["Félicitation jeune homme ! ", 
+        "Tu es parvenu à déchiffrer ma lettre.", 
+        "C’est donc que tu es digne de recevoir cette corde.", 
+        "Fais en bon usage.", 
+        "Tu as obtenu une corde.", 
+        "Et si tu essayais de jouer du shamisen ?", 
+        "Et oui", "Même si le shamisen n’est pas complet,", 
+        "Chaque corde te rapproche du sauvetage de l’île.", 
+        "Il te reste encore deux cordes alors pars vite terminer ta mission."]
+      ],
+      "actionAlreadyTalk": [
+        ["engine1"]
+      ],
+      "actionDialogue": [
+        ["engine1"],
+        ["engine1", "addRopeToShamisen", "endQuest2"]],
+      "canInteractVerification": false,
+      "headDialogue": [],
+      "headAlreadyTalk": []
+    },
+    {
+      "id": 3,
+      "name": "PNJ_QUEST_2",
+      "xStart": 3430,
+      "yStart": 1800,
+      "distanceToTravel": 230,
+      "direction": "right",
+      "width": "",
+      "actualDistance": 0,
+      "speed": 1,
+      "canMove": true,
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "ratioFrameRate": 15,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": [["Retrouves mon éventail s'il te plait"],["Tu m’as aidé d’une grande aide, poursuis ta quête jeune homme."]],
+      "dialogue": [
+        ["Bonjour Masaru !",
+        "J’adorerai t’aider mais je suis trop occupé pour le moment, reviens plus tard !"
+        ],
+        ["Salut Masaru", 
+         "J’ai entendu dire que tu étais en quêtes des cordes du shamisen sacré.",
+         "C’est très courageux de ta part.", 
+         "Aurais-tu des informations au sujet des cordes ?",
+         "J’ai entendu des rumeurs en effet…",
+         "Je crois que je peux t’aider.", 
+         "Mais d’abord c’est moi qui ait besoin de ton aide.", 
+         "Si tu acceptes de m’aider à retrouver mon éventail que j’ai égaré au village", 
+         "Je te dirais où tu peux trouver une corde.", 
+         "Retrouves mon éventail !" 
+        ],
+        [
+          "Merci infiniment Masaru !",
+          "Cela ne fait aucun doute, c’est toi qui parviendra à sauver l’île.",
+          "Comme promis, je te transmets les informations qui sont en ma possession .",
+          "J’ai entendu dire qu’une corde est caché dans le jardin du village. ",
+          "Tu trouveras sûrement ton bonheur là-bas.",
+          "Merci infiniment pour ces précieuses informations.",
+          "Je m’y rends de ce pas.",
+          "Bon courage Masaru !"
+        ]
+      ],
+      "actionAlreadyTalk": [
+        ["engine1"],["engine1"]
+      ],
+      "actionDialogue": [
+        ["engine1"],
+        ["engine1", "endQuest3"],
+        ["engine1", "endQuest5"]
+      ],
+      "canInteractVerification": false,
+      "headDialogue": [],
+      "headAlreadyTalk": []
+    },
+    {
+      "id": 4,
+      "name": "PNJ_QUEST_Mountain",
+      "xStart": 3430,
+      "yStart": 1850,
+      "distanceToTravel": 0,
+      "direction": "bottom",
+      "width": "",
+      "actualDistance": 0,
+      "speed": 1,
+      "canMove": true,
+      "currentFrame": 0,
+      "frameRatePNJ": 0,
+      "ratioFrameRate": 15,
+      "skin": [],
+      "currentFrameInteraction": 0,
+      "alreadyTalk": false,
+      "dialogueAlreadyTalk": ["Merci de m'avoir sauvé Masaru, jespere que tu arriveras a sauver l'ile"],
+      "dialogue": [
+        [" Masaru c’est toi !",
+        "Merci infiniment de m’avoir sauvé !",
+        "Je n’y croyais plus",
+        "Mais que t’es t’il arrivé ?",
+        "J’ai entendu dire qu’il y avait un trésor en haut de la montagne mais le chemin était bloqué.",
+        "Mais comme tu as réussi à faire disparaître l’éboulement, tu seras sûrement capable d’y aller.",
+        "Bon courage Masaru !"
+        ]
+      ],
+      "actionAlreadyTalk": [
+        ["engine1"]
+      ],
+      "actionDialogue": [
+        ["engine1", "endQuest7"]
+      ],
+      "canInteractVerification": false,
+      "headDialogue": [],
+      "headAlreadyTalk": []
+    }
+  ]
+}

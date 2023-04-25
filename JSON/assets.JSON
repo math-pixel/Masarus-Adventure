@@ -5,7 +5,11 @@
             "type": "world"
         },
         {
-            "path":"JSON/engine1/allMaps2.json",
+            "path": "JSON/quest.json",
+            "type": "quest"
+        },
+        {
+            "path":"JSON/engine1/allMaps.json",
             "type":"mapsEngine1"
         },
         {
@@ -13,8 +17,16 @@
             "type":"mapsEngine2"
         },
         {
+            "path":"JSON/engine1/PNJS.json",
+            "type":"pnjJSON"
+        },
+        {
             "path":"assets/tileset_map.png",
             "type":"map"
+        },
+        {
+            "path":"assets/croche_song_sprite_sheet.png",
+            "type":"songSprite"
         },
         {
             "path":"assets/player/masaru-top.png",
@@ -65,34 +77,52 @@
             "direction": "idletop"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_top.png",
+            "path":"assets/pnj/pnj1/panda_top_idle.png",
             "type":"entity",
             "name": "pnj1",
-            "direction": "top"
+            "direction": "idletop"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_bottom.png",
+            "path":"assets/pnj/pnj1/panda_bottom_idle.png",
             "type":"entity",
             "name": "pnj1",
-            "direction": "bottom"
+            "direction": "idlebottom"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_left.png",
+            "path":"assets/pnj/pnj1/panda_left.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "left"
         },
         {
-            "path":"assets/pnj/pnj1/pnj_right.png",
+            "path":"assets/pnj/pnj1/panda_right.png",
             "type":"entity",
             "name": "pnj1",
             "direction": "right"
+        },
+        {
+            "path":"assets/pnj/pnj1/panda_left_idle.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "idleleft"
+        },
+        {
+            "path":"assets/pnj/pnj1/panda_right_idle.png",
+            "type":"entity",
+            "name": "pnj1",
+            "direction": "idleright"
         },
         {
             "path":"assets/pnj/masaruFather/masaru_dad_bottom_idle.png",
             "type":"entity",
             "name": "masaruFather",
             "direction": "bottomIdle"
+        },
+        {
+            "path":"assets/pnj/masaruFather/masaru_dad_top_idle.png",
+            "type":"entity",
+            "name": "masaruFather",
+            "direction": "idletop"
         },
         {
             "path":"assets/pnj/masaruFather/masaru_dad_left.png",
@@ -143,6 +173,42 @@
             "direction": "right"
         },
         {
+            "path":"assets/pnj/leopard/leopard_bottom_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idlebottom"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_left_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idleleft"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_left.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "left"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_right_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idleright"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_right.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "right"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_top_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idletop"
+        },
+        {
             "path":"assets/tileset_Exclamation.png",
             "type":"exclamation"
         },
@@ -151,9 +217,58 @@
             "type":"journal"
         },
         {
+            "path":"assets/background_eng2_coffre.png",
+            "type":"background_eng2_coffre"
+        },
+        {
+            "path":"assets/background_eng2_parchemin.png",
+            "type":"background_eng2_parchemin"
+        },
+        {
+            "path":"assets/coffre_eng2.png",
+            "type":"coffreEng2"
+        },
+        {
             "path":"assets/UI/background_dialogue_box.png",
             "type":"ui",
             "name": "backgroud_dialogue_box"
+        },
+        {
+            "path":"assets/UI/quest_box_1.png",
+            "type":"ui",
+            "name": "quest_box_1"
+        },
+        {
+            "path":"assets/UI/quest_box_2.png",
+            "type":"ui",
+            "name": "quest_box_2"
+        },
+        {
+            "path":"assets/UI/settings_access_spritesheet.png",
+            "type":"ui",
+            "name": "setting_button_inGame"
+        },
+        {
+            "path":"assets/UI/backToMenu_hover.png",
+            "type":"ui",
+            "name": "backToMenu_hover"
+        },
+        {
+            "path":"assets/UI/backToMenu_main.png",
+            "type":"ui",
+            "name": "backToMenu_main"
+        }
+        ,
+        {
+            "path":"assets/UI/sound_button_on.png",
+            "type":"ui",
+            "name": "sound_button_on"
+        }
+        ,
+        {
+            "path":"assets/UI/sound_button_off.png",
+            "type":"ui",
+            "name": "sound_button_off"
         },
         {
             "path":"assets/head/masaru_head.png",
@@ -164,6 +279,11 @@
             "path":"assets/head/masaru_dad.png",
             "type":"ui",
             "name": "masaruFather_head"
+        },
+        {
+            "path":"assets/head/head_panda.png",
+            "type":"ui",
+            "name": "panda_head"
         },
         {
             "path":"assets/UI/play_button.png",
@@ -181,9 +301,29 @@
             "name": "setting_button"
         },
         {
+            "path":"assets/UI/replay_button_main.png",
+            "type":"ui",
+            "name": "replay_button_main"
+        },
+        {
+            "path":"assets/UI/mouse_animation.png",
+            "type":"ui",
+            "name": "mouseAnimation"
+        },
+        {
+            "path":"assets/UI/replay_button_hover.png",
+            "type":"ui",
+            "name": "replay_button_hover"
+        },
+        {
             "path":"assets/UI/background_ui.png",
             "type":"ui",
             "name": "background_ui"
+        },
+        {
+            "path":"assets/UI/settings_box.png",
+            "type":"ui",
+            "name": "imageInstruction"
         },
         {
             "path":"assets/UI/logo.png",
@@ -224,6 +364,11 @@
             "path":"assets/UI/shamisen_box_4.png",
             "type":"ui",
             "name": "shamisen_4"
+        },
+        {
+            "path":"assets/UI/inventory_empty.png",
+            "type":"ui",
+            "name": "inventory_empty"
         }
     ]
 }

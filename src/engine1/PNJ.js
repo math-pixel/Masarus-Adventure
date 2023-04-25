@@ -1,57 +1,195 @@
 
-let allPnj = []
+function createPNJ(){  
 
-function createPNJ(id, xstartPNJ, ystartPNJ, distanceToTravel , skin = [], ratioFrameRate /* 2D array [dir][frame]*/, speed = 1, dialogue = [], actionDialogue = [], headDialogue = []){
-    // fill(255,150,0)
-    // rect(xStartWorld1 + xstartPNJ + maxTranslate, yStartWorld1 + ystartPNJ, 50,50) 
+    allPnj.forEach((currentPnj) => {
 
-    let pnj = {
-        "id": id,
-        "xStart": xstartPNJ,
-        "yStart": ystartPNJ,
-        "width": sideCarrousel,
-        "distanceToTravel": distanceToTravel, 
-        "actualDistance": 0,
-        "speed": speed,
-        "canMove": true,
-        "direction": "right",
-        "currentFrame": 0,
-        "frameRatePNJ": 0,
-        "ratioFrameRate" : ratioFrameRate,
-        "skin": skin,
-        "currentFrameInteraction": 0,
-        "dialogue" : dialogue,
-        "actionDialogue": actionDialogue,
-        "canInteractVerification": false,
-        "headDialogue" : headDialogue
-    }
+        switch(currentPnj.name){
+            case "MASARU_S_FATHER":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pnjTileMasaruFather
+                currentPnj.headDialogue = [
+                    [ masaruFather_head ,
+                         masaruFather_head,
+                           masaru_head,
+                            masaru_head,
+                             masaruFather_head ,
+                              masaruFather_head,
+                               "", 
+                               masaru_head, masaru_head ],
+                               [masaru_head,  masaruFather_head, masaruFather_head, masaruFather_head]
+                            ]
+                currentPnj.headAlreadyTalk = [[masaruFather_head]]
+                break;
 
-    allPnj.push(pnj)
+            case "PNJ_QUEST_1":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pandaTileSet
+                currentPnj.headDialogue = [[panda_head , panda_head, panda_head], [panda_head , panda_head, panda_head,panda_head, "", "" , panda_head , panda_head, panda_head,panda_head]]
+                currentPnj.headAlreadyTalk = [[panda_head]]
+                break;
+
+            case "PNJ_QUEST_2":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = leopardTileSet
+                currentPnj.headDialogue = [
+                    [panda_head , panda_head], 
+                    [
+                        panda_head, 
+                        panda_head, 
+                        panda_head,
+                        masaru_head, 
+                        panda_head, 
+                        panda_head, 
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        panda_head
+                    ],
+                    [
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        panda_head,
+                        masaru_head,
+                        masaru_head,
+                        panda_head
+                    ]
+                ]
+                currentPnj.headAlreadyTalk = [[panda_head],[panda_head]]
+                break;
+
+            case "PNJ_QUEST_Mountain":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pandaTileSet
+                currentPnj.headDialogue = [
+                    [panda_head , 
+                    panda_head,
+                    masaru_head,
+                    panda_head,
+                    panda_head,
+                    panda_head,
+                    panda_head,
+                    panda_head,
+                    masaru_head,
+                    masaru_head
+                ]
+                ]
+                break;
+        }
+    })
 
 }
 
 function pnjManager(){
 
     allPnj.forEach((pnj) => {
-        let index_Direction = 0;
+        let index_Direction = 1;
 
         //! set direction and movement
+        //? if the pnj is not in interaction with player
         if (pnj.canMove) {
-            if (pnj.direction === "right") {
-                pnj.actualDistance += 1 * pnj.speed;
-                index_Direction = 3;
-                if (pnj.actualDistance >= pnj.distanceToTravel) {
-                    pnj.direction = "reculer"
+
+            switch(pnj.direction){
+                case "right":
+
+                    //! si la position du pnj ne doit pas etre en mouvement
+                    if (pnj.distanceToTravel > 0) {
+
+                        pnj.actualDistance += 1 * pnj.speed;
+                        index_Direction = 1;
+                        if (pnj.actualDistance >= pnj.distanceToTravel) {
+                            pnj.direction = "left"
+                        }
+
+                    }else{
+                        index_Direction = 0
+                    }
+
+                    break;
+                case "left":
+
+                    //! si la position du pnj ne doit pas etre en mouvement
+                    if (pnj.distanceToTravel > 0) {
+
+                        pnj.actualDistance -= 1 * pnj.speed;
+                        index_Direction = 3;
+                        if (pnj.actualDistance <= 0) {
+                            pnj.direction = "right"
+                        }
+
+                    }else{
+                        index_Direction = 2
+                    }
+
+                    break;
+                case "bottom":
+
+                if (pnj.distanceToTravel > 0) {
+
+                    // pnj.actualDistance += 1 * pnj.speed;
+                    // index_Direction = 1;
+                    // if (pnj.actualDistance >= pnj.distanceToTravel) {
+                    //     pnj.direction = "left"
+                    // }
+
+                }else{
+                    index_Direction = 4
                 }
-            }else if(pnj.direction === "reculer"){
-                index_Direction = 2;
-                pnj.actualDistance -= 1 * pnj.speed
-                if (pnj.actualDistance <= 0) {
-                    pnj.direction = "right"
+
+                    break;
+                case "top":
+                    if (pnj.distanceToTravel > 0) {
+
+                        // pnj.actualDistance += 1 * pnj.speed;
+                        // index_Direction = 1;
+                        // if (pnj.actualDistance >= pnj.distanceToTravel) {
+                        //     pnj.direction = "left"
+                        // }
+
+                    }else{
+                        index_Direction = 5
+                    }
+                    break;
+                default:
+                    index_Direction = 0
+            }
+
+        }else{
+            //! set direction to player
+
+            //! when player in on the same line of pnj
+            if (yStartWorld1 + pnj.yStart - (sideCarrousel / 2)  < yPlayer && yStartWorld1 + pnj.yStart + (sideCarrousel / 2) > yPlayer) {
+
+                if (xStartWorld1 + pnj.xStart + pnj.actualDistance > xPlayer) {
+                    index_Direction = 2
+
+                    //? reset frame for bug draw
+                    // pnj.currentFrame = 0;
+                }else if (xStartWorld1 + pnj.xStart + pnj.actualDistance < xPlayer){
+                    index_Direction = 0
+
+                    //? reset frame for bug draw
+                    // pnj.currentFrame = 0;
+                }else{
+                    index_Direction = 4
+
+                    //? reset frame for bug draw
+                    // pnj.currentFrame = 0;
+                }
+            }else{
+
+                //! player out of line pnj
+                //?pnj is above player 
+                if (yStartWorld1 + pnj.yStart < yPlayer) {
+                    index_Direction = 4
+                }else{
+                    index_Direction = 5
                 }
             }
-        }else{
-            index_Direction = 1;
+
+           
+
         }
 
         //! animation pnj
@@ -87,26 +225,12 @@ function pnjManager(){
             //? remove the posssibility of move of pnj
             pnj.canMove = false
 
-            //! set up dialogue system variable
-            if (pnj.dialogue[currentAdvancementQuest]) {
-                textDialogue = pnj.dialogue[currentAdvancementQuest];
-                // imagePersonTalking = masaru_head
-                endAction = pnj.actionDialogue[currentAdvancementQuest];
-                imagePersonTalking = pnj.headDialogue[currentAdvancementQuest]
-            }else{
-                textDialogue = pnj.dialogue[pnj.dialogue.length - 1];
-                endAction = pnj.actionDialogue[pnj.actionDialogue.length - 1];
-                imagePersonTalking = pnj.headDialogue[pnj.headDialogue.length - 1];
-            }
-            
-            canInteract = true
+            setUpDialoguePnj(pnj)
 
             // verification if the player is in contact with current pnj
             pnj.canInteractVerification = true
 
-
-
-            //! pnj is in front of player
+            //! pnj is in front of player ( for draw player above or below pnj )
             if (pnj.canInteractVerification) {
                 // console.log(pnj.yStart < yPlayer)
                 if (yStartWorld1 + pnj.yStart < yPlayer) {
@@ -165,7 +289,10 @@ function addFrameInteraction(pnj){
 
 
 function animatePNJ(pnj,index_Direction){
+
     if (pnj.frameRatePNJ % pnj.ratioFrameRate === 0) {
+
+        //! add frame at pnj
         if( pnj.currentFrame >= pnj.skin[index_Direction].length -1){
             pnj.currentFrame = 0;
         }else{
@@ -173,5 +300,226 @@ function animatePNJ(pnj,index_Direction){
         }
 
     }
+
+    //! counter of frame for individual pnj
     pnj.frameRatePNJ += 1;
+}
+
+
+
+function setUpDialoguePnj(pnj){
+    //! set up dialogue system variable
+    canInteract = true
+
+    //! ### set up pnj masarus father
+    if (pnj.name === "MASARU_S_FATHER") {
+
+        
+
+        //*quest 1
+        // console.log("MASARU_S_FATHER")
+        //? not already talk 
+        if (!pnj.alreadyTalk) {
+            textDialogue = pnj.dialogue[0];
+            endAction = pnj.actionDialogue[0];
+            imagePersonTalking = pnj.headDialogue[0] 
+
+            if (pnj.dialogue[0].length - 1 == indexInDialogue) {
+                pnj.alreadyTalk = true
+            }
+
+        }else{
+
+            if (indexInDialogue == 0) {
+                textDialogue = pnj.dialogueAlreadyTalk[0];
+                endAction = pnj.actionAlreadyTalk[0];
+                imagePersonTalking = pnj.headAlreadyTalk[0]
+            }
+            
+        }
+
+
+        if (quests[10].isFinish == false && quests[9].isFinish == true) {
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[1];
+                endAction = pnj.actionDialogue[1];
+                imagePersonTalking = pnj.headDialogue[1]
+
+                //* set up pnj already talk
+                if (pnj.dialogue[1].length - 1 == indexInDialogue) {
+                    pnj.alreadyTalk = true
+                }
+
+            }else{
+
+                if (indexInDialogue == 0) {
+                    textDialogue = pnj.dialogueAlreadyTalk[1];
+                    endAction = pnj.actionAlreadyTalk[1];
+                    imagePersonTalking = pnj.headAlreadyTalk[1]
+                }
+                
+            }
+        }
+        
+        
+    }
+
+
+
+    //! ### set up pnj 2 ( parchemin )
+    if (pnj.name === "PNJ_QUEST_1") {
+
+        //*quest 2 ( lettre dechifrer )
+        if (quests[1].isFinish) {
+
+            //? not already talk 
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[1];
+                endAction = pnj.actionDialogue[1];
+                imagePersonTalking = pnj.headDialogue[1]
+
+                //* set up pnj already talk
+                if (pnj.dialogue[1].length - 1 == indexInDialogue) {
+    
+                    pnj.alreadyTalk = true
+                }
+
+            }else{
+
+                if (indexInDialogue == 0) {
+                    textDialogue = pnj.dialogueAlreadyTalk[0];
+                    endAction = pnj.actionAlreadyTalk[0];
+                    imagePersonTalking = pnj.headAlreadyTalk[0]
+                }
+                
+            }
+        }else{
+
+            //* default text
+
+            textDialogue = pnj.dialogue[0];
+            endAction = pnj.actionDialogue[0];
+            imagePersonTalking = pnj.headDialogue[0]
+
+        }
+        
+    }
+
+
+
+    //! ### set up pnj 3 ( eventail )
+    if (pnj.name === "PNJ_QUEST_2") {
+
+        //*quest 3 ( corde 1 recuperer )
+        if (quests[2].isFinish) {
+
+            //? not already talk 
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[1];
+                endAction = pnj.actionDialogue[1];
+                imagePersonTalking = pnj.headDialogue[1]
+
+
+                // console.log(pnj.dialogue[1].length - 1 , indexInDialogue)
+                //? already talk
+                if (pnj.dialogue[1].length - 1 == indexInDialogue) {
+                    pnj.alreadyTalk = true
+                }
+
+            }else{
+
+                if (indexInDialogue == 0) {
+                    textDialogue = pnj.dialogueAlreadyTalk[0];
+                    endAction = pnj.actionAlreadyTalk[0];
+                    imagePersonTalking = pnj.headAlreadyTalk[0];
+
+                    // console.log("a", textDialogue, endAction, imagePersonTalking)
+                }
+                
+            }
+
+            //* get eventail in inventory
+            if (quests[4].isFinish) {
+                //? not already talk 
+                if (!pnj.alreadyTalk) {
+                    textDialogue = pnj.dialogue[2];
+                    endAction = pnj.actionDialogue[2];
+                    imagePersonTalking = pnj.headDialogue[2]
+
+                    //? already talk
+                    if (pnj.dialogue[2].length - 1 == indexInDialogue) {
+                        pnj.alreadyTalk = true
+                    }
+
+                }else{
+
+                    if (indexInDialogue == 0) {
+                        textDialogue = pnj.dialogueAlreadyTalk[1];
+                        endAction = pnj.actionAlreadyTalk[1];
+                        imagePersonTalking = pnj.headAlreadyTalk[1]
+
+                        // console.log("b", textDialogue, endAction, imagePersonTalking)
+                    }
+                    
+                }
+            }
+
+
+
+        }else{
+
+            //* default text
+            textDialogue = pnj.dialogue[0];
+            endAction = pnj.actionDialogue[0];
+            imagePersonTalking = pnj.headDialogue[0]
+
+        }
+        
+    }
+
+
+    //! ### set up pnj montagne
+    if (pnj.name === "PNJ_QUEST_Mountain") {
+
+        //*quest 2 ( lettre dechifrer )
+        if (quests[6].isFinish) {
+
+            //? not already talk 
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[0];
+                endAction = pnj.actionDialogue[0];
+                imagePersonTalking = pnj.headDialogue[0]
+
+                //* quest finish to talk pnj 2
+                quests[7].isFinish = true
+
+                //? already talk
+                if (pnj.dialogue[0].length - 1 == indexInDialogue) {
+                    pnj.alreadyTalk = true
+                }
+
+            }else{
+
+                if (indexInDialogue == 0) {
+                    textDialogue = ["deja pareer"];
+                    endAction = ["engine1"];
+                    imagePersonTalking = [panda_head]
+                }
+                
+            }
+        }else{
+
+            //* default text
+
+            textDialogue = ["non"];
+            endAction = ["engine1"];
+            imagePersonTalking = [panda_head]
+
+        }
+        
+    }
+
+
+
+    
 }

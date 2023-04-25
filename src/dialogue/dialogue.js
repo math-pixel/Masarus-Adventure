@@ -25,7 +25,7 @@ function startEngineDialogue(){
     fill(0,0,0)
     textSize(35);
     textLeading(27)
-    // console.log(imagePersonTalking)
+    // console.log(dialogueToDisplay)
     if (imagePersonTalking[indexInDialogue] != "") {
         textAlign(LEFT);
         textFont(fontTypeCast);
@@ -47,7 +47,7 @@ function cutText(){
     if (indexInText < textDialogue[indexInDialogue].length) {
         isCuttingWord = true
         dialogueToDisplay = textDialogue[indexInDialogue].split("", Math.round(indexInText)).join('')
-        indexInText += 0.3;
+        indexInText += 0.5;
         
         
         // end of text spliting => prepare to the next text
@@ -92,7 +92,6 @@ function interact(){
         canInteract = false
 
         //! end dialogue
-        //set next engine
         engine = endAction[0]
         
         // reset variable
@@ -100,23 +99,82 @@ function interact(){
         displayShamisen = true
         canMove = true
 
-        // next action
+        //! next action
+        // console.log(endAction)
         if (endAction.length > 1) {
-            doActionGameplay(endAction)
+            for (let index = 1; index < endAction.length; index++) {
+                doActionGameplay(endAction[index])
+            }
+            
         } 
     }
 }
 
-//TODO change place of this function in a special script for quest
+
 function doActionGameplay(endAction){
-    switch(endAction[1]){
-        case "displayShamisen":
+    switch(endAction){
+
+        case "endQuest0":
             displayShamisen = true
             currentSpriteShamisen = 1
+            if (canAddToInventory({"name" : "shamisen" , "image": allTiles[24]})) {
+                addToInventory({"name" : "shamisen" , "image": allTiles[24]})
+            }
+
+            //! advencement in quest
+            quests[0].isFinish = true
+            questManager()
         break;
 
         case "addRopeToShamisen":
             currentSpriteShamisen += 1
+            console.log(currentSpriteShamisen)
         break;
+
+        case "endQuest2":
+            //* quest finish recuperer corde
+            quests[2].isFinish = true
+            questManager()
+        break;
+
+        case "endQuest3":
+            //* quest finish recuperer corde
+            quests[3].isFinish = true
+            questManager()
+        break;
+
+        case "endQuest5":
+            //* quest parler au pnj 3 et nous indique l'endroit de la corde
+            quests[5].isFinish = true
+            questManager()
+
+            removeToInventory({"name" : "eventail" , "image": allTiles[28]})
+        break;
+
+        case "startDialogueQuest7":
+            //? in questSystem.js
+            dialogueQuest7()
+        break;
+
+        case "displayQuest7":
+            quests[7].beDisplayed = true
+        break;
+
+        case "endQuest7":
+            quests[7].isFinish = true
+            questManager()
+        break;
+
+        case "endQuest10":
+            quests[10].isFinish = true
+            questManager()
+        break;
+
+        case "endGame":
+
+            // draw last animation
+            
+        break;
+
     }
 }

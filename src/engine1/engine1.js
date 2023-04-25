@@ -9,16 +9,31 @@ function startEngine1(){
     }
 
     //! draw inventory
-    drawInventory(1000 / 2 - globalSideInventoryX / 2,  578 -  ( globalSideInventoryY + 10 ) ,sideCarrousel)
+    if (!displayDialogue) {
+        drawInventory(1000 / 2 - globalSideInventoryX / 2,  578 -  ( globalSideInventoryY + 10 ) , sideCarrousel)
+    }
 
     //! draw dialogue
     if (displayDialogue) {
         startEngineDialogue();
     }
     
-
+    //! draw shamisen
     if(displayShamisen){
-        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 , 0 , 130, 250)
+        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
+    }
+
+    //! setting button
+    image(setting_button_inGame[index_setting_button_inGame], 20,20,48,48 )
+    actionOnText([20,20 ,48,48], "pauseMenu", setting_button_inGame[2])
+
+
+    //! draw note shamisen quest 2
+    drawNote()
+
+    //! draw current quest
+    if(!displayDialogue){
+        drawQuest()
     }
 }
 
@@ -60,6 +75,10 @@ function drawEngine1(){
                     }
 
                 }
+
+                if (loopLayer === 3) {
+                    // pnjManager()
+                }
                 
             }
 
@@ -82,4 +101,64 @@ function drawEngine1(){
 
 
 
+}
+
+
+function drawNote(){
+
+    if (lifeTimeNote > 0) {
+        // console.log("lifetime" , lifeTimeNote)
+        //! move note
+        lifeTimeNote -= 1
+
+        let distanceX =  ((xStartWorld1 + allPnj[2].xStart + allPnj[2].actualDistance) - xNote)
+        let distanceY =  ((yStartWorld1 + allPnj[2].yStart) - yNote)
+
+        let speedX = distanceX / 200
+        let speedY = distanceY / 200
+
+        xNote = xNote + speedX
+        yNote = yNote + speedY
+
+        // fill(255,0,0)
+        // rect(xNote, yNote, 20, 20)
+
+        //! note animation
+        if (lifeTimeNote % 2 == 0) {     
+            
+            if ( songSpriteCurrentFrame + 1 < songSprite.length ) {
+                songSpriteCurrentFrame += 1
+            }else{
+                songSpriteCurrentFrame = 0
+            }
+            
+        }
+        
+        //! draw note
+        image(songSprite[songSpriteCurrentFrame], xNote, yNote, 48, 48)
+    }
+
+}
+
+
+function drawQuest(){
+
+    let rectBoncing;
+
+    //! display empty box
+    if(questBoxIsEmpty){
+        image(quest_box_1, 1000 - 130 - 10 , 183, 130, 65)
+        rectBoncing = [1000 - 130 - 10 , 183, 130, 65]
+    }else{
+        image(quest_box_2, 1000 - 130 - 10 , 183, 130, 117)
+        rectBoncing = [1000 - 130 - 10 , 183, 130, 117]
+        fill("#4c2512");
+        textAlign(CENTER);
+        textSize(20);
+        textLeading(15);
+        // rect(1000 - 125 , 220 , 100 , 100)
+        text(currentQuestDisplay, 1000 - 122 , 220 , 100 , 100)
+    }
+
+    actionOnText(rectBoncing, "reverseQuestBox", "")
 }

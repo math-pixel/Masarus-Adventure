@@ -34,7 +34,6 @@ function canMoveMap(){
 
 function canPlayerMove(playerRect, Direction){
     
-
     let nextBlockIsCollision = collisionWithArray(playerRect, Direction)
 
     //? return if can move
@@ -91,17 +90,61 @@ function collisionPixel(xStartCollision, yStartCollision, playerRect){
 // verifie que selon la direction le carrer en face du perso n'est pas un bloc de collision
 function collisionWithArray(playerRect, Direction){
 
+    
+
     // ################# GET VARIABLE FOR COLLISION ###############
+    let informationPlayeratRight = getInformationOfCenterOfPlayer([playerRect[0] + sideCarrousel,playerRect[1],playerRect[2],playerRect[3] ])
+    let informationPlayerLeft = getInformationOfCenterOfPlayer([playerRect[0] - sideCarrousel,playerRect[1],playerRect[2],playerRect[3] ])
     let informationPlayer = getInformationOfCenterOfPlayer(playerRect)
+
+    
+    //! bug fix affichage player on the layer
+    let yOfTheCurrentRectWherePlayerIsOn = yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel
+    let nextDirection = ""
+    //? si player is on top of the rect
+    if ((yOfTheCurrentRectWherePlayerIsOn + sideCarrousel ) - ( sideCarrousel / 2 ) < informationPlayer.centerOfPlayer[1]) {
+        fill(0,0,0)
+        nextDirection = "BOTTOM"
+    }else{
+        nextDirection = "TOP"
+        
+        fill(255,255,255)
+    }
+
+    
+
+
+    if (debugMode) {
+        rect(xStartWorld1 + informationPlayer.CenterInWorld[0] * 11 * sideCarrousel + informationPlayer.Center[0] * sideCarrousel + sideCarrousel / 2, yStartWorld1 + informationPlayer.CenterInWorld[1] * 11 * sideCarrousel + informationPlayer.Center[1] * sideCarrousel,20,20)
+    }
+
+
+    let typeBlockRight = typeOfnextBlock(nextDirection, informationPlayeratRight.Center, informationPlayeratRight.CenterInWorld, layerCollision)
+    let typeBlockLeft = typeOfnextBlock(nextDirection, informationPlayerLeft.Center, informationPlayerLeft.CenterInWorld, layerCollision)
+    let typeBlockCenter = typeOfnextBlock(nextDirection, informationPlayer.Center, informationPlayer.CenterInWorld, layerCollision)
 
     // ################# TEST IF COLLISION ###################
     //! return if it is a collision
     let typeBlock = typeOfnextBlock(Direction, informationPlayer.Center, informationPlayer.CenterInWorld, layerCollision)
+    
+    //! bug fix affichage player on the layer
+    if (typeBlockCenter != blockToNotCollision || typeBlockRight != blockToNotCollision || typeBlockLeft != blockToNotCollision) {
+        // console.log("collision")
+
+        if (nextDirection === "TOP") {
+            playerLayer = 3
+        }else{
+            playerLayer = 1
+        }
+    }
+    
+    //! return if can move
     if (typeBlock != blockToNotCollision) {
         return true
     }else{
         return false
     }
+    
     
 }
 
@@ -258,19 +301,19 @@ function moveMap() {
         rect(rectBoncingPlayer[0],rectBoncingPlayer[1],rectBoncingPlayer[2],rectBoncingPlayer[3]) 
     }
 
-    if (keyIsDown(LEFT_ARROW) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
+    if ( (keyIsDown(LEFT_ARROW) || keyIsDown(81)) && LEFTMap && canPlayerMove(rectBoncingPlayer,"LEFT")) {
         xStartWorld1 += speedMoveMap;    
     }
     
-    if (keyIsDown(RIGHT_ARROW) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
+    if ((keyIsDown(RIGHT_ARROW) || keyIsDown(68)) && RIGHTMap && canPlayerMove(rectBoncingPlayer,"RIGHT")) {
         xStartWorld1 -= speedMoveMap;
     }
     
-    if (keyIsDown(UP_ARROW) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
+    if ((keyIsDown(UP_ARROW) || keyIsDown(90)) && TOPMap && canPlayerMove(rectBoncingPlayer,"TOP")) {
         yStartWorld1 += speedMoveMap;
     }
     
-    if (keyIsDown(DOWN_ARROW) && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
+    if ((keyIsDown(DOWN_ARROW) || keyIsDown(83))  && BOTTOMMap && canPlayerMove(rectBoncingPlayer,"BOTTOM")) {
         yStartWorld1 -= speedMoveMap;
     }
     
