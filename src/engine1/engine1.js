@@ -20,7 +20,6 @@ function startEngine1(){
     
     //! draw shamisen
     if(displayShamisen){
-        currentSpriteShamisen = 1
         image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
     }
 

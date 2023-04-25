@@ -38,46 +38,59 @@ function drawMapEngine2(array){
 function mousePressed() {
     let currentIndex;
 
-    //! add rotation on tile
-    if (pointIsInside(mouseX,mouseY, [xStartWorld2 - sideCarrousel / 2, yStartWorld2 - sideCarrousel / 2 , xStartWorld2 + sideCarrousel * MapPipeGame.Map.layers[0].length, yStartWorld2 + sideCarrousel * MapPipeGame.Map.layers.length])) {
+    //! si la lettre n'est pas resolue
+    // if (!quests[1].isFinish) {
         
-        currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
+        //! add rotation on tile
+        if (pointIsInside(mouseX,mouseY, [xStartWorld2 - sideCarrousel / 2, yStartWorld2 - sideCarrousel / 2 , xStartWorld2 + sideCarrousel * MapPipeGame.Map.layers[0].length, yStartWorld2 + sideCarrousel * MapPipeGame.Map.layers.length])) {
         
-        if (currentIndex[0] > 1 && currentIndex[0] < 6 && currentIndex[1] > 1 && currentIndex[1] < 6) {
-
-            console.log(MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation)
-
-            if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation >= 270) {
-                MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
-            }else{
-                MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation += 90;
-            }
+            currentIndex = findIndexOfPositionIn2dArray(mouseX,mouseY,MapPipeGame.Map.layers,sideCarrousel,sideCarrousel, xStartWorld2 -sideCarrousel / 2 ,yStartWorld2 -sideCarrousel / 2, "pipeGame")
+            
+            if (currentIndex[0] > 1 && currentIndex[0] < 6 && currentIndex[1] > 1 && currentIndex[1] < 6) {
     
-            // if win else ...
-            //! win
-            if (isWin(MapPipeGame.Map.layers)) {
-
-                //! if parchemin wait 10 sec for reading time 
-                if (!quests[1].isFinish) {
-                    setTimeout(() => {
-                        winEngine2()
-                    }, "10000")
-                }else if(quests[5].isFinish && !quests[6].isFinish){
-                    winEngine2()
+                // console.log(MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation)
+    
+                if (MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation >= 270) {
+                    MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation = 0;
+                }else{
+                    MapPipeGame.Map.layers[currentIndex[1]][currentIndex[0]].rotation += 90;
                 }
-
-                engine = "engine1";
-            }
-        }
         
-    }
+                // if win else ...
+                //! win
+                if (isWin(MapPipeGame.Map.layers)) {
+    
+                    //! if parchemin wait 10 sec for reading time 
+                    if (!quests[1].isFinish) {
+                        setTimeout(() => {
+                            winEngine2()
+                        }, "10000")
+                    }else if(quests[5].isFinish && !quests[6].isFinish){
+                        winEngine2()
+                    }
+                }
+            }
+            
+        }
+
+    // }
+    
 
 
     //! CHEAT MODE
     if (pointIsInside(mouseX,mouseY , [0,0,30,20])) {
 
 
-        //! win
+        //! auto resolution de la lettre
+        for (let row = 0; row < MapPipeGame.Map.layers[0].length; row++) {
+            for (let column = 0; column < MapPipeGame.Map.layers.length; column++) {
+                
+                if (row > 1 && row < 6 && column > 1 && column < 6) {
+                    MapPipeGame.Map.layers[column][row].rotation = 0
+                }
+
+            }
+        }
 
         //! cheat mode no wait
         alert("win ")

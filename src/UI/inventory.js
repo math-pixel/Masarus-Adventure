@@ -221,6 +221,14 @@ function useObject(indexOfCase){
                     }
                 }
             break;
+
+            case "parcheminDecode":
+                if (engine == "engine2") {
+                    engine = "engine1"
+                }else if (engine == "engine1"){
+                    engine = "engine2"
+                }
+            break;
         }
     }
     

@@ -5,19 +5,23 @@ function interactionWithMap(typeBlock, array, column,row){
     switch(typeBlock){
         // parchemin
         case indexTileParchemin:
-            if (canAddToInventory({"name" : "parcheminEncode" , "image": allTiles[4]})) {
-                addToInventory({"name" : "parcheminEncode" , "image": allTiles[4]})
+            if (canAddToInventory({"name" : "parcheminEncode" , "image": allTiles[26]})) {
+                addToInventory({"name" : "parcheminEncode" , "image": allTiles[26]})
                 array[column][row] = 0
+
+                quests[1].beDisplayed = true
+                currentQuestDisplay = setCurrentQuestDisplay()
             }
             break;
 
         // eventail
         case indexTileeventaille:
 
-            if (canAddToInventory({"name" : "eventail" , "image": allTiles[10]})) {
-                addToInventory({"name" : "eventail" , "image": allTiles[10]})
+            if (canAddToInventory({"name" : "eventail" , "image": allTiles[28]})) {
+                addToInventory({"name" : "eventail" , "image": allTiles[28]})
                 array[column][row] = 0
                 quests[4].isFinish = true
+                questManager()
             }
             break;
         
@@ -92,10 +96,19 @@ function drawinteraction(x,y,w,h, array){
                     image(exclamationPoint[0], x+w*row + sideCarrousel / 4, y+h*column - sideCarrousel / 2, sideCarrousel / 2,sideCarrousel / 2);
 
                     //! set up event for quest system
+                    //? tile Rock
                     if (array[column][row] == indexTileRoche) {
                         playerNearToTheRock = true
                     }else{
                         playerNearToTheRock = false
+                    }
+
+                    //? tile eboulement
+                    //? tile Rock
+                    if (array[column][row] == indexTileRoche) {
+                        playerNearToLandslide = true
+                    }else{
+                        playerNearToLandslide = false
                     }
 
                     if (keyInteractionIsPressed) {

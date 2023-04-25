@@ -42,12 +42,17 @@ let theCurrentQuestIsEnded = false;
 
 //? the interactive rock
 let playerNearToTheRock = false
-let tilemapTheRock = "tilemap_21"
+let tilemapTheRock = "tilemap_36"
 let coordTheRockInteractive = [1, 9]
 
 //? last rope
-let tilemapRope = "tilemap_21"
+let tilemapRope = "tilemap_36"
 let coordLastRope = [3, 9]
+
+//? Landslide
+let playerNearToLandslide = false
+let tilemapLandslide = "tilemap_36"
+let coordTheLandslide = [2, 9]
 
 //! layer info
 let layerCollision = 3;
@@ -226,11 +231,12 @@ let useAudio = false
 
 //! importante block
 let indexTileParchemin = 25
-let indexTileeventaille = 6
-let indexTilecoffre = 10
-let indexTileRoche = 7
+let indexTileeventaille = 504
+let indexLandslide = 704
+let indexTilecoffre = 29
+let indexTileRoche = 94
 let indexRubbleRockTile = 17
-let indexTileRope = 4
+let indexTileRope = 12
 
 
 //* drawable Image background
@@ -764,7 +770,7 @@ function loading(assetArray){
                     case "shamisen_4":
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
-                            credit_button_shamisen_4hover = e;
+                            shamisen_4 = e;
                             isLoaded();
                         })                        
                     break;

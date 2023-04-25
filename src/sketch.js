@@ -29,7 +29,7 @@ function draw(){
     // background(200);
     // condition moteur de jeux
     // console.log(canInteract, textDialogue, endAction )
-
+    // console.log("a", textDialogue, endAction, imagePersonTalking)
     
     noSmooth()
     //! select engine

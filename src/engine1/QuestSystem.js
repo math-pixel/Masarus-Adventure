@@ -1,16 +1,28 @@
 function questManager(){
 
-    //! display none parchemin ( 3 ) 
-    Maps["tilemap_36"].layers[layerInteraction][1][0] = 0
+    //! set u^p variable
+    if (!quests[0].isFinish) {
+        //! display none parchemin ( 3 ) 
+        Maps["tilemap_36"].layers[layerInteraction][1][0] = 0
 
-    //! display none eventail
-    Maps["tilemap_20"].layers[layerInteraction][5][7] = 0
+        //! display none eventail
+        Maps["tilemap_36"].layers[layerInteraction][2][0] = 0
 
-    //! display none coffre
-    Maps["tilemap_20"].layers[layerInteraction][10][7] = 0
+        //! display none coffre
+        Maps["tilemap_36"].layers[layerInteraction][10][7] = 0
 
-    //! display none last rope
-    Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = 0
+        //! display none last rope
+        Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = indexTileRope
+
+        //! display landslide
+        Maps[tilemapLandslide].layers[layerInteraction][coordTheLandslide[1]][coordTheLandslide[0]] = indexLandslide
+        Maps[tilemapLandslide].layers[layerCollision][coordTheLandslide[1]][coordTheLandslide[0]] = indexLandslide
+
+        //! set up rock intarctive
+        Maps[tilemapTheRock].layers[layerInteraction][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexTileRoche
+        Maps[tilemapTheRock].layers[layerCollision][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexTileRoche
+    }
+
 
     //* talk to masarus father
     if(quests[0].isFinish && !quests[1].isFinish){
@@ -18,11 +30,15 @@ function questManager(){
         Maps["tilemap_36"].layers[layerInteraction][1][0] = indexTileParchemin
     }
 
+    if (quests[1].isFinish && !quests[2].isFinish) {
+        updateObjectInInventory({"name" : "parcheminEncode" , "image": allTiles[26]},{"name" : "parcheminDecode" , "image": allTiles[27]})
+    }
+
 
     //* find evantail and quest parchemin is ended
     if(quests[3].isFinish && !quests[4].isFinish){
         //! affichage eventaille
-        Maps["tilemap_20"].layers[layerInteraction][5][7] = indexTileeventaille
+        Maps["tilemap_36"].layers[layerInteraction][2][0] = indexTileeventaille
 
     }
     
@@ -33,13 +49,17 @@ function questManager(){
     //* afficher coffre in map 
     if(quests[5].isFinish && !quests[6].isFinish){
         //! affichage coffre
-        Maps["tilemap_20"].layers[layerInteraction][10][7] = indexTilecoffre
+        Maps["tilemap_36"].layers[layerInteraction][10][7] = indexTilecoffre
 
 
         //! set up engine 2 to coffre
         tilesetEngine2 = chestTiles
         mapRandomSet = false
         imageBackgroundEng2 = imageBackgroundEng2Coffre
+    }
+
+    if (quests[6].isFinish) {
+        Maps["tilemap_36"].layers[layerInteraction][10][7] = 0
     }
 
     //display last rope
