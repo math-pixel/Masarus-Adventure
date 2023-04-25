@@ -2,6 +2,7 @@
 function createPNJ(){  
 
     allPnj.forEach((currentPnj) => {
+
         switch(currentPnj.name){
             case "MASARU_S_FATHER":
                 currentPnj.width = sideCarrousel

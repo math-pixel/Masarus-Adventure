@@ -76,6 +76,10 @@ function drawEngine1(){
                     }
 
                 }
+
+                if (loopLayer === 3) {
+                    // pnjManager()
+                }
                 
             }
 

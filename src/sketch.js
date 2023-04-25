@@ -71,7 +71,7 @@ function draw(){
     }
 
     fill("#000000")
-    text([mouseX, " , ", mouseY].join(" "), mouseX, mouseY)
+    // text([mouseX, " , ", mouseY].join(" "), mouseX, mouseY)
     // console.log(speedMoveMap)
 }
 

@@ -29,7 +29,9 @@ let nbRow;
 let nbColumn;
 
 //? on commence a la map 20
-let currentMap = "tilemap_20"; // pour set le world a cette map la  
+let currentMap = "tilemap_20"; // pour set le world a cette map la 
+let startWorldX = -150
+let startWorldY = 300
 
 let speedMoveMap = 8;
 let canMove = true;
@@ -203,7 +205,7 @@ let inventory_empty;
 //? quest
 let quest_box_1
 let quest_box_2
-let questBoxIsEmpty = true
+let questBoxIsEmpty = false
 
 //! head
 let masaru_head; 
@@ -833,8 +835,8 @@ function initVariableWorld(e){
     // start map at precise tilemap
     let coordMap = findIndexValueIn2dArray(world1.World,currentMap)
 
-    xStartWorld1 = - coordMap[1] * nbColumn * sideCarrousel
-    yStartWorld1 = - coordMap[0] * nbRow * sideCarrousel
+    xStartWorld1 = - coordMap[1] * nbColumn * sideCarrousel - startWorldX
+    yStartWorld1 = - coordMap[0] * nbRow * sideCarrousel - startWorldY
 
     console.log('%c coord : ', 'background: #222; color: #FFFF00',  xStartWorld1, yStartWorld1, " START WITH VALUE : currentMap") 
 }

@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "MASARU_S_FATHER",
-      "xStart": 3500,
-      "yStart": 700,
+      "xStart": 3430,
+      "yStart": 1220,
       "direction": "bottom",
       "distanceToTravel": 0,
       "ratioFrameRate": 4,
@@ -145,8 +145,8 @@
     {
       "id": 4,
       "name": "PNJ_QUEST_Mountain",
-      "xStart": 4200,
-      "yStart": 1800,
+      "xStart": 9240,
+      "yStart": 2610,
       "distanceToTravel": 0,
       "direction": "bottom",
       "width": "",
