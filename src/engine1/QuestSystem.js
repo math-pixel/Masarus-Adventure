@@ -78,7 +78,7 @@ function questManager(){
     }
 
     if (quests[11].isFinish == true) {
-        alert("bravo ta fini le jeux")
+        gameIsEnding()
         /*
         - animation note multi color
         - tilemap au alentour change

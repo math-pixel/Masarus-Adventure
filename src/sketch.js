@@ -21,7 +21,7 @@ function setup(){
     //! quest system
     questManager()
 
-    
+    vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
     
 }
 
@@ -70,9 +70,32 @@ function draw(){
         speedMoveMap = 3.5 * 8/4
     }
 
-    fill("#000000")
     // text([mouseX, " , ", mouseY].join(" "), mouseX, mouseY)
     // console.log(speedMoveMap)
+    
+    //! fade system
+    if (transition) {
+        if (transitionState == "in") {
+            
+            if(opacityFade+1 < 255){
+                opacityFade += 1
+            }else{
+                engine = nextEngine
+                transitionState = "out"
+            }
+        }else{
+            if(opacityFade - 1 > 0){
+                opacityFade -= 1
+            }else{
+                transition = false
+                transitionState = "in"
+            }
+        }
+    }
+    
+    noStroke()
+    fill(34,34,34, opacityFade)
+    rect(0,0,1000,578)
 }
 
 let nbKeyIsPressed = 0
@@ -127,3 +150,12 @@ function keyReleased() {
         nbKeyIsPressed -= 1
     }
 }
+
+function gameIsEnding(){
+    vidOutro.show()
+    vidOutro.play()
+}
+
+
+
+

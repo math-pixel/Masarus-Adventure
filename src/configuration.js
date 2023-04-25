@@ -6,7 +6,7 @@ let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 64 ;
+let numberLoad = 66 ;
 
 let mouseIsRelease = false
 
@@ -219,6 +219,15 @@ let inventory_empty;
 let quest_box_1
 let quest_box_2
 let questBoxIsEmpty = false
+
+//! video outro / intro
+let vidOutro
+
+//! transition fade
+let opacityFade = 0
+let transition = false
+let transitionState = "in"
+let nextEngine = "engine1"
 
 //! head
 let masaru_head; 

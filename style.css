@@ -13,3 +13,7 @@ body{
 
     height: 100vh;
 }
+
+video{
+    position: absolute;
+}
