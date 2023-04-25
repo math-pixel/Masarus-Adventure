@@ -198,6 +198,16 @@
             "name": "backgroud_dialogue_box"
         },
         {
+            "path":"assets/UI/quest_box_1.png",
+            "type":"ui",
+            "name": "quest_box_1"
+        },
+        {
+            "path":"assets/UI/quest_box_2.png",
+            "type":"ui",
+            "name": "quest_box_2"
+        },
+        {
             "path":"assets/UI/settings_access_spritesheet.png",
             "type":"ui",
             "name": "setting_button_inGame"

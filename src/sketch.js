@@ -29,6 +29,8 @@ function draw(){
     // background(200);
     // condition moteur de jeux
     // console.log(canInteract, textDialogue, endAction )
+
+    
     noSmooth()
     //! select engine
     if (assetsLoaded) {
@@ -68,6 +70,8 @@ function draw(){
         speedMoveMap = 3.5 * 8/4
     }
 
+    fill("#000000")
+    text([mouseX, " , ", mouseY].join(" "), mouseX, mouseY)
     // console.log(speedMoveMap)
 }
 

@@ -92,7 +92,7 @@ function creditMenu(){
 
 function actionOnText(textRect, action, hoverImage){
 
-    // console.log(nextEngine)
+    // console.log(action)
 
     // underline text on hover
     if (pointIsInRect([mouseX,mouseY], textRect)) {
@@ -132,6 +132,11 @@ function actionOnText(textRect, action, hoverImage){
                     useAudio = !useAudio
                 }, 1000)
                 break;
+            case "reverseQuestBox":
+                setTimeout((e)=>{
+                    questBoxIsEmpty = !questBoxIsEmpty
+                }, 50)
+                break
             default:
                 throw new Error("engine error")
             }

@@ -61,6 +61,8 @@ function questManager(){
     }
         
 
+    currentQuestDisplay = setCurrentQuestDisplay()
+    console.log(currentQuestDisplay)
 }
 
 
@@ -89,4 +91,23 @@ function dialogueQuest7(){
         interact()
         
     }, "10000");
+}
+
+
+function setCurrentQuestDisplay(){
+    let tempQuest = "none"
+    quests.forEach(currentQuest => {
+        if (currentQuest.isFinish === false && tempQuest == "none") {
+
+            if(currentQuest.beDisplayed){
+                tempQuest = currentQuest.name
+                return tempQuest
+            }else{
+                tempQuest = " "
+                return tempQuest
+            }
+            
+        }
+    });
+    return tempQuest
 }

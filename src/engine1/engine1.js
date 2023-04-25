@@ -20,6 +20,7 @@ function startEngine1(){
     
     //! draw shamisen
     if(displayShamisen){
+        currentSpriteShamisen = 1
         image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
     }
 
@@ -30,6 +31,11 @@ function startEngine1(){
 
     //! draw note shamisen quest 2
     drawNote()
+
+    //! draw current quest
+    if(!displayDialogue){
+        drawQuest()
+    }
 }
 
 
@@ -129,4 +135,27 @@ function drawNote(){
         image(songSprite[songSpriteCurrentFrame], xNote, yNote, 48, 48)
     }
 
+}
+
+
+function drawQuest(){
+
+    let rectBoncing;
+
+    //! display empty box
+    if(questBoxIsEmpty){
+        image(quest_box_1, 1000 - 130 - 10 , 183, 130, 65)
+        rectBoncing = [1000 - 130 - 10 , 183, 130, 65]
+    }else{
+        image(quest_box_2, 1000 - 130 - 10 , 183, 130, 117)
+        rectBoncing = [1000 - 130 - 10 , 183, 130, 117]
+        fill("#000000");
+        textAlign(CENTER);
+        textSize(20);
+        textLeading(15);
+        // rect(1000 - 125 , 220 , 100 , 100)
+        text(currentQuestDisplay, 1000 - 122 , 220 , 100 , 100)
+    }
+
+    actionOnText(rectBoncing, "reverseQuestBox", "")
 }

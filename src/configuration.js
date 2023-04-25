@@ -2,10 +2,13 @@ let world1
 let Maps =[]
 let MapPipeGame;
 let quests;
+let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 62 ;
+let numberLoad = 64 ;
+
+let mouseIsRelease = false
 
 //! current engine
 let lastEngine = "startMenu";
@@ -196,6 +199,11 @@ let mouseTileset = []
 
 //? inventory
 let inventory_empty;
+
+//? quest
+let quest_box_1
+let quest_box_2
+let questBoxIsEmpty = true
 
 //! head
 let masaru_head; 
@@ -555,6 +563,22 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             setting_button_inGame = cutTiles(e, 32);
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "quest_box_1":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            quest_box_1 = e
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "quest_box_2":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            quest_box_2 = e
                             isLoaded();
                         })                        
                     break;
