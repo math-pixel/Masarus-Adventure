@@ -153,7 +153,7 @@ function drawQuest(){
     }else{
         image(quest_box_2, 1000 - 130 - 10 , 183, 130, 117)
         rectBoncing = [1000 - 130 - 10 , 183, 130, 117]
-        fill("#000000");
+        fill("#4c2512");
         textAlign(CENTER);
         textSize(20);
         textLeading(15);

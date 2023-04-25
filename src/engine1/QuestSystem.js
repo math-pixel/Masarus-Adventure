@@ -23,6 +23,11 @@ function questManager(){
     if(quests[3].isFinish && !quests[4].isFinish){
         //! affichage eventaille
         Maps["tilemap_20"].layers[layerInteraction][5][7] = indexTileeventaille
+
+    }
+    
+    if (quests[4].isFinish) {
+        allPnj[2].alreadyTalk = false
     }
 
     //* afficher coffre in map 
@@ -43,6 +48,9 @@ function questManager(){
     }
 
     if (quests[9].isFinish == true) {
+
+        allPnj[0].alreadyTalk= false
+
     }
 
     if (quests[10].isFinish == true) {

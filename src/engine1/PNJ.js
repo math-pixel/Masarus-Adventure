@@ -8,12 +8,14 @@ function createPNJ(){
                 currentPnj.width = sideCarrousel
                 currentPnj.skin = pnjTileMasaruFather
                 currentPnj.headDialogue = [[ masaruFather_head , masaruFather_head,  masaru_head, masaru_head, masaruFather_head , masaruFather_head, "", masaru_head, masaru_head ]]
+                currentPnj.headAlreadyTalk = [[masaruFather_head]]
                 break;
 
             case "PNJ_QUEST_1":
                 currentPnj.width = sideCarrousel
                 currentPnj.skin = pandaTileSet
                 currentPnj.headDialogue = [[panda_head , panda_head, panda_head], [panda_head , panda_head, panda_head,panda_head, "", "" , panda_head , panda_head, panda_head,panda_head]]
+                currentPnj.headAlreadyTalk = [[panda_head],[panda_head]]
                 break;
 
             case "PNJ_QUEST_2":
@@ -44,6 +46,7 @@ function createPNJ(){
                         panda_head
                     ]
                 ]
+                currentPnj.headAlreadyTalk = [[panda_head],[panda_head]]
                 break;
 
             case "PNJ_QUEST_Mountain":
@@ -301,24 +304,57 @@ function setUpDialoguePnj(pnj){
     if (pnj.name === "MASARU_S_FATHER") {
 
         //*quest 1
-        //? not already talk 
-        if (!pnj.alreadyTalk) {
-            textDialogue = pnj.dialogue[0];
-            endAction = pnj.actionDialogue[0];
-            imagePersonTalking = pnj.headDialogue[0]
+        if (quests[0].isFinish == false ){
+            //? not already talk 
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[0];
+                endAction = pnj.actionDialogue[0];
+                imagePersonTalking = pnj.headDialogue[0]
 
-            //* quest finish
-            quests[0].isFinish = true
+                //* quest finish
+                quests[0].isFinish = true
 
-            //* set up pnj already talk 
-            // pnj.alreadyTalk = true
+                //* set up pnj already talk
+                console.log(pnj.dialogue[0].length - 1, indexInDialogue)
+                if (pnj.dialogue[0].length - 1 == indexInDialogue) {
+                    
+                    pnj.alreadyTalk = true
+                }
 
-        }else{
+            }else{
 
-            textDialogue = pnj.dialogueAlreadyTalk[0];
-            endAction = pnj.actionAlreadyTalk[0];
-            imagePersonTalking = pnj.headAlreadyTalk[0]
+                if (indexInDialogue == 0) {
+                    textDialogue = pnj.dialogueAlreadyTalk[0];
+                    endAction = pnj.actionAlreadyTalk[0];
+                    imagePersonTalking = pnj.headAlreadyTalk[0]
+                }
+                
+            }
         }
+
+        if (quests[9].isFinish == false) {
+            if (!pnj.alreadyTalk) {
+                textDialogue = pnj.dialogue[1];
+                endAction = pnj.actionDialogue[1];
+                imagePersonTalking = pnj.headDialogue[1]
+
+                //* set up pnj already talk
+                if (pnj.dialogue[1].length - 1 == indexInDialogue) {
+                    
+                    pnj.alreadyTalk = true
+                }
+
+            }else{
+
+                if (indexInDialogue == 0) {
+                    textDialogue = pnj.dialogueAlreadyTalk[1];
+                    endAction = pnj.actionAlreadyTalk[1];
+                    imagePersonTalking = pnj.headAlreadyTalk[1]
+                }
+                
+            }
+        }
+        
         
     }
 
@@ -370,34 +406,49 @@ function setUpDialoguePnj(pnj){
                 endAction = pnj.actionDialogue[1];
                 imagePersonTalking = pnj.headDialogue[1]
 
-                //* quest finish to talk pnj 2
-                quests[2].isFinish = true
 
+                // console.log(pnj.dialogue[1].length - 1 , indexInDialogue)
                 //? already talk
-            }else{
-                textDialogue = pnj.dialogueAlreadyTalk[0];
-                endAction = pnj.actionAlreadyTalk[0];
-                imagePersonTalking = pnj.headAlreadyTalk[0]
-            }
+                if (pnj.dialogue[1].length - 1 == indexInDialogue) {
+                    pnj.alreadyTalk = true
+                }
 
-            //TODO reset already talk
+            }else{
+
+                if (indexInDialogue == 0) {
+                    textDialogue = pnj.dialogueAlreadyTalk[0];
+                    endAction = pnj.actionAlreadyTalk[0];
+                    imagePersonTalking = pnj.headAlreadyTalk[0];
+
+                    console.log("a", textDialogue, endAction, imagePersonTalking)
+                }
+                
+            }
 
             //* get eventail in inventory
             if (quests[4].isFinish) {
+                console.log("yey")
                 //? not already talk 
                 if (!pnj.alreadyTalk) {
                     textDialogue = pnj.dialogue[2];
                     endAction = pnj.actionDialogue[2];
                     imagePersonTalking = pnj.headDialogue[2]
 
-                    //* quest finish to talk pnj 2
-                    quests[2].isFinish = true
-
                     //? already talk
+                    if (pnj.dialogue[2].length - 1 == indexInDialogue) {
+                        pnj.alreadyTalk = true
+                    }
+
                 }else{
-                    textDialogue = pnj.dialogueAlreadyTalk[0];
-                    endAction = pnj.actionAlreadyTalk[0];
-                    imagePersonTalking = pnj.headAlreadyTalk[0]
+
+                    if (indexInDialogue == 0) {
+                        textDialogue = pnj.dialogueAlreadyTalk[1];
+                        endAction = pnj.actionAlreadyTalk[1];
+                        imagePersonTalking = pnj.headAlreadyTalk[1]
+
+                        console.log("b", textDialogue, endAction, imagePersonTalking)
+                    }
+                    
                 }
             }
 
@@ -430,10 +481,19 @@ function setUpDialoguePnj(pnj){
                 //* quest finish to talk pnj 2
                 quests[7].isFinish = true
 
+                //? already talk
+                if (pnj.dialogue[0].length - 1 == indexInDialogue) {
+                    pnj.alreadyTalk = true
+                }
+
             }else{
-                textDialogue = ["deja pareer"];
-                endAction = ["engine1"];
-                imagePersonTalking = [panda_head]
+
+                if (indexInDialogue == 0) {
+                    textDialogue = ["deja pareer"];
+                    endAction = ["engine1"];
+                    imagePersonTalking = [panda_head]
+                }
+                
             }
         }else{
 

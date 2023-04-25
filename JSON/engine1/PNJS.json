@@ -17,7 +17,7 @@
       "skin": [],
       "currentFrameInteraction": 0,
       "alreadyTalk": false,
-      "dialogueAlreadyTalk": ["yey"],
+      "dialogueAlreadyTalk": [["Courage mon fils, toute la famille est derrière toi !"], ["Bravo"] ],
       "dialogue": [
         ["Bonjour mon fils !", 
         "Aujourd’hui est un grand jour pour toi !", 
@@ -40,7 +40,7 @@
         ["engine1"],
         ["engine1", "endQuest10"]
       ],
-        "actionDialogue": [["engine1", "endDialogueMasarusDad"]],
+      "actionDialogue": [["engine1", "endDialogueMasarusDad"]],
       "canInteractVerification": false,
       "headDialogue": [],
       "headAlreadyTalk": []
@@ -48,8 +48,8 @@
     {
       "id": 2,
       "name": "PNJ_QUEST_1",
-      "xStart": 4200,
-      "yStart": 1300,
+      "xStart": 3430,
+      "yStart": 1520,
       "distanceToTravel": 230,
       "direction": "right",
       "width": "",
@@ -62,7 +62,7 @@
       "skin": [],
       "currentFrameInteraction": 0,
       "alreadyTalk": false,
-      "dialogueAlreadyTalk": ["yey"],
+      "dialogueAlreadyTalk": ["Je suis ravie de t’avoir aidé, bon courage pour la suite !"],
       "dialogue": [
         ["Bonjour jeune homme.",
          "Je pourrais peut être t’aider mais il te faut encore chercher.", "Reviens plus tard."], 
@@ -89,8 +89,8 @@
     {
       "id": 3,
       "name": "PNJ_QUEST_2",
-      "xStart": 4200,
-      "yStart": 1700,
+      "xStart": 3430,
+      "yStart": 1800,
       "distanceToTravel": 230,
       "direction": "right",
       "width": "",
@@ -103,7 +103,7 @@
       "skin": [],
       "currentFrameInteraction": 0,
       "alreadyTalk": false,
-      "dialogueAlreadyTalk": ["yey"],
+      "dialogueAlreadyTalk": [["Retrouves mon éventail s'il te plait"],["Tu m’as aidé d’une grande aide, poursuis ta quête jeune homme."]],
       "dialogue": [
         ["Bonjour Masaru !",
         "J’adorerai t’aider mais je suis trop occupé pour le moment, reviens plus tard !"
@@ -131,7 +131,7 @@
         ]
       ],
       "actionAlreadyTalk": [
-        ["engine1"]
+        ["engine1"],["engine1"]
       ],
       "actionDialogue": [
         ["engine1"],
@@ -145,8 +145,8 @@
     {
       "id": 4,
       "name": "PNJ_QUEST_Mountain",
-      "xStart": 9240,
-      "yStart": 2610,
+      "xStart": 3430,
+      "yStart": 1850,
       "distanceToTravel": 0,
       "direction": "bottom",
       "width": "",
