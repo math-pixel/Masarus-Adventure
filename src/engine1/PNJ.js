@@ -30,7 +30,7 @@ function createPNJ(){
 
             case "PNJ_QUEST_2":
                 currentPnj.width = sideCarrousel
-                currentPnj.skin = pandaTileSet
+                currentPnj.skin = leopardTileSet
                 currentPnj.headDialogue = [
                     [panda_head , panda_head], 
                     [
@@ -165,17 +165,17 @@ function pnjManager(){
                     index_Direction = 2
 
                     //? reset frame for bug draw
-                    pnj.currentFrame = 0;
+                    // pnj.currentFrame = 0;
                 }else if (xStartWorld1 + pnj.xStart + pnj.actualDistance < xPlayer){
                     index_Direction = 0
 
                     //? reset frame for bug draw
-                    pnj.currentFrame = 0;
+                    // pnj.currentFrame = 0;
                 }else{
                     index_Direction = 4
 
                     //? reset frame for bug draw
-                    pnj.currentFrame = 0;
+                    // pnj.currentFrame = 0;
                 }
             }else{
 
@@ -289,6 +289,7 @@ function addFrameInteraction(pnj){
 
 
 function animatePNJ(pnj,index_Direction){
+
     if (pnj.frameRatePNJ % pnj.ratioFrameRate === 0) {
 
         //! add frame at pnj

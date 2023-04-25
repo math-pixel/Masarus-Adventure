@@ -104,6 +104,14 @@ let pandaAnimLeft = [];
 let pandaAnimIdleRight = [];
 let pandaAnimIdleLeft = [];
 
+let leopardTileSet = []
+let leopard_bottom_idle = []
+let leopard_left_idle = []
+let leopard_left = []
+let leopard_right = []
+let leopard_right_idle = []
+let leopard_top_idle = []
+
 let pnjTileSet2 = [];
 let pnjAnimTop2 = [];
 let pnjAnimBottom2 = [];
@@ -460,44 +468,57 @@ function loading(assetArray){
                         }
                         break;
 
-                    case "pnj2" :
+                    case "leopard" :
                         switch(elm.direction){
                             
-                            case "top":
-                                
-                                // console.log("fdp", elm.path)
+                            case "idletop":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimTop2 = cutTiles(e, 32);
+                                    leopard_top_idle = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
-                            case "bottom":
+                            case "idlebottom":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimBottom2 = cutTiles(e, 32);
+                                    leopard_bottom_idle = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
                             case "left":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimLeft2 = cutTiles(e, 32);
+                                    leopard_left = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
                             case "right":
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
-                                    pnjAnimRight2 = cutTiles(e, 32);
+                                    leopard_right = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleleft":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    leopard_left_idle = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleright":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    leopard_right_idle = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
                             default:
-                                throw new Error("name animation in Json file doesnt correspond")
+                                throw new Error("name aniùation in Json file doesnt correspond")
                         }
                         break;
-                
+                            
+
                     case "masaruFather":
                         switch(elm.direction){
                             case "bottomIdle":
@@ -805,6 +826,7 @@ function isLoaded(){
         pandaTileSet = [pandaAnimIdleRight,pandaAnimRight,pandaAnimIdleLeft,pandaAnimLeft,pandaAnimIdleBottom,pandaAnimIdleTop];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
         pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle,MasaruFatherAnimTopIdle]
+        leopardTileSet = [leopard_right_idle,leopard_right, leopard_left_idle, leopard_left,leopard_bottom_idle,leopard_top_idle]
 
         //! set up tileset shamisen
         spriteSheetShamisen = [allTiles[0],shamisen_1,shamisen_2,shamisen_3,shamisen_4]

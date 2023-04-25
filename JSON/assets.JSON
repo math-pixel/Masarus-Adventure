@@ -173,6 +173,42 @@
             "direction": "right"
         },
         {
+            "path":"assets/pnj/leopard/leopard_bottom_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idlebottom"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_left_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idleleft"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_left.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "left"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_right_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idleright"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_right.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "right"
+        },
+        {
+            "path":"assets/pnj/leopard/leopard_top_idle.png",
+            "type":"entity",
+            "name": "leopard",
+            "direction": "idletop"
+        },
+        {
             "path":"assets/tileset_Exclamation.png",
             "type":"exclamation"
         },
