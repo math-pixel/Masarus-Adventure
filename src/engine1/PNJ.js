@@ -315,7 +315,7 @@ function setUpDialoguePnj(pnj){
                 quests[0].isFinish = true
 
                 //* set up pnj already talk
-                console.log(pnj.dialogue[0].length - 1, indexInDialogue)
+                console.log("a", textDialogue, endAction, imagePersonTalking)
                 if (pnj.dialogue[0].length - 1 == indexInDialogue) {
                     
                     pnj.alreadyTalk = true

@@ -225,7 +225,7 @@ let globalSideInventoryY = 0;
 let useAudio = false
 
 //! importante block
-let indexTileParchemin = 3
+let indexTileParchemin = 25
 let indexTileeventaille = 6
 let indexTilecoffre = 10
 let indexTileRoche = 7

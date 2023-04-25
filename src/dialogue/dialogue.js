@@ -25,7 +25,7 @@ function startEngineDialogue(){
     fill(0,0,0)
     textSize(35);
     textLeading(27)
-    // console.log(imagePersonTalking)
+    console.log(dialogueToDisplay)
     if (imagePersonTalking[indexInDialogue] != "") {
         textAlign(LEFT);
         textFont(fontTypeCast);

@@ -1,7 +1,7 @@
 function questManager(){
 
     //! display none parchemin ( 3 ) 
-    Maps["tilemap_20"].layers[layerInteraction][3][7] = 0
+    Maps["tilemap_36"].layers[layerInteraction][1][0] = 0
 
     //! display none eventail
     Maps["tilemap_20"].layers[layerInteraction][5][7] = 0
@@ -15,7 +15,7 @@ function questManager(){
     //* talk to masarus father
     if(quests[0].isFinish && !quests[1].isFinish){
         //! affichage parchemin
-        Maps["tilemap_20"].layers[layerInteraction][3][7] = indexTileParchemin
+        Maps["tilemap_36"].layers[layerInteraction][1][0] = indexTileParchemin
     }
 
 
