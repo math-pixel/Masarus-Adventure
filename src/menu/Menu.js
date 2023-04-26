@@ -110,22 +110,27 @@ function actionOnText(textRect, action, hoverImage){
             //! change engine
             switch(action){
                 case "engine1":
-                engine = "engine1"
+                // engine = "engine1"
+                setUpTransition(50, "engine1")
                 break;
             case "engine2":
                 engine = "engine1"
                 break;
             case "startMenu":
-                engine = "startMenu"
+                // engine = "startMenu"
+                setUpTransition(4, "startMenu")
                 break;
             case "pauseMenu":
-                engine = "pauseMenu"
+                // engine = "pauseMenu"
+                setUpTransition(4, "pauseMenu")
                 break;
             case "settingMenu":
-                engine = "settingMenu"
+                // engine = "settingMenu"
+                setUpTransition(4, "pauseMenu")
                 break;
             case "creditMenu":
-                engine = "creditMenu"
+                // engine = "creditMenu"
+                setUpTransition(4, "pauseMenu")
                 break;
             case "changeAudio":
                 setTimeout((e)=>{

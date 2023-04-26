@@ -74,24 +74,7 @@ function draw(){
     // console.log(speedMoveMap)
     
     //! fade system
-    if (transition) {
-        if (transitionState == "in") {
-            
-            if(opacityFade+1 < 255){
-                opacityFade += 1
-            }else{
-                engine = nextEngine
-                transitionState = "out"
-            }
-        }else{
-            if(opacityFade - 1 > 0){
-                opacityFade -= 1
-            }else{
-                transition = false
-                transitionState = "in"
-            }
-        }
-    }
+    transitionFaded()
     
     noStroke()
     fill(34,34,34, opacityFade)
@@ -157,5 +140,32 @@ function gameIsEnding(){
 }
 
 
+function transitionFaded(){
+    if (transition) {
+        if (transitionState == "in") {
+            
+            if(opacityFade+1 < 255){
+                opacityFade += speedTransition
+            }else{
+                engine = nextEngine
+                transitionState = "out"
+            }
+        }else{
+            if(opacityFade - 1 > 0){
+                opacityFade -= speedTransition
+            }else{
+                transition = false
+                transitionState = "in"
+            }
+        }
+    }
+}
+
+function setUpTransition(speed, nEngine){
+    transition = true
+    nextEngine = nEngine
+
+    speedTransition = speed
+}
 
 

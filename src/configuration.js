@@ -152,6 +152,7 @@ let debugMode = false;
 let fontGravityBold;
 let fontTypeCast;
 let fontTypeCastItalic;
+let fontTypeCastBold;
 
 //! interaction PNJ
 let canInteract = false
@@ -218,7 +219,6 @@ let inventory_empty;
 //? quest
 let quest_box_1
 let quest_box_2
-let questBoxIsEmpty = false
 
 //! video outro / intro
 let vidOutro
@@ -228,6 +228,7 @@ let opacityFade = 0
 let transition = false
 let transitionState = "in"
 let nextEngine = "engine1"
+let speedTransition = 1;
 
 //! head
 let masaru_head; 
@@ -269,6 +270,7 @@ function loadAsset(){
     fontGravityBold = loadFont('font/GravityBold.ttf');
     fontTypeCast =  loadFont('font/Typecast.ttf');
     fontTypeCastItalic =  loadFont('font/Typecast-Italic.ttf');
+    fontTypeCastBold =  loadFont('font/Typecast-Bold.ttf');
 }
 
 function loading(assetArray){

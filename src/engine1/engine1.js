@@ -143,22 +143,53 @@ function drawNote(){
 
 function drawQuest(){
 
-    let rectBoncing;
-
     //! display empty box
-    if(questBoxIsEmpty){
-        image(quest_box_1, 1000 - 130 - 10 , 183, 130, 65)
-        rectBoncing = [1000 - 130 - 10 , 183, 130, 65]
-    }else{
-        image(quest_box_2, 1000 - 130 - 10 , 183, 130, 117)
-        rectBoncing = [1000 - 130 - 10 , 183, 130, 117]
+    if(!displayShamisen){
+        // bacground
+        image(quest_box_2, 1000 - 130 - 10 , 10, 130, 117)
+
+        // current quest
         fill("#4c2512");
+        textFont(fontTypeCastItalic);
         textAlign(CENTER);
         textSize(20);
         textLeading(15);
         // rect(1000 - 125 , 220 , 100 , 100)
-        text(currentQuestDisplay, 1000 - 122 , 220 , 100 , 100)
-    }
+        text(currentQuestDisplay, 1000 - 122 , 57 , 100 , 100)
 
-    actionOnText(rectBoncing, "reverseQuestBox", "")
+
+        // " quete en cour "
+        fill("#4c2512")
+        textSize(25);
+        textLeading(12);
+        textAlign(CENTER);
+        textFont(fontTypeCastBold);
+        // rect(1000 - 125 , 210, 100, 30)
+        text("Quête en cours", 1000 - 120 , 21, 100, 30)
+    }else{
+
+
+        // bacground
+        image(quest_box_2, 1000 - 130 - 10 , 183, 130, 117)
+
+        // current quest
+        fill("#4c2512");
+        textFont(fontTypeCastItalic);
+        textAlign(CENTER);
+        textSize(20);
+        textLeading(15);
+        // rect(1000 - 125 , 220 , 100 , 100)
+        text(currentQuestDisplay, 1000 - 122 , 230 , 100 , 100)
+
+
+        // " quete en cour "
+        fill("#4c2512")
+        textSize(25);
+        textLeading(12);
+        textAlign(CENTER);
+        textFont(fontTypeCastBold);
+        // rect(1000 - 125 , 210, 100, 30)
+        text("Quête en cours", 1000 - 120 , 194, 100, 30)
+
+    }
 }
