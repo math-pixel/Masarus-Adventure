@@ -6,7 +6,7 @@ let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 66 ;
+let numberLoad = 67 ;
 
 let mouseIsRelease = false
 
@@ -177,6 +177,10 @@ let logo;
 
 let index_setting_button_inGame = 0
 let setting_button_inGame;
+
+//? map
+let globalmap
+let masaru_head_map
 
 //? button
 let play_button;
@@ -595,6 +599,22 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             backgroud_dialogue_box = e;
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "masaru_head_map":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            masaru_head_map = e
+                            isLoaded();
+                        })                        
+                    break;
+                    
+                    case "globalmap":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            globalmap = e
                             isLoaded();
                         })                        
                     break;

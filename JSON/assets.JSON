@@ -266,6 +266,18 @@
         }
         ,
         {
+            "path":"assets/UI/globalmap.png",
+            "type":"ui",
+            "name": "globalmap"
+        }
+        ,
+        {
+            "path":"assets/UI/masaru_head_map.png",
+            "type":"ui",
+            "name": "masaru_head_map"
+        }
+        ,
+        {
             "path":"assets/UI/sound_button_off.png",
             "type":"ui",
             "name": "sound_button_off"

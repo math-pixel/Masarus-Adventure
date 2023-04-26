@@ -55,6 +55,9 @@ function draw(){
             case "creditMenu":
                 creditMenu();
                 break;
+            case "mapping":
+                mapEngine();
+                break;
             default:
                 throw new Error("engine error")
         }
@@ -123,6 +126,15 @@ function keyPressed() {
     }else if(keyCode === 53){
         //? touche " 5 "
         useObject(4)
+    }else if(keyCode === 77){ //? mappin " m "
+        if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu") { //! not in menu
+            if (engine !== "mapping") {
+                lastEngine = engine
+                engine = "mapping"
+            }else{
+                engine = "engine1"
+            }
+        }
     }
     
 }
