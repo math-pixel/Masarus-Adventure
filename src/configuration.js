@@ -238,6 +238,7 @@ let quest_box_2
 
 //! video outro / intro
 let vidOutro
+let vidIntro
 
 //! transition fade
 let opacityFade = 0
@@ -289,6 +290,7 @@ function loadAsset(){
     fontTypeCastBold =  loadFont('font/Typecast-Bold.ttf');
 
     vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
+    vidIntro = createVideo("assets/video/animation_intro.mp4").hide()
 }
 
 function loading(assetArray){

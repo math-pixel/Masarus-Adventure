@@ -174,7 +174,7 @@ function doActionGameplay(endAction){
         case "endGame":
 
             // draw last animation
-            setUpTransition(1, "vidsEnd")
+            setUpTransition(4, "vidsEnd")
         break;
 
     }

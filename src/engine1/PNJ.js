@@ -332,7 +332,6 @@ function setUpDialoguePnj(pnj){
     //! set up dialogue system variable
     canInteract = true
 
-    console.warn("yey")
     //! ### set up pnj masarus father
     if (pnj.name === "MASARU_S_FATHER" && !quests[10].isFinish) {
 

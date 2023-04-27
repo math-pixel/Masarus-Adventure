@@ -61,6 +61,14 @@ function draw(){
             case "vidsEnd":
                 vidsEnd();
                 break;
+            case "vidsOpening":
+                vidsOpening()
+                break;
+            case "endScreen":
+                background("#222222")
+                fill(255,255,255)
+                text("Fin", 495, 578 / 2)
+                break;
             default:
                 throw new Error("engine error")
         }

@@ -23,7 +23,7 @@ function startMenu(){
     image(credit_button, 1000 / 2 - 300 / 2, 380 + 60);
 
 
-    actionOnText([1000 / 2 - 300 / 2,220 + 60,300,60], "engine1", play_button_hover)
+    actionOnText([1000 / 2 - 300 / 2,220 + 60,300,60], "vidsOpening", play_button_hover)
     actionOnText([1000 / 2 - 300 / 2,300 + 60,300,60], "settingMenu", settings_button_hover)
     actionOnText([1000 / 2 - 300 / 2,380 + 60,300,60], "creditMenu", credit_button_hover)
 }
@@ -142,6 +142,9 @@ function actionOnText(textRect, action, hoverImage){
                     questBoxIsEmpty = !questBoxIsEmpty
                 }, 50)
                 break
+            case "vidsOpening":
+                setUpTransition(4, "vidsOpening")
+                break;
             default:
                 throw new Error("engine error")
             }
