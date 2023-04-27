@@ -19,7 +19,7 @@ function vidsOpening(){
         if (engine != "engine1") {
             setUpTransition(4, "engine1")
         }
-    }, 200)
+    }, 34000)
     // 34000
 
 }
