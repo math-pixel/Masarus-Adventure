@@ -21,7 +21,7 @@ function mapEngine(){
     let xCursor = (xGMap * wMap ) / maxXGlobal
     let yCursor = (yGMap * hMap ) / maxYGlobal
 
-    console.log(xCursor)
+    // console.log(xCursor)
 
     // fill("#000000")
     // rect(xMap +  xCursor, yCursor , 30, 30)

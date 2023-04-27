@@ -1,8 +1,3 @@
-let doingBackFlip = false;
-let intervalBackflip = 0;
-let frameRatePlayer = 0;
-
-
 function movePlayer() {
     
     //? for modulo operation

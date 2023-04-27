@@ -21,7 +21,7 @@ function setup(){
     //! quest system
     questManager()
 
-    vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
+    
     
 }
 
@@ -58,6 +58,9 @@ function draw(){
             case "mapping":
                 mapEngine();
                 break;
+            case "vidsEnd":
+                vidsEnd();
+                break;
             default:
                 throw new Error("engine error")
         }
@@ -82,6 +85,7 @@ function draw(){
     noStroke()
     fill(34,34,34, opacityFade)
     rect(0,0,1000,578)
+
 }
 
 let nbKeyIsPressed = 0
@@ -95,7 +99,7 @@ function keyPressed() {
     
     if (keyCode === 27) {//? key " escape "
 
-        if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu") {
+        if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu" && engine != "vidsEnd" && engine != "vidsOpening") {
             if (engine !== "pauseMenu") {
                 lastEngine = engine
                 engine = "pauseMenu"
@@ -146,12 +150,6 @@ function keyReleased() {
     }
 }
 
-function gameIsEnding(){
-    vidOutro.show()
-    vidOutro.play()
-}
-
-
 function transitionFaded(){
     if (transition) {
         if (transitionState == "in") {
@@ -179,5 +177,6 @@ function setUpTransition(speed, nEngine){
 
     speedTransition = speed
 }
+
 
 

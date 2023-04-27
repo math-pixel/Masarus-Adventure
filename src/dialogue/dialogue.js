@@ -25,7 +25,7 @@ function startEngineDialogue(){
     fill(0,0,0)
     textSize(35);
     textLeading(27)
-    // console.log(dialogueToDisplay)
+    console.log(dialogueToDisplay)
     if (imagePersonTalking[indexInDialogue] != "") {
         textAlign(LEFT);
         textFont(fontTypeCast);
@@ -71,6 +71,7 @@ function interact(){
         
         //* set fully text
         indexInText = textDialogue[indexInDialogue].length - 1
+        console.log(indexInText)
         
     }else if(!isFirstInteraction && !isCuttingWord && indexInDialogue < textDialogue.length - 1){
 
@@ -173,7 +174,7 @@ function doActionGameplay(endAction){
         case "endGame":
 
             // draw last animation
-            
+            setUpTransition(1, "vidsEnd")
         break;
 
     }

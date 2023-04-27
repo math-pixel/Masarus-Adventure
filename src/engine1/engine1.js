@@ -1,7 +1,12 @@
+let moduloAnimationNote = 5
 function startEngine1(){
 
     //! draw map
     drawEngine1()
+
+    if (isEndOfTheGame) {
+        gameIsEnding()
+    }
 
     //! move map and player
     if (canMove) {
@@ -9,8 +14,28 @@ function startEngine1(){
     }
 
     //! draw inventory
-    if (!displayDialogue) {
+    if (!displayDialogue && !isEndOfTheGame) {
         drawInventory(1000 / 2 - globalSideInventoryX / 2,  578 -  ( globalSideInventoryY + 10 ) , sideCarrousel)
+    }
+    
+    //! draw shamisen
+    if(displayShamisen && !isEndOfTheGame){
+        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
+    }
+
+    //! setting button
+    if (!isEndOfTheGame) {
+        image(setting_button_inGame[index_setting_button_inGame], 20,20,48,48 )
+        actionOnText([20,20 ,48,48], "pauseMenu", setting_button_inGame[2])
+    }
+
+
+    //! draw note shamisen quest 2
+    drawNote()
+
+    //! draw current quest
+    if(!displayDialogue && !isEndOfTheGame){
+        drawQuest()
     }
 
     //! draw dialogue
@@ -18,23 +43,6 @@ function startEngine1(){
         startEngineDialogue();
     }
     
-    //! draw shamisen
-    if(displayShamisen){
-        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
-    }
-
-    //! setting button
-    image(setting_button_inGame[index_setting_button_inGame], 20,20,48,48 )
-    actionOnText([20,20 ,48,48], "pauseMenu", setting_button_inGame[2])
-
-
-    //! draw note shamisen quest 2
-    drawNote()
-
-    //! draw current quest
-    if(!displayDialogue){
-        drawQuest()
-    }
 }
 
 
@@ -191,5 +199,48 @@ function drawQuest(){
         // rect(1000 - 125 , 210, 100, 30)
         text("Quête en cours", 1000 - 120 , 194, 100, 30)
 
+    }
+}
+
+let lastTalkPnj = true
+function gameIsEnding(){
+
+
+    if(frameRatePlayer % moduloAnimationNote == 0){
+
+        if (currentFrameMelodieSpriteSheet + 1 < anim_melodie_sprite_sheet.length) {
+            currentFrameMelodieSpriteSheet += 1
+            // moduloAnimationNote += 1
+        }else{
+            currentFrameMelodieSpriteSheet = 0
+
+            //! restore flower
+            Maps["tilemap_19"].layers = endingMap["tilemap_19"].layers
+            Maps["tilemap_20"].layers = endingMap["tilemap_20"].layers
+            Maps["tilemap_21"].layers = endingMap["tilemap_21"].layers
+            Maps["tilemap_34"].layers = endingMap["tilemap_34"].layers
+            Maps["tilemap_35"].layers = endingMap["tilemap_35"].layers
+            Maps["tilemap_36"].layers = endingMap["tilemap_36"].layers
+
+            // moduloAnimationNote = 5
+        }
+    }
+
+    image(anim_melodie_sprite_sheet[currentFrameMelodieSpriteSheet], 40, 0, 1000, 578)
+
+
+
+    canInteract = true
+    
+    //! set up dialogue
+    textDialogue = ["bravo Masaru", "tu nous as tous sauvé", "l'ile vas enfin mieux"]
+    endAction = ["engine1", "endGame"]
+    imagePersonTalking = [panda_head, panda_head, panda_head]
+    
+    //* display dialogue
+    if (lastTalkPnj) {
+        lastTalkPnj = false
+        displayDialogue = true
+        interact()
     }
 }

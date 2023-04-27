@@ -13,6 +13,10 @@
             "type":"mapsEngine1"
         },
         {
+            "path":"JSON/engine1/endingTilemap.json",
+            "type":"endingMap"
+        },
+        {
             "path":"JSON/engine2/pipeGameMap.json",
             "type":"mapsEngine2"
         },
@@ -27,6 +31,10 @@
         {
             "path":"assets/croche_song_sprite_sheet.png",
             "type":"songSprite"
+        },
+        {
+            "path":"assets/video/anim_melodie_sprite_sheet.png",
+            "type":"anim_melodie_sprite_sheet"
         },
         {
             "path":"assets/player/masaru-top.png",

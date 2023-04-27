@@ -74,18 +74,17 @@ function questManager(){
     }
 
     if (quests[10].isFinish == true) {
-        //TODO remove mouvement for player
+        //! remove mouvement for player
+        canMove = false
+
+        //! set orientation to bottom
+        direction = 1;
+        moduloAnimation = 3
     }
 
     if (quests[11].isFinish == true) {
-        gameIsEnding()
-        /*
-        - animation note multi color
-        - tilemap au alentour change
-  10 pnj qui start hors de la map $
-  dialogue 3 / 4 pnj qui remercie masaru
-  fondue couleur de fond vers credit de fin
-        */
+        canMove = false
+        isEndOfTheGame = true
     }
         
 

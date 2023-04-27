@@ -164,6 +164,20 @@ function cutTiles(image, tilesSize) {
     return tilesArray
 }
 
+function cutTilesSpriteSheet(image, tilesSizeX, tilesSizeY) {
+    let tilesArray = []
+    const tilesNumberWidth = image.width / tilesSizeX
+    const tilesNumberHeigth = image.height / tilesSizeY
+    for (let h = 0; h < tilesNumberHeigth; h++) {
+        for (let w = 0; w < tilesNumberWidth; w++) {
+            let newTile;
+            newTile = image.get(w * tilesSizeX, h * tilesSizeY, tilesSizeX, tilesSizeY)
+            tilesArray.push(newTile)
+        }
+    }
+    return tilesArray
+}
+
 
 function setUpBackgroundCanvas(){
     console.log(canvas.toDataURL())

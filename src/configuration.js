@@ -1,14 +1,18 @@
 let world1 
 let Maps =[]
+let endingMap = []
 let MapPipeGame;
 let quests;
 let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 67 ;
+let numberLoad = 70 ;
 
 let mouseIsRelease = false
+
+//! end game
+let isEndOfTheGame = false
 
 //! current engine
 let lastEngine = "startMenu";
@@ -91,6 +95,10 @@ let animIDLEBottom = [];
 let animIDLETop = [];
 let animIDLELeft = [];
 let animIDLERight = [];
+
+let doingBackFlip = false;
+let intervalBackflip = 0;
+let frameRatePlayer = 0;
 
 //! PNJ
 let allPnj = []
@@ -214,6 +222,10 @@ let lifeTimeNote = 0
 let xNote;
 let yNote;
 
+//? note shamien 2
+let anim_melodie_sprite_sheet;
+let currentFrameMelodieSpriteSheet = 0
+
 //? mouse
 let mouseTileset = []
 
@@ -275,6 +287,8 @@ function loadAsset(){
     fontTypeCast =  loadFont('font/Typecast.ttf');
     fontTypeCastItalic =  loadFont('font/Typecast-Italic.ttf');
     fontTypeCastBold =  loadFont('font/Typecast-Bold.ttf');
+
+    vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
 }
 
 function loading(assetArray){
@@ -289,6 +303,14 @@ function loading(assetArray){
                     isLoaded();
                 });
                 break;
+            //! ########### Ending Map
+            case "endingMap":
+                endingMap = loadJSON(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    isLoaded();
+                });
+                break;
+            break
             //! ########### Quest JSON
             case "quest" :
                 loadJSON(elm.path, (e)=>{
@@ -336,13 +358,22 @@ function loading(assetArray){
                     isLoaded();
                 });
                 break;
-            case "journal" :
+                
+            case "anim_melodie_sprite_sheet" :
                 loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
-                    journalTiles = cutTiles(e, 64);
+                    anim_melodie_sprite_sheet = cutTilesSpriteSheet(e, 1000, 578);
+                    // console.log("sprite sheet shamisen musique", anim_melodie_sprite_sheet)
                     isLoaded();
                 });
                 break;
+            case "journal" :
+            loadImage(elm.path, (e)=>{
+                numberAssetsLoading += 1 ;
+                journalTiles = cutTiles(e, 64);
+                isLoaded();
+            });
+            break;
             case "coffreEng2" :
                 loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
