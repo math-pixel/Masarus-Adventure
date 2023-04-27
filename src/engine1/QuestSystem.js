@@ -6,21 +6,39 @@ function questManager(){
         Maps["tilemap_36"].layers[layerInteraction][1][0] = 0
 
         //! display none eventail
-        Maps["tilemap_36"].layers[layerInteraction][2][0] = 0
+        Maps["tilemap_65"].layers[layerInteraction][4][6] = 0 
 
         //! display none coffre
-        Maps["tilemap_36"].layers[layerInteraction][10][7] = 0
+        Maps["tilemap_79"].layers[layerInteraction][4][9] = 0
+
+        //TODO remove
+        Maps["tilemap_79"].layers[layerInteraction][6][9] = 0
+        Maps["tilemap_79"].layers[layerCollision][6][10] = 77
+        Maps["tilemap_79"].layers[layerCollision][6][8] = 79
 
         //! display none last rope
         Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = indexTileRope
 
-        //! display landslide
-        Maps[tilemapLandslide].layers[layerInteraction][coordTheLandslide[1]][coordTheLandslide[0]] = indexLandslide
-        Maps[tilemapLandslide].layers[layerCollision][coordTheLandslide[1]][coordTheLandslide[0]] = indexLandslide
+        if (!quests[7].isFinish) {
+            
+            //! display landslide
+            Maps[tilemapLandslide].layers[layerInteraction][coordTheLandslide[1]][coordTheLandslide[0]] = indexLandslide
+            Maps[tilemapLandslide].layers[layerCollision][coordTheLandslide[1]][coordTheLandslide[0]] = indexLandslide
+    
+            //! display landslide2
+            Maps[tilemapLandslide].layers[layerInteraction][coordTheLandslide[1]+1][coordTheLandslide[0]] = indexLandslide
+            Maps[tilemapLandslide].layers[layerCollision][coordTheLandslide[1]+1][coordTheLandslide[0]] = indexLandslide
+        }
 
         //! set up rock intarctive
-        Maps[tilemapTheRock].layers[layerInteraction][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexTileRoche
-        Maps[tilemapTheRock].layers[layerCollision][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexTileRoche
+        if (!quests[8].isFinish) {
+            
+            Maps[tilemapTheRock].layers[layerInteraction][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexTileRoche
+            Maps[tilemapTheRock].layers[layerCollision][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexTileRoche
+    
+            Maps[tilemapTheRock].layers[layerInteraction][coordTheRockInteractive[1]][coordTheRockInteractive[0]+1] = indexTileRoche
+            Maps[tilemapTheRock].layers[layerCollision][coordTheRockInteractive[1]][coordTheRockInteractive[0]+1] = indexTileRoche
+        }
     }
 
 
@@ -38,7 +56,7 @@ function questManager(){
     //* find evantail and quest parchemin is ended
     if(quests[3].isFinish && !quests[4].isFinish){
         //! affichage eventaille
-        Maps["tilemap_36"].layers[layerInteraction][2][0] = indexTileeventaille
+        Maps["tilemap_65"].layers[layerInteraction][4][6] = indexTileeventaille
 
     }
     
@@ -49,7 +67,7 @@ function questManager(){
     //* afficher coffre in map 
     if(quests[5].isFinish && !quests[6].isFinish){
         //! affichage coffre
-        Maps["tilemap_36"].layers[layerInteraction][10][7] = indexTilecoffre
+        Maps["tilemap_79"].layers[layerInteraction][4][9] =  indexTilecoffre
 
 
         //! set up engine 2 to coffre

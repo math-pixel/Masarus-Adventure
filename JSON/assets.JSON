@@ -85,6 +85,42 @@
             "direction": "idletop"
         },
         {
+            "path":"assets/pnj/biche/deer_top_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idletop"
+        },
+        {
+            "path":"assets/pnj/biche/deer_right_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idleright"
+        },
+        {
+            "path":"assets/pnj/biche/deer_left_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idleleft"
+        },
+        {
+            "path":"assets/pnj/biche/deer_bottom_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idlebottom"
+        },
+        {
+            "path":"assets/pnj/biche/deer_right.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "right"
+        },
+        {
+            "path":"assets/pnj/biche/deer_left.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "left"
+        },
+        {
             "path":"assets/pnj/pnj1/panda_top_idle.png",
             "type":"entity",
             "name": "pnj1",
@@ -294,6 +330,16 @@
             "path":"assets/head/masaru_head.png",
             "type":"ui",
             "name": "masaru_head"
+        },
+        {
+            "path":"assets/head/head_deer.png",
+            "type":"ui",
+            "name": "head_deer"
+        },
+        {
+            "path":"assets/head/head_leopard.png",
+            "type":"ui",
+            "name": "head_leopard"
         },
         {
             "path":"assets/head/masaru_dad.png",

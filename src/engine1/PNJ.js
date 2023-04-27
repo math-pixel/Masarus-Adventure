@@ -30,47 +30,47 @@ function createPNJ(){
 
             case "PNJ_QUEST_2":
                 currentPnj.width = sideCarrousel
-                currentPnj.skin = leopardTileSet
+                currentPnj.skin = deerTileSet
                 currentPnj.headDialogue = [
-                    [panda_head , panda_head], 
+                    [head_deer , head_deer], 
                     [
-                        panda_head, 
-                        panda_head, 
-                        panda_head,
+                        head_deer, 
+                        head_deer, 
+                        head_deer,
                         masaru_head, 
-                        panda_head, 
-                        panda_head, 
-                        panda_head,
-                        panda_head,
-                        panda_head,
-                        panda_head
+                        head_deer, 
+                        head_deer, 
+                        head_deer,
+                        head_deer,
+                        head_deer,
+                        head_deer
                     ],
                     [
-                        panda_head,
-                        panda_head,
-                        panda_head,
-                        panda_head,
-                        panda_head,
+                        head_deer,
+                        head_deer,
+                        head_deer,
+                        head_deer,
+                        head_deer,
                         masaru_head,
                         masaru_head,
-                        panda_head
+                        head_deer
                     ]
                 ]
-                currentPnj.headAlreadyTalk = [[panda_head],[panda_head]]
+                currentPnj.headAlreadyTalk = [[head_deer],[head_deer]]
                 break;
 
             case "PNJ_QUEST_Mountain":
                 currentPnj.width = sideCarrousel
-                currentPnj.skin = pandaTileSet
+                currentPnj.skin = leopardTileSet
                 currentPnj.headDialogue = [
-                    [panda_head , 
-                    panda_head,
+                    [head_leopard , 
+                    head_leopard,
                     masaru_head,
-                    panda_head,
-                    panda_head,
-                    panda_head,
-                    panda_head,
-                    panda_head,
+                    head_leopard,
+                    head_leopard,
+                    head_leopard,
+                    head_leopard,
+                    head_leopard,
                     masaru_head,
                     masaru_head
                 ]

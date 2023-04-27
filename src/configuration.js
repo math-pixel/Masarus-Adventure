@@ -7,7 +7,7 @@ let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 70 ;
+let numberLoad = 78 ;
 
 let mouseIsRelease = false
 
@@ -46,17 +46,17 @@ let theCurrentQuestIsEnded = false;
 
 //? the interactive rock
 let playerNearToTheRock = false
-let tilemapTheRock = "tilemap_36"
-let coordTheRockInteractive = [1, 9]
+let tilemapTheRock = "tilemap_57"
+let coordTheRockInteractive = [3, 3]
 
 //? last rope
-let tilemapRope = "tilemap_36"
-let coordLastRope = [3, 9]
+let tilemapRope = "tilemap_27"
+let coordLastRope = [5,5]
 
 //? Landslide
 let playerNearToLandslide = false
-let tilemapLandslide = "tilemap_36"
-let coordTheLandslide = [2, 9]
+let tilemapLandslide = "tilemap_57"
+let coordTheLandslide = [7, 4]
 
 //! layer info
 let layerCollision = 3;
@@ -111,6 +111,14 @@ let pandaAnimRight = [];
 let pandaAnimLeft = [];
 let pandaAnimIdleRight = [];
 let pandaAnimIdleLeft = [];
+
+let deerTileSet = [];
+let deerAnimIdleTop = [];
+let deerAnimIdleBottom = [];
+let deerAnimRight = [];
+let deerAnimLeft = [];
+let deerAnimIdleRight = [];
+let deerAnimIdleLeft = [];
 
 let leopardTileSet = []
 let leopard_bottom_idle = []
@@ -251,6 +259,8 @@ let speedTransition = 1;
 let masaru_head; 
 let masaruFather_head
 let panda_head;
+let head_deer;
+let head_leopard
 
 //! dialogue
 let backgroud_dialogue_box
@@ -516,6 +526,56 @@ function loading(assetArray){
                         }
                         break;
 
+                    case "biche" :
+                        switch(elm.direction){
+                            
+                            case "idletop":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleTop = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idlebottom":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleBottom = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "left":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimLeft = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "right":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimRight = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleleft":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleLeft = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleright":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleRight = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            default:
+                                throw new Error("name aniùation in Json file doesnt correspond")
+                        }
+                        break;
+
                     case "leopard" :
                         switch(elm.direction){
                             
@@ -640,6 +700,22 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             masaru_head_map = e
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "head_deer":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            head_deer = e
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "head_leopard":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            head_leopard = e
                             isLoaded();
                         })                        
                     break;
@@ -891,6 +967,7 @@ function isLoaded(){
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
         pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle,MasaruFatherAnimTopIdle]
         leopardTileSet = [leopard_right_idle,leopard_right, leopard_left_idle, leopard_left,leopard_bottom_idle,leopard_top_idle]
+        deerTileSet = [deerAnimIdleRight,deerAnimRight,deerAnimIdleLeft,deerAnimLeft,deerAnimIdleBottom,deerAnimIdleTop];
 
         //! set up tileset shamisen
         spriteSheetShamisen = [allTiles[0],shamisen_1,shamisen_2,shamisen_3,shamisen_4]

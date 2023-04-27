@@ -52,8 +52,8 @@
     {
       "id": 2,
       "name": "PNJ_QUEST_1",
-      "xStart": 3430,
-      "yStart": 1520,
+      "xStart": 5300,
+      "yStart": 1200,
       "displayAtQuest": 0,
       "distanceToTravel": 230,
       "direction": "right",
@@ -94,11 +94,11 @@
     {
       "id": 3,
       "name": "PNJ_QUEST_2",
-      "xStart": 3430,
-      "yStart": 1800,
+      "xStart": 3800,
+      "yStart": 2600,
       "displayAtQuest": 0,
-      "distanceToTravel": 230,
-      "direction": "right",
+      "distanceToTravel": 0,
+      "direction": "bottom",
       "width": "",
       "actualDistance": 0,
       "speed": 1,
@@ -151,8 +151,8 @@
     {
       "id": 4,
       "name": "PNJ_QUEST_Mountain",
-      "xStart": 3430,
-      "yStart": 1850,
+      "xStart": 9240,
+      "yStart": 2610,
       "displayAtQuest": 0,
       "distanceToTravel": 0,
       "direction": "bottom",
@@ -187,6 +187,8 @@
       "headDialogue": [],
       "headAlreadyTalk": []
     },
+
+
     {
       "id": 5,
       "name": "PNJ_QUEST_Mountain",

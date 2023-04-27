@@ -5,9 +5,9 @@ function vidsEnd(){
 
     setTimeout(() => {
         if (engine != "endScreen") {
-            setUpTransition(38000, "endScreen")
+            setUpTransition(4, "endScreen")
         }
-    }, 2000)
+    }, 38000)
 }
 
 function vidsOpening(){
@@ -17,8 +17,9 @@ function vidsOpening(){
 
     setTimeout(() => {
         if (engine != "engine1") {
-            setUpTransition(34000, "engine1")
+            setUpTransition(4, "engine1")
         }
-    }, 2000)
+    }, 200)
+    // 34000
 
 }
