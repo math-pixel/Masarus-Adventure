@@ -281,7 +281,7 @@ let indexLandslide = 704
 let indexTilecoffre = 29
 let indexTileRoche = 94
 let indexRubbleRockTile = 17
-let indexTileRope = 12
+let indexTileRope = 165
 
 
 //* drawable Image background

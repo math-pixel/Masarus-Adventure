@@ -105,7 +105,7 @@ function drawinteraction(x,y,w,h, array){
 
                     //? tile eboulement
                     //? tile Rock
-                    if (array[column][row] == indexTileRoche) {
+                    if (array[column][row] == indexLandslide) {
                         playerNearToLandslide = true
                     }else{
                         playerNearToLandslide = false

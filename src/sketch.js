@@ -117,7 +117,7 @@ function keyPressed() {
         }
     }else if(keyCode === 65){
         //! give shamisen
-        addToInventory({"name": "shamisen", "image": allTiles[6]})
+        // addToInventory({"name": "shamisen", "image": allTiles[24]})
     }else if (keyCode === 69 && canInteract) { //? key " e "
         displayDialogue = true
         interact()
