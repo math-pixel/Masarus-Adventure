@@ -73,21 +73,27 @@ function drawEngine1(){
                 }
 
                 //! draw pnj and player
-                if ( loopLayer == playerLayer && index == ArrayWorldDisplay.length - 1) {
-                    if (PNJinFrontOfPlayer) {
-                        drawPlayer()
-                        pnjManager()
-                    }else{
-                        pnjManager()
-                        drawPlayer()
+
+                if (index == ArrayWorldDisplay.length - 1) {//? to draw one time entity
+
+                    //? for player be draw in front or behind collision
+                    if ( loopLayer == playerLayer ) {
+                        if (PNJinFrontOfPlayer) {
+                            drawPlayer()
+                            pnjManager()
+                        }else{
+                            pnjManager()
+                            drawPlayer()
+                        }
                     }
 
-                }
-
-                if (loopLayer === 3) {
-                    // pnjManager()
+                    //? draw pnj if player is not on layer collision
+                    if (loopLayer == layerCollision && playerLayer != layerCollision) {
+                        pnjManager()
+                    }
                 }
                 
+
             }
 
             //! draw collision

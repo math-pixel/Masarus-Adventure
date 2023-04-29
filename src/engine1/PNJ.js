@@ -232,6 +232,9 @@ function pnjManager(){
             if(rectIsInRect([xPlayer,yPlayer, sideCarrousel, sideCarrousel], newPnjRect)){
 
 
+                //? set up layer player for layer bug fix
+                playerLayer = layerCollision
+
                 //? draw exclamation point if not in dialogue
                 if (!displayDialogue) {
 

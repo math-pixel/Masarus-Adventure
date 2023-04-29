@@ -124,19 +124,19 @@ function keyPressed() {
     }else if(keyCode === 69){
         keyInteractionIsPressed = true;
     }else if(keyCode === 49){
-        //? touche " 1 "
+        //? touche " & "
         useObject(0)
     }else if(keyCode === 50){
-        //? touche " 2 "
+        //? touche " é "
         useObject(1)
     }else if(keyCode === 51){
-        //? touche " 3 "
+        //? touche " # "
         useObject(2)
     }else if(keyCode === 52){
-        //? touche " 4 "
+        //? touche " ' "
         useObject(3)
     }else if(keyCode === 53){
-        //? touche " 5 "
+        //? touche " ( "
         useObject(4)
     }else if(keyCode === 77){ //? mappin " m "
         if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu") { //! not in menu
@@ -147,6 +147,9 @@ function keyPressed() {
                 engine = "engine1"
             }
         }
+    }else if(keyCode === 97){
+        //? touche " 1 "
+        engine = "engine1"
     }
     
 }
