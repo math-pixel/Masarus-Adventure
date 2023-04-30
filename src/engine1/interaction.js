@@ -89,6 +89,9 @@ function drawinteraction(x,y,w,h, array){
 
                 let newRectInteraction = createNewRect(x+w*row,y+h*column,w,h,2);
 
+                image(scintillement[currentFrameScintillement], x+w*row - 10 , y+h*column - 10, sideCarrousel + 20 ,sideCarrousel + 20)
+                addFrameScintillement()
+
                 //! test if it's in collision with player
                 if (rectIsInRect([xPlayer, yPlayer, sideCarrousel, sideCarrousel], newRectInteraction)) {
 
@@ -123,6 +126,20 @@ function drawinteraction(x,y,w,h, array){
                     rect(newRectInteraction[0],newRectInteraction[1],newRectInteraction[2],newRectInteraction[3]);          
                 }
             }
+        }
+    }
+}
+
+function addFrameScintillement(){
+    if (frameRatePlayer % 10 === 0) {
+
+        if (currentFrameScintillement >= scintillement.length - 1) {
+            
+            currentFrameScintillement = 0;
+
+
+        }else{
+            currentFrameScintillement += 1;
         }
     }
 }

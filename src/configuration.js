@@ -7,7 +7,7 @@ let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 78 ;
+let numberLoad = 80 ;
 
 let mouseIsRelease = false
 
@@ -95,6 +95,7 @@ let animIDLEBottom = [];
 let animIDLETop = [];
 let animIDLELeft = [];
 let animIDLERight = [];
+let animBackflip = [];
 
 let doingBackFlip = false;
 let intervalBackflip = 0;
@@ -193,6 +194,9 @@ let logo;
 
 let index_setting_button_inGame = 0
 let setting_button_inGame;
+
+let scintillement = []
+let currentFrameScintillement = 0
 
 //? map
 let globalmap
@@ -370,7 +374,14 @@ function loading(assetArray){
                     isLoaded();
                 });
                 break;
-                
+            case "scintillement":
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    scintillement = cutTiles(e, 32);
+                    // console.log("exclam",exclamationPoint)
+                    isLoaded();
+                });
+                break;
             case "anim_melodie_sprite_sheet" :
                 loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
@@ -467,6 +478,13 @@ function loading(assetArray){
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
                                     animIDLERight = cutTiles(e, 64);
+                                    isLoaded();
+                                })
+                                break;
+                            case "BACKFLOP":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animBackflip = cutTiles(e, 70);
                                     isLoaded();
                                 })
                                 break;
@@ -960,7 +978,7 @@ function isLoaded(){
     if (numberAssetsLoading === numberLoad) {
 
         //! set up tileset player
-        playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight, MasaruFatherAnimRightIdle ];
+        playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight, animBackflip ];
 
         //! set up tileset PNJ
         pandaTileSet = [pandaAnimIdleRight,pandaAnimRight,pandaAnimIdleLeft,pandaAnimLeft,pandaAnimIdleBottom,pandaAnimIdleTop];

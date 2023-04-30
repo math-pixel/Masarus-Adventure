@@ -85,6 +85,12 @@
             "direction": "idletop"
         },
         {
+            "path":"assets/player/backflip_masaru_right.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "BACKFLOP"
+        },
+        {
             "path":"assets/pnj/biche/deer_top_idle.png",
             "type":"entity",
             "name": "biche",
@@ -255,6 +261,10 @@
         {
             "path":"assets/tileset_Exclamation.png",
             "type":"exclamation"
+        },
+        {
+            "path":"assets/scintillement.png",
+            "type":"scintillement"
         },
         {
             "path":"assets/journalAsset.png",
