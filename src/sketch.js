@@ -94,6 +94,10 @@ function draw(){
     fill(34,34,34, opacityFade)
     rect(0,0,1000,578)
 
+    // let mask = image(vidShamisenAlpha, 0,0 ,100,578)
+    // vidShamisen.mask(pg)
+    // tint(255, 125);
+    // image(vidShamisen, 0,0 ,1000,578)
 }
 
 let nbKeyIsPressed = 0
@@ -150,6 +154,7 @@ function keyPressed() {
     }else if(keyCode === 97){
         //? touche " 1 "
         engine = "engine1"
+        // vidShamisen.play()
     }
     
 }

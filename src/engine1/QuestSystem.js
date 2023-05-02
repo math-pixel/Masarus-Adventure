@@ -85,10 +85,17 @@ function questManager(){
         Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = indexTileRope
     }
 
-    if (quests[9].isFinish == true) {
+    if (quests[9].isFinish == true && !quests[10].isFinish) {
 
         allPnj[0].alreadyTalk= false
 
+        canMove = false
+        vidShamisen.show()
+        vidShamisen.play()
+        setTimeout(() => {
+            vidShamisen.hide()
+            canMove = true 
+        }, 8000 )
     }
 
     if (quests[10].isFinish == true) {

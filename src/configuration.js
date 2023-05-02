@@ -305,6 +305,8 @@ function loadAsset(){
 
     vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
     vidIntro = createVideo("assets/video/animation_intro.mp4").hide()
+
+    vidShamisen = createVideo("assets/video/test-shamisen-transparent.mp4").hide()
 }
 
 function loading(assetArray){

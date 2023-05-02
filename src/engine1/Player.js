@@ -58,7 +58,7 @@ function movePlayer() {
             }
 
             //! set backflip animation easter egg
-            if (intervalBackflip > 10000 && direction == 7 && !displayDialogue) {
+            if (intervalBackflip > 2000 && direction == 7 && !displayDialogue) {
                 direction = 8
                 currentFramePlayer = 0
                 doingBackFlip = true

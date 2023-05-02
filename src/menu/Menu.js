@@ -80,13 +80,12 @@ function creditMenu(){
     //! draw background
     image(background_ui,0,0,1000,578)
 
-    //! draw instruction image
-    text("credit", 1000 / 2 - 294 / 2 , (578 / 2) - (365 / 2) , 294 , 365)
-
-
     //! draw reutrn button
     image(backToMenu_main, 20,20 , 160,40)
-
+    
+    //! draw instruction image
+    text("credit", 1000 / 2 - 294 / 2 , (578 / 2) - (365 / 2) , 294 , 365)
+    
     actionOnText([20,20 ,160,40], "startMenu", backToMenu_hover)
 }
 
@@ -118,19 +117,19 @@ function actionOnText(textRect, action, hoverImage){
                 break;
             case "startMenu":
                 // engine = "startMenu"
-                setUpTransition(4, "startMenu")
+                setUpTransition(15, "startMenu")
                 break;
             case "pauseMenu":
                 // engine = "pauseMenu"
-                setUpTransition(4, "pauseMenu")
+                setUpTransition(15, "pauseMenu")
                 break;
             case "settingMenu":
                 // engine = "settingMenu"
-                setUpTransition(4, "pauseMenu")
+                setUpTransition(15, "settingMenu")
                 break;
             case "creditMenu":
                 // engine = "creditMenu"
-                setUpTransition(4, "pauseMenu")
+                setUpTransition(15, "creditMenu")
                 break;
             case "changeAudio":
                 setTimeout((e)=>{
