@@ -283,6 +283,11 @@
             "type":"coffreEng2"
         },
         {
+            "path":"assets/UI/credit_text.png",
+            "type":"ui",
+            "name": "credit_text"
+        },
+        {
             "path":"assets/UI/e_instruction.png",
             "type":"ui",
             "name": "e_instruction"

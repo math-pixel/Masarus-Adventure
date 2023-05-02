@@ -106,10 +106,9 @@ function creditMenu(){
 
     //! draw reutrn button
     image(backToMenu_main, 20,20)
-    
-    //! draw instruction image
-    fill("#000000");
-    text("credit", 1000 / 2 - 294 / 2 , (578 / 2) - (365 / 2) , 294 , 365)
+
+    //! draw text
+    image(credit_text, 0,0, 1000,578)
     
     actionOnText([20,20 ,100,18], "startMenu", backToMenu_hover)
 }
