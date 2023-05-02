@@ -239,7 +239,7 @@ function gameIsEnding(){
     canInteract = true
     
     //! set up dialogue
-    textDialogue = ["bravo Masaru", "tu nous as tous sauvé", "l'ile vas enfin mieux"]
+    textDialogue = ["Bravo Masaru", "Tu nous as tous sauvés", "L'île va enfin mieux."]
     endAction = ["engine1", "endGame"]
     imagePersonTalking = [panda_head, panda_head, panda_head]
     

@@ -34,7 +34,7 @@
           "Ça y est père j’ai obtenu toutes les cordes du shamisen !",
           "Je suis fière de toi mon fils.",
           "L’île va pouvoir retrouver sa joie d’antan désormais.",
-          "Et si tu essayais d’en jouer"
+          "Et si tu essayais d’en jouer ?"
         ]
       
       ],
@@ -166,14 +166,14 @@
       "skin": [],
       "currentFrameInteraction": 0,
       "alreadyTalk": false,
-      "dialogueAlreadyTalk": ["Merci de m'avoir sauvé Masaru, jespere que tu arriveras a sauver l'ile"],
+      "dialogueAlreadyTalk": ["Merci de m'avoir sauvé Masaru, j'espère que tu arriveras à sauver l'île."],
       "dialogue": [
         [" Masaru c’est toi !",
         "Merci infiniment de m’avoir sauvé !",
         "Je n’y croyais plus",
-        "Mais que t’es t’il arrivé ?",
+        "Mais que t’es-t’il arrivé ?",
         "J’ai entendu dire qu’il y avait un trésor en haut de la montagne mais le chemin était bloqué.",
-        "Mais comme tu as réussi à faire disparaître l’éboulement, tu seras sûrement capable d’y aller.",
+        "Comme tu as réussi à faire disparaître l’éboulement, tu seras sûrement capable d’y aller.",
         "Bon courage Masaru !"
         ]
       ],
@@ -191,7 +191,7 @@
 
     {
       "id": 5,
-      "name": "PNJ_QUEST_Mountain",
+      "name": "PNJ_QUEST_END_1",
       "xStart": 4000,
       "yStart": 1220,
       "displayAtQuest": 11,
@@ -217,7 +217,7 @@
     },
     {
       "id": 6,
-      "name": "PNJ_QUEST_Mountain",
+      "name": "PNJ_QUEST_END_1",
       "xStart": 4100,
       "yStart": 1320,
       "displayAtQuest": 11,
@@ -243,7 +243,7 @@
     },
     {
       "id": 7,
-      "name": "PNJ_QUEST_Mountain",
+      "name": "PNJ_QUEST_END_2",
       "xStart": 3960,
       "yStart": 1360,
       "displayAtQuest": 11,
@@ -269,7 +269,7 @@
     },
     {
       "id": 8,
-      "name": "PNJ_QUEST_Mountain",
+      "name": "PNJ_QUEST_END_2",
       "xStart": 3950,
       "yStart": 1260,
       "displayAtQuest": 11,
