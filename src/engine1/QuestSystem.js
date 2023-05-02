@@ -133,7 +133,7 @@ function dialogueQuest7(){
         ];
         endAction = ["engine1", "displayQuest7"];
         imagePersonTalking = [
-            playerTileSet[1][0],
+            head_leopard,
             panda_head,
             masaru_head
         ]

@@ -76,6 +76,16 @@ function createPNJ(){
                 ]
                 ]
                 break;
+            case "PNJ_QUEST_END_1":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = leopardTileSet
+                currentPnj.headDialogue = []
+                break
+            case "PNJ_QUEST_END_2":
+                currentPnj.width = sideCarrousel
+                currentPnj.skin = pandaTileSet
+                currentPnj.headDialogue = []
+                break
         }
     })
 
