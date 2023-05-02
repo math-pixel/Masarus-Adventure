@@ -20,7 +20,7 @@ function startEngine1(){
     
     //! draw shamisen
     if(displayShamisen && !isEndOfTheGame){
-        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
+        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 20, 20, 130, 153)
     }
 
     //! setting button
@@ -160,7 +160,7 @@ function drawQuest(){
     //! display empty box
     if(!displayShamisen){
         // bacground
-        image(quest_box_2, 1000 - 130 - 10 , 10, 130, 117)
+        image(quest_box_2, 1000 - 130 - 20 , 20, 130, 117)
 
         // current quest
         fill("#4c2512");
@@ -169,7 +169,7 @@ function drawQuest(){
         textSize(20);
         textLeading(15);
         // rect(1000 - 125 , 220 , 100 , 100)
-        text(currentQuestDisplay, 1000 - 122 , 57 , 100 , 100)
+        text(currentQuestDisplay, 1000 - 132 , 67 , 100 , 100)
 
 
         // " quete en cour "
@@ -179,12 +179,12 @@ function drawQuest(){
         textAlign(CENTER);
         textFont(fontTypeCastBold);
         // rect(1000 - 125 , 210, 100, 30)
-        text("Quête en cours", 1000 - 120 , 21, 100, 30)
+        text("Quête en cours", 1000 - 130 , 30, 100, 30)
     }else{
 
 
         // bacground
-        image(quest_box_2, 1000 - 130 - 10 , 183, 130, 117)
+        image(quest_box_2, 1000 - 130 - 20 , 183, 130, 117)
 
         // current quest
         fill("#4c2512");
@@ -193,7 +193,7 @@ function drawQuest(){
         textSize(20);
         textLeading(15);
         // rect(1000 - 125 , 220 , 100 , 100)
-        text(currentQuestDisplay, 1000 - 122 , 230 , 100 , 100)
+        text(currentQuestDisplay, 1000 - 132 , 230 , 100 , 100)
 
 
         // " quete en cour "
@@ -203,7 +203,7 @@ function drawQuest(){
         textAlign(CENTER);
         textFont(fontTypeCastBold);
         // rect(1000 - 125 , 210, 100, 30)
-        text("Quête en cours", 1000 - 120 , 194, 100, 30)
+        text("Quête en cours", 1000 - 130 , 194, 100, 30)
 
     }
 }

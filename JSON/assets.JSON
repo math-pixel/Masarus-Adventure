@@ -283,6 +283,11 @@
             "type":"coffreEng2"
         },
         {
+            "path":"assets/UI/e_instruction.png",
+            "type":"ui",
+            "name": "e_instruction"
+        },
+        {
             "path":"assets/UI/background_dialogue_box.png",
             "type":"ui",
             "name": "backgroud_dialogue_box"

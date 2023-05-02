@@ -7,7 +7,7 @@ let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 80 ;
+let numberLoad = 81 ;
 
 let mouseIsRelease = false
 
@@ -198,6 +198,9 @@ let setting_button_inGame;
 let scintillement = []
 let currentFrameScintillement = 0
 
+let e_instruction = []
+let currentFrameEinstruction = 0
+
 //? map
 let globalmap
 let masaru_head_map
@@ -307,6 +310,10 @@ function loadAsset(){
     vidIntro = createVideo("assets/video/animation_intro.mp4").hide()
 
     vidShamisen = createVideo("assets/video/test-shamisen-transparent.mp4").hide()
+
+    vidBackgroundUi = createVideo("assets/video/Background_UI.mp4").hide()
+    vidBackgroundUi.loop()
+
 }
 
 function loading(assetArray){
@@ -752,6 +759,14 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             setting_button_inGame = cutTiles(e, 32);
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "e_instruction":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            e_instruction = cutTiles(e, 64);
                             isLoaded();
                         })                        
                     break;

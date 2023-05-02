@@ -30,6 +30,7 @@ function draw(){
     // condition moteur de jeux
     // console.log(canInteract, textDialogue, endAction )
     // console.log("a", textDialogue, endAction, imagePersonTalking)
+    cursor("auto")
     
     noSmooth()
     //! select engine
