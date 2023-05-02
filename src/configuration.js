@@ -16,7 +16,7 @@ let isEndOfTheGame = false
 
 //! current engine
 let lastEngine = "startMenu";
-let engine = "startMenu";
+let engine = "clickStart";
 let displayDialogue = false;
 
 //! map engine 1

@@ -82,6 +82,20 @@ function settingMenu(){
     // actionOnText([950,20 ,32,32], "changeAudio", "")
 }
 
+function clickStart(){
+    fill("#222222")
+    rect(0,0,1000,578)
+
+    fill("#000")
+    text("click !", 455, 300)
+
+    if(mouseIsPressed === true){
+        setTimeout(() => {
+            setUpTransition(25, "startMenu")
+        }, 150)
+    }
+}
+
 
 function creditMenu(){
     

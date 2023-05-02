@@ -70,6 +70,9 @@ function draw(){
                 fill(255,255,255)
                 text("Fin", 495, 578 / 2)
                 break;
+            case "clickStart":
+                clickStart()
+                break;
             default:
                 throw new Error("engine error")
         }
