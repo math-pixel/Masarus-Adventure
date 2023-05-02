@@ -50,7 +50,10 @@ function movePlayer() {
     }else{
 
         if (!doingBackFlip) {
-            canMove = true
+
+            if (!displayDialogue) {
+                canMove = true
+            }
 
             //! set idle animation 
             if ( direction + 4 < 8 ) {
