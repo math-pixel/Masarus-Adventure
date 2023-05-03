@@ -92,6 +92,7 @@ function clickStart(){
     if(mouseIsPressed === true){
         setTimeout(() => {
             setUpTransition(25, "startMenu")
+            vidBackgroundUi.loop()
         }, 150)
     }
 }

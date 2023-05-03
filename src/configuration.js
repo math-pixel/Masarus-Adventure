@@ -314,7 +314,6 @@ function loadAsset(){
     vidShamisen = createVideo("assets/video/test-shamisen-transparent.mp4").hide()
 
     vidBackgroundUi = createVideo("assets/video/Background_UI.mp4").hide()
-    vidBackgroundUi.loop()
 
 }
 
