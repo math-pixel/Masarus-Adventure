@@ -17,7 +17,7 @@ function vidsOpening(){
 
     setTimeout(() => {
         if (engine != "engine1") {
-            setUpTransition(4, "engine1")
+            setUpTransition(10, "engine1")
         }
     }, 34000)
     // 34000

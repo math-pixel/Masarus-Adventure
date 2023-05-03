@@ -141,7 +141,7 @@ function winEngine2(){
         //* quest finish
         quests[1].isFinish = true
         questManager()
-
+        engine = "engine1";
     }
 
     //! si quete 6 pas fini donc coffre
