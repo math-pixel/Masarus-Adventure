@@ -138,13 +138,10 @@ function isWin(array){
 function winEngine2(){
     //! si quete 1 pas fini
     if (!quests[1].isFinish) {
-
-        engine = "engine1";
-
         //* quest finish
         quests[1].isFinish = true
         questManager()
-
+        engine = "engine1";
     }
 
     //! si quete 6 pas fini donc coffre

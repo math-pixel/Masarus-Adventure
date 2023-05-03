@@ -13,6 +13,10 @@
             "type":"mapsEngine1"
         },
         {
+            "path":"JSON/engine1/endingTilemap.json",
+            "type":"endingMap"
+        },
+        {
             "path":"JSON/engine2/pipeGameMap.json",
             "type":"mapsEngine2"
         },
@@ -27,6 +31,10 @@
         {
             "path":"assets/croche_song_sprite_sheet.png",
             "type":"songSprite"
+        },
+        {
+            "path":"assets/video/anim_melodie_sprite_sheet.png",
+            "type":"anim_melodie_sprite_sheet"
         },
         {
             "path":"assets/player/masaru-top.png",
@@ -75,6 +83,48 @@
             "type":"entity",
             "name": "player",
             "direction": "idletop"
+        },
+        {
+            "path":"assets/player/backflip_masaru_right.png",
+            "type":"entity",
+            "name": "player",
+            "direction": "BACKFLOP"
+        },
+        {
+            "path":"assets/pnj/biche/deer_top_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idletop"
+        },
+        {
+            "path":"assets/pnj/biche/deer_right_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idleright"
+        },
+        {
+            "path":"assets/pnj/biche/deer_left_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idleleft"
+        },
+        {
+            "path":"assets/pnj/biche/deer_bottom_idle.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "idlebottom"
+        },
+        {
+            "path":"assets/pnj/biche/deer_right.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "right"
+        },
+        {
+            "path":"assets/pnj/biche/deer_left.png",
+            "type":"entity",
+            "name": "biche",
+            "direction": "left"
         },
         {
             "path":"assets/pnj/pnj1/panda_top_idle.png",
@@ -213,6 +263,10 @@
             "type":"exclamation"
         },
         {
+            "path":"assets/scintillement.png",
+            "type":"scintillement"
+        },
+        {
             "path":"assets/journalAsset.png",
             "type":"journal"
         },
@@ -227,6 +281,11 @@
         {
             "path":"assets/coffre_eng2.png",
             "type":"coffreEng2"
+        },
+        {
+            "path":"assets/UI/e_instruction.png",
+            "type":"ui",
+            "name": "e_instruction"
         },
         {
             "path":"assets/UI/background_dialogue_box.png",
@@ -266,6 +325,18 @@
         }
         ,
         {
+            "path":"assets/UI/globalmap.png",
+            "type":"ui",
+            "name": "globalmap"
+        }
+        ,
+        {
+            "path":"assets/UI/masaru_head_map.png",
+            "type":"ui",
+            "name": "masaru_head_map"
+        }
+        ,
+        {
             "path":"assets/UI/sound_button_off.png",
             "type":"ui",
             "name": "sound_button_off"
@@ -274,6 +345,16 @@
             "path":"assets/head/masaru_head.png",
             "type":"ui",
             "name": "masaru_head"
+        },
+        {
+            "path":"assets/head/head_deer.png",
+            "type":"ui",
+            "name": "head_deer"
+        },
+        {
+            "path":"assets/head/head_leopard.png",
+            "type":"ui",
+            "name": "head_leopard"
         },
         {
             "path":"assets/head/masaru_dad.png",
@@ -344,6 +425,11 @@
             "path":"assets/UI/credit_button_hover.png",
             "type":"ui",
             "name": "credit_button_hover"
+        },
+        {
+            "path":"assets/UI/credit_text.png",
+            "type":"ui",
+            "name": "credit_text"
         },
         {
             "path":"assets/UI/shamisen_box_1.png",

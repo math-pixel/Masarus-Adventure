@@ -1,14 +1,12 @@
-let doingBackFlip = false;
-let intervalBackflip = 0;
-let frameRatePlayer = 0;
-
-
 function movePlayer() {
     
     //? for modulo operation
     frameRatePlayer += 1;
 
-    if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {//? q
+    if ((keyIsDown(LEFT_ARROW) || keyIsDown(81)) && canMove) {//? q
+
+        playerNearToLandslide = false
+        playerNearToTheRock = false
 
         if (canMove) {
             //? reset easter egg time ( frame )
@@ -24,7 +22,10 @@ function movePlayer() {
             addFrame(direction)
         }
 
-    }else if (keyIsDown(RIGHT_ARROW)|| keyIsDown(68)) {//? d
+    }else if ((keyIsDown(RIGHT_ARROW)|| keyIsDown(68)) && canMove) {//? d
+
+        playerNearToLandslide = false
+        playerNearToTheRock = false
 
         if (canMove) {
             intervalBackflip = 0
@@ -33,7 +34,10 @@ function movePlayer() {
             addFrame(direction)
         }
 
-    }else if (keyIsDown(UP_ARROW) || keyIsDown(90)) {//? z
+    }else if ((keyIsDown(UP_ARROW) || keyIsDown(90)) && canMove) {//? z
+
+        playerNearToLandslide = false
+        playerNearToTheRock = false
 
         if (canMove) {
             intervalBackflip = 0
@@ -43,8 +47,11 @@ function movePlayer() {
             // console.log("yey")
         }
         
-    }else if (keyIsDown(DOWN_ARROW)|| keyIsDown(83)) {//? s
+    }else if ((keyIsDown(DOWN_ARROW) || keyIsDown(83)) && canMove) {//? s
 
+        playerNearToLandslide = false
+        playerNearToTheRock = false
+        
         if (canMove) {
             intervalBackflip = 0
             direction = 1;
@@ -53,10 +60,12 @@ function movePlayer() {
         }
 
     }else{
-        // IDLE animation in all direction
 
-        
         if (!doingBackFlip) {
+
+            if (!displayDialogue) {
+                canMove = true
+            }
 
             //! set idle animation 
             if ( direction + 4 < 8 ) {
@@ -64,10 +73,13 @@ function movePlayer() {
             }
 
             //! set backflip animation easter egg
-            if (intervalBackflip > 1000) {
+            if (intervalBackflip > 2000 && direction == 7 && !displayDialogue) {
                 direction = 8
+                currentFramePlayer = 0
                 doingBackFlip = true
             }
+        }else{
+            canMove = false
         }
 
         intervalBackflip += 1
@@ -95,6 +107,36 @@ function addFrame(dir){
 
         }else{
             currentFramePlayer += 1;
+
+            //? change height for backflip
+            if (doingBackFlip) {
+                // console.warn(currentFramePlayer)
+                switch (currentFramePlayer){
+                    case 3:
+                        yPlayer -= 8
+                    break;
+
+                    case 4:
+                        yPlayer -= 10
+                    break;
+
+                    case 5:
+                        yPlayer -= 15
+                    break;
+
+                    case 7:
+                        yPlayer += 15
+                    break;
+
+                    case 8:
+                        yPlayer += 10
+                    break;
+
+                    case 9:
+                        yPlayer += 8
+                    break;
+                }
+            }
         }
         
         

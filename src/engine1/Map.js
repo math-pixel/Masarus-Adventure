@@ -1,12 +1,17 @@
 let currentDrawingImage;
 
+let a = false
 // function to draw map
 function drawingGrid(x,y,w,h,array){
     noStroke();
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
+
             
-            image(allTiles[array[column][row]],x+w*row,y+h*column,w,h);
+            if (array[column][row] != undefined) {
+                image(allTiles[array[column][row]],x+w*row,y+h*column,w,h);
+            }
+
             // rect(x+w*row,y+h*column,w,h);          
         }
     }

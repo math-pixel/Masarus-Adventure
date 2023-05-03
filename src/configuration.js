@@ -1,18 +1,22 @@
 let world1 
 let Maps =[]
+let endingMap = []
 let MapPipeGame;
 let quests;
 let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 66 ;
+let numberLoad = 82 ;
 
 let mouseIsRelease = false
 
+//! end game
+let isEndOfTheGame = false
+
 //! current engine
 let lastEngine = "startMenu";
-let engine = "startMenu";
+let engine = "clickStart";
 let displayDialogue = false;
 
 //! map engine 1
@@ -42,17 +46,17 @@ let theCurrentQuestIsEnded = false;
 
 //? the interactive rock
 let playerNearToTheRock = false
-let tilemapTheRock = "tilemap_36"
-let coordTheRockInteractive = [1, 9]
+let tilemapTheRock = "tilemap_57"
+let coordTheRockInteractive = [3, 3]
 
 //? last rope
-let tilemapRope = "tilemap_36"
-let coordLastRope = [3, 9]
+let tilemapRope = "tilemap_27"
+let coordLastRope = [5,5]
 
 //? Landslide
 let playerNearToLandslide = false
-let tilemapLandslide = "tilemap_36"
-let coordTheLandslide = [2, 9]
+let tilemapLandslide = "tilemap_57"
+let coordTheLandslide = [7, 4]
 
 //! layer info
 let layerCollision = 3;
@@ -91,6 +95,11 @@ let animIDLEBottom = [];
 let animIDLETop = [];
 let animIDLELeft = [];
 let animIDLERight = [];
+let animBackflip = [];
+
+let doingBackFlip = false;
+let intervalBackflip = 0;
+let frameRatePlayer = 0;
 
 //! PNJ
 let allPnj = []
@@ -103,6 +112,14 @@ let pandaAnimRight = [];
 let pandaAnimLeft = [];
 let pandaAnimIdleRight = [];
 let pandaAnimIdleLeft = [];
+
+let deerTileSet = [];
+let deerAnimIdleTop = [];
+let deerAnimIdleBottom = [];
+let deerAnimRight = [];
+let deerAnimLeft = [];
+let deerAnimIdleRight = [];
+let deerAnimIdleLeft = [];
 
 let leopardTileSet = []
 let leopard_bottom_idle = []
@@ -152,6 +169,7 @@ let debugMode = false;
 let fontGravityBold;
 let fontTypeCast;
 let fontTypeCastItalic;
+let fontTypeCastBold;
 
 //! interaction PNJ
 let canInteract = false
@@ -176,6 +194,18 @@ let logo;
 
 let index_setting_button_inGame = 0
 let setting_button_inGame;
+
+let scintillement = []
+let currentFrameScintillement = 0
+
+let e_instruction = []
+let currentFrameEinstruction = 0
+
+let credit_text
+
+//? map
+let globalmap
+let masaru_head_map
 
 //? button
 let play_button;
@@ -209,6 +239,10 @@ let lifeTimeNote = 0
 let xNote;
 let yNote;
 
+//? note shamien 2
+let anim_melodie_sprite_sheet;
+let currentFrameMelodieSpriteSheet = 0
+
 //? mouse
 let mouseTileset = []
 
@@ -218,21 +252,24 @@ let inventory_empty;
 //? quest
 let quest_box_1
 let quest_box_2
-let questBoxIsEmpty = false
 
 //! video outro / intro
 let vidOutro
+let vidIntro
 
 //! transition fade
 let opacityFade = 0
 let transition = false
 let transitionState = "in"
 let nextEngine = "engine1"
+let speedTransition = 1;
 
 //! head
 let masaru_head; 
 let masaruFather_head
 let panda_head;
+let head_deer;
+let head_leopard
 
 //! dialogue
 let backgroud_dialogue_box
@@ -253,7 +290,7 @@ let indexLandslide = 704
 let indexTilecoffre = 29
 let indexTileRoche = 94
 let indexRubbleRockTile = 17
-let indexTileRope = 12
+let indexTileRope = 165
 
 
 //* drawable Image background
@@ -269,6 +306,16 @@ function loadAsset(){
     fontGravityBold = loadFont('font/GravityBold.ttf');
     fontTypeCast =  loadFont('font/Typecast.ttf');
     fontTypeCastItalic =  loadFont('font/Typecast-Italic.ttf');
+    fontTypeCastBold =  loadFont('font/Typecast-Bold.ttf');
+
+    vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
+    vidIntro = createVideo("assets/video/animation_intro.mp4").hide()
+
+    vidShamisen = createVideo("assets/video/test-shamisen-transparent.mp4").hide()
+
+    vidBackgroundUi = createVideo("assets/video/Background_UI.mp4").hide()
+    vidBackgroundUi.loop()
+
 }
 
 function loading(assetArray){
@@ -283,6 +330,14 @@ function loading(assetArray){
                     isLoaded();
                 });
                 break;
+            //! ########### Ending Map
+            case "endingMap":
+                endingMap = loadJSON(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    isLoaded();
+                });
+                break;
+            break
             //! ########### Quest JSON
             case "quest" :
                 loadJSON(elm.path, (e)=>{
@@ -330,13 +385,29 @@ function loading(assetArray){
                     isLoaded();
                 });
                 break;
-            case "journal" :
+            case "scintillement":
                 loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
-                    journalTiles = cutTiles(e, 64);
+                    scintillement = cutTiles(e, 32);
+                    // console.log("exclam",exclamationPoint)
                     isLoaded();
                 });
                 break;
+            case "anim_melodie_sprite_sheet" :
+                loadImage(elm.path, (e)=>{
+                    numberAssetsLoading += 1 ;
+                    anim_melodie_sprite_sheet = cutTilesSpriteSheet(e, 1000, 578);
+                    // console.log("sprite sheet shamisen musique", anim_melodie_sprite_sheet)
+                    isLoaded();
+                });
+                break;
+            case "journal" :
+            loadImage(elm.path, (e)=>{
+                numberAssetsLoading += 1 ;
+                journalTiles = cutTiles(e, 64);
+                isLoaded();
+            });
+            break;
             case "coffreEng2" :
                 loadImage(elm.path, (e)=>{
                     numberAssetsLoading += 1 ;
@@ -421,6 +492,13 @@ function loading(assetArray){
                                     isLoaded();
                                 })
                                 break;
+                            case "BACKFLOP":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    animBackflip = cutTiles(e, 70);
+                                    isLoaded();
+                                })
+                                break;
                             default:
                                 throw new Error("name aniùation in Json file doesnt correspond")
                         }
@@ -469,6 +547,56 @@ function loading(assetArray){
                                 loadImage(elm.path, (e)=>{
                                     numberAssetsLoading += 1 ;
                                     pandaAnimIdleRight = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            default:
+                                throw new Error("name aniùation in Json file doesnt correspond")
+                        }
+                        break;
+
+                    case "biche" :
+                        switch(elm.direction){
+                            
+                            case "idletop":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleTop = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idlebottom":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleBottom = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "left":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimLeft = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "right":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimRight = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleleft":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleLeft = cutTiles(e, 64);
+                                    isLoaded();
+                                });
+                                break;
+                            case "idleright":
+                                loadImage(elm.path, (e)=>{
+                                    numberAssetsLoading += 1 ;
+                                    deerAnimIdleRight = cutTiles(e, 64);
                                     isLoaded();
                                 });
                                 break;
@@ -597,10 +725,58 @@ function loading(assetArray){
                         })                        
                     break;
 
+                    case "masaru_head_map":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            masaru_head_map = e
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "credit_text":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            credit_text = e
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "head_deer":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            head_deer = e
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "head_leopard":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            head_leopard = e
+                            isLoaded();
+                        })                        
+                    break;
+                    
+                    case "globalmap":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            globalmap = e
+                            isLoaded();
+                        })                        
+                    break;
+
                     case "setting_button_inGame":
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             setting_button_inGame = cutTiles(e, 32);
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "e_instruction":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            e_instruction = cutTiles(e, 64);
                             isLoaded();
                         })                        
                     break;
@@ -829,13 +1005,14 @@ function isLoaded(){
     if (numberAssetsLoading === numberLoad) {
 
         //! set up tileset player
-        playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight, MasaruFatherAnimRightIdle ];
+        playerTileSet = [animTop,animBottom,animLeft,animRight, animIDLETop, animIDLEBottom, animIDLELeft, animIDLERight, animBackflip ];
 
         //! set up tileset PNJ
         pandaTileSet = [pandaAnimIdleRight,pandaAnimRight,pandaAnimIdleLeft,pandaAnimLeft,pandaAnimIdleBottom,pandaAnimIdleTop];
         pnjTileSet2 = [pnjAnimTop2,pnjAnimBottom2,pnjAnimLeft2,pnjAnimRight2];
         pnjTileMasaruFather = [MasaruFatherAnimRightIdle,MasaruFatherAnimRight,MasaruFatherAnimLeftIdle,MasaruFatherAnimLeft,MasaruFatherAnimBottomIdle,MasaruFatherAnimTopIdle]
         leopardTileSet = [leopard_right_idle,leopard_right, leopard_left_idle, leopard_left,leopard_bottom_idle,leopard_top_idle]
+        deerTileSet = [deerAnimIdleRight,deerAnimRight,deerAnimIdleLeft,deerAnimLeft,deerAnimIdleBottom,deerAnimIdleTop];
 
         //! set up tileset shamisen
         spriteSheetShamisen = [allTiles[0],shamisen_1,shamisen_2,shamisen_3,shamisen_4]

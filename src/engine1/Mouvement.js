@@ -134,7 +134,7 @@ function collisionWithArray(playerRect, Direction){
         if (nextDirection === "TOP") {
             playerLayer = 3
         }else{
-            playerLayer = 1
+            playerLayer = 2
         }
     }
     

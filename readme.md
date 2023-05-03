@@ -13,7 +13,7 @@
 
 ## Table of Contents
 1. [Description](#Description)
-2. [Installation](#Gnstallation)
+2. [Installation](#Installation)
 3. [Getting started](#Getting-started)
 4. [Languages and Tools](#Languages-and-Tools)
 5. [Graphic design](#graphic-design)
@@ -42,7 +42,7 @@ The graphics of this game have been entirely made by :
 
 If you only want to play game go to : <br>
 
-    https://yey-team.com/masarusadventure
+    https://yey-team.com/Masarus-Adventure
 
 ## Languages and Tools:
 

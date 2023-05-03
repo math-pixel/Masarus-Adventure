@@ -1,7 +1,12 @@
+let moduloAnimationNote = 5
 function startEngine1(){
 
     //! draw map
     drawEngine1()
+
+    if (isEndOfTheGame) {
+        gameIsEnding()
+    }
 
     //! move map and player
     if (canMove) {
@@ -9,8 +14,28 @@ function startEngine1(){
     }
 
     //! draw inventory
-    if (!displayDialogue) {
+    if (!displayDialogue && !isEndOfTheGame) {
         drawInventory(1000 / 2 - globalSideInventoryX / 2,  578 -  ( globalSideInventoryY + 10 ) , sideCarrousel)
+    }
+    
+    //! draw shamisen
+    if(displayShamisen && !isEndOfTheGame){
+        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 20, 20, 130, 153)
+    }
+
+    //! setting button
+    if (!isEndOfTheGame) {
+        image(setting_button_inGame[index_setting_button_inGame], 20,20,48,48 )
+        actionOnText([20,20 ,48,48], "pauseMenu", setting_button_inGame[2])
+    }
+
+
+    //! draw note shamisen quest 2
+    drawNote()
+
+    //! draw current quest
+    if(!displayDialogue && !isEndOfTheGame){
+        drawQuest()
     }
 
     //! draw dialogue
@@ -18,23 +43,6 @@ function startEngine1(){
         startEngineDialogue();
     }
     
-    //! draw shamisen
-    if(displayShamisen){
-        image(spriteSheetShamisen[currentSpriteShamisen], 1000 - 130 - 10, 0 + 10, 130, 153)
-    }
-
-    //! setting button
-    image(setting_button_inGame[index_setting_button_inGame], 20,20,48,48 )
-    actionOnText([20,20 ,48,48], "pauseMenu", setting_button_inGame[2])
-
-
-    //! draw note shamisen quest 2
-    drawNote()
-
-    //! draw current quest
-    if(!displayDialogue){
-        drawQuest()
-    }
 }
 
 
@@ -65,21 +73,27 @@ function drawEngine1(){
                 }
 
                 //! draw pnj and player
-                if ( loopLayer == playerLayer && index == ArrayWorldDisplay.length - 1) {
-                    if (PNJinFrontOfPlayer) {
-                        drawPlayer()
-                        pnjManager()
-                    }else{
-                        pnjManager()
-                        drawPlayer()
+
+                if (index == ArrayWorldDisplay.length - 1) {//? to draw one time entity
+
+                    //? for player be draw in front or behind collision
+                    if ( loopLayer == playerLayer ) {
+                        if (PNJinFrontOfPlayer) {
+                            drawPlayer()
+                            pnjManager()
+                        }else{
+                            pnjManager()
+                            drawPlayer()
+                        }
                     }
 
-                }
-
-                if (loopLayer === 3) {
-                    // pnjManager()
+                    //? draw pnj if player is not on layer collision
+                    if (loopLayer == layerCollision && playerLayer != layerCollision) {
+                        pnjManager()
+                    }
                 }
                 
+
             }
 
             //! draw collision
@@ -143,22 +157,96 @@ function drawNote(){
 
 function drawQuest(){
 
-    let rectBoncing;
-
     //! display empty box
-    if(questBoxIsEmpty){
-        image(quest_box_1, 1000 - 130 - 10 , 183, 130, 65)
-        rectBoncing = [1000 - 130 - 10 , 183, 130, 65]
-    }else{
-        image(quest_box_2, 1000 - 130 - 10 , 183, 130, 117)
-        rectBoncing = [1000 - 130 - 10 , 183, 130, 117]
+    if(!displayShamisen){
+        // bacground
+        image(quest_box_2, 1000 - 130 - 20 , 20, 130, 117)
+
+        // current quest
         fill("#4c2512");
+        textFont(fontTypeCastItalic);
         textAlign(CENTER);
         textSize(20);
         textLeading(15);
         // rect(1000 - 125 , 220 , 100 , 100)
-        text(currentQuestDisplay, 1000 - 122 , 220 , 100 , 100)
+        text(currentQuestDisplay, 1000 - 132 , 67 , 100 , 100)
+
+
+        // " quete en cour "
+        fill("#4c2512")
+        textSize(25);
+        textLeading(12);
+        textAlign(CENTER);
+        textFont(fontTypeCastBold);
+        // rect(1000 - 125 , 210, 100, 30)
+        text("Quête en cours", 1000 - 130 , 30, 100, 30)
+    }else{
+
+
+        // bacground
+        image(quest_box_2, 1000 - 130 - 20 , 183, 130, 117)
+
+        // current quest
+        fill("#4c2512");
+        textFont(fontTypeCastItalic);
+        textAlign(CENTER);
+        textSize(20);
+        textLeading(15);
+        // rect(1000 - 125 , 220 , 100 , 100)
+        text(currentQuestDisplay, 1000 - 132 , 230 , 100 , 100)
+
+
+        // " quete en cour "
+        fill("#4c2512")
+        textSize(25);
+        textLeading(12);
+        textAlign(CENTER);
+        textFont(fontTypeCastBold);
+        // rect(1000 - 125 , 210, 100, 30)
+        text("Quête en cours", 1000 - 130 , 194, 100, 30)
+
+    }
+}
+
+let lastTalkPnj = true
+function gameIsEnding(){
+
+
+    if(frameRatePlayer % moduloAnimationNote == 0){
+
+        if (currentFrameMelodieSpriteSheet + 1 < anim_melodie_sprite_sheet.length) {
+            currentFrameMelodieSpriteSheet += 1
+            // moduloAnimationNote += 1
+        }else{
+            currentFrameMelodieSpriteSheet = 0
+
+            //! restore flower
+            Maps["tilemap_19"].layers = endingMap["tilemap_19"].layers
+            Maps["tilemap_20"].layers = endingMap["tilemap_20"].layers
+            Maps["tilemap_21"].layers = endingMap["tilemap_21"].layers
+            Maps["tilemap_34"].layers = endingMap["tilemap_34"].layers
+            Maps["tilemap_35"].layers = endingMap["tilemap_35"].layers
+            Maps["tilemap_36"].layers = endingMap["tilemap_36"].layers
+
+            // moduloAnimationNote = 5
+        }
     }
 
-    actionOnText(rectBoncing, "reverseQuestBox", "")
+    image(anim_melodie_sprite_sheet[currentFrameMelodieSpriteSheet], 40, 0, 1000, 578)
+
+
+
+    canInteract = true
+    
+    //! set up dialogue
+    textDialogue = ["Bravo Masaru", "Tu nous as tous sauvés", "L'île va enfin mieux."]
+    endAction = ["engine1", "endGame"]
+    imagePersonTalking = [panda_head, panda_head, panda_head]
+    
+    //* display dialogue
+    if (lastTalkPnj) {
+        lastTalkPnj = false
+        displayDialogue = true
+        interact()
+    }
 }

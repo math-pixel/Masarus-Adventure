@@ -25,18 +25,27 @@ function startEngineDialogue(){
     fill(0,0,0)
     textSize(35);
     textLeading(27)
-    // console.log(dialogueToDisplay)
+
     if (imagePersonTalking[indexInDialogue] != "") {
         textAlign(LEFT);
         textFont(fontTypeCast);
-        image(imagePersonTalking[indexInDialogue], 680 , 358 ,sideCarrousel * 3, sideCarrousel * 3 )
-        text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 50,  578 - ( sideCarrousel + 30 ) + 18, 550, 500)
+        image(imagePersonTalking[indexInDialogue], 680 , 390 ,sideCarrousel * 2.5, sideCarrousel * 2.5 )
+        text(dialogueToDisplay, 1000 / 2 - 800 / 2 + 25,  578 - ( sideCarrousel + 30 ) + 14.7, 550, 500)
         fill(255,0,0)
     }else{
         textAlign(CENTER);
         textFont(fontTypeCastItalic);
         text(dialogueToDisplay, 1000 / 2 ,  578 - ( sideCarrousel + 30 ) + 50)
     }
+
+    if (frameRatePlayer % 30 === 0) {
+        if (currentFrameEinstruction +1 == e_instruction.length) {
+            currentFrameEinstruction = 0
+        }else{
+            currentFrameEinstruction += 1
+        }
+    }
+    image(e_instruction[currentFrameEinstruction], 855, 578 - 50, 32, 32)
     
     
 }
@@ -71,6 +80,7 @@ function interact(){
         
         //* set fully text
         indexInText = textDialogue[indexInDialogue].length - 1
+        console.log(indexInText)
         
     }else if(!isFirstInteraction && !isCuttingWord && indexInDialogue < textDialogue.length - 1){
 
@@ -158,6 +168,7 @@ function doActionGameplay(endAction){
 
         case "displayQuest7":
             quests[7].beDisplayed = true
+            questManager()
         break;
 
         case "endQuest7":
@@ -168,12 +179,14 @@ function doActionGameplay(endAction){
         case "endQuest10":
             quests[10].isFinish = true
             questManager()
+
+            canMove = false
         break;
 
         case "endGame":
 
             // draw last animation
-            
+            setUpTransition(4, "vidsEnd")
         break;
 
     }

@@ -80,6 +80,7 @@ function interactionWithMap(typeBlock, array, column,row){
 }
 
 function drawinteraction(x,y,w,h, array){
+
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
             
@@ -88,6 +89,9 @@ function drawinteraction(x,y,w,h, array){
             if (array[column][row] != blockToNotCollision) {
 
                 let newRectInteraction = createNewRect(x+w*row,y+h*column,w,h,2);
+
+                image(scintillement[currentFrameScintillement], x+w*row - 10 , y+h*column - 10, sideCarrousel + 20 ,sideCarrousel + 20)
+                addFrameScintillement()
 
                 //! test if it's in collision with player
                 if (rectIsInRect([xPlayer, yPlayer, sideCarrousel, sideCarrousel], newRectInteraction)) {
@@ -102,10 +106,12 @@ function drawinteraction(x,y,w,h, array){
                     }else{
                         playerNearToTheRock = false
                     }
+                        
+                    
 
                     //? tile eboulement
                     //? tile Rock
-                    if (array[column][row] == indexTileRoche) {
+                    if (array[column][row] == indexLandslide) {
                         playerNearToLandslide = true
                     }else{
                         playerNearToLandslide = false
@@ -123,6 +129,22 @@ function drawinteraction(x,y,w,h, array){
                     rect(newRectInteraction[0],newRectInteraction[1],newRectInteraction[2],newRectInteraction[3]);          
                 }
             }
+        }
+    }
+
+    console.log(playerNearToTheRock, playerNearToLandslide)
+}
+
+function addFrameScintillement(){
+    if (frameRatePlayer % 10 === 0) {
+
+        if (currentFrameScintillement >= scintillement.length - 1) {
+            
+            currentFrameScintillement = 0;
+
+
+        }else{
+            currentFrameScintillement += 1;
         }
     }
 }

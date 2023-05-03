@@ -170,6 +170,25 @@ function useObject(indexOfCase){
                     }
                 }
 
+                //! shamisen on eboulement
+                if (quests[6].isFinish && playerNearToLandslide) {
+
+                    //? remome rock from interaction layer
+                    Maps[tilemapLandslide].layers[layerInteraction][coordTheLandslide[1]][coordTheLandslide[0]] = blockToNotCollision
+
+                    //? remome rock from collision layer
+                    Maps[tilemapLandslide].layers[layerCollision][coordTheLandslide[1]][coordTheLandslide[0]] = blockToNotCollision
+
+                    //? set up rock rubble to layer 2
+                    Maps[tilemapLandslide].layers[1][coordTheLandslide[1]][coordTheLandslide[0]] = 733
+
+                    //! display landslide2
+                    Maps[tilemapLandslide].layers[layerInteraction][coordTheLandslide[1]+1][coordTheLandslide[0]] = blockToNotCollision
+                    Maps[tilemapLandslide].layers[layerCollision][coordTheLandslide[1]+1][coordTheLandslide[0]] = blockToNotCollision
+                    Maps[tilemapLandslide].layers[1][coordTheLandslide[1]+1][coordTheLandslide[0]] = 733
+
+                }
+
                 //! shamisen on rock but not the current quest
                 if (!quests[7].isFinish && playerNearToTheRock) {
                     canInteract = true
@@ -200,8 +219,12 @@ function useObject(indexOfCase){
                     Maps[tilemapTheRock].layers[layerCollision][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = blockToNotCollision
 
                     //? set up rock rubble to layer 2
-                    Maps[tilemapTheRock].layers[1][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = indexRubbleRockTile
+                    Maps[tilemapTheRock].layers[1][coordTheRockInteractive[1]][coordTheRockInteractive[0]] = 700
 
+
+                    Maps[tilemapTheRock].layers[layerInteraction][coordTheRockInteractive[1]][coordTheRockInteractive[0]+1] = blockToNotCollision
+                    Maps[tilemapTheRock].layers[layerCollision][coordTheRockInteractive[1]][coordTheRockInteractive[0]+1] = blockToNotCollision
+                    Maps[tilemapTheRock].layers[1][coordTheRockInteractive[1]][coordTheRockInteractive[0]+1] = 701
                 }
 
                 if (quests[10].isFinish && !quests[11].isFinish) {
@@ -223,10 +246,12 @@ function useObject(indexOfCase){
             break;
 
             case "parcheminDecode":
-                if (engine == "engine2") {
-                    engine = "engine1"
-                }else if (engine == "engine1"){
-                    engine = "engine2"
+                if (!quests[2].isFinish) {
+                    if (engine == "engine2") {
+                        engine = "engine1"
+                    }else if (engine == "engine1"){
+                        engine = "engine2"
+                    }
                 }
             break;
         }
