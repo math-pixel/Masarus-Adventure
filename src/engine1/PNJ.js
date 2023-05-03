@@ -535,8 +535,8 @@ function setUpDialoguePnj(pnj){
             }else{
 
                 if (indexInDialogue == 0) {
-                    textDialogue = ["deja pareer"];
-                    endAction = ["engine1"];
+                    textDialogue = pnj.dialogueAlreadyTalk[0];
+                    endAction = pnj.actionAlreadyTalk[0];
                     imagePersonTalking = [panda_head]
                 }
                 

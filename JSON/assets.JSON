@@ -427,6 +427,11 @@
             "name": "credit_button_hover"
         },
         {
+            "path":"assets/UI/credit_text.png",
+            "type":"ui",
+            "name": "credit_text"
+        },
+        {
             "path":"assets/UI/shamisen_box_1.png",
             "type":"ui",
             "name": "shamisen_1"

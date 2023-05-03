@@ -7,7 +7,7 @@ let currentQuestDisplay;
 
 let assetsLoaded = false;
 let numberAssetsLoading = 0;
-let numberLoad = 81 ;
+let numberLoad = 82 ;
 
 let mouseIsRelease = false
 
@@ -200,6 +200,8 @@ let currentFrameScintillement = 0
 
 let e_instruction = []
 let currentFrameEinstruction = 0
+
+let credit_text
 
 //? map
 let globalmap
@@ -727,6 +729,14 @@ function loading(assetArray){
                         loadImage(elm.path, (e) => {
                             numberAssetsLoading += 1 ;
                             masaru_head_map = e
+                            isLoaded();
+                        })                        
+                    break;
+
+                    case "credit_text":
+                        loadImage(elm.path, (e) => {
+                            numberAssetsLoading += 1 ;
+                            credit_text = e
                             isLoaded();
                         })                        
                     break;

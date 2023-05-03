@@ -158,7 +158,60 @@ function keyPressed() {
     }else if(keyCode === 97){
         //? touche " 1 "
         engine = "engine1"
-        // vidShamisen.play()
+    }else if(keyCode === 98){
+        //? touche " 2 "
+        engine = "engine1"
+        yStartWorld1 = -2500
+
+        addToInventory({"name" : "shamisen" , "image": allTiles[24]})
+        displayShamisen = true
+        currentSpriteShamisen = 2
+
+        quests[0].isFinish = true
+        quests[1].isFinish = true
+        quests[2].isFinish = true
+        questManager()
+
+    }else if(keyCode === 99){
+        //? touche " 3 "
+        engine = "engine1"
+        yStartWorld1 = -2500
+        xStartWorld1 = -8200
+
+        addToInventory({"name" : "shamisen" , "image": allTiles[24]})
+        displayShamisen = true
+        currentSpriteShamisen = 3
+
+        quests[0].isFinish = true
+        quests[1].isFinish = true
+        quests[2].isFinish = true
+        quests[3].isFinish = true
+        quests[4].isFinish = true
+        quests[5].isFinish = true
+        quests[6].isFinish = true
+        quests[7].beDisplayed = true
+        questManager()
+
+        // playerNearToLandslide = true
+    }else if(keyCode === 100){
+        //? touche " 4 "
+        engine = "engine1"
+
+        quests[0].isFinish = true
+        quests[1].isFinish = true
+        quests[2].isFinish = true
+        quests[3].isFinish = true
+        quests[4].isFinish = true
+        quests[5].isFinish = true
+        quests[6].isFinish = true
+        quests[7].isFinish = true
+        quests[8].isFinish = true
+        quests[9].isFinish = true
+        questManager()
+
+        addToInventory({"name" : "shamisen" , "image": allTiles[24]})
+        displayShamisen = true
+        currentSpriteShamisen = 4
     }
     
 }

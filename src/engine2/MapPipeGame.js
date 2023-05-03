@@ -138,9 +138,6 @@ function isWin(array){
 function winEngine2(){
     //! si quete 1 pas fini
     if (!quests[1].isFinish) {
-
-        engine = "engine1";
-
         //* quest finish
         quests[1].isFinish = true
         questManager()

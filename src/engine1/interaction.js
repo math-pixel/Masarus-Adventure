@@ -80,6 +80,7 @@ function interactionWithMap(typeBlock, array, column,row){
 }
 
 function drawinteraction(x,y,w,h, array){
+
     for (let row = 0; row < array[0].length; row++) {
         for (let column = 0; column < array.length; column++) {
             
@@ -105,6 +106,8 @@ function drawinteraction(x,y,w,h, array){
                     }else{
                         playerNearToTheRock = false
                     }
+                        
+                    
 
                     //? tile eboulement
                     //? tile Rock
@@ -128,6 +131,8 @@ function drawinteraction(x,y,w,h, array){
             }
         }
     }
+
+    console.log(playerNearToTheRock, playerNearToLandslide)
 }
 
 function addFrameScintillement(){

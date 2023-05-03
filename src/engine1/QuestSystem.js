@@ -60,7 +60,7 @@ function questManager(){
 
     }
     
-    if (quests[4].isFinish) {
+    if (quests[4].isFinish && !quests[5].isFinish) {
         allPnj[2].alreadyTalk = false
     }
 
@@ -76,12 +76,12 @@ function questManager(){
         imageBackgroundEng2 = imageBackgroundEng2Coffre
     }
 
-    if (quests[6].isFinish) {
+    if (quests[6].isFinish && !quests[7].isFinish) {
         Maps["tilemap_36"].layers[layerInteraction][10][7] = 0
     }
 
     //display last rope
-    if (quests[8].isFinish) {
+    if (quests[8].isFinish && !quests[9].isFinish) {
         Maps[tilemapRope].layers[layerInteraction][coordLastRope[1]][coordLastRope[0]] = indexTileRope
     }
 
@@ -98,7 +98,7 @@ function questManager(){
         }, 8000 )
     }
 
-    if (quests[10].isFinish == true) {
+    if (quests[10].isFinish == true && !quests[11].isFinish) {
         //! remove mouvement for player
         canMove = false
 

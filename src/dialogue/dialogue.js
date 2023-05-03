@@ -168,6 +168,7 @@ function doActionGameplay(endAction){
 
         case "displayQuest7":
             quests[7].beDisplayed = true
+            questManager()
         break;
 
         case "endQuest7":
@@ -178,6 +179,8 @@ function doActionGameplay(endAction){
         case "endQuest10":
             quests[10].isFinish = true
             questManager()
+
+            canMove = false
         break;
 
         case "endGame":

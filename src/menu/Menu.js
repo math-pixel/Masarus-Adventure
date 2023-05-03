@@ -86,7 +86,7 @@ function clickStart(){
     fill("#222222")
     rect(0,0,1000,578)
 
-    fill("#000")
+    fill("#FFF")
     text("click !", 455, 300)
 
     if(mouseIsPressed === true){
@@ -109,7 +109,9 @@ function creditMenu(){
     
     //! draw instruction image
     fill("#000000");
-    text("credit", 1000 / 2 - 294 / 2 , (578 / 2) - (365 / 2) , 294 , 365)
+    // text("credit", 1000 / 2 - 294 / 2 , (578 / 2) - (365 / 2) , 294 , 365)
+    image(credit_text, 0,0,1000,578)
+
     
     actionOnText([20,20 ,100,18], "startMenu", backToMenu_hover)
 }
