@@ -5,6 +5,9 @@ function movePlayer() {
 
     if ((keyIsDown(LEFT_ARROW) || keyIsDown(81)) && canMove) {//? q
 
+        playerNearToLandslide = false
+        playerNearToTheRock = false
+
         if (canMove) {
             //? reset easter egg time ( frame )
             intervalBackflip = 0
@@ -21,6 +24,9 @@ function movePlayer() {
 
     }else if ((keyIsDown(RIGHT_ARROW)|| keyIsDown(68)) && canMove) {//? d
 
+        playerNearToLandslide = false
+        playerNearToTheRock = false
+
         if (canMove) {
             intervalBackflip = 0
             direction = 3;
@@ -29,6 +35,9 @@ function movePlayer() {
         }
 
     }else if ((keyIsDown(UP_ARROW) || keyIsDown(90)) && canMove) {//? z
+
+        playerNearToLandslide = false
+        playerNearToTheRock = false
 
         if (canMove) {
             intervalBackflip = 0
@@ -40,6 +49,9 @@ function movePlayer() {
         
     }else if ((keyIsDown(DOWN_ARROW) || keyIsDown(83)) && canMove) {//? s
 
+        playerNearToLandslide = false
+        playerNearToTheRock = false
+        
         if (canMove) {
             intervalBackflip = 0
             direction = 1;
