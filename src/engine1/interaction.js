@@ -132,7 +132,7 @@ function drawinteraction(x,y,w,h, array){
         }
     }
 
-    console.log(playerNearToTheRock, playerNearToLandslide)
+    // console.log(playerNearToTheRock, playerNearToLandslide)
 }
 
 function addFrameScintillement(){
