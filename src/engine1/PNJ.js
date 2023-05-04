@@ -535,9 +535,9 @@ function setUpDialoguePnj(pnj){
             }else{
 
                 if (indexInDialogue == 0) {
-                    textDialogue = pnj.dialogueAlreadyTalk[0];
-                    endAction = pnj.actionAlreadyTalk[0];
-                    imagePersonTalking = [panda_head]
+                    textDialogue = ["Courage Masaru"];
+                    endAction = ["engine1"];
+                    imagePersonTalking = [head_leopard]
                 }
                 
             }
@@ -547,7 +547,7 @@ function setUpDialoguePnj(pnj){
 
             textDialogue = ["non"];
             endAction = ["engine1"];
-            imagePersonTalking = [panda_head]
+            imagePersonTalking = [head_leopard]
 
         }
         
