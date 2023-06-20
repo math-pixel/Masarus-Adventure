@@ -136,6 +136,11 @@ function actionOnText(textRect, action, hoverImage){
 
         if (mouseIsPressed === true){
 
+            // console.log("button sound played : " , sfxButton.isPlaying() )
+            if(!sfxButton.isPlaying()){
+                sfxButton.play(0,1,1,0.2, 2)
+            }
+
             //! change engine
             switch(action){
                 case "engine1":

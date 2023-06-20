@@ -282,6 +282,12 @@ let globalSideInventoryY = 0;
 
 //! Audio
 let useAudio = false
+let musicAtmosphere1
+let sfxButton
+let shamisenWithString
+let shamisenBroken
+let blablaDialogue
+let succes
 
 //! importante block
 let indexTileParchemin = 25
@@ -308,11 +314,20 @@ function loadAsset(){
     fontTypeCastItalic =  loadFont('font/Typecast-Italic.ttf');
     fontTypeCastBold =  loadFont('font/Typecast-Bold.ttf');
 
+    // * load musique
+    musicAtmosphere1 = loadSound('assets/sound/endless-beauty-main-11545.mp3');
+    sfxButton = loadSound('assets/sound/button.mp3')
+    shamisenWithString = loadSound('assets/sound/shamisen.mp3')
+    shamisenBroken = loadSound('assets/sound/shamisen_casser.mp3')
+    blablaDialogue = loadSound('assets/sound/blabla.mp3')
+    succes = loadSound('assets/sound/succes.mp3')
+    
+    // * load video
     vidOutro = createVideo("assets/video/Outro_credits.mp4").hide()
     vidIntro = createVideo("assets/video/animation_intro.mp4").hide()
-
-    vidShamisen = createVideo("assets/video/test-shamisen-transparent.mp4").hide()
-
+    // vidIntro.volume(1)
+    
+    vidShamisen = createVideo("assets/video/shamisen_complete.mp4").hide()
     vidBackgroundUi = createVideo("assets/video/Background_UI.mp4").hide()
 
 }

@@ -54,6 +54,13 @@ function cutText(){
     
     //split text
     if (indexInText < textDialogue[indexInDialogue].length) {
+
+        if(!blablaDialogue.isPlaying() && imagePersonTalking[indexInDialogue] != ""){
+            blablaDialogue.play()
+        }else if(!succes.isPlaying() && imagePersonTalking[indexInDialogue] == ""){
+            succes.play()
+        }
+
         isCuttingWord = true
         dialogueToDisplay = textDialogue[indexInDialogue].split("", Math.round(indexInText)).join('')
         indexInText += 0.5;
@@ -62,7 +69,7 @@ function cutText(){
         // end of text spliting => prepare to the next text
         if (indexInText >= textDialogue[indexInDialogue].length){
             isCuttingWord = false
-            
+            blablaDialogue.stop()
             console.log("next")
         }
     }
