@@ -1,6 +1,9 @@
 let moduloAnimationNote = 5
 function startEngine1(){
 
+    //! reset collision 
+    rectCollisionArray = []
+
     //! draw map
     drawEngine1()
 
@@ -45,6 +48,7 @@ function startEngine1(){
     
 }
 
+let isLayerCollision = false
 
 function drawEngine1(){
 
@@ -62,10 +66,16 @@ function drawEngine1(){
 
                 // let indexPlayerInWorld = findIndexOfPositionIn2dArray(xPlayer,yPlayer,world1.World,sideCarrousel * nbRow , sideCarrousel * nbColumn, xStartWorld1,yStartWorld1,"PlayerInWorld")
 
+                
+                //! set up collision
+                if (loopLayer == layerCollision) {
+                    isLayerCollision = true
+                }else{
+                    isLayerCollision = false
+                }
         
                 //!draw map
                 drawingGrid(xStartWorld1 + sideCarrousel  * nbRow * indexElm[1] ,yStartWorld1 + sideCarrousel  * nbColumn * indexElm[0] ,sideCarrousel,sideCarrousel, elm.layers[loopLayer]);
-
 
                 //!do interaction
                 if (loopLayer == layerInteraction) {

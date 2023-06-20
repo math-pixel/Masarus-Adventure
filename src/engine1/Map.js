@@ -10,6 +10,17 @@ function drawingGrid(x,y,w,h,array){
             
             if (array[column][row] != undefined) {
                 image(allTiles[array[column][row]],x+w*row,y+h*column,w,h);
+            
+
+                if (debugMode) {
+                    if (isLayerCollision && array[column][row] != 0) {
+                        rectCollisionArray.push([x+w*row,y+h*column,w,h])
+    
+                        fill(255, 204, 0)
+                        rect(x+w*row,y+h*column, w,h)
+                    }
+                }
+            
             }
 
             // rect(x+w*row,y+h*column,w,h);          
