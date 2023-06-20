@@ -5,9 +5,6 @@ function preload(){
 
 function setup(){
 
-    
-
-
     console.log("start setup")
     createCanvas(1000, 578);
     frameRate(60);
@@ -26,17 +23,16 @@ function setup(){
 }
 
 function draw(){
-    // background(200);
     // condition moteur de jeux
-    // console.log(canInteract, textDialogue, endAction )
-    // console.log("a", textDialogue, endAction, imagePersonTalking)
     cursor("auto")
+
     
     noSmooth()
     //! select engine
     if (assetsLoaded) {
         switch(engine){
             case "engine1":
+                startAudioAmbiance()
                 lastEngine = "engine1"
                 startEngine1();
                 break;
@@ -45,6 +41,8 @@ function draw(){
                 startEngine2();
                 break;
             case "startMenu":
+                // console.log(musicAtmosphere1.isLooping())
+                startAudioAmbiance()
                 startMenu();
                 break;
             case "pauseMenu":
@@ -60,12 +58,15 @@ function draw(){
                 mapEngine();
                 break;
             case "vidsEnd":
+                musicAtmosphere1.stop()
                 vidsEnd();
                 break;
             case "vidsOpening":
+                musicAtmosphere1.stop()
                 vidsOpening()
                 break;
             case "endScreen":
+                musicAtmosphere1.stop()
                 background("#222222")
                 fill(255,255,255)
                 text("Fin", 495, 578 / 2)
@@ -249,6 +250,13 @@ function setUpTransition(speed, nEngine){
     nextEngine = nEngine
 
     speedTransition = speed
+}
+
+function startAudioAmbiance(){
+    //* for playing musique one time in the draw function 
+    if(!musicAtmosphere1.isLooping()){
+        musicAtmosphere1.loop(0,1,0.1)
+    }
 }
 
 

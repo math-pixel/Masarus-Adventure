@@ -159,9 +159,18 @@ function useObject(indexOfCase){
         switch(inventoryContent[indexOfCase].name){
 
             case "shamisen":
+
+
+                // * jouer la musique du shamisen casser ou non celon si il a retrouver les cordes
+                if (quests[2].isFinish === true) {
+                    shamisenWithString.play(0,1,1,0,2)
+                }else{
+                    shamisenBroken.play()
+                }
                 
                 //! si il a  parler au pnj et recuperer la premiere corde alors le shamisen joue une note de musique
                 if (quests[2].isFinish === true && !quests[3].isFinish) {
+
                     if (lifeTimeNote == 0) {
                         lifeTimeNote = 100
                         let centerPlayer = getCenterOfRect([xPlayer,yPlayer,sideCarrousel,sideCarrousel])
@@ -228,6 +237,9 @@ function useObject(indexOfCase){
                 }
 
                 if (quests[10].isFinish && !quests[11].isFinish) {
+
+
+
                     quests[11].isFinish = true
                     questManager()
                 }
