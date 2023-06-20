@@ -116,7 +116,7 @@ function keyPressed() {
     
     if (keyCode === 27) {//? key " escape "
 
-        if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu" && engine != "vidsEnd" && engine != "vidsOpening") {
+        if (engine != "startMenu" && engine != "settingMenu" && engine != "creditMenu" && engine != "vidsEnd" && engine != "vidsOpening" && engine != "clickStart") {
             if (engine !== "pauseMenu") {
                 lastEngine = engine
                 engine = "pauseMenu"
