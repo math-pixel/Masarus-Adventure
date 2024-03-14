@@ -22,7 +22,7 @@
 ## Description
 
 Masaru's adventure is a 2d adventure game in top down view.
-This project is a school project whose rendering will be the version x.x.x
+This project is a school project whose rendering will be the version [1.1.0](https://github.com/math-pixel/Masarus-Adventure/releases/tag/v.1.1.0)
 Above this version the updates and features of the game will be a simple entertainment to end up with a more advanced game.
 
 The graphics of this game have been entirely made by :
@@ -64,7 +64,7 @@ If you only want to play game go to : <br>
 <img src="https://zupimages.net/up/23/14/61ir.png" alt="dad" width="100" height="100"/>
 </p>
 
-###  The Island :
+###  The Island Idea :
 
 
 ----------
